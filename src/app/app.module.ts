@@ -10,6 +10,8 @@ import { NavComponent } from '@app/layouts/nav/nav.component';
 import { HomeComponent } from '@app/components/home/home.component';
 import { AlertifyService } from './_services/alertify.service';
 import { appRoutes } from './routes';
+import { FooterComponent } from './layouts/nav/footer/footer.component';
+
 
 
 export function tokenGetter() {
@@ -27,7 +29,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
    declarations: [
       AppComponent,
       NavComponent,
-      HomeComponent
+      HomeComponent,
+      FooterComponent
    ],
    imports: [
       BrowserModule,
