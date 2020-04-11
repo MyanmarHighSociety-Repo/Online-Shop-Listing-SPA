@@ -11,8 +11,7 @@ import { HomeComponent } from '@app/components/home/home.component';
 import { AlertifyService } from './_services/alertify.service';
 import { appRoutes } from './routes';
 import { FooterComponent } from './layouts/nav/footer/footer.component';
-
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -30,9 +29,10 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       AppComponent,
       NavComponent,
       HomeComponent,
-      FooterComponent
+      FooterComponent,
    ],
    imports: [
+      CarouselModule,
       BrowserModule,
       BrowserAnimationsModule,
       HttpClientModule,
