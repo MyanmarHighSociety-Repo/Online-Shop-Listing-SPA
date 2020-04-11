@@ -11,7 +11,14 @@ import { HomeComponent } from '@app/components/home/home.component';
 import { AlertifyService } from './_services/alertify.service';
 import { appRoutes } from './routes';
 import { FooterComponent } from './layouts/nav/footer/footer.component';
-
+import { ShopSearchHomeComponent } from './components/shop-search/shop-search-home/shop-search-home.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CountryDialogComponent } from './components/shop-search/shop-search-home/country-dialog/country-dialog.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import { TownshipDialogComponent } from './components/shop-search/shop-search-home/township-dialog/township-dialog.component';
+import { ShopDetailComponent } from './components/shop-detail/shop-detail.component';
 
 
 export function tokenGetter() {
@@ -30,7 +37,11 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       AppComponent,
       NavComponent,
       HomeComponent,
-      FooterComponent
+      FooterComponent,
+      ShopSearchHomeComponent,
+      CountryDialogComponent,
+      TownshipDialogComponent,
+      ShopDetailComponent
    ],
    imports: [
       BrowserModule,
@@ -38,12 +49,17 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       HttpClientModule,
       FormsModule,
       ReactiveFormsModule,
+      MatDialogModule,
+      MatButtonModule,
+      MatIconModule,
+      MatListModule,
       BsDropdownModule.forRoot(),
       BsDatepickerModule.forRoot(),
       PaginationModule.forRoot(),
       ButtonsModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
+      
    ],
    providers: [
       AlertifyService,
@@ -51,6 +67,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
    ],
    bootstrap: [
       AppComponent
-   ]
+   ],
+   entryComponents: [CountryDialogComponent,TownshipDialogComponent]
 })
 export class AppModule { }
