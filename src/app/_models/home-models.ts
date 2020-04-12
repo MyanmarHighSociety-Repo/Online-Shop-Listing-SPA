@@ -9,15 +9,25 @@ export class GetHomeShopListResponse {
     name: string;
     shopLogoUrl: string;
     cityName: string;
+    description: string;
+    websiteLink: string;
+    facebookLink: string;
+    androidLink: string;
+    iosLink: string;
+    phNo: string;
     townshipName: string;
     estDeliveryFromTime: string;
     estDeliveryToTime: string;
     shopTypeName: string;
     product: GetHomeShopListProductResponse[];
     shopDeliveryAvailableLocation: GetHomeShopListProductResponse[];
+    advertisement: GetHomeShopListAdvertisementResponse[];
 }
 
 export class GetHomeShopListProductResponse {
+    id: number;
+    name: string;
+    price: number;
     productImage: GetHomeShopListProductImageResponse[];
 }
 
@@ -35,8 +45,6 @@ export class GetHomeShopListDeliveryTownshipResponse {
     name: string;
 }
 
-
-
 export class GetViewMoreShopListResponse {
     shopTypeName: string;
     shopList: GetHomeShopListResponse[];
@@ -44,6 +52,13 @@ export class GetViewMoreShopListResponse {
 
 export class GetShopSearchResponse{
     shopList: GetHomeShopListResponse[];
+}
+
+export class GetHomeShopListAdvertisementResponse {
+    id: number;
+    shopId: number;
+    url: string;
+    caption: string;
 }
 
 

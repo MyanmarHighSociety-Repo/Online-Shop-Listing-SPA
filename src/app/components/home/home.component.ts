@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   // Variable
   currentCity = '1';
-  pageSize = 10;
+  pageSize = 6;
   pageNumber = 1;
   isOpenOnHolidayFilter = false;
   homesearch = '';

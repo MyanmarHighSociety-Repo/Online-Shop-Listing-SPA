@@ -23,7 +23,7 @@ export class ViewMoreShopComponent implements OnInit {
 
   constructor(private service: HomeService,
               private router: Router,
-              private route: ActivatedRoute,) { }
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.currentCity = this.route.snapshot.queryParamMap.get('currentCity');

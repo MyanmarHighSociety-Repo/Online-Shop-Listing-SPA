@@ -26,7 +26,7 @@ export class TownshipDialogComponent implements OnInit {
   }
 
   getAllTownShip(){
-    this.shopService.getAllTwonship(this.cityId).subscribe(res =>{
+    this.shopService.getTownShips(this.cityId).subscribe(res =>{
       this.townshipList = res.townList;
     })
   }
