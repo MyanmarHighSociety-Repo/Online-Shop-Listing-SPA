@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ShopSearchComponent } from './shop-search.component';
+import { CountryDialogComponent } from './country-dialog.component';
 
-describe('ShopSearchComponent', () => {
-  let component: ShopSearchComponent;
-  let fixture: ComponentFixture<ShopSearchComponent>;
+describe('CountryDialogComponent', () => {
+  let component: CountryDialogComponent;
+  let fixture: ComponentFixture<CountryDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShopSearchComponent ]
+      declarations: [ CountryDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShopSearchComponent);
+    fixture = TestBed.createComponent(CountryDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

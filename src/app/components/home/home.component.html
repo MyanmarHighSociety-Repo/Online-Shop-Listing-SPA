@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4 mb-4">
-                    <img src="./assets/images1/Asset 32.svg" alt="wood-logo" class="k-home-logo">
+                    <img src="./assets/images1/Asset 26.svg" alt="wood-logo" class="k-home-logo">
             </div>
         </div>
     </div>
@@ -33,21 +33,32 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4">
                 <div class="search-wrapper">
-                    <input type="search" id="k-home-search" name="homesearch" class="k-home-search" placeholder="ဆိုင်ရှာရန်">
-                    <img src="./assets/images1/Asset 39.svg" class="k-search-img">
+                    <input type="search" id="k-home-search" name="homesearch" [(ngModel)]="homesearch" class="k-home-search" placeholder="ဆိုင်ရှာရန်">
+                    <img src="./assets/images1/Asset 39.svg" (click)="search('',homesearch)" class="k-search-img">
                 </div>
             </div>
         </div>
-        <div class="row pt-3 pb-4">
+        <div class="row pt-3 mt-4">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col">
-            <div class="swiper-container" id="Yangonswiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="../images1/Banner3.jpg" class="banner1"></div>
-                    <div class="swiper-slide"> <img src="../images1/Banner.jpg" class="banner1"></div>
-                    <div class="swiper-slide"><img src="../images1/Bnner4.jpg" class="banner1"></div>
-                </div>
-            </div>
-            <div class="swiper-pagination mt-3" id="Yangonpagination"></div>
+           
+                <owl-carousel-o [options]="customOptions">
+                    <ng-template carouselSlide>
+                        <div class="slide">
+                            <img src="./assets/images1/Banner3.jpg">
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="slide">
+                            <img src="./assets/images1/Banner.jpg">
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="slide">
+                            <img src="./assets/images1/Asset 27.png">
+                        </div>
+                    </ng-template>
+                </owl-carousel-o>
+            
         </div>
     </div>
     </div>
@@ -58,10 +69,10 @@
     <div class="container">
         <div class="row pt-3 pb-5">            
             <div *ngFor="let shopType of shopTypeList" class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-4">
-                <a href="#" class="k-category-link">
+                <div class="k-category-link" (click)="search(shopType.name,'')">
                     <img src="{{shopType.iconUrl}}" class="k-category-img">
                     <p class="text-center gray-text pt-2">{{shopType.name}}</p>
-                </a>
+                </div>
             </div>            
         </div>
     </div>
@@ -73,468 +84,60 @@
         <div class="row  k-row-top-border mt-2">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col mt-3 ">
                 <div class="tab">
-                    <button class="tablinks1 pb-2" onclick="openShop(event, 'YangonOnline')" id="defaultOpen1"><p style="text-align:left;">OnlineShop ဆိုင်များ</p> </button>
-                    <button class="tablinks1 pb-2" onclick="openShop(event, 'Yangonshop')"><p>သင်္ကြအတွင်းဖွင့်မည့်ဆိုင်များ</p></button>
+                    <button class="tablinks1 pb-2 {{tablinks4}}" (click)='changeTab1("tablinks4")'><p style="text-align:left;">OnlineShop ဆိုင်များ</p> </button>
+                    <button class="tablinks1 pb-2 {{tablinks5}}" (click)='changeTab1("tablinks5")'><p>သင်္ကြအတွင်းဖွင့်မည့်ဆိုင်များ</p></button>
                 </div>
             </div>
         </div>
-        <div class="tabcontent1" id="YangonOnline">
-        <div class="row pt-4">
+        <div class="tabcontent1">
+        <div *ngFor="let shop of shopList;let i=index" class="row pt-4">            
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="card k-home-card">
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link">
-                                <img src="../images1/Asset 40.png" class="k-shop-logo">
-                            </a>
+                            <div class="k-shop-link" (click)="shopDetail(shop.id)">
+                                <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
+                            </div>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <h5> Walcol Milk</h5> 
-                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">Food Delivery </h6></div>
-                            <p class="gray-text">စမ်းချောင်း ၊အလုံ</p>
-                            <p class="pink-text">မနက် ရ နာရီ - ည ရ နာရီ</p>
+                            <h5> {{shop.name}}</h5> 
+                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">{{shop.shopTypeName}}</h6></div>
+                            <p class="gray-text"> 
+                            <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">   
+                                <span *ngIf="i+1!=shop.shopDeliveryAvailableLocation.length">{{location.township.name}}၊</span>                                
+                                <span *ngIf="i+1==shop.shopDeliveryAvailableLocation.length">{{location.township.name}}...</span>
+                            </span>
+                            </p>
+                            <p class="pink-text">{{shop.estDeliveryFromTime}} - {{shop.estDeliveryToTime}}</p>
                         </div>
                         </div>
-                        <div class="row k-bg-row pt-3 pb-3 custom-row">
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 41.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 42.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 43.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 44.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 45.png" class="k-item-img">
-                            </div>
+                        <div  class="row k-bg-row pt-3 pb-3 custom-row">                            
+                            <div *ngFor="let product of shop.product" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                                <img src="{{product.productImage[0].url}}" class="k-item-img">
+                            </div>                           
                             <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
                         </div>
                 </div>
             </div>
-        </div>
-            <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="card k-home-card">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link">
-                                <img src="../images1/Asset 49.png" class="k-shop-logo">
-                            </a>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <h5>အမေထွား</h5> 
-                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">Food Delivery </h6></div>
-                            <p class="gray-text">ရန်ကုန်မြို့နယ်အားလုံး</p>
-                            <p class="pink-text">မနက် ၉ နာရီ - ည ၁၀ နာရီ</p>
-                        </div>
-                        </div>
-                        <div class="row k-bg-row pt-3 pb-3 custom-row">
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 46.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 47.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-                        </div>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <img src="../images1/Asset 3.png" class="k-adv-img">
-            </div>
-        </div>
-            <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="card k-home-card">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link">
-                                <img src="../images1/Asset 48.png" class="k-shop-logo">
-                            </a>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <h5>Lactasoy</h5> 
-                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">Food Delivery </h6></div>
-                            <p class="gray-text">ရန်ကင်း ၊အလုံ ၊ကြည့်မြင်တိုင်</p>
-                            <p class="pink-text">မနက် ၈ နာရီ - ည ၆ နာရီ</p>
-                        </div>
-                        </div>
-                        <div class="row k-bg-row pt-3 pb-3 custom-row">
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 50.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 51.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 52.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 53.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 54.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-                        </div>
-                </div>
-            </div>
-        </div>
-            <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="card k-home-card">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link">
-                                <img src="../images1/Asset 40.png" class="k-shop-logo">
-                            </a>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <h5> Walcol Milk</h5> 
-                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">Food Delivery </h6></div>
-                            <p class="gray-text">စမ်းချောင်း ၊အလုံ</p>
-                            <p class="pink-text">မနက် ရ နာရီ - ည ရ နာရီ</p>
-                        </div>
-                        </div>
-                        <div class="row k-bg-row pt-3 pb-3 custom-row">
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 41.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 42.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 43.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 44.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 45.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-                        </div>
-                </div>
-            </div>
-        </div>
-            <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="card k-home-card">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link">
-                                <img src="../images1/Asset 49.png" class="k-shop-logo">
-                            </a>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <h5>အမေထွား</h5> 
-                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">Food Delivery </h6></div>
-                            <p class="gray-text">ရန်ကုန်မြို့နယ်အားလုံး</p>
-                            <p class="pink-text">မနက် ၉ နာရီ - ည ၁၀ နာရီ</p>
-                        </div>
-                        </div>
-                        <div class="row k-bg-row pt-3 pb-3 custom-row">
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 46.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 47.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-                        </div>
-                </div>
-            </div>
-        </div>
-            <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="card k-home-card">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link">
-                                <img src="../images1/Asset 48.png" class="k-shop-logo">
-                            </a>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <h5>Lactasoy</h5> 
-                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">Food Delivery </h6></div>
-                            <p class="gray-text">ရန်ကင်း ၊အလုံ ၊ကြည့်မြင်တိုင်</p>
-                            <p class="pink-text">မနက် ၈ နာရီ - ည ၆ နာရီ</p>
-                        </div>
-                        </div>
-                        <div class="row k-bg-row pt-3 pb-3 custom-row">
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 50.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 51.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 52.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 53.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 54.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-                        </div>
+            <div *ngIf="i==1">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <img src="./assets/images1/Asset 28.png" class="k-adv-img" style="padding-top: 25px;">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4 mb-5">
-                <a href="#" class="k-view-shop"><span class="gray-text">ထပ်ကြည့်ရန်</span></a>
+                <div (click)="viewMoreShop()" class="k-view-shop"><span class="gray-text">ထပ်ကြည့်ရန်</span></div>
             </div> 
         </div>
-    </div>
-    <div class="tabcontent1" id="Yangonshop">
-        <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="card k-home-card">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link">
-                                <img src="../images1/Asset 40.png" class="k-shop-logo">
-                            </a>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <h5> Walcol Milk</h5> 
-                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">Food Delivery </h6></div>
-                            <p class="gray-text">စမ်းချောင်း ၊အလုံ</p>
-                            <p class="pink-text">မနက် ရ နာရီ - ည ရ နာရီ</p>
-                        </div>
-                        </div>
-                        <div class="row k-bg-row pt-3 pb-3 custom-row">
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 41.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 42.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 43.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 44.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 45.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-                        </div>
-                </div>
-            </div>
-        </div>
-            <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="card k-home-card">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link">
-                                <img src="../images1/Asset 49.png" class="k-shop-logo">
-                            </a>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <h5>အမေထွား</h5> 
-                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">Food Delivery </h6></div>
-                            <p class="gray-text">ရန်ကုန်မြို့နယ်အားလုံး</p>
-                            <p class="pink-text">မနက် ၉ နာရီ - ည ၁၀ နာရီ</p>
-                        </div>
-                        </div>
-                        <div class="row k-bg-row pt-3 pb-3 custom-row">
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 46.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 47.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-                        </div>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <img src="../images1/Asset 3.png" class="k-adv-img">
-            </div>
-        </div>
-            <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="card k-home-card">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link">
-                                <img src="../images1/Asset 48.png" class="k-shop-logo">
-                            </a>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <h5>Lactasoy</h5> 
-                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">Food Delivery </h6></div>
-                            <p class="gray-text">ရန်ကင်း ၊အလုံ ၊ကြည့်မြင်တိုင်</p>
-                            <p class="pink-text">မနက် ၈ နာရီ - ည ၆ နာရီ</p>
-                        </div>
-                        </div>
-                        <div class="row k-bg-row pt-3 pb-3 custom-row">
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 50.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 51.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 52.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 53.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 54.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-                        </div>
-                </div>
-            </div>
-        </div>
-            <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="card k-home-card">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link">
-                                <img src="../images1/Asset 40.png" class="k-shop-logo">
-                            </a>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <h5> Walcol Milk</h5> 
-                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">Food Delivery </h6></div>
-                            <p class="gray-text">စမ်းချောင်း ၊အလုံ</p>
-                            <p class="pink-text">မနက် ရ နာရီ - ည ရ နာရီ</p>
-                        </div>
-                        </div>
-                        <div class="row k-bg-row pt-3 pb-3 custom-row">
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 41.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 42.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 43.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 44.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 45.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-                        </div>
-                </div>
-            </div>
-        </div>
-            <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="card k-home-card">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link">
-                                <img src="../images1/Asset 49.png" class="k-shop-logo">
-                            </a>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <h5>အမေထွား</h5> 
-                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">Food Delivery </h6></div>
-                            <p class="gray-text">ရန်ကုန်မြို့နယ်အားလုံး</p>
-                            <p class="pink-text">မနက် ၉ နာရီ - ည ၁၀ နာရီ</p>
-                        </div>
-                        </div>
-                        <div class="row k-bg-row pt-3 pb-3 custom-row">
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 46.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 47.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-                        </div>
-                </div>
-            </div>
-        </div>
-            <div class="row pt-4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="card k-home-card">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link">
-                                <img src="../images1/Asset 48.png" class="k-shop-logo">
-                            </a>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <h5>Lactasoy</h5> 
-                            <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">Food Delivery </h6></div>
-                            <p class="gray-text">ရန်ကင်း ၊အလုံ ၊ကြည့်မြင်တိုင်</p>
-                            <p class="pink-text">မနက် ၈ နာရီ - ည ၆ နာရီ</p>
-                        </div>
-                        </div>
-                        <div class="row k-bg-row pt-3 pb-3 custom-row">
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 50.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 51.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 52.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 53.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                <img src="../images1/Asset 54.png" class="k-item-img">
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-                        </div>
-                </div>
-            </div>
-        </div>
+           
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4 mb-5">
-                <a href="#" class="k-view-shop"><span class="gray-text">ထပ်ကြည့်ရန်</span></a>
+                <a href="#" class="k-view-shop"><span class="gray-text"></span></a>
             </div> 
         </div>
     </div>
-        </div>
+</div>
 </section>
 </div>
 
