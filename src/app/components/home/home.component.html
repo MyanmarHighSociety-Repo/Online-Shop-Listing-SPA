@@ -100,7 +100,7 @@
             </div>
         </div>
         <div class="tabcontent1">
-        <div *ngFor="let shop of shopList" class="row pt-4">
+        <div *ngFor="let shop of shopList;let i=index" class="row pt-4">            
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="card k-home-card">
                     <div class="row">
@@ -127,6 +127,11 @@
                             </div>                           
                             <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
                         </div>
+                </div>
+            </div>
+            <div *ngIf="i==1">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <img src="./assets/images1/Asset 28.png" class="k-adv-img" style="padding-top: 25px;">
                 </div>
             </div>
         </div>

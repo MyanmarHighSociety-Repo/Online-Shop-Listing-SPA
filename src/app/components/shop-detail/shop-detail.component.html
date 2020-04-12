@@ -1,24 +1,26 @@
-
+<!-- Nav -->
 <section>
   <div class="container">
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3 mb-3">
-        <a href="shopdetails3.html">
-          <img src="../../../assets/shopdetail/Asset 65.svg" class="right-arrow-logo ">
-        </a>
+        <div (click)="back()">
+          <img src="./assets/shopdetail/Asset 65.svg" class="right-arrow-logo ">
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Header -->
 <section>
   <div class="container-fluid">
     <div class="row border-top-row pt-4">
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <img src="../../../assets/shopdetail/Asset 58.png" class="N-shop-logo mt-1" alt="" >
+        <img src="{{shop.shopLogoUrl}}" class="N-shop-logo mt-1" alt="" >
       </div>
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <h5 class="f-14 mb-2 mt-0">Walco Milk</h5>
-        <div class="badge k-badge mt-3 mb-3"><h6 class="gray-text">Food Delivery</h6></div>
+        <h5 class="f-14 mb-2 mt-0">{{shop.name}}</h5>
+        <div class="badge k-badge mt-3 mb-3"><h6 class="gray-text">{{shop.shopTypeName}}</h6></div>
         <p>
             ကြည့်မြင်တိုင်၊ အလုံ၊ ဗဟန်း၊ တာမွေ၊ 
             သင်္ကန်ကျွန်း၊ လသာ၊ ဗိုလ်တထောင်
@@ -30,10 +32,10 @@
             <br>
             <a onclick="myFunction()" class="myBtn mt-3"  id="myBtn" ><span class="read-more-city"> ထပ်ကြည့်ရန်...</span></a>  
         </p>
-        <p>မနက်   ၇နာရီ - ည ၇နာရီ</p>
+        <p>{{shop.estDeliveryFromTime}} - {{shop.estDeliveryToTime}}</p>
         <p class="gray-text">
-          <img src="../../../assets/shopdetail/Asset 54.svg" style="width: 9px;" alt="">
-          09454958930
+          <img src="./assets/shopdetail/Asset 54.svg" style="width: 9px;" alt="">
+          {{shop.phNo}}
         </p>
       </div>
     </div>
@@ -41,14 +43,8 @@
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
            <div class="article f-12 mt-3 bg-color-open">
                <p class="lineheight">
-                   April ၁ရက်နေ့မှ July၃၀ ရက်နေ့အထိ ၁၀၀၀၀ကျပ် နှင့်အထက် 
-                   ၀ယ်ယူသူတိုင်းအတွက် ပို့ဆောင်ခ အခမဲ့ April ၁ရက်နေ့မှ July၃၀ 
-                   ရက်နေ့အထိ ၁၀၀၀၀ကျပ် နှင့်အထက် ၀ယ်ယူသူတိုင်းအတွက် ပို့ဆောင်ခ 
-                    အခမဲ့ April ၁ရက်နေ့မှ July၃၀ ရက်
+                   {{shop.description}}
                 </p>
-                 <p class="moretext">
-                   နေ့အထိ ၁၀၀၀၀ကျပ် နှင့်အထက်  ၀ယ်ယူသူတိုင်းအတွက် ပို့ဆောင်ခ အခမဲ့
-                 </p>
                  <a class="moreless-button" href="#">ထပ်ကြည့်ရန်...</a>
           </div>
       </div> 
@@ -60,27 +56,17 @@
 <section>
   <div class="container-fluid">
     <div class="row"> 
-      <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12">
-         <a href="shopdetails2.html">
-           <div class="w3-content w3-display-container">
-            <img class="mySlides" src="../../../assets/shopdetail/Asset 35.png" style="width:100%">
-            <img class="mySlides" src="../../../assets/shopdetail/Asset 34.png" style="width:320px;height: 320px;">
-            <img class="mySlides" src="../../../assets/shopdetail/Asset 36.png" style="width:100%">
-            <img class="mySlides" src="../../../assets/shopdetail/Asset 37.png" style="width:100%">
-            <img class="mySlides" src="../../../assets/shopdetail/Asset 38.png" style="width:100%">
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-    </a>
-      <br>
-      <div style="text-align:center">
-      <span class="dot" onclick="currentSlide(1)"></span> 
-      <span class="dot" onclick="currentSlide(2)"></span> 
-      <span class="dot" onclick="currentSlide(3)"></span> 
-      <span class="dot" onclick="currentSlide(4)"></span> 
-      <span class="dot" onclick="currentSlide(5)"></span> 
-      </div>
-      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col">
+           
+        <owl-carousel-o [options]="customOptions">
+            <ng-template *ngFor="let ads of shop.advertisement" carouselSlide>
+                <div class="slide">
+                    <img src="{{ads.Url}}">
+                </div>
+            </ng-template>           
+        </owl-carousel-o>
+    
+</div>
     </div> 
   </div>
 </section>
@@ -140,148 +126,6 @@
   </div>
 </section>
 
-
-<!--
-<section class="bg-color">
-<div class="container-fluid">
-   <div class="row">
-        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-            
-        <img class="materials1-img mr-1"  src="../../../assets/shopdetail/Asset 59.png" alt="">
-        <p class="materials-p-1 mb-0 mt-2 f-12">
-          Walco Banana Yogurt
-        </p>
-        <p class="materials-p-2 f-12">
-          ks1,200
-        </p>
-        </div>
-        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-            
-        <img class="materials1-img ml-1"  src="../../../assets/shopdetail/Asset 60.png" alt="">
-
-        <p class="materials-p-1 mb-0 mt-2 f-12">
-          Walco BuleBerry Yogurt
-        </p>
-        <p class="materials-p-2 f-12">
-          ks1,200
-        </p>
-
-        </div>
-      
-    </div> 
-
-    <div class="row">
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-          
-      <img class="materials1-img mr-1"  src="../../../assets/shopdetail/Asset 61.png" alt="">
-      <p class="materials-p-1 mb-0 mt-2 f-12">
-        Walco Banana Yogurt
-      </p>
-      <p class="materials-p-2 f-12">
-        ks1,200
-      </p>
-      </div>
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-          
-      <img class="materials1-img ml-1"  src="../../../assets/shopdetail/Asset 62.png" alt="">
-
-      <p class="materials-p-1 mb-0 mt-2 f-12">
-        Walco BuleBerry Yogurt
-      </p>
-      <p class="materials-p-2 f-12">
-        ks1,200
-      </p>
-
-      </div>
-    
-  </div> 
- <div class="row"> 
-    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-0 m-0 ">
-        
-    <img class="materials1-img mr-1"  src="../../../assets/shopdetail/Asset 59.png" alt="">
-    <p class="materials-p-1 mb-0 mt-2 f-12">
-      Walco Banana Yogurt
-    </p>
-    <p class="materials-p-2 f-12">
-      ks1,200
-    </p>
-    </div>
-    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-0 m-0 ">
-        
-    <img class="materials1-img ml-1"  src="../../../assets/shopdetail/Asset 60.png" alt="">
-
-    <p class="materials-p-1 mb-0 mt-2 f-12">
-      Walco BuleBerry Yogurt
-    </p>
-    <p class="materials-p-2 f-12">
-      ks1,200
-    </p>
-
-    </div>
-  
-</div>  
-
-<div class="row">
-  <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-0 m-0 ">
-      
-  <img class="materials1-img mr-1"  src="../../../assets/shopdetail/Asset 61.png" alt="">
-  <p class="materials-p-1 mb-0 mt-2 f-12">
-    Walco Banana Yogurt
-  </p>
-  <p class="materials-p-2 f-12">
-    ks1,200
-  </p>
-  </div>
-  <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-0 m-0 ">
-      
-  <img class="materials1-img ml-1"  src="../../../assets/shopdetail/Asset 62.png" alt="">
-
-  <p class="materials-p-1 mb-0 mt-2 f-12">
-    Walco BuleBerry Yogurt
-  </p>
-  <p class="materials-p-2 f-12">
-    ks1,200
-  </p>
-
-  </div>
-
-</div> 
-
-<div class="row" style="padding-bottom: 90px;">
-<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-0 m-0 ">
-    
-<img class="materials1-img mr-1"  src="../../../assets/shopdetail/Asset 59.png" alt="">
-<p class="materials-p-1 mb-0 mt-2 f-12">
-  Walco Banana Yogurt
-</p>
-<p class="materials-p-2 f-12">
-  ks1,200
-</p>
-</div>
-<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-0 m-0 ">
-    
-<img class="materials1-img ml-1"  src="../../../assets/shopdetail/Asset 60.png" alt="">
-
-<p class="materials-p-1 mb-0 mt-2 f-12">
-  Walco BuleBerry Yogurt
-</p>
-<p class="materials-p-2 f-12">
-  ks1,200
-</p>
-
-</div>
-
-</div> 
-</div>
-</section>
-
-<div class="buy-fixed">
-              <button type="button" class="btn btn-buy  btn-lg" data-toggle="modal" data-target="#myModal">
-                  <img src="../../../assets/shopdetail/Asset 45.svg" style="width:20px" alt="">
-                  ၀ယ်ယူမည်
-              </button>
-              </div>
-<section class="">-->
  <section>
     <div class="container-fluid">
        <div class="row">
