@@ -22,17 +22,15 @@
         <h5 class="f-14 mb-2 mt-0">{{shop.name}}</h5>
         <div class="badge k-badge mt-3 mb-3"><h6 class="gray-text">{{shop.shopTypeName}}</h6></div>
         <p>
-            ကြည့်မြင်တိုင်၊ အလုံ၊ ဗဟန်း၊ တာမွေ၊ 
-            သင်္ကန်ကျွန်း၊ လသာ၊ ဗိုလ်တထောင်
-            <span id="dots"></span><span id="more">
-              ကြည့်မြင်တိုင်၊ အလုံ၊ ဗဟန်း၊ တာမွေ၊
-              သင်္ကန်ကျွန်း၊ လသာ၊ ဗိုလ်တထောင်
+          <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">   
+            <span *ngIf="i<3">{{location.township.name}}၊</span>                                
+            <span *ngIf="i>=3 && townshipReadMore">{{location.township.name}}၊</span>
             </span>
             <br>
             <br>
-            <a onclick="myFunction()" class="myBtn mt-3"  id="myBtn" ><span class="read-more-city"> ထပ်ကြည့်ရန်...</span></a>  
+            <a (click)="changeTownshipReadMore()" class="myBtn mt-3"  id="myBtn" ><span class="read-more-city"> {{townshipReadMoreText}}</span></a>  
         </p>
-        <p>{{shop.estDeliveryFromTime}} - {{shop.estDeliveryToTime}}</p>
+        <p>{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
         <p class="gray-text">
           <img src="./assets/shopdetail/Asset 54.svg" style="width: 9px;" alt="">
           {{shop.phNo}}
@@ -42,10 +40,11 @@
     <div class="row mb-4">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
            <div class="article f-12 mt-3 bg-color-open">
-               <p class="lineheight">
-                   {{shop.description}}
-                </p>
-                 <a class="moreless-button" href="#">ထပ်ကြည့်ရန်...</a>
+               <div class="lineheight">
+                  <div *ngIf="!desReadMore">{{ shop.description | truncate : 100 : "..." }}</div>
+                  <div *ngIf="desReadMore">{{shop.description}}</div>
+                </div>
+                 <a (click)="changeDesReadMore()" class="moreless-button">{{desReadMoreText}}</a>
           </div>
       </div> 
   </div> 
@@ -53,6 +52,7 @@
   </div>
 </section>
 
+<!-- Slider -->
 <section>
   <div class="container-fluid">
     <div class="row"> 
@@ -61,16 +61,16 @@
         <owl-carousel-o [options]="customOptions">
             <ng-template *ngFor="let ads of shop.advertisement" carouselSlide>
                 <div class="slide">
-                    <img src="{{ads.url}}">
+                    <img src="{{ads.url}}" (click)="shopDetailAdvertisement(shop.id)">
                 </div>
             </ng-template>           
         </owl-carousel-o>
-    
-</div>
+      </div>
     </div> 
   </div>
 </section>
 
+<!-- Item Counts -->
 <section>
   <div class="container-fluid">
     <div class="row">
@@ -84,6 +84,8 @@
     </div>
   </div>
 </section>
+
+<!-- Products -->
 <section class="bg-color">
   <div class="container-fluid">
     <div class="row pt-4 custom-row">
@@ -92,16 +94,17 @@
         <p class="gray-text pt-2"> {{product.name}} </p>
         <p class="text-black"> ks {{product.price}}</p>
       </div>     
-    </div>  
-  
+    </div> 
   </div>
 </section>
+
+<!-- Buy button -->
 <section>
   <div class="container-fluid">
     <div class="row border-top-row pb-4">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pt-4">
-        <button type="button" class="btn btn-buy  btn-lg" data-toggle="modal" data-target="#myModal">
-          <img src="../../../assets/shopdetail/Asset 45.svg" style="width:20px" alt="">
+        <button (click)="openModal(template)" type="button" class="btn btn-buy  btn-lg" data-toggle="modal" data-target="#myModal">
+          <img src="./assets/shopdetail/Asset 45.svg" style="width:20px" alt="">
           ၀ယ်ယူမည်
       </button>
       </div>
@@ -109,43 +112,50 @@
   </div>
 </section>
 
- <!-- <section>
-    <div class="container-fluid">
-       <div class="row">
-           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
-              <div class="modal" id="myModal">
-                <div class="modal-dialog-box">
-                  <div class="modal-content">
-                   <div class="modal-header-1">
-                      <h1 class="buy-title">၀ယ်ယူမည်</h1>
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                        <p>Facebook</p>
-                        <a href="#" type="button" class="btn btn-facebook   " role="button" aria-pressed="true">
-                            <img src="../../../assets/shopdetail/Asset 55.png" style="width: 30px;" alt="">
-                            <span class="f-12">https://www.facebook.com/walcomyanmar</span>
-                        </a>
-        
-                        <p>App</p>
-                        <div class="row">
-                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 " style="padding-right: 5px;">
-                                <a href="#" type="button" class="btn p-0 " role="button" aria-pressed="true">
-                                    <img src="../../../assets/shopdetail/Asset 56.png" style="width: 100%;" alt="">
-                                </a>
-                            </div>
-                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 " style="padding-left: 5px;">
-                                <a href="#" type="button" class="btn p-0 " role="button" aria-pressed="true">
-                                    <img src="../../../assets/shopdetail/Asset 57.png" style="width: 100%;" alt="">
-                                </a>
-                            </div>
-                        </div>
-        
-                        <p>Website</p>
-                            <a href="#" class="btn btn-website mb-4 "><span class="f-12"> go to www.walcomyanmar.com</span></a>
-                  </div>
-                </div>
-              </div>
-        </div>
-    </div>
+
+<ng-template #template>
+  <div class="modal-dialog">
+<div class="modal-header">
+<h1 class="modal-title buy-title">၀ယ်ယူမည်</h1>
+<button type="button" class="close" (click)="modalRef.hide()">&times;</button>
 </div>
-</section> -->
+<div class="modal-body">
+
+<div *ngIf="shop.facebookLink">
+<p>Facebook</p>
+<a href="{{shop.facebookLink}}" type="button" class="btn btn-facebook" style="width: 100%;">
+<img src="./assets/shopdetail/Asset 55.png" style="width: 30px;" alt="">
+<span class="f-12">  {{shop.facebookLink}}</span>
+</a>
+<br>
+</div>
+
+<div *ngIf="shop.androidLink || shop.iosLink">
+<p>App</p>
+<div class="row">
+
+<div *ngIf="shop.androidLink" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 " >
+<a href="{{androidLink}}" type="button" class="btn p-0 " role="button" aria-pressed="true">
+<img src="./assets/shopdetail/Asset 56.png" style="width: 100%;" alt="">
+</a>
+</div>
+
+
+<div *ngIf="shop.iosLink" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 " >
+<a href="{{iosLink}}" type="button" class="btn p-0 " role="button" aria-pressed="true">
+<img src="./assets/shopdetail/Asset 57.png" style="width: 100%;" alt="">
+</a>
+</div>
+
+</div>
+<br>
+</div>
+
+<div *ngIf="shop.websiteLink">
+<p>Website</p>
+<a href="{{shop.websiteLink}}" class="btn btn-website" style="width: 100%;"><span class="f-12"> go to {{shop.websiteLink}}</span></a>
+</div>
+
+</div>
+</div>
+</ng-template>

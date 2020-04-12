@@ -307,14 +307,6 @@ color: #000;
   border: none;
 }
 
-.modal-dialog {
-  top: 280px!important;
-  margin:0!important;
-  position: absolute;
-  background: white;
-}
-
-
 .modal-content{
 
   top: 280px;
@@ -418,7 +410,14 @@ h6{
 .text-black{
   color:black;
 }
-
+.card{
+  background-color: white;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.card .cardCaption{
+  padding: 10px;;
+}
 /* In the end */
 
 

@@ -6,11 +6,13 @@ import { ShopAddStepOneShopTypeResolver, ShopAddStepOneCityResolver } from './_r
 import { ShopSearchHomeComponent } from './components/shop-search/shop-search-home/shop-search-home.component';
 import { ShopDetailComponent } from './components/shop-detail/shop-detail.component';
 import { ViewMoreShopComponent } from './components/view-more-shop/view-more-shop.component';
+import { ShopDetailAdvertisementComponent } from './components/shop-detail/shop-detail-advertisement/shop-detail-advertisement.component';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
     { path: 'shop-search-home', component: ShopSearchHomeComponent},
     { path: 'shop-detail', component: ShopDetailComponent},
+    { path: 'shop-detail-advertisement', component: ShopDetailAdvertisementComponent},
     { path: 'view-more-shop', component: ViewMoreShopComponent},
     {
         path: '',

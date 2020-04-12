@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { GetHomeShopListResponse } from '@app/_models/home-models';
 import { ShopService } from '@app/_services/shop.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-shop-detail',
@@ -13,9 +14,15 @@ export class ShopDetailComponent implements OnInit {
 
   // Variable
   shopId = '';
+  townshipReadMore = false;
+  townshipReadMoreText = 'ထပ်ကြည့်ရန်...';
+  desReadMore = false;
+  desReadMoreText = 'ထပ်ကြည့်ရန်...';
 
   // Array Variable
   shop: GetHomeShopListResponse;
+
+  modalRef: BsModalRef;
 
   // Slider
   customOptions: OwlOptions = {
@@ -45,7 +52,8 @@ export class ShopDetailComponent implements OnInit {
 
   constructor(private service: ShopService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private modalService: BsModalService) { }
 
   ngOnInit() {
     this.shopId = this.route.snapshot.queryParamMap.get('shopId');
@@ -56,12 +64,44 @@ export class ShopDetailComponent implements OnInit {
     this.service.getShopDetail(this.shopId).subscribe( res => {
       this.shop = null;
       this.shop = res;
-      console.log(res);
     });
+  }
+
+  changeTownshipReadMore() {
+  this.townshipReadMore = !this.townshipReadMore;
+  if (!this.townshipReadMore) {
+    this.townshipReadMoreText = 'ထပ်ကြည့်ရန်...';
+  } else {
+    this.townshipReadMoreText = 'See Less';
+  }
+  }
+
+  changeDesReadMore() {
+  this.desReadMore = !this.desReadMore;
+  if (!this.desReadMore) {
+    this.desReadMoreText = 'ထပ်ကြည့်ရန်...';
+  } else {
+    this.desReadMoreText = 'See Less';
+  }
   }
 
   back() {
     this.router.navigate(['.']);
+  }
+
+  shopDetailAdvertisement(shopId) {
+    this.router.navigate(['/shop-detail-advertisement'], { queryParams: {shopId} });
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, {
+      animated: true,
+      backdrop: 'static'
+    });
+  }
+
+  hideModal() {
+    alert("w")
   }
 
 }

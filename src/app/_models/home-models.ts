@@ -16,8 +16,8 @@ export class GetHomeShopListResponse {
     iosLink: string;
     phNo: string;
     townshipName: string;
-    estDeliveryFromTime: string;
-    estDeliveryToTime: string;
+    deliveryFromTime: string;
+    deliveryToTime: string;
     shopTypeName: string;
     product: GetHomeShopListProductResponse[];
     shopDeliveryAvailableLocation: GetHomeShopListProductResponse[];

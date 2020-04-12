@@ -1,0 +1,25 @@
+<!-- Nav -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3 mb-3">
+        <div (click)="back()">
+          <img src="./assets/shopdetail/Asset 65.svg" class="right-arrow-logo ">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="bg-color">
+  <div class="container-fluid">
+    <div class="row pt-8 custom-row">
+      <div *ngFor="let ads of shopAdvertisement" class="card col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 k-full-col">
+        <img class="materials1-img mr-1"  src="{{ads.url}}" alt="">
+        <p class="gray-text pt-2 cardCaption"> {{ads.caption}} </p>
+      </div>     
+    </div> 
+  </div>
+</section>
+

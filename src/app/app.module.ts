@@ -26,7 +26,8 @@ import {MatListModule} from '@angular/material/list';
 import { TownshipDialogComponent } from './components/shop-search/shop-search-home/township-dialog/township-dialog.component';
 import { ShopDetailComponent } from './components/shop-detail/shop-detail.component';
 import { ViewMoreShopComponent } from './components/view-more-shop/view-more-shop.component';
-
+import { TruncateModule } from 'ng2-truncate';
+import { ShopDetailAdvertisementComponent } from './components/shop-detail/shop-detail-advertisement/shop-detail-advertisement.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -52,8 +53,10 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       TownshipDialogComponent,
       ShopDetailComponent,
       ViewMoreShopComponent,
+      ShopDetailAdvertisementComponent,
    ],
    imports: [
+      TruncateModule,
       CarouselModule,
       BrowserModule,
       FileUploadModule,
