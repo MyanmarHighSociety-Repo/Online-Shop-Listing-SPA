@@ -11,17 +11,37 @@ export interface Shop {
     websiteLink: string;
 }
 
+export interface AddShopResponse {
+    id: number;
+}
+
+export interface AddShopImageResponse {
+    id: number;
+}
+
+export interface AddShopAvailableLocationResponse {
+    status: boolean;
+}
+
+export class AddShopAvailableLocationRequest {
+    constructor(
+        townshipIds: string,
+        shopId: number
+    ) {}
+}
+
 export class ShopData {
     constructor(
         public name: string,
         public shopTypeId: number,
-        public phoneNo: string,
+        public phNo: string,
         public description: string,
         public deliveryFromTime: string,
         public deliveryToTime: string,
-        public facebooLink: string,
-        public andriodLink: string,
+        public facebookLink: string,
+        public androidLink: string,
         public websiteLink: string,
         public iosLink: string,
+        public townshipId: number,
     ) {}
 }

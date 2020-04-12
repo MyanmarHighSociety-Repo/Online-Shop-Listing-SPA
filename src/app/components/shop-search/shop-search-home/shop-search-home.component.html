@@ -7,7 +7,7 @@
   <form action="" method="post" class="searchForm">	
   <div class="row h-56p">
     <div class="col-12">
-      <input type="text" class="form-control form-control-lg h-100" placeholder="ဆိုင်အမည်" autofocus>
+      <input type="text" class="form-control form-control-lg h-100" placeholder="ဆိုင်အမည်" autofocus [(ngModel)]="shopName" name="shopName">
     </div>
   </div>
   <div class="row mt-4">
@@ -20,178 +20,13 @@
       <button type="button" class="btn btn-block city" (click)="openCountryDialog()">
         <span> တစ်နိုင်ငံလုံး </span>
       </button>
-      <!-- <div class="form-group">
-          <input type="button" name="" id="" class="form-control city mt-1" value="">
-      </div> -->
     </div>
     <div class="col-6">
-      <button type="button" class="btn btn-block township" (click)="openTownshipDialog()">
+      <button type="button" [disabled]="bthDisable" class="btn btn-block township" (click)="openTownshipDialog()">
         <span> မြို့နယ်ရွေးချယ်ပါ </span>
       </button>
-      <!-- <div class="form-group">
-        <input type="button" name="" id="" class="form-control township h-100 mt-1" value="">
-      </div> -->
     </div>
   </div>
-
-<!-- The Modal For City -->
-  <div class="modal fade" id="country-Modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-            <h6 class="modal-title p.h5">
-              မြို့ရွေးချယ်ပါ
-            </h6>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <!-- Modal body -->
-        <div class="modal-body">
-          <div class="scrollbar scrollbar-pink bordered-pink thin">
-          <div class="force-overflow"></div>
-      </div>
-          <div class="checkbox">
-            <input type="checkbox" class="checkCity mr-3" value="" id="check">
-          <label class="check-label f-v-w-4" for="check">
-          တစ်နိုင်ငံလုံး
-          </label>
-        </div>
-        <div class="checkbox">
-          <input type="checkbox" class="checkCity mr-3" value="" id="check1">
-          <label class="check-label f-v-w-4" for="check1">
-          မန်းတလေး
-          </label>
-          </div>
-          <div class="checkbox">
-          <input type="checkbox" class="checkCity mr-3" value="" id="check2">
-          <label class="check-label f-v-w-4" for="check2">
-          နေပြည်တော်
-          </label>
-          </div>
-          <!-- <div class="checkbox">
-          <input type="checkbox" class="checkCity mr-3" value="" id="check3">
-          <label class="check-label" for="check3">
-          တောင်ဒဂုံ
-          </label>
-          </div> -->
-        <!-- Modal footer -->
-        <!-- <div class="modal-footer"> -->
-          <div class="row mt-4">
-            <div class="col-6">
-              <button type="button" class="btn btn-block btn-md chooseBtn">
-              ရွေးမည်
-              </button>
-            </div>
-            <div class="col-6">
-              <button type="reset" class="btn btn-md btn-block" data-dismiss="modal">
-                မလုပ်တော့ပါ
-              </button>
-            </div>
-          </div>
-
-        </div>
-      <!-- </div> -->
-        </div>
-    </div>
-  </div>
-  <!-- End Modal For City -->
-
-<!-- The Modal For Township -->
-  <div class="modal fade" id="township-Modal">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-    
-        <!-- Modal Header -->
-        <div class="modal-header">
-            <h6 class="modal-title p.h5">
-              မြို့နယ်ရွေးချယ်ပါ
-            </h6>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <!-- Modal body -->
-        <div class="modal-body">
-            <div class="checkbox">
-            <input type="checkbox" name="check_list" class="cb mr-3" value="" id="checkAll">
-          <label class="check-label f-v-w-4" for="checkAll">
-          မြို့နယ်အားလုံး
-          </label>
-        </div>
-        <div class="checkbox">
-          <input type="checkbox" name="check_list" class="cb mr-3" value="" id="check1">
-          <label class="check-label f-v-w-4" for="check1">
-          သာကေတ
-          </label>
-          </div>
-          <div class="checkbox">
-          <input type="checkbox" name="check_list" class="cb mr-3" value="" id="check2">
-          <label class="check-label" for="check2">
-          မြောက်ဒဂုံ
-          </label>
-          </div>
-          <div class="checkbox">
-          <input type="checkbox" name="check_list" class="cb mr-3" value="" id="check3">
-          <label class="check-label f-v-w-4" for="check3">
-          တောင်ဒဂုံ
-          </label>
-          </div>
-          <div class="checkbox">
-          <input type="checkbox" class="cb mr-3" value="" id="check4">
-          <label class="check-label f-v-w-4" for="check4">
-          ဖော့ကန်
-          </label>
-          </div>
-          <div class="checkbox">
-          <input type="checkbox" name="check_list" class="cb mr-3" value="" id="check5">
-          <label class="check-label" for="check5">
-          အင်းစိန်
-          </label>
-          </div>
-          <div class="checkbox">
-          <input type="checkbox" name="check_list" class="cb mr-3" value="" id="check6">
-          <label class="check-label f-v-w-4" for="check6">
-          ကမာရွတ်
-          </label>
-          </div>
-          <div class="checkbox">
-          <input type="checkbox" name="check_list" class="cb mr-3" value="" id="check7">
-          <label class="check-label f-v-w-4" for="check7">
-          ကြည့်မြင်တိုင်
-          </label>
-          </div>
-          
-          <!-- <div class="checkbox">
-          <input type="checkbox" class="cb mr-3" value="" id="check8">
-          <label class="check-label" for="check8">
-          ဝက်လက်
-          </label>
-          </div>
-          <div class="checkbox">
-          <input type="checkbox" class="cb mr-3" value="" id="check9">
-          <label class="check-label" for="check9">
-          နွားထိုးကြီး
-          </label>
-          </div> -->
-      
-        <!-- Modal footer -->
-        <!-- <div class="modal-footer"> -->
-          <div class="row mt-4">
-            <div class="col-6">
-              <button type="button" class="btn btn-block btn-md chooseBtn">
-              ရွေးမည်
-              </button>
-            </div>
-            <div class="col-6">
-              <button type="button" class="btn btn-md btn-block" data-dismiss="modal">
-                မလုပ်တော့ပါ
-              </button>
-            </div>
-          </div>
-        </div>
-      <!-- </div> -->
-        </div>
-    </div>
-  </div>
-  <!-- End Modal For Township -->
 
   <div class="row mt-4">
     <div class="col-12">
@@ -200,8 +35,8 @@
   </div>
   <div class="row mt-4">
     <div class="col-12">
-      <mat-selection-list #shopType>
-        <mat-list-option *ngFor="let shopType of shopTypeList; let i = index" style="margin-bottom: 10px;">
+      <mat-selection-list #shopType [(ngModel)]="selectedOptions" name="shopType">
+        <mat-list-option *ngFor="let shopType of shopTypeList; let i = index" style="margin-bottom: 10px;" [value]="shopType">
           <div (click)="isShow[i]= !isShow[i]" >
             <span class="mr-2" [hidden]="!isShow[i]">
             <img src="../../../../assets/shopsearch/Asset 66.svg" alt="checkSign1" class="checkSign" id="button-1" />
@@ -215,113 +50,9 @@
       </mat-selection-list>
     </div>
   </div>
-  <!-- <div class="row mt-4">
-    <div class="col-12">
-      <div class="foodNdelivery" onclick="showImage('button-1')">
-        <span class="mr-2">
-          <img src="../../../../assets/shopsearch/Asset 66.svg" alt="checkSign1" class="checkSign" id="button-1" style="display: none;" />
-        </span>
-          <img src="../../../../assets/shopsearch/icons/Asset 12.svg" alt="FDelivery"  class="category" />
-        <span class="f-v-w-4 ml-3">
-        Food Delivery	
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <div class="foodNdelivery" onclick="showImage('button-2')">
-        <span class="mr-2">
-          <img src="../../../../assets/shopsearch/Asset 66.svg" alt="checkSign2" class="checkSign" id="button-2" style="display: none;" />
-        </span>
-        <img src="../../../../assets/shopsearch/icons/Asset 13.svg" alt="Fish and Vegitable"  class="category" />
-        <span class="f-v-w-4 ml-3">
-           အသားငါး နှင့် ဟင်းသီးဟင်းရွက်များ 
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <div class="foodNdelivery" onclick="showImage('button-3')">
-        <span class="mr-2">
-          <img src="../../../../assets/shopsearch/Asset 66.svg" alt="checkSign3" class="checkSign" id="button-3" style="display: none;" />
-        </span>
-        <img src="../../../../assets/shopsearch/icons/Asset 14.svg" alt="Medicine"  class="category" />
-        <span class="f-v-w-4 ml-3">
-           ဆေးဝါးများ
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <div class="foodNdelivery" onclick="showImage('button-4')">
-        <span class="mr-2">
-          <img src="../../../../assets/shopsearch/Asset 66.svg" alt="checkSign4" class="checkSign" id="button-4" style="display: none;" />
-        </span>
-        <img src="../../../../assets/shopsearch/icons/Asset 15.svg" alt="writting"  class="category" />
-        <span class="f-v-w-4 ml-3">
-           စာအုပ်နှင့် စာရေးကိရိယာပစ္စည်းများ
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <div class="foodNdelivery" onclick="showImage('button-5')">
-        <span class="mr-2">
-          <img src="../../../../assets/shopsearch/Asset 66.svg" alt="checkSign5" class="checkSign" id="button-5" style="display: none;" />
-        </span>
-        <img src="../../../../assets/shopsearch/icons/Asset 16.svg" alt="Electronic"  class="category" />
-        <span class="f-v-w-4 ml-3">
-           လျှပ်စစ်ပစ္စည်းများ 
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <div class="foodNdelivery" onclick="showImage('button-6')">
-        <span class="mr-2">
-          <img src="../../../../assets/shopsearch/Asset 66.svg" alt="checkSign6" class="checkSign" id="button-6" style="display: none;" />
-        </span>
-        <img src="../../../../assets/shopsearch/icons/Asset 17.svg" alt="Clothes"  class="category" />
-        <span class="f-v-w-4 ml-3">
-           အဝတ်အထည်အများ
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <div class="foodNdelivery" onclick="showImage('button-7')">
-        <span class="mr-2">
-          <img src="../../../../assets/shopsearch/Asset 66.svg" alt="checkSign7" class="checkSign" id="button-7" style="display: none;" />
-        </span>
-        <img src="../../../../assets/shopsearch/icons/Asset 18.svg" alt="Kids"  class="category" />
-        <span class="f-v-w-4 ml-3">
-           ကလေးအသုံးအဆောင်ပစ္စည်းများ
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <div class="foodNdelivery" onclick="showImage('button-8')">
-        <span class="mr-2">
-          <img src="../../../../assets/shopsearch/Asset 66.svg" alt="checkSign8" class="checkSign" id="button-8" style="display: none;" />
-        </span>
-        <img src="../../../../assets/shopsearch/icons/Asset 19.svg" alt="Furniture"  class="category" />
-        <span class="f-v-w-4 ml-3">
-           ပရိဘောဂများ
-        </span>
-      </div>
-    </div>
-  </div> -->
   <div class="row mt-4">
     <div class="col-12">
-      <button type="button" class="btn btn-lg btn-block custom-btn">
+      <button type="button" class="btn btn-lg btn-block custom-btn" (click)="Search()">
       <img src="../../../../assets/shopsearch/Asset 67.svg" alt="searchIcon" class="search" /> 
       ရှာမည် 
       </button>

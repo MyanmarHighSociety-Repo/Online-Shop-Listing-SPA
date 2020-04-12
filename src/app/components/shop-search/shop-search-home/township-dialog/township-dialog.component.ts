@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import {MAT_DIALOG_DATA} from '@angular/material'
+import { ShopService } from '@app/_services/shop.service';
+import { GetAllTwonshipResponse } from '@app/_models/city';
 
 @Component({
   selector: 'app-township-dialog',
@@ -8,13 +11,40 @@ import { MatDialogRef } from '@angular/material';
 })
 export class TownshipDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<TownshipDialogComponent>) { }
+  cityId: any;
+  townshipList = new Array();
+
+  constructor(
+    public dialogRef: MatDialogRef<TownshipDialogComponent>,
+    private shopService :ShopService,
+    @Inject(MAT_DIALOG_DATA) public data: any
+    ) { }
 
   ngOnInit() {
+    this.cityId = this.data.cityId;
+    this.getAllTownShip();
   }
 
-  save(){}
+  getAllTownShip(){
+    this.shopService.getTownShips(this.cityId).subscribe(res =>{
+      this.townshipList = res.townList;
+    })
+  }
+
+  get selectedOptions() { // right now: ['1','3']
+    return this.townshipList
+              .filter(opt => opt.checked)
+              .map(opt => opt.id)
+  }
+
+  save(){
+    var townList = [];
+    townList = this.selectedOptions;
+    console.log(townList);
+    this.dialogRef.close({townIdList: townList});
+  }
+
   close() {
-    this.dialogRef.close();
+    this.dialogRef.close({townIdList: null});
   }
 }

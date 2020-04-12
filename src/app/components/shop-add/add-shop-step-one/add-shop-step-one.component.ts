@@ -5,7 +5,6 @@ import {
   HostListener,
   TemplateRef
 } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { NgForm } from '@angular/forms';
 import { ShopData } from '@app/_models/shop';
@@ -19,16 +18,16 @@ import { AdvertisementData } from '@app/_models/advertisement';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './shop-add-step-one.component.html',
-  styleUrls: ['./shop-add-step-one.component.css']
+  templateUrl: './add-shop-step-one.component.html',
+  styleUrls: ['./add-shop-step-one.component.css']
 })
-export class ShopAddStepOneComponent implements OnInit {
+export class AddShopStepOneComponent implements OnInit {
   @ViewChild('addForm', { static: true }) addForm: NgForm;
 
   cityModalRef: BsModalRef;
   advertisementModalRef: BsModalRef;
   townshipModalRef: BsModalRef;
-  shop = new ShopData(null, null, null, null, null, null, null, null, null, null);
+  shop = new ShopData(null, null, null, null, null, null, null, null, null, null, 1);
   shopTypes: ShopType[];
   cities: City[];
   townships: Township[];
@@ -267,7 +266,7 @@ export class ShopAddStepOneComponent implements OnInit {
       this.shop.deliveryToTime === null ||
       this.shop.description === null ||
       this.shop.name === null ||
-      this.shop.phoneNo === null ||
+      this.shop.phNo === null ||
       this.shop.shopTypeId === null ||
       this.selectedTownshipToTransfer.length === 0 ||
       this.shopImgFile === null
@@ -278,7 +277,7 @@ export class ShopAddStepOneComponent implements OnInit {
       this.service.shopData = this.shop;
       this.service.selectedTownships = this.selectedTownshipToTransfer;
       this.service.shopImgFile = this.shopImgFile;
-      this.router.navigate(['/shop-add-step-two']);
+      this.router.navigate(['/add-shop-step-two']);
     }
   }
 
