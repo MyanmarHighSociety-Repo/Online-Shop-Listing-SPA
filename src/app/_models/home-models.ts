@@ -50,6 +50,10 @@ export class GetViewMoreShopListResponse {
     shopList: GetHomeShopListResponse[];
 }
 
+export class GetShopSearchResponse{
+    shopList: GetHomeShopListResponse[];
+}
+
 export class GetHomeShopListAdvertisementResponse {
     id: number;
     shopId: number;
