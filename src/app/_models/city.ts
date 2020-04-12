@@ -4,25 +4,25 @@ export class GetCityResponse {
     cityList: City[];
 }
 
-export class GetAllTwonshipResponse{
+export class GetAllTwonshipResponse {
     townList: Township[];
 }
-    
-export class City{
+
+export class City {
     id: number;
     name: string;
     description: string;
     createdDate: string;
-    createdBy: number
+    createdBy: number;
 }
 
-export class Township{
+export class Township {
     id: number;
     name: string;
     description: string;
     cityId: number;
     createdDate: string;
-    createdBy: number
+    createdBy: number;
 }
 
 export interface City {

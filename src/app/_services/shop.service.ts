@@ -16,7 +16,6 @@ import { ProductData, AddProductResponse } from '@app/_models/product';
   providedIn: 'root'
 })
 export class ShopService {
-  
 private url = Constants.API_URL_PREFIX + '/api/Miscellaneous';
 private shopsearch_url = Constants.API_URL_PREFIX + '/api/ShopSearch';
 
@@ -36,27 +35,27 @@ getCityList(): Observable<GetCityResponse> {
   return this.http.get<GetCityResponse>(url);
 }
 
-getAllTwonship(cityId): Observable<GetAllTwonshipResponse>{
+getAllTwonship(cityId): Observable<GetAllTwonshipResponse> {
   let params = new HttpParams();
-  params = params.append('CityId', cityId)
-  const url = `${this.url}/GetTown?`+ params;
+  params = params.append('CityId', cityId);
+  const url = `${this.url}/GetTown?` + params;
   return this.http.get<GetAllTwonshipResponse>(url);
 }
 
-searchShopList(request): Observable<GetShopSearchResponse>{
+searchShopList(request): Observable<GetShopSearchResponse> {
   let params = new HttpParams();
-  params = params.append("shopName", request.shopName);
-  if (request.shopTypeIdList !=null) {
-    params = params.append("shopTypeIdList", request.shopTypeIdList);
+  params = params.append('shopName', request.shopName);
+  if (request.shopTypeIdList !== null) {
+    params = params.append('shopTypeIdList', request.shopTypeIdList);
   }
-  if (request.cityId != 0) {
-    params = params.append("cityId", request.cityId);
+  if (request.cityId !== 0) {
+    params = params.append('cityId', request.cityId);
   }
   if (request.townIdList != null) {
-    params = params.append("townIdList", request.townIdList);
+    params = params.append('townIdList', request.townIdList);
   }
   console.log(params);
-  const url = `${this.shopsearch_url}/GetShopList?`+params;
+  const url = `${this.shopsearch_url}/GetShopList?` + params;
   return this.http.get<GetShopSearchResponse>(url);
 }
 
