@@ -42,5 +42,9 @@ export class GetViewMoreShopListResponse {
     shopList: GetHomeShopListResponse[];
 }
 
+export class GetShopSearchResponse{
+    shopList: GetHomeShopListResponse[];
+}
+
 
 
