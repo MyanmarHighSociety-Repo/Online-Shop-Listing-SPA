@@ -11,8 +11,6 @@ import { HomeComponent } from '@app/components/home/home.component';
 import { AlertifyService } from './_services/alertify.service';
 import { appRoutes } from './routes';
 import { FooterComponent } from './layouts/nav/footer/footer.component';
-import { ShopAddStepOneComponent } from './components/shop-add/shop-add-step-one/shop-add-step-one.component';
-import { ShopAddStepTwoComponent } from './components/shop-add/shop-add-step-two/shop-add-step-two.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ShopAddStepOneShopTypeResolver, ShopAddStepOneCityResolver } from './_resolver/shop-add-step-one.resolver';
@@ -26,6 +24,9 @@ import {MatListModule} from '@angular/material/list';
 import { TownshipDialogComponent } from './components/shop-search/shop-search-home/township-dialog/township-dialog.component';
 import { ShopDetailComponent } from './components/shop-detail/shop-detail.component';
 import { ViewMoreShopComponent } from './components/view-more-shop/view-more-shop.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { AddShopStepOneComponent } from './components/shop-add/add-shop-step-one/add-shop-step-one.component';
+import { AddShopStepTwoComponent } from './components/shop-add/add-shop-step-two/add-shop-step-two.component';
 
 
 export function tokenGetter() {
@@ -45,12 +46,13 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       NavComponent,
       HomeComponent,
       FooterComponent,
-      ShopAddStepOneComponent,
-      ShopAddStepTwoComponent,
+      AddShopStepOneComponent,
+      AddShopStepTwoComponent,
       ShopSearchHomeComponent,
       CountryDialogComponent,
       TownshipDialogComponent,
       ShopDetailComponent,
+      SpinnerComponent,
       ViewMoreShopComponent,
    ],
    imports: [
