@@ -61,7 +61,7 @@
         <owl-carousel-o [options]="customOptions">
             <ng-template *ngFor="let ads of shop.advertisement" carouselSlide>
                 <div class="slide">
-                    <img src="{{ads.Url}}">
+                    <img src="{{ads.url}}">
                 </div>
             </ng-template>           
         </owl-carousel-o>
@@ -80,36 +80,19 @@
     </div>
     <div class="row pt-4 pb-4">
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><p class="text-black"> ပစ္စည်းများ</p> </div>
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><p class="text-right">၁၀ခု</p></div>
+      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><p class="text-right">{{shop.product.length}}ခု</p></div>
     </div>
   </div>
 </section>
 <section class="bg-color">
   <div class="container-fluid">
     <div class="row pt-4 custom-row">
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col">
-        <img class="materials1-img mr-1"  src="../../../assets/shopdetail/Asset 59.png" alt="">
-        <p class="gray-text pt-2"> Walco Banana Yogurt </p>
-        <p class="text-black"> ks 1,200</p>
-      </div>
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col">
-        <img class="materials1-img ml-1"  src="../../../assets/shopdetail/Asset 60.png" alt="">
-        <p class="gray-text pt-2"> Walco Banana Yogurt </p>
-        <p class="text-black"> ks 1,200</p>
-      </div>
-    </div>
-    <div class="row pt-4 pb-4 custom-row">
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col">
-        <img class="materials1-img mr-1"  src="../../../assets/shopdetail/Asset 61.png" alt="">
-        <p class="gray-text pt-2"> Walco Banana Yogurt </p>
-        <p class="text-black"> ks 1,200</p>
-      </div>
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col">
-        <img class="materials1-img ml-1"  src="../../../assets/shopdetail/Asset 62.png" alt="">
-        <p class="gray-text pt-2"> Walco Banana Yogurt </p>
-        <p class="text-black"> ks 1,200</p>
-      </div>
-    </div>
+      <div *ngFor="let product of shop.product" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col">
+        <img class="materials1-img mr-1"  src="{{product.productImage[0].url}}" alt="">
+        <p class="gray-text pt-2"> {{product.name}} </p>
+        <p class="text-black"> ks {{product.price}}</p>
+      </div>     
+    </div>  
   
   </div>
 </section>
@@ -126,15 +109,13 @@
   </div>
 </section>
 
- <section>
+ <!-- <section>
     <div class="container-fluid">
        <div class="row">
-           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">  
-            <!--The Modal -->
+           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
               <div class="modal" id="myModal">
                 <div class="modal-dialog-box">
                   <div class="modal-content">
-                  <!--Modal Header-->
                    <div class="modal-header-1">
                       <h1 class="buy-title">၀ယ်ယူမည်</h1>
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -167,4 +148,4 @@
         </div>
     </div>
 </div>
-</section>
+</section> -->

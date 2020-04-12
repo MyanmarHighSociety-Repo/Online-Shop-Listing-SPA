@@ -42,7 +42,7 @@ export class ShopDetailComponent implements OnInit {
     },
     nav: false
   };
-  
+
   constructor(private service: ShopService,
               private router: Router,
               private route: ActivatedRoute) { }
@@ -56,6 +56,7 @@ export class ShopDetailComponent implements OnInit {
     this.service.getShopDetail(this.shopId).subscribe( res => {
       this.shop = null;
       this.shop = res;
+      console.log(res);
     });
   }
 
