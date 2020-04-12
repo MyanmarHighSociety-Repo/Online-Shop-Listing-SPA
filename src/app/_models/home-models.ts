@@ -14,15 +14,32 @@ export class GetHomeShopListResponse {
     estDeliveryToTime: string;
     shopTypeName: string;
     product: GetHomeShopListProductResponse[];
+    shopDeliveryAvailableLocation: GetHomeShopListProductResponse[];
 }
 
 export class GetHomeShopListProductResponse {
     productImage: GetHomeShopListProductImageResponse[];
 }
 
-export class GetHomeShopListProductImageResponse{
+export class GetHomeShopListProductImageResponse {
     id: number;
     url: string;
+}
+
+export class GetHomeShopListDeliveryResponse {
+    township: GetHomeShopListDeliveryTownshipResponse[];
+}
+
+export class GetHomeShopListDeliveryTownshipResponse {
+    id: number;
+    name: string;
+}
+
+
+
+export class GetViewMoreShopListResponse {
+    shopTypeName: string;
+    shopList: GetHomeShopListResponse[];
 }
 
 

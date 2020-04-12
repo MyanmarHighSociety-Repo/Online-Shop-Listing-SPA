@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import { TownshipDialogComponent } from './components/shop-search/shop-search-home/township-dialog/township-dialog.component';
 import { ShopDetailComponent } from './components/shop-detail/shop-detail.component';
+import { ViewMoreShopComponent } from './components/view-more-shop/view-more-shop.component';
 
 
 export function tokenGetter() {
@@ -42,7 +43,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ShopSearchHomeComponent,
       CountryDialogComponent,
       TownshipDialogComponent,
-      ShopDetailComponent
+      ShopDetailComponent,
+      ViewMoreShopComponent,
    ],
    imports: [
       CarouselModule,

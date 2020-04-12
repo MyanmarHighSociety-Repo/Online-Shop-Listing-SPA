@@ -33,8 +33,8 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4">
                 <div class="search-wrapper">
-                    <input type="search" id="k-home-search" name="homesearch" class="k-home-search" placeholder="ဆိုင်ရှာရန်">
-                    <img src="./assets/images1/Asset 39.svg" (click)="search('')" class="k-search-img">
+                    <input type="search" id="k-home-search" name="homesearch" [(ngModel)]="homesearch" class="k-home-search" placeholder="ဆိုင်ရှာရန်">
+                    <img src="./assets/images1/Asset 39.svg" (click)="search('',homesearch)" class="k-search-img">
                 </div>
             </div>
         </div>
@@ -79,10 +79,10 @@
     <div class="container">
         <div class="row pt-3 pb-5">            
             <div *ngFor="let shopType of shopTypeList" class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-4">
-                <a href="#" class="k-category-link" (click)="search({{shopType.name}})">
+                <div class="k-category-link" (click)="search(shopType.name,'')">
                     <img src="{{shopType.iconUrl}}" class="k-category-img">
                     <p class="text-center gray-text pt-2">{{shopType.name}}</p>
-                </a>
+                </div>
             </div>            
         </div>
     </div>
@@ -105,14 +105,19 @@
                 <div class="card k-home-card">
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                            <a href="#" class="k-shop-link" (click)="shopDetail({{shop.id}})">
+                            <div class="k-shop-link" (click)="shopDetail(shop.id)">
                                 <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-                            </a>
+                            </div>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
                             <h5> {{shop.name}}</h5> 
                             <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">{{shop.shopTypeName}}</h6></div>
-                            <p class="gray-text">{{shop.cityName}} | {{shop.townshipName}}</p>
+                            <p class="gray-text"> 
+                            <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">   
+                                <span *ngIf="i+1!=shop.shopDeliveryAvailableLocation.length">{{location.township.name}}၊</span>                                
+                                <span *ngIf="i+1==shop.shopDeliveryAvailableLocation.length">{{location.township.name}}...</span>
+                            </span>
+                            </p>
                             <p class="pink-text">{{shop.estDeliveryFromTime}} - {{shop.estDeliveryToTime}}</p>
                         </div>
                         </div>
@@ -125,10 +130,15 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4 mb-5">
+                <div (click)="viewMoreShop()" class="k-view-shop"><span class="gray-text">ထပ်ကြည့်ရန်</span></div>
+            </div> 
+        </div>
            
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4 mb-5">
-                <a href="#" class="k-view-shop"><span class="gray-text">ထပ်ကြည့်ရန်</span></a>
+                <a href="#" class="k-view-shop"><span class="gray-text"></span></a>
             </div> 
         </div>
     </div>

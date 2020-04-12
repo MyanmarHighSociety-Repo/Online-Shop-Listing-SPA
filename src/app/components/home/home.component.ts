@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   pageSize = 10;
   pageNumber = 1;
   isOpenOnHolidayFilter = false;
+  homesearch = '';
 
   customOptions: OwlOptions = {
     loop: true,
@@ -113,12 +114,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  search(category) {
-    this.router.navigate(['/shop-search'], { queryParams: { category } });
+  search(category, searchText) {
+    this.router.navigate(['/shop-search-home'], { queryParams: {searchText, category } });
   }
 
   shopDetail(shopId) {
-    this.router.navigate(['/shop-detail'], { queryParams: { shopId } });
+    this.router.navigate(['/shop-detail'], { queryParams: {shopId } });
+  }
+
+  viewMoreShop() {
+    this.router.navigate(['/view-more-shop'], { queryParams: {currentCity: this.currentCity} });
   }
 
 }
