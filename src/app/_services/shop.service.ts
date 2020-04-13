@@ -92,7 +92,7 @@ searchShopList(request): Observable<GetShopSearchResponse> {
   postProduct(files: ProductData[], id: number): Observable<AddProductResponse> {
     const fd = new FormData();
     files.forEach(element => {
-      fd.append(element.name + ',' + element.price, element.file, element.file.name);
+      fd.append(element.name + ',' + element.price , element.file, element.file.name);
     });
     return this.http.post<AddProductResponse>(this.baseUrl + 'Shop/addProduct?id=' + id, fd);
   }

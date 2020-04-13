@@ -111,8 +111,7 @@ export class AddShopStepTwoComponent implements OnInit {
   addNewProductEntry() {
     if (this.tempProductImageUrl === null ||
       this.tempProductImageFile === null ||
-      this.productName === null ||
-      this.productPrice === null ) {
+      this.productName === null) {
         this.message = 'Please fill out all the fields first';
         return;
     }
