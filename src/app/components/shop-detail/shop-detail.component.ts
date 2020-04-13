@@ -101,7 +101,7 @@ export class ShopDetailComponent implements OnInit {
   }
 
   hideModal() {
-    alert("w")
+    alert('w')
   }
 
 }

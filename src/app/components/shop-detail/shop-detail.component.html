@@ -21,7 +21,7 @@
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <h5 class="f-14 mb-2 mt-0">{{shop.name}}</h5>
         <div class="badge k-badge mt-3 mb-3"><h6 class="gray-text">{{shop.shopTypeName}}</h6></div>
-        <p>
+        <!-- <p>
           <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">   
             <span *ngIf="i<3">{{location.township.name}}၊</span>                                
             <span *ngIf="i>=3 && townshipReadMore">{{location.township.name}}၊</span>
@@ -29,7 +29,7 @@
             <br>
             <br>
             <a (click)="changeTownshipReadMore()" class="myBtn mt-3"  id="myBtn" ><span class="read-more-city"> {{townshipReadMoreText}}</span></a>  
-        </p>
+        </p> -->
         <p>{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
         <p class="gray-text">
           <img src="./assets/shopdetail/Asset 54.svg" style="width: 9px;" alt="">
@@ -134,7 +134,7 @@
 <p>App</p>
 <div class="row">
 
-<div *ngIf="shop.androidLink" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 " >
+<!-- <div *ngIf="shop.androidLink" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 " >
 <a href="{{androidLink}}" type="button" class="btn p-0 " role="button" aria-pressed="true">
 <img src="./assets/shopdetail/Asset 56.png" style="width: 100%;" alt="">
 </a>
@@ -145,7 +145,7 @@
 <a href="{{iosLink}}" type="button" class="btn p-0 " role="button" aria-pressed="true">
 <img src="./assets/shopdetail/Asset 57.png" style="width: 100%;" alt="">
 </a>
-</div>
+</div> -->
 
 </div>
 <br>
