@@ -17,6 +17,8 @@ export class ViewMoreShopComponent implements OnInit {
   isOpenOnHolidayFilter = false;
   homesearch = '';
   currentShopType = '';
+  townshipReadMore = false;
+  townshipReadMoreText = 'ထပ်ကြည့်ရန်...';
 
   // Array Variable
   viewMoreShopList: GetViewMoreShopListResponse[];
@@ -48,5 +50,13 @@ export class ViewMoreShopComponent implements OnInit {
   shopDetail(shopId) {
     this.router.navigate(['/shop-detail'], { queryParams: {shopId } });
   }
+  changeTownshipReadMore() {
+    this.townshipReadMore = !this.townshipReadMore;
+    if (!this.townshipReadMore) {
+      this.townshipReadMoreText = 'ထပ်ကြည့်ရန်...';
+    } else {
+      this.townshipReadMoreText = 'See Less';
+    }
+    }
 
 }

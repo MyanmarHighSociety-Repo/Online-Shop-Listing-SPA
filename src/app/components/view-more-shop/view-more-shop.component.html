@@ -38,12 +38,14 @@
               <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
                   <h5> {{shop.name}}</h5> 
                   <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">{{shop.shopTypeName}} </h6></div>
-                  <p class="gray-text">
+                  <p class="gray-text"> 
                     <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">   
-                        <span *ngIf="i+1!=shop.shopDeliveryAvailableLocation.length">{{location.township.name}}၊</span>                                
-                        <span *ngIf="i+1==shop.shopDeliveryAvailableLocation.length">{{location.township.name}}...</span>
-                    </span>
-                  </p>
+                        <span *ngIf="i<3">{{location.township.name}}၊</span>                                
+                        <span *ngIf="i>=3 && townshipReadMore">{{location.township.name}}၊</span>
+                        </span>
+                        <br>
+                        <a (click)="changeTownshipReadMore()" class="myBtn mt-3"  id="myBtn" ><span class="read-more-city"> {{townshipReadMoreText}}</span></a>  
+                </p>
                   <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
               </div>
             </div>

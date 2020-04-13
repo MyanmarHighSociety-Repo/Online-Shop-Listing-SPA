@@ -18,8 +18,6 @@ export class ShopDetailComponent implements OnInit {
   townshipReadMoreText = 'ထပ်ကြည့်ရန်...';
   desReadMore = false;
   desReadMoreText = 'ထပ်ကြည့်ရန်...';
-
-  // Array Variable
   shop: GetHomeShopListResponse;
 
   modalRef: BsModalRef;
@@ -62,7 +60,6 @@ export class ShopDetailComponent implements OnInit {
 
   getShopDetail() {
     this.service.getShopDetail(this.shopId).subscribe( res => {
-      this.shop = null;
       this.shop = res;
     });
   }
@@ -101,7 +98,6 @@ export class ShopDetailComponent implements OnInit {
   }
 
   hideModal() {
-    alert('w')
   }
 
 }

@@ -106,14 +106,13 @@ searchShopList(request): Observable<GetShopSearchResponse> {
   getShopDetail(shopId): Observable<GetHomeShopListResponse> {
     let params = new HttpParams();
     params = params.append('shopId', shopId);
-    const shop_url = `${this.url}/GetShopDetail?` + params;
-    return this.http.get<GetHomeShopListResponse>(shop_url);
+    const shopUrl = `${this.shop_url}/GetShopDetail?` + params;
+    return this.http.get<GetHomeShopListResponse>(shopUrl);
   }
   getAdvertisementByShopId(shopId): Observable<GetHomeShopListAdvertisementResponse[]> {
     let params = new HttpParams();
     params = params.append('shopId', shopId);
-    const shop_url = `${this.url}/GetAdvertisementByShopId?` + params;
-    return this.http.get<GetHomeShopListAdvertisementResponse[]>(shop_url);
+    const shopUrl = `${this.shop_url}/GetAdvertisementByShopId?` + params;
+    return this.http.get<GetHomeShopListAdvertisementResponse[]>(shopUrl);
   }
-// tslint:disable-next-line: eofline
 }

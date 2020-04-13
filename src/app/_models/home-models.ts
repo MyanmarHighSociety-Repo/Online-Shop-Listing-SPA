@@ -20,7 +20,7 @@ export class GetHomeShopListResponse {
     deliveryToTime: string;
     shopTypeName: string;
     product: GetHomeShopListProductResponse[];
-    shopDeliveryAvailableLocation: GetHomeShopListProductResponse[];
+    shopDeliveryAvailableLocation: GetHomeShopListDeliveryResponse[];
     advertisement: GetHomeShopListAdvertisementResponse[];
 }
 

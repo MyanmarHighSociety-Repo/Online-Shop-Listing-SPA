@@ -16,22 +16,21 @@
   <div class="container-fluid">
     <div class="row border-top-row pt-4">
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <img src="{{shop.shopLogoUrl}}" class="N-shop-logo mt-1" alt="" >
+        <img *ngIf="shop" src="{{shop.shopLogoUrl}}" class="N-shop-logo mt-1" alt="" >
       </div>
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <h5 class="f-14 mb-2 mt-0">{{shop.name}}</h5>
-        <div class="badge k-badge mt-3 mb-3"><h6 class="gray-text">{{shop.shopTypeName}}</h6></div>
-        <!-- <p>
+        <h5 *ngIf="shop" class="f-14 mb-2 mt-0">{{shop.name}}</h5>
+        <div class="badge k-badge mt-3 mb-3"><h6 *ngIf="shop" class="gray-text">{{shop.shopTypeName}}</h6></div>
+        <p *ngIf="shop">
           <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">   
             <span *ngIf="i<3">{{location.township.name}}၊</span>                                
             <span *ngIf="i>=3 && townshipReadMore">{{location.township.name}}၊</span>
             </span>
             <br>
-            <br>
             <a (click)="changeTownshipReadMore()" class="myBtn mt-3"  id="myBtn" ><span class="read-more-city"> {{townshipReadMoreText}}</span></a>  
-        </p> -->
-        <p>{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-        <p class="gray-text">
+        </p>
+        <p *ngIf="shop">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
+        <p *ngIf="shop" class="gray-text">
           <img src="./assets/shopdetail/Asset 54.svg" style="width: 9px;" alt="">
           {{shop.phNo}}
         </p>
@@ -40,7 +39,7 @@
     <div class="row mb-4">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
            <div class="article f-12 mt-3 bg-color-open">
-               <div class="lineheight">
+               <div *ngIf="shop" class="lineheight">
                   <div *ngIf="!desReadMore">{{ shop.description | truncate : 100 : "..." }}</div>
                   <div *ngIf="desReadMore">{{shop.description}}</div>
                 </div>
@@ -56,7 +55,7 @@
 <section>
   <div class="container-fluid">
     <div class="row"> 
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col">
+      <div *ngIf="shop" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col">
            
         <owl-carousel-o [options]="customOptions">
             <ng-template *ngFor="let ads of shop.advertisement" carouselSlide>
@@ -80,7 +79,7 @@
     </div>
     <div class="row pt-4 pb-4">
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><p class="text-black"> ပစ္စည်းများ</p> </div>
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><p class="text-right">{{shop.product.length}}ခု</p></div>
+      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><p *ngIf="shop" class="text-right">{{shop.product.length}}ခု</p></div>
     </div>
   </div>
 </section>
@@ -88,12 +87,14 @@
 <!-- Products -->
 <section class="bg-color">
   <div class="container-fluid">
-    <div class="row pt-4 custom-row">
-      <div *ngFor="let product of shop.product" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col">
-        <img class="materials1-img mr-1"  src="{{product.productImage[0].url}}" alt="">
+    <div *ngIf="shop && shop.product" class="row pt-4 custom-row">
+     
+      <div *ngFor="let product of shop.product;" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col">
+        <img *ngIf="product.productImage[0]" class="materials1-img mr-1"  src="{{product.productImage[0].url}}" alt="">
         <p class="gray-text pt-2"> {{product.name}} </p>
         <p class="text-black"> ks {{product.price}}</p>
-      </div>     
+      </div> 
+    
     </div> 
   </div>
 </section>
@@ -114,7 +115,7 @@
 
 
 <ng-template #template>
-  <div class="modal-dialog">
+<div class="">
 <div class="modal-header">
 <h1 class="modal-title buy-title">၀ယ်ယူမည်</h1>
 <button type="button" class="close" (click)="modalRef.hide()">&times;</button>
@@ -123,7 +124,7 @@
 
 <div *ngIf="shop.facebookLink">
 <p>Facebook</p>
-<a href="{{shop.facebookLink}}" type="button" class="btn btn-facebook" style="width: 100%;">
+<a href="{{shop.facebookLink}}" target="_blank" class="btn btn-facebook" style="width: 100%;">
 <img src="./assets/shopdetail/Asset 55.png" style="width: 30px;" alt="">
 <span class="f-12">  {{shop.facebookLink}}</span>
 </a>
@@ -134,18 +135,18 @@
 <p>App</p>
 <div class="row">
 
-<!-- <div *ngIf="shop.androidLink" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 " >
-<a href="{{androidLink}}" type="button" class="btn p-0 " role="button" aria-pressed="true">
+<div *ngIf="shop.androidLink" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 " >
+<a href="{{shop.androidLink}}" target="_blank" class="btn p-0 " role="button" aria-pressed="true">
 <img src="./assets/shopdetail/Asset 56.png" style="width: 100%;" alt="">
 </a>
 </div>
 
 
 <div *ngIf="shop.iosLink" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 " >
-<a href="{{iosLink}}" type="button" class="btn p-0 " role="button" aria-pressed="true">
+<a href="{{shop.iosLink}}" target="_blank" class="btn p-0 " role="button" aria-pressed="true">
 <img src="./assets/shopdetail/Asset 57.png" style="width: 100%;" alt="">
 </a>
-</div> -->
+</div>
 
 </div>
 <br>
@@ -153,7 +154,7 @@
 
 <div *ngIf="shop.websiteLink">
 <p>Website</p>
-<a href="{{shop.websiteLink}}" class="btn btn-website" style="width: 100%;"><span class="f-12"> go to {{shop.websiteLink}}</span></a>
+<a href="{{shop.websiteLink}}" target="_blank" class="btn btn-website" style="width: 100%;"><span class="f-12"> go to {{shop.websiteLink}}</span></a>
 </div>
 
 </div>

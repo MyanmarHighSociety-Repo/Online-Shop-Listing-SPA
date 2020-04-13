@@ -29,6 +29,8 @@ export class HomeComponent implements OnInit {
   pageNumber = 1;
   isOpenOnHolidayFilter = false;
   homesearch = '';
+  townshipReadMore = false;
+  townshipReadMoreText = 'ထပ်ကြည့်ရန်...';
 
   customOptions: OwlOptions = {
     loop: true,
@@ -125,5 +127,14 @@ export class HomeComponent implements OnInit {
   viewMoreShop() {
     this.router.navigate(['/view-more-shop'], { queryParams: {currentCity: this.currentCity} });
   }
+
+  changeTownshipReadMore() {
+    this.townshipReadMore = !this.townshipReadMore;
+    if (!this.townshipReadMore) {
+      this.townshipReadMoreText = 'ထပ်ကြည့်ရန်...';
+    } else {
+      this.townshipReadMoreText = 'See Less';
+    }
+    }
 
 }
