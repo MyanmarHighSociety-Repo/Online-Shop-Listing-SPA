@@ -1,3 +1,5 @@
+import { SafeHtml } from '@angular/platform-browser';
+
 export class GetShopTypeResponse {
     id: number;
     name: string;
@@ -59,6 +61,7 @@ export class GetHomeShopListAdvertisementResponse {
     shopId: number;
     url: string;
     caption: string;
+    safteHtml: SafeHtml;
 }
 
 

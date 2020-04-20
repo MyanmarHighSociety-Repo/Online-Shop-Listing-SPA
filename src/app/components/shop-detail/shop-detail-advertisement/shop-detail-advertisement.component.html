@@ -17,7 +17,7 @@
     <div class="row pt-8 custom-row">
       <div *ngFor="let ads of shopAdvertisement" class="card col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 k-full-col">
         <img class="materials1-img mr-1"  src="{{ads.url}}" alt="">
-        <p class="gray-text pt-2 cardCaption"> {{ads.caption}} </p>
+        <p class="gray-text pt-2 cardCaption" [innerHTML]="ads.safteHtml"></p>
       </div>     
     </div> 
   </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShopService } from '@app/_services/shop.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GetHomeShopListAdvertisementResponse } from '@app/_models/home-models';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-shop-detail-advertisement',
@@ -15,7 +16,8 @@ export class ShopDetailAdvertisementComponent implements OnInit {
 
   constructor(private service: ShopService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.shopId = this.route.snapshot.queryParamMap.get('shopId');
@@ -30,8 +32,11 @@ export class ShopDetailAdvertisementComponent implements OnInit {
     this.service.getAdvertisementByShopId(this.shopId).subscribe( res => {
       this.shopAdvertisement = null;
       this.shopAdvertisement = res;
-      console.log(res)
+
+      this.shopAdvertisement.forEach(element => {
+        element.caption = element.caption.replace(/%0A/g, '<br />');
+        element.safteHtml = this.sanitizer.bypassSecurityTrustHtml(element.caption);
+      });
     });
   }
-
 }

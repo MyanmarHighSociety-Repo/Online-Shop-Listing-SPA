@@ -92,7 +92,7 @@
       <div *ngFor="let product of shop.product;" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col">
         <img *ngIf="product.productImage[0]" class="materials1-img mr-1"  src="{{product.productImage[0].url}}" alt="">
         <p class="gray-text pt-2"> {{product.name}} </p>
-        <p class="text-black"> ks {{product.price}}</p>
+        <p *ngIf="product.price != 0" class="text-black"> ks {{product.price}}</p>
       </div> 
     
     </div> 
