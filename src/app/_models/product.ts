@@ -10,4 +10,5 @@ export class ProductData {
 
 export interface AddProductResponse {
     status: boolean;
+    message: string;
 }

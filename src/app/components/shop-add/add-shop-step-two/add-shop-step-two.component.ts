@@ -80,6 +80,8 @@ export class AddShopStepTwoComponent implements OnInit {
                           this.service.shopImgFile = null;
 
                           this.router.navigate(['/add-shop-step-one']);
+                        } else {
+                          console.log(finalResult.message);
                         }
                       });
                     }
