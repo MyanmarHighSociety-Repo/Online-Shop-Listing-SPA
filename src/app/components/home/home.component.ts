@@ -113,6 +113,7 @@ export class HomeComponent implements OnInit {
     this.service.getHomeShopList(this.pageSize, this.pageNumber, this.currentCity, this.isOpenOnHolidayFilter).subscribe( res => {
       this.shopList = [];
       this.shopList = res;
+      console.log(res);
     });
   }
 

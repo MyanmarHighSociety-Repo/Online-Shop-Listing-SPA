@@ -37,7 +37,7 @@ export class GetHomeShopListProductImageResponse {
 }
 
 export class GetHomeShopListDeliveryResponse {
-    township: GetHomeShopListDeliveryTownshipResponse[];
+    township: GetHomeShopListDeliveryTownshipResponse;
 }
 
 export class GetHomeShopListDeliveryTownshipResponse {
