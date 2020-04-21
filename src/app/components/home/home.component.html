@@ -25,14 +25,13 @@
         <div class="tabcontent" id="Yangon">
         <section>
             <div class="container-fluid">
-                <div class="row pt-3">
+              <!-- <div class="row pt-3">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <div class="search-wrapper">
-                            <input type="search" id="k-home-search" name="homesearch" class="k-home-search" placeholder="ဆိုင်ရှာရန်">
-                            <img src="./assets/images1/Asset 39.svg" (click)="search('',homesearch)" class="k-search-img">  
-                        </div>
+                        <a href="../shopsearch/shopsearch/OnlineShopListingLaravel/src/ShopSearchPage.html">
+                            <input type="text" class="form-control form-control-lg height-50 k-home-search" id="k-home-search" placeholder="ဆိုင်ရှာမည်" (click)="search('',homesearch)" class="k-search-img">
+                        </a>
                     </div>
-                </div>
+                </div>-->
                 <div class="row" style="padding-bottom: 0;padding-top:20px;margin-bottom: 0;">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
                     <div class="swiper-container" id="Yangonswiper">
@@ -58,8 +57,7 @@
 
         <section>
             <div class="container-fluid">
-                <div class="row pb-1">
-                                      
+                <div class="row pb-1 pt-4">                    
                     <div *ngFor="let shopType of shopTypeList" class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-2 custom-col1">
                         <div class="k-category-link" (click)="search(shopType.name,'')">
                             <img src="{{shopType.iconUrl}}" class="k-category-img">
@@ -72,27 +70,29 @@
         </section>
         <section>
             <div class="container-fluid">
-                <div class="row mt-2">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col mt-3 ">
-                        <div class="tab">                            
-                            <button class="tablinks1 {{tablinks4}}" (click)='changeTab1("tablinks4")' id="defaultOpen1" style="width:35% !important"><p>OnlineShop ဆိုင်များ</p> </button>
-                            <button class="tablinks1 {{tablinks5}}" (click)='changeTab1("tablinks5")' style="width:55% !important;display:none;"><p>သင်္ကြန်အတွင်းဖွင့်မည့်ဆိုင်များ</p></button>
-                        </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0 mt-2">
+                        <div class="k-line"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-2">
+                        <h5> Delivery ရရှိနိူင်သောဆိုင်များ</h5>
                     </div>
                 </div>
                 <div class="tabcontent1" id="YangonOnline">
-                <div *ngFor="let shop of shopList;let i=index" class="row pt-4">
+                <div *ngFor="let shop of shopList;let i=index" class="row pt-3">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
-                            <div class="row">
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
+                            <div class="row pb-1">
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-3">
                                     <div class="k-shop-link">
                                         <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
                                     </div>
                                 </div>
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-3">
                                     <h5>{{shop.name}}</h5> 
-                                    <div class="k-badge mt-3 mb-3" style="margin-right: 10px;"><h6 class="white-text">{{shop.shopTypeName}}</h6></div>                                 
+                                    <div class="k-badge mt-2 mb-2" style="margin-right: 10px;"><h6 class="white-text">{{shop.shopTypeName}}</h6></div>                                 
                                     <p class="gray-text">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">  
                                             <span *ngIf="i<3">{{location.township.name}}၊</span>                                                                       
@@ -102,7 +102,7 @@
                                     <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
                                 </div>
                              </div>
-                             <div class="row k-bg-row pt-3 pb-3 custom-row">
+                             <div class="row k-bg-row pt-2 pb-2 custom-row">
                                  <div *ngFor="let product of shop.product;" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                                      <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}" class="k-item-img" style="margin-top: 3px; min-height: 50px;max-height:50px;">
                                  </div>                                
@@ -119,7 +119,7 @@
                 
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4 mb-4">
-                        <div (click)="viewMoreShop()" class="k-view-shop"><span class="gray-text font-15">ထပ်ကြည့်ရန်</span></div>
+                        <div (click)="viewMoreShop()" class="k-view-shop">ထပ်ကြည့်ရန် </div>
                     </div> 
                 </div>
                 <div class="row">
