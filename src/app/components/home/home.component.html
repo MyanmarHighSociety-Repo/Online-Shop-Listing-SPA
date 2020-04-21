@@ -76,7 +76,7 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col mt-3 ">
                         <div class="tab">                            
                             <button class="tablinks1 {{tablinks4}}" (click)='changeTab1("tablinks4")' id="defaultOpen1" style="width:35% !important"><p>OnlineShop ဆိုင်များ</p> </button>
-                            <button class="tablinks1 {{tablinks5}}" (click)='changeTab1("tablinks5")' style="width:55% !important"><p>သင်္ကြန်အတွင်းဖွင့်မည့်ဆိုင်များ</p></button>
+                            <button class="tablinks1 {{tablinks5}}" (click)='changeTab1("tablinks5")' style="width:55% !important;display:none;"><p>သင်္ကြန်အတွင်းဖွင့်မည့်ဆိုင်များ</p></button>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
                                     <h5>{{shop.name}}</h5> 
-                                    <div class="badge k-badge mt-3 mb-3"><h6 class="white-text">{{shop.shopTypeName}}</h6></div>
+                                    <div class="k-badge mt-3 mb-3" style="margin-right: 10px;"><h6 class="white-text">{{shop.shopTypeName}}</h6></div>                                 
                                     <p class="gray-text">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">  
                                             <span *ngIf="i<3">{{location.township.name}}၊</span>                                                                       

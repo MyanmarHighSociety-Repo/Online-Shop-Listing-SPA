@@ -19,8 +19,8 @@
         <img *ngIf="shop" src="{{shop.shopLogoUrl}}" class="N-shop-logo mt-1" alt="" >
       </div>
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <h5 *ngIf="shop" class="f-14 mb-2 mt-0">{{shop.name}}</h5>
-        <div class="badge k-badge mt-3 mb-3"><h6 *ngIf="shop" class="gray-text">{{shop.shopTypeName}}</h6></div>
+        <h5 *ngIf="shop" class="f-14 mb-2 mt-0">{{shop.name}}</h5> 
+        <div class="k-badge mt-3 mb-3" style="margin-right: 10px;"><h6 *ngIf="shop" class="white-text">{{shop.shopTypeName}}</h6></div>
         <p *ngIf="shop">
           <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">   
             <span *ngIf="i<3">{{location.township.name}}၊</span>                                
@@ -30,7 +30,7 @@
             <a (click)="changeTownshipReadMore()" class="myBtn mt-3"  id="myBtn" ><span class="read-more-city"> {{townshipReadMoreText}}</span></a>  
         </p>
         <p *ngIf="shop">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-        <p *ngIf="shop" class="gray-text">
+        <p class="f-14 mb-2 mt-0" *ngIf="shop" class="gray-text">
           <img src="./assets/shopdetail/Asset 54.svg" style="width: 9px;" alt="">
           {{shop.phNo}}
         </p>
@@ -60,7 +60,7 @@
         <owl-carousel-o [options]="customOptions">
             <ng-template *ngFor="let ads of shop.advertisement" carouselSlide>
                 <div class="slide">
-                    <img src="{{ads.url}}" (click)="shopDetailAdvertisement(shop.id)">
+                    <img src="{{ads.url}}" (click)="shopDetailAdvertisement(shop.id)" style="min-height: 320px;max-height:320px;">
                 </div>
             </ng-template>           
         </owl-carousel-o>
@@ -90,7 +90,7 @@
     <div *ngIf="shop && shop.product" class="row pt-4 custom-row">
      
       <div *ngFor="let product of shop.product;" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col">
-        <img *ngIf="product.productImage[0]" class="materials1-img mr-1"  src="{{product.productImage[0].url}}" alt="">
+        <img *ngIf="product.productImage[0]" class="materials1-img mr-1"  src="{{product.productImage[0].url}}" style="min-height: 150px;max-height:150px;">
         <p class="gray-text pt-2"> {{product.name}} </p>
         <p *ngIf="product.price != 0" class="text-black"> ks {{product.price}}</p>
       </div> 
