@@ -83,10 +83,10 @@
                 <div class="tabcontent1" id="YangonOnline">
                 <div *ngFor="let shop of shopList;let i=index" class="row pt-4">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <div class="card k-home-card">
+                        <div class="card k-home-card" (click)="shopDetail(shop.id)">
                             <div class="row">
                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
-                                    <div class="k-shop-link" (click)="shopDetail(shop.id)">
+                                    <div class="k-shop-link">
                                         <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
                                     </div>
                                 </div>
