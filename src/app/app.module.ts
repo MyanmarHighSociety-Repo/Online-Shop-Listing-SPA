@@ -15,7 +15,6 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ShopAddStepOneShopTypeResolver, ShopAddStepOneCityResolver } from './_resolver/shop-add-step-one.resolver';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { ShopSearchHomeComponent } from './components/shop-search/shop-search-home/shop-search-home.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CountryDialogComponent } from './components/shop-search/shop-search-home/country-dialog/country-dialog.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,6 +28,7 @@ import { ShopDetailAdvertisementComponent } from './components/shop-detail/shop-
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AddShopStepOneComponent } from './components/shop-add/add-shop-step-one/add-shop-step-one.component';
 import { AddShopStepTwoComponent } from './components/shop-add/add-shop-step-two/add-shop-step-two.component';
+import { ShopSearchComponent } from './components/shop-search/shop-search-home/shop-search-home.component';
 
 
 export function tokenGetter() {
@@ -50,7 +50,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       FooterComponent,
       AddShopStepOneComponent,
       AddShopStepTwoComponent,
-      ShopSearchHomeComponent,
+      ShopSearchComponent,
       CountryDialogComponent,
       TownshipDialogComponent,
       ShopDetailComponent,

@@ -1,121 +1,194 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogConfig} from "@angular/material";
-import { CountryDialogComponent } from './country-dialog/country-dialog.component';
-import { TownshipDialogComponent } from './township-dialog/township-dialog.component';
-import { HomeService } from '@app/_services/home.service';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { GetShopTypeResponse } from '@app/_models/home-models';
 import { ShopService } from '@app/_services/shop.service';
-import { GetCityResponse } from '@app/_models/city';
-// import { request } from 'http';
+import { City, CityOptions, Township } from '@app/_models/city';
+import { ActivatedRoute } from '@angular/router';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+import { TownshipOptions } from '@app/_models/township';
 
 @Component({
   selector: 'app-shop-search-home',
   templateUrl: './shop-search-home.component.html',
   styleUrls: ['./shop-search-home.component.css']
 })
-export class ShopSearchHomeComponent implements OnInit {
+export class ShopSearchComponent implements OnInit {
 
-  isShow = [];
-  showspan = false;
-  cityId: any;
-  shopName: string;
-  bthDisable = true;
-  townshipIdList = [];
-  shopTypeIdList = [];
-  selectedOptions: GetShopTypeResponse[]; 
-  // Array Variable
+  townships: Township[];
+  townshipOptions: TownshipOptions[] = [];
+  cities: City[];
+  cityOptions: CityOptions[] = [];
+  cityModalRef: BsModalRef;
+  cityPlaceholder = 'တစ်နိုင်ငံလုံး';
+  townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
+  selectedTownshipToTransfer: TownshipOptions[] = [];
+  townshipModalRef: BsModalRef;
   shopTypeList: GetShopTypeResponse[];
 
   constructor(
-    private dialog: MatDialog,
-    private service: HomeService,
-    private shopService :ShopService) { }
+    private route: ActivatedRoute,
+    private service: ShopService,
+    private modalService: BsModalService,
+    private shopService: ShopService
+    ) {}
 
   ngOnInit() {
-    this.getShopType();
+    this.route.data.subscribe(data => {
+      this.shopTypeList = data.shopTypes;
+      this.cities = data.cities.cityList;
+      this.cities.forEach(val => {
+        this.cityOptions.push({
+          id: val.id,
+          value: val.name,
+          selected: false
+        });
+      });
+    });
   }
 
-  getShopType() {
-    this.service.getShopType().subscribe( res => {
-      this.shopTypeList = res;
-    });
-  } 
-
-toggleDisplay(i,id) {
-  console.log(id)
-  // this.isShow = !this.isShow;
-  this.shopTypeList.forEach(element => {
-    if (element.id == id) {
-      this.showspan = true;
-    }else{
-      this.showspan = false;
-    }
-  });
-}
-
-onNgModelChange(selectedOptions: string[]){
-console.log(selectedOptions);
-}
-
-
-  openCountryDialog() {
-    const dialogRef = this.dialog.open(CountryDialogComponent, {
-      width: '90%',
-      height: '320px',
-      maxWidth: '90vw !important',
-      autoFocus: false,
-      maxHeight: '90vh',
-      panelClass: 'country-modalbox' //you can adjust the value as per your view
-      // data: {name: this.name, animal: this.animal}
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.cityId = result.cityId
-      if(this.cityId != null){
-        this.bthDisable = false;
+  toggleDisplay(id) {
+    this.shopTypeList.forEach(element => {
+      if (element.id == id) {
+        element.showSpan = !element.showSpan;
       }
     });
   }
 
+  openCityModal(template: TemplateRef<any>) {
+    this.cityModalRef = this.modalService.show(template);
+  }
 
-  openTownshipDialog(){
-    const dialogRef = this.dialog.open(TownshipDialogComponent, {
-      width: '90%',
-      height: '320px',
-      maxWidth: '100vw !important',
-      autoFocus: false,
-      maxHeight: '90vh',
-      panelClass: 'township-modalbox', //you can adjust the value as per your view
-      data: {cityId: this.cityId}
-    }); 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.townshipIdList = result.townIdList;
-      console.log(this.townshipIdList);
+  cancelCityModal() {
+    this.cityOptions.forEach(data => {
+      data.selected = false;
+    });
+    this.cityPlaceholder = 'တစ်နိုင်ငံလုံး';
+    this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
+    this.townshipOptions = [];
+    this.cityModalRef.hide();
+  }
+
+  getSelectedCity() {
+    this.selectedTownshipToTransfer = [];
+    this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
+    const result = this.cityOptions
+      .filter(opt => {
+        return opt.selected;
+      })
+      .map(opt => {
+        return opt;
+      });
+
+    const cityids = result.map(x => x.id).join(',');
+
+    this.service.getTownShips(cityids).subscribe(res => {
+      this.townshipOptions = [];
+      this.townships = res.townList;
+      this.townships.forEach(data => {
+        this.townshipOptions.push({
+          id: data.id,
+          value: data.name,
+          selected: false
+        });
+      });
+    });
+
+    this.cityPlaceholder = '';
+    this.cityPlaceholder = '';
+    if (result.length === 1) {
+      this.cityPlaceholder = result[0].value;
+    } else if (result.length === 0) {
+      this.cityPlaceholder = 'တစ်နိုင်ငံလုံး';
+    } else if (result.length === 2) {
+      for (let index = 0; index < 2; index++) {
+        if (index === 0) {
+          this.cityPlaceholder = result[index].value;
+        } else {
+          this.cityPlaceholder =
+            this.cityPlaceholder + '၊' + result[index].value;
+        }
+      }
+    } else {
+      for (let index = 0; index < 3; index++) {
+        if (index === 0) {
+          this.cityPlaceholder = result[index].value;
+        } else if (index === 1) {
+          this.cityPlaceholder =
+            this.cityPlaceholder + '၊' + result[index].value;
+        } else {
+            this.cityPlaceholder =
+              this.cityPlaceholder + ' ...';
+        }
+      }
+    }
+    this.cityModalRef.hide();
+  }
+
+  openTownshipModal(template: TemplateRef<any>) {
+    this.townshipModalRef = this.modalService.show(template);
+  }
+
+  getSelectedTownship() {
+    const result = this.townshipOptions
+      .filter(opt => {
+        return opt.selected;
+      })
+      .map(opt => {
+        return opt;
+      });
+
+    this.selectedTownshipToTransfer = result;
+
+    this.townshipPlaceholder = '';
+    if (result.length === 1) {
+      this.townshipPlaceholder = result[0].value;
+    } else if (result.length === 0) {
+      this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
+    } else if (result.length === 2) {
+      for (let index = 0; index < 2; index++) {
+        if (index === 0) {
+          this.townshipPlaceholder = result[index].value;
+        } else {
+          this.townshipPlaceholder =
+            this.townshipPlaceholder + '၊' + result[index].value;
+        }
+      }
+    } else {
+      for (let index = 0; index < 3; index++) {
+        if (index === 0) {
+          this.townshipPlaceholder = result[index].value;
+        } else if (index === 1) {
+          this.townshipPlaceholder =
+            this.townshipPlaceholder + '၊' + result[index].value;
+        } else {
+            this.townshipPlaceholder =
+              this.townshipPlaceholder + ' ...';
+        }
+      }
+    }
+    this.townshipModalRef.hide();
+  }
+
+  cancelTownshipModal() {
+    this.townshipOptions.forEach(data => {
+      data.selected = false;
+    });
+    this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
+    this.townshipModalRef.hide();
+  }
+
+  checkAllCities() {
+    this.cityOptions.forEach(data => {
+      data.selected = true;
+    });
+
+    this.getSelectedCity();
+
+    this.townshipOptions.forEach(data => {
+      data.selected = true;
     });
   }
 
+  checkAllTownships() {
 
-  Search(){
-    if (this.selectedOptions) {
-      this.selectedOptions.forEach(element => {
-        this.shopTypeIdList.push(element.id)
-      });
-    }
-
-    var request = {
-      shopName: this.shopName,
-      shopTypeIdList: this.shopTypeIdList == undefined || this.shopTypeIdList.length == 0? null : this.shopTypeIdList,
-      cityId: this.cityId == '' || this.cityId == undefined ? 0 : this.cityId,
-      townIdList: this.townshipIdList == undefined || this.townshipIdList.length == 0 ? null : this.townshipIdList
-    }
-
-
-    console.log("res", request)
-    this.shopService.searchShopList(request).subscribe(result => {
-      let obt = result;
-      console.log(obt);
-    })
   }
-
 }

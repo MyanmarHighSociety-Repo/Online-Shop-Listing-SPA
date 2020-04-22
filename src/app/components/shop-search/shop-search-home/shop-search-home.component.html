@@ -1,63 +1,156 @@
 <a href="#">
-  <img src="../../../../assets/shopsearch/Asset 63.png" alt="Previous Arrow Button" class="prev_arrow">
+  <img src="./assets/shopsearch/Asset 63.png" alt="Previous Arrow Button" class="prev_arrow">
 </a>
-<hr>
+<div class="line1"></div>
 <section class="section-1 pb-3">
   <div class="container-fluid">
-  <form action="" method="post" class="searchForm">	
-  <div class="row h-56p">
-    <div class="col-12">
-      <input type="text" class="form-control form-control-lg h-100" placeholder="ဆိုင်အမည်" autofocus [(ngModel)]="shopName" name="shopName">
-    </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-12">
-      <label for="deliveryCity" class="p.h5 grey-text"> ပို့ဆောင်သည့်မြို့နယ် </label>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-6">
-      <button type="button" class="btn btn-block city" (click)="openCountryDialog()">
-        <span> တစ်နိုင်ငံလုံး </span>
-      </button>
-    </div>
-    <div class="col-6">
-      <button type="button" [disabled]="bthDisable" class="btn btn-block township" (click)="openTownshipDialog()">
-        <span> မြို့နယ်ရွေးချယ်ပါ </span>
-      </button>
-    </div>
-  </div>
+    <form action="" method="post" class="searchForm">
+      <div class="row h-51p">
+        <div class="col-12">
+          <input type="text" class="form-control form-control-lg h-100 k-search" placeholder="ဆိုင်ရှာမည်" autofocus>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12">
+          <label for="deliveryCity" class="f-12 grey-text"> ပို့ဆောင်သည့်မြို့နယ် </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-block city" (click)="openCityModal(cityTemplate)">
+            <span> {{cityPlaceholder}} </span>
+          </button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-block township" (click)="openTownshipModal(townshipTemplate)" data-target="#township-Modal">
+            <span> {{townshipPlaceholder}}  </span> 
+          </button>
+        </div>
+      </div>
 
-  <div class="row mt-4">
-    <div class="col-12">
-      <label for="shopCategory" class="p.h5 grey-text "> ဆိုင်အမျိုးအစားများ </label>
-    </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-12">
-      <mat-selection-list #shopType [(ngModel)]="selectedOptions" name="shopType">
-        <mat-list-option *ngFor="let shopType of shopTypeList; let i = index" style="margin-bottom: 10px;" [value]="shopType">
-          <div (click)="isShow[i]= !isShow[i]" >
-            <span class="mr-2" [hidden]="!isShow[i]">
-            <img src="../../../../assets/shopsearch/Asset 66.svg" alt="checkSign1" class="checkSign" id="button-1" />
-            </span>
-            <img src="{{shopType.iconUrl}}" class="category">
-            <span class="f-v-w-4 ml-3">
-              {{shopType.name}}
-            </span>
+      <div class="row mt-4">
+        <div class="col-12">
+          <label for="shopCategory" class="f-12 grey-text "> ဆိုင်အမျိုးအစားများ </label>
+        </div>
+      </div>
+      <div *ngFor="let item of shopTypeList">
+        <div class="row mt-1" *ngIf="item.id == 1">
+          <div class="col-12">
+            <div class="foodNdelivery" (click)="toggleDisplay(item.id)">
+              <span class="check" *ngIf="item.showSpan">
+                <img src="./assets/shopsearch/Asset 40.svg" alt="checkSign1" class="checkSign" id="button-1"/>
+              </span>
+              <img src="{{item.iconUrl}}" alt="FDelivery" class="category" />
+              <span class="f-12 ml-2">
+                {{item.name}}
+              </span>
+            </div>
           </div>
-        </mat-list-option>
-      </mat-selection-list>
-    </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-12">
-      <button type="button" class="btn btn-lg btn-block custom-btn" (click)="Search()">
-      <img src="../../../../assets/shopsearch/Asset 67.svg" alt="searchIcon" class="search" /> 
-      ရှာမည် 
-      </button>
-    </div>
-  </div>
-  </form>
+        </div>
+        <div class="row mt-3" *ngIf="item.id != 1">
+          <div class="col-12">
+            <div class="foodNdelivery" (click)="toggleDisplay(item.id)">
+              <span class="check" *ngIf="item.showSpan">
+                <img src="./assets/shopsearch/Asset 40.svg" alt="checkSign1" class="checkSign" id="button-1"/>
+              </span>
+              <img src="{{item.iconUrl}}" alt="FDelivery" class="category" />
+              <span class="f-12 f-w-500 ml-2">
+                {{item.name}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row btn-fix">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4">
+          <button type="button" class="search-btn">
+            <img src="./assets/shopsearch/Asset 67.svg" class="searchIcon">
+            <span> ရှာမည် </span>
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </section>
+
+<ng-template #cityTemplate>
+  <!-- Modal Header -->
+  <div class="modal-header">
+    <h6 class="modal-title p.h5">
+      မြို့ရွေးချယ်ပါ
+    </h6>
+  </div>
+  <!-- Modal body -->
+  <div class="modal-body">
+    <div class="checkbox">
+      <input type="checkbox" name="check_list" class="cb mr-3" value="" id="checkAll" (click)="checkAllCities()">
+      <label class="check-label f-v-w-4" for="checkAll">
+        တစ်နိုင်ငံလုံး
+      </label>
+    </div>
+    <div *ngFor="let option of cityOptions">
+      <div class="checkbox">
+        <input type="checkbox" name="check_list" class="cb mr-3" [(ngModel)]="option.selected" value="{{option.id}}"
+          id="gridCheck1">
+        <label class="check-label f-v-w-4" for="gridCheck1">
+          {{option.value}}
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="row township-btn-modal">
+      <div class="col-6">
+        <button type="button" (click)="getSelectedCity()" class="btn btn-block btn-md chooseBtn">
+          ရွေးမည်
+        </button>
+      </div>
+      <div class="col-6">
+        <button type="button" (click)="cancelCityModal()" class="btn btn-md btn-block">
+          မလုပ်တော့ပါ
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #townshipTemplate >
+  <!-- Modal Header -->
+  <div class="modal-header">
+    <h6 class="modal-title p.h5">
+      မြို့နယ်ရွေးချယ်ပါ
+    </h6>
+  </div>
+  <!-- Modal body -->
+  <div class="modal-body" *ngIf="townshipOptions.length != 0">
+    <div class="checkbox">      
+      <input type="checkbox" name="check_list" class="cb mr-3" value="" id="checkAll" (click)="checkAllTownships()">
+      <label class="check-label f-v-w-4" for="checkAll">
+        မြို့နယ်အားလုံး
+      </label>
+    </div>
+    <div *ngFor="let option of townshipOptions">
+      <div class="checkbox">
+        <input type="checkbox" name="check_list" class="cb mr-3" [(ngModel)]="option.selected" value="{{option.id}}"
+          id="gridCheck1">
+        <label class="check-label f-v-w-4" for="gridCheck1">
+          {{option.value}}
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer" *ngIf="townshipOptions.length != 0">
+    <div class="row township-btn-modal">
+      <div class="col-6">
+        <button type="button" (click)="getSelectedTownship()" class="btn btn-block btn-md chooseBtn">
+          ရွေးမည်
+        </button>
+      </div>
+      <div class="col-6">
+        <button type="button" (click)="cancelTownshipModal()" class="btn btn-md btn-block">
+          မလုပ်တော့ပါ
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>

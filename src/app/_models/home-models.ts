@@ -4,6 +4,7 @@ export class GetShopTypeResponse {
     id: number;
     name: string;
     iconUrl: string;
+    showSpan: boolean;
 }
 
 export class GetHomeShopListResponse {
