@@ -9,12 +9,10 @@ body {
     font-size: 12px; 
    }
 input, select {
-    font-size: 100%;
+    font-size: 12px;
     }
-.form-control-lg {
-       font-size: 12px !important;   
-}
-.form-control:focus {
+
+.input:focus {
    border-color:#982ce5 ;
    -webkit-box-shadow: none;
    box-shadow: none;
@@ -24,9 +22,10 @@ input, select {
    border:0.7px solid rgba(0,0,0,.125);
    width:100%;
    border-radius:6px;
+   padding-left:12px;
    background-image:url('/assets/images1/Asset 39.svg');
    background-repeat:no-repeat;
-   background-size:15px 15px;
+   background-size:17px 17px;
    background-position: 95%;
 }
 
@@ -78,9 +77,10 @@ h6{
     width:100%;  
 }
 h5{
-    font-size:1.1rem !important;
+    font-size:0.9rem !important;
     margin-bottom:0rem !important;
     line-height: 1.3rem;
+   
 }
 h4{
     font-size:0.9rem !important;

@@ -21,23 +21,23 @@
   <section>
   <div *ngFor="let shopType of viewMoreShopList" class="container-fluid">
   
-  <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pt-4">
+  <div class="row pt-3">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <h5> {{shopType.shopTypeName}} ဆိုင်များ</h5>
         </div>
   </div>
-  <div *ngFor="let shop of shopType.shopList" class="row pt-4">
+  <div *ngFor="let shop of shopType.shopList" class="row pt-3">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="card k-home-card">
-            <div class="row">
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
+            <div class="row pb-1">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-2">
                     <div class="k-shop-link" (click)="shopDetail(shop.id)">
                         <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
                     </div>
                 </div>
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-4">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-2">
                     <h5> {{shop.name}}</h5> 
-                    <div class="k-badge mt-3 mb-3" style="margin-right: 10px;"><h6 class="white-text">{{shop.shopTypeName}}</h6></div> 
+                    <div class="k-badge mt-2 mb-2" style="margin-right: 10px;"><h6 class="white-text">{{shop.shopTypeName}}</h6></div> 
                     <p class="gray-text"> 
                       <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">   
                           <span *ngIf="i<3">{{location.township.name}}၊</span>                                
@@ -49,9 +49,9 @@
                     <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
                 </div>
               </div>
-              <div class="row k-bg-row pt-3 pb-3 custom-row">
+              <div class="row k-bg-row pt-2 pb-2 custom-row">
                   <div *ngFor="let product of shop.product"  class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                      <img src="{{product.productImage[0].url}}" class="k-item-img" style="margin-top: 3px; min-height: 50px;max-height:50px;">
+                      <img src="{{product.productImage[0].url}}" class="k-item-img" style="margin-top: 5px; min-height: 50px;max-height:50px;">
                   </div>                
                   <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
               </div>
@@ -59,9 +59,9 @@
     </div>
   </div>
   
-  <div class="row">
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4 mb-5">
-        <div (click)="search(shopType.shopTypeName,'')" class="k-view-shop"><span class="gray-text">ထပ်ကြည့်ရန်</span></div>
+  <div class="row pt-4 pb-3">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div (click)="search(shopType.shopTypeName,'')" class="k-view-shop">ထပ်ကြည့်ရန်</div>
     </div> 
   </div>
   </div>
