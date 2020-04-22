@@ -11,14 +11,9 @@ import { HomeComponent } from '@app/components/home/home.component';
 import { AlertifyService } from './_services/alertify.service';
 import { appRoutes } from './routes';
 import { FooterComponent } from './layouts/nav/footer/footer.component';
-import { FileUploadModule } from 'ng2-file-upload';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ShopAddStepOneShopTypeResolver, ShopAddStepOneCityResolver } from './_resolver/shop-add-step-one.resolver';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import {MatListModule} from '@angular/material/list';
 import { ShopDetailComponent } from './components/shop-detail/shop-detail.component';
 import { ViewMoreShopComponent } from './components/view-more-shop/view-more-shop.component';
 import { TruncateModule } from 'ng2-truncate';
@@ -58,23 +53,17 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       TruncateModule,
       CarouselModule,
       BrowserModule,
-      FileUploadModule,
       BrowserAnimationsModule,
       HttpClientModule,
       FormsModule,
       ReactiveFormsModule,
       ModalModule.forRoot(),
-      MatDialogModule,
-      MatButtonModule,
-      MatIconModule,
-      MatListModule,
       BsDropdownModule.forRoot(),
       BsDatepickerModule.forRoot(),
       PaginationModule.forRoot(),
       ButtonsModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
-
    ],
    providers: [
       AlertifyService,

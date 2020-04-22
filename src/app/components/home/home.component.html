@@ -55,7 +55,7 @@
             <div class="container-fluid">
                 <div class="row pb-1 pt-2">                    
                     <div *ngFor="let shopType of shopTypeList" class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-2 custom-col1">
-                        <div class="k-category-link" (click)="search(shopType.name,'')">
+                        <div class="k-category-link" (click)="search()">
                             <img src="{{shopType.iconUrl}}" class="k-category-img">
                             <p class="text-center gray-text pt-1">{{shopType.name}}</p>
                         </div>
