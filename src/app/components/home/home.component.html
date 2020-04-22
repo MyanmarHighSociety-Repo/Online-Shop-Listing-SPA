@@ -6,7 +6,7 @@
                          <img src="./assets/images1/Asset 2.svg" alt="wood-logo" class="k-home-logo">
                     </div>
                     <div class="col-2 mt-2">
-                        <img src="./assets/images1/Asset 44.svg" alt="search-logo" class="k-search-img" (click)="search('',homesearch)" class="k-search-img">
+                        <img src="./assets/images1/Asset 44.svg" alt="search-logo" class="k-search-img" (click)="search()" class="k-search-img">
                     </div>
                 </div>
             </div>
@@ -99,8 +99,8 @@
                                 </div>
                              </div>
                              <div class="row k-bg-row pt-2 pb-2 custom-row">
-                                 <div *ngFor="let product of shop.product;" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                                     <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}" class="k-item-img" style="margin-top: 5px; min-height: 50px;max-height:50px;">
+                                 <div *ngFor="let product of shop.product;" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2" style="margin-top: 5px; height: 50px; width: 50px;">
+                                     <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}" class="k-item-img" style="object-fit: cover; max-height: 50px; min-height: 50px;">
                                  </div>                                
                                  <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
                              </div>
@@ -133,21 +133,21 @@
              <div class="container-fluid k-navigation-section">
                  <div class="row footer-row">
                      <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-2">
-                          <a href="#" class="k-navigation-link active">
+                          <a class="k-navigation-link active">
                             <img src="./assets/images1/Asset 29.svg" class="k-navigation-img img1 mb-2">
                              <img src="./assets/images1/Asset 32.svg" class="k-navigation-img  img2 mb-2">
                              <p class="center-text black-text">မူလစာမျက်နှာ</p>
                         </a>
                      </div>
                      <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-2">
-                         <a href="#" class="k-navigation-link">
+                         <a class="k-navigation-link">
                           <img src="./assets/images1/Asset 30.svg" class="k-navigation-img img1 mb-2">
                          <img src="./assets/images1/Asset 33.svg" class="k-navigation-img  img2 mb-2">
                          <p class="center-text">မိမိ Shop တင်မည်</p>
                          </a>
                      </div>
                      <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4  mt-2">
-                         <a href="./../contactus/contactus.html" class="k-navigation-link">
+                         <a class="k-navigation-link">
                           <img src="./assets/images1/Asset 31.svg" class="k-navigation-img2 img1 mb-2">
                           <img src="./assets/images1/Asset 34.svg" class="k-navigation-img2  img2 mb-2">
                           <p class="center-text">ဆက်သွယ်ရန်</p>

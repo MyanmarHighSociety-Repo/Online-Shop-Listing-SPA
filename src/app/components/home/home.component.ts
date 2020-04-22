@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
   pageSize = 6;
   pageNumber = 1;
   isOpenOnHolidayFilter = false;
-  homesearch = '';
   townshipReadMore = false;
   townshipReadMoreText = 'ထပ်ကြည့်ရန်...';
 
@@ -117,8 +116,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  search(category, searchText) {
-    this.router.navigate(['/shop-search-home'], { queryParams: {searchText, category } });
+  search() {
+    this.router.navigate(['/shop-search']);
   }
 
   shopDetail(shopId) {

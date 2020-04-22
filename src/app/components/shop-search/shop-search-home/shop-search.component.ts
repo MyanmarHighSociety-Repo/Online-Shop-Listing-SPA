@@ -2,14 +2,14 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { GetShopTypeResponse } from '@app/_models/home-models';
 import { ShopService } from '@app/_services/shop.service';
 import { City, CityOptions, Township } from '@app/_models/city';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { TownshipOptions } from '@app/_models/township';
 
 @Component({
   selector: 'app-shop-search-home',
-  templateUrl: './shop-search-home.component.html',
-  styleUrls: ['./shop-search-home.component.css']
+  templateUrl: './shop-search.component.html',
+  styleUrls: ['./shop-search.component.css']
 })
 export class ShopSearchComponent implements OnInit {
 
@@ -28,7 +28,7 @@ export class ShopSearchComponent implements OnInit {
     private route: ActivatedRoute,
     private service: ShopService,
     private modalService: BsModalService,
-    private shopService: ShopService
+    private router: Router,
     ) {}
 
   ngOnInit() {
@@ -190,5 +190,9 @@ export class ShopSearchComponent implements OnInit {
 
   checkAllTownships() {
 
+  }
+
+  backToHome() {
+    this.router.navigate(['']);
   }
 }

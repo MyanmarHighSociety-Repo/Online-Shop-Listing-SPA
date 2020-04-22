@@ -50,8 +50,8 @@
                 </div>
               </div>
               <div class="row k-bg-row pt-2 pb-2 custom-row">
-                  <div *ngFor="let product of shop.product"  class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                      <img src="{{product.productImage[0].url}}" class="k-item-img" style="margin-top: 5px; min-height: 50px;max-height:50px;">
+                  <div *ngFor="let product of shop.product"  class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2" style="margin-top: 5px; height: 50px; width: 50px;">
+                      <img src="{{product.productImage[0].url}}" class="k-item-img" style="object-fit: cover; margin-top: 5px; min-height: 50px;max-height:50px;">
                   </div>                
                   <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
               </div>

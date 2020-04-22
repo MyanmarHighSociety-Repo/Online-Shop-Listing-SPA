@@ -16,11 +16,9 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ShopAddStepOneShopTypeResolver, ShopAddStepOneCityResolver } from './_resolver/shop-add-step-one.resolver';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MatDialogModule } from '@angular/material/dialog';
-import { CountryDialogComponent } from './components/shop-search/shop-search-home/country-dialog/country-dialog.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
-import { TownshipDialogComponent } from './components/shop-search/shop-search-home/township-dialog/township-dialog.component';
 import { ShopDetailComponent } from './components/shop-detail/shop-detail.component';
 import { ViewMoreShopComponent } from './components/view-more-shop/view-more-shop.component';
 import { TruncateModule } from 'ng2-truncate';
@@ -28,7 +26,7 @@ import { ShopDetailAdvertisementComponent } from './components/shop-detail/shop-
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AddShopStepOneComponent } from './components/shop-add/add-shop-step-one/add-shop-step-one.component';
 import { AddShopStepTwoComponent } from './components/shop-add/add-shop-step-two/add-shop-step-two.component';
-import { ShopSearchComponent } from './components/shop-search/shop-search-home/shop-search-home.component';
+import { ShopSearchComponent } from './components/shop-search/shop-search-home/shop-search.component';
 
 
 export function tokenGetter() {
@@ -51,8 +49,6 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       AddShopStepOneComponent,
       AddShopStepTwoComponent,
       ShopSearchComponent,
-      CountryDialogComponent,
-      TownshipDialogComponent,
       ShopDetailComponent,
       SpinnerComponent,
       ViewMoreShopComponent,
@@ -90,6 +86,5 @@ export class CustomHammerConfig extends HammerGestureConfig  {
    bootstrap: [
       AppComponent
    ],
-   entryComponents: [CountryDialogComponent, TownshipDialogComponent]
 })
 export class AppModule { }
