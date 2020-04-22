@@ -2,9 +2,9 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3 mb-3">
-        <div (click)="back()">
-          <img src="./assets/shopdetail/Asset 65.svg" class="right-arrow-logo ">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div>
+          <img src="./assets/images1/Asset 28.svg" class="k-view-arrow" (click)="back()" style="margin-top:13px;margin-bottom:13px;" >
         </div>
       </div>
     </div>
@@ -31,14 +31,14 @@
         </p>
         <p *ngIf="shop">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
         <p class="f-14 mb-2 mt-0" *ngIf="shop" class="gray-text">
-          <img src="./assets/shopdetail/Asset 54.svg" style="width: 9px;" alt="">
+          <img src="./assets/shopdetail/Asset 54.svg" style="width:9px;" alt="">
           {{shop.phNo}}
         </p>
       </div>
     </div>
-    <div class="row mb-4">
+    <div class="row pt-3">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-           <div class="article f-12 mt-3 bg-color-open">
+           <div class="article f-12 bg-color-open">
                <div *ngIf="shop" class="lineheight">
                   <div *ngIf="!desReadMore">{{ shop.description | truncate : 100 : "..." }}</div>
                   <div *ngIf="desReadMore">{{shop.description}}</div>
@@ -54,9 +54,8 @@
 <!-- Slider -->
 <section>
   <div class="container-fluid">
-    <div class="row"> 
-      <div *ngIf="shop" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col">
-           
+    <div class="row pt-3"> 
+      <div *ngIf="shop" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col">    
         <owl-carousel-o [options]="customOptions">
             <ng-template *ngFor="let ads of shop.advertisement" carouselSlide>
                 <div class="slide">
@@ -72,14 +71,14 @@
 <!-- Item Counts -->
 <section>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row pt-3">
       <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 k-custom-col">
         <div class="K-line"></div>
       </div>
     </div>
-    <div class="row pt-4 pb-4">
+    <div class="row pt-3 pb-3">
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><p class="text-black"> ပစ္စည်းများ</p> </div>
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><p *ngIf="shop" class="text-right">{{shop.product.length}}ခု</p></div>
+      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><p *ngIf="shop" class="text-right">{{shop.product.length}} ခု</p></div>
     </div>
   </div>
 </section>
@@ -87,12 +86,12 @@
 <!-- Products -->
 <section class="bg-color">
   <div class="container-fluid">
-    <div *ngIf="shop && shop.product" class="row pt-4 custom-row">
+    <div *ngIf="shop && shop.product" class="row custom-row">
      
-      <div *ngFor="let product of shop.product;" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col">
+      <div *ngFor="let product of shop.product;" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col pt-3">
         <img *ngIf="product.productImage[0]" class="materials1-img mr-1"  src="{{product.productImage[0].url}}" style="min-height: 150px;max-height:150px;">
         <p class="gray-text pt-2"> {{product.name}} </p>
-        <p *ngIf="product.price != 0" class="text-black"> ks {{product.price}}</p>
+        <p *ngIf="product.price != 0" class="text-purple"> ks {{product.price}}</p>
       </div> 
     
     </div> 

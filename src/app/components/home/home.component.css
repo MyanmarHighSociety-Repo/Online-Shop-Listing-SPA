@@ -28,7 +28,7 @@ input, select {
   }
   
 #k-home-search{
-    border:0.7px solid rgba(0,0,0,.125);
+    border:0.7px solid rgba(156, 100, 100, 0.125);
     width:100% !important;
     border-radius:6px;
     background-image:url("/assets/images1/Asset 39.svg");
@@ -169,6 +169,7 @@ p{
   .banner1{
     width:100%;
     height:auto;
+    max-height: 170px;
   }
   .swiper-pagination{
       width:100% !important;
@@ -323,7 +324,7 @@ a:visited{
  
  ::ng-deep .owl-theme .owl-dots .owl-dot.active span,
   .owl-theme .owl-dots .owl-dot:hover span {
-    background: #982ce5 !important; /*active and on hover color*/
+    background: #982ce5 !important;
     width:11px !important;
     height: 11px !important;
   }
