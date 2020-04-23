@@ -11,23 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  //sticky
-  @ViewChild('stickyMenu',{static: false }) menuElement: ElementRef;
-  sticky: boolean = false;
+  @ViewChild('stickyMenu', {static: false }) menuElement: ElementRef;
+  sticky = false;
   menuPosition: any;
-  ngAfterViewInit(){
-    this.menuPosition = this.menuElement.nativeElement.offsetTop
-  }
-    @HostListener('window:scroll', ['$event'])
-    handleScroll(){
-        const windowScroll = window.pageYOffset;
-        if(windowScroll >= this.menuPosition){
-            this.sticky = true;
-        } else {
-            this.sticky = false;
-        }
-    }
-
   // Tabs
   tablinks1 = 'active';
   tablinks2 = '';
@@ -46,6 +32,17 @@ export class HomeComponent implements OnInit {
   isOpenOnHolidayFilter = false;
   townshipReadMore = false;
   townshipReadMoreText = 'ထပ်ကြည့်ရန်...';
+
+  // @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll', [])
+  handleScroll() {
+      const windowScroll = window.pageYOffset;
+      if (windowScroll >= this.menuPosition) {
+          this.sticky = true;
+      } else {
+          this.sticky = false;
+      }
+  }
 
   // tslint:disable-next-line: member-ordering
   customOptions: OwlOptions = {
@@ -80,6 +77,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getShopType();
     this.getHomeShopList();
+  }
+
+  // tslint:disable-next-line: use-lifecycle-interface
+  ngAfterViewInit() {
+    this.menuPosition = this.menuElement.nativeElement.offsetTop;
   }
 
   changeTab(tab) {
@@ -153,5 +155,4 @@ export class HomeComponent implements OnInit {
       this.townshipReadMoreText = 'See Less';
     }
     }
-
 }
