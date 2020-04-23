@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , AfterViewInit , ViewChild, ElementRef, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HomeService } from '@app/_services/home.service';
 import { GetShopTypeResponse, GetHomeShopListResponse } from '@app/_models/home-models';
@@ -11,6 +11,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  //sticky
+  @ViewChild('stickyMenu',{static: false }) menuElement: ElementRef;
+  sticky: boolean = false;
+  menuPosition: any;
+  ngAfterViewInit(){
+    this.menuPosition = this.menuElement.nativeElement.offsetTop
+  }
+    @HostListener('window:scroll', ['$event'])
+    handleScroll(){
+        const windowScroll = window.pageYOffset;
+        if(windowScroll >= this.menuPosition){
+            this.sticky = true;
+        } else {
+            this.sticky = false;
+        }
+    }
 
   // Tabs
   tablinks1 = 'active';
@@ -37,6 +53,7 @@ export class HomeComponent implements OnInit {
     touchDrag: true,
     pullDrag: true,
     dots: true,
+    autoplay: true,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {

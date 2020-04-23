@@ -11,7 +11,9 @@
                 </div>
             </div>
         </section>
-        <section>
+        <section class="is-centered is-fullwidth"  style="widows: 100% !important;background-color: #ffffff;"
+        #stickyMenu  
+        [class.sticky] = "sticky">
             <div class="container-fluid">
                 <div class="row pt-2">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col">
@@ -25,6 +27,7 @@
                 </div>
             </div>
         </section>
+        <div class="content">
         <div class="tabcontent" id="Yangon">
         <section>
             <div class="container-fluid">
@@ -73,7 +76,7 @@
                 </div>
                 <div class="row pt-3">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <h5> Delivery ရရှိနိုင်သော ဆိုင်များ</h5>
+                        <p> Delivery ရရှိနိုင်သော ဆိုင်များ</p>
                     </div>
                 </div>
                 <div class="tabcontent1" id="YangonOnline">
@@ -81,12 +84,12 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
                             <div class="row pb-2">
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-2">
+                                <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 pt-2">
                                     <div class="k-shop-link">
                                         <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
                                     </div>
                                 </div>
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-2">
+                                <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7 pt-2">
                                     <h5>{{shop.name}}</h5> 
                                     <div class="k-badge mt-2 mb-2" style="margin-right: 10px;"><h6 class="white-text">{{shop.shopTypeName}}</h6></div>                                 
                                     <p class="gray-text">
@@ -127,7 +130,7 @@
             </div>
             </section>
         </div>
-
+    </div>
 
            <section>
              <div class="container-fluid k-navigation-section">
