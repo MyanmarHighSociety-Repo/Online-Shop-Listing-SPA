@@ -52,7 +52,7 @@
   display: block;
   width: 100%;
   padding:12px;
-  font-size:0.9rem !important;
+  font-size:0.8rem !important;
   background-color:#982ce5;
   border: 1px solid #982ce5;
   color: #fff;
@@ -571,4 +571,5 @@ img {vertical-align: middle;}
   width:100%;
   background-color: #ffffff;
   z-index:100;
+  height:75px;
 }
