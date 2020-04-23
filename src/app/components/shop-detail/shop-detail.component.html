@@ -14,13 +14,13 @@
 <!-- Header -->
 <section>
   <div class="container-fluid">
-    <div class="row border-top-row pt-4">
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <img *ngIf="shop" src="{{shop.shopLogoUrl}}" class="N-shop-logo mt-1" alt="" >
+    <div class="row border-top-row pt-3">
+      <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 mt-1">
+        <img *ngIf="shop" src="{{shop.shopLogoUrl}}" class="N-shop-logo" alt="" >
       </div>
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <h5 *ngIf="shop" class="f-14 mb-2 mt-0">{{shop.name}}</h5> 
-        <div class="k-badge mt-3 mb-3" style="margin-right: 10px;"><h6 *ngIf="shop" class="white-text">{{shop.shopTypeName}}</h6></div>
+      <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
+        <h5 *ngIf="shop" class="mt-0">{{shop.name}}</h5> 
+        <div class="k-badge mt-2 mb-2" style="margin-right: 10px;"><h6 *ngIf="shop" class="white-text">{{shop.shopTypeName}}</h6></div>
         <p *ngIf="shop">
           <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">   
             <span *ngIf="i<3">{{location.township.name}}၊</span>                                
@@ -52,7 +52,7 @@
 </section>
 
 <!-- Slider -->
-<section>
+<section class="carousel-section">
   <div class="container-fluid">
     <div class="row pt-3"> 
       <div *ngIf="shop" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col">    
@@ -71,12 +71,12 @@
 <!-- Item Counts -->
 <section>
   <div class="container-fluid">
-    <div class="row pt-3">
+    <div class="row pt-2">
       <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 k-custom-col">
         <div class="K-line"></div>
       </div>
     </div>
-    <div class="row pt-3 pb-3">
+    <div class="row pt-2 pb-2">
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><p class="text-black"> ပစ္စည်းများ</p> </div>
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"><p *ngIf="shop" class="text-right">{{shop.product.length}} ခု</p></div>
     </div>
@@ -88,7 +88,7 @@
   <div class="container-fluid">
     <div *ngIf="shop && shop.product" class="row custom-row">
      
-      <div *ngFor="let product of shop.product;" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col pt-3" style="height: 160; width: 150;">
+      <div *ngFor="let product of shop.product;" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 k-full-col pt-2" style="height: 160; width: 150;">
         <img *ngIf="product.productImage[0]" class="materials1-img mr-1"  src="{{product.productImage[0].url}}" style="object-fit: cover; min-height: 150px;max-height:150px;">
         <p class="gray-text pt-2"> {{product.name}} </p>
         <p *ngIf="product.price != 0" class="text-purple"> ks {{product.price}}</p>
@@ -99,11 +99,11 @@
 </section>
 
 <!-- Buy button -->
-<section>
+<section class="fixed-section">
   <div class="container-fluid">
-    <div class="row border-top-row pb-4">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pt-4">
-        <button (click)="openModal(template)" type="button" class="btn btn-buy  btn-lg" data-toggle="modal" data-target="#myModal">
+    <div class="row border-top-row" style="padding-top:15px;padding-bottom:15px">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <button (click)="openModal(template)" type="button" class="btn btn-buy btn-lg" data-toggle="modal" data-target="#myModal">
           <img src="./assets/shopdetail/Asset 45.svg" style="width:20px" alt="">
           ၀ယ်ယူမည်
       </button>
