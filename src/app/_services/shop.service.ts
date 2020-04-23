@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { GetCityResponse, City, GetAllTwonshipResponse } from '@app/_models/city';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GetShopSearchResponse } from '@app/_models/home-models';
 import { environment } from 'src/environments/environment';
@@ -27,6 +27,10 @@ selectedTownships: TownshipOptions[];
 shopData: ShopData;
 selectedAdveriesementFiles: AdvertisementData[];
 shopImgFile: File;
+
+searchFormText: string;
+searchFormTownship: string;
+searchFormShopType: string;
 
 constructor(private http: HttpClient) { }
 
@@ -114,5 +118,26 @@ searchShopList(request): Observable<GetShopSearchResponse> {
     params = params.append('shopId', shopId);
     const shopUrl = `${this.shop_url}/GetAdvertisementByShopId?` + params;
     return this.http.get<GetHomeShopListAdvertisementResponse[]>(shopUrl);
+  }
+
+  getSearchResult(pageSize?: string, pageNumber?: string): Observable<any> {
+    const postData = {
+      pageNumber,
+      pageSize,
+      townshipIds: this.searchFormTownship,
+      searchText: this.searchFormText ,
+      shopTypeIds: this.searchFormShopType
+    };
+
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      observe: 'response' as 'response'
+    };
+
+
+    this.searchFormTownship = null;
+    this.searchFormText = null;
+    this.searchFormShopType = null;
+    return this.http.post<GetHomeShopListResponse[]>(this.baseUrl + 'Shop/search/shoplist', postData, httpOptions);
   }
 }

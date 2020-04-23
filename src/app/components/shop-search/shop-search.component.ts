@@ -12,7 +12,6 @@ import { TownshipOptions } from '@app/_models/township';
   styleUrls: ['./shop-search.component.css']
 })
 export class ShopSearchComponent implements OnInit {
-
   townships: Township[];
   townshipOptions: TownshipOptions[] = [];
   cities: City[];
@@ -23,13 +22,18 @@ export class ShopSearchComponent implements OnInit {
   selectedTownshipToTransfer: TownshipOptions[] = [];
   townshipModalRef: BsModalRef;
   shopTypeList: GetShopTypeResponse[];
+  wholeCountry = false;
+  wholeCity = false;
+  disabled = true;
+  searchText: string;
+  cityIds: string = null;
 
   constructor(
     private route: ActivatedRoute,
     private service: ShopService,
     private modalService: BsModalService,
-    private router: Router,
-    ) {}
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -47,7 +51,7 @@ export class ShopSearchComponent implements OnInit {
 
   toggleDisplay(id) {
     this.shopTypeList.forEach(element => {
-      if (element.id == id) {
+      if (element.id === id) {
         element.showSpan = !element.showSpan;
       }
     });
@@ -64,10 +68,22 @@ export class ShopSearchComponent implements OnInit {
     this.cityPlaceholder = 'တစ်နိုင်ငံလုံး';
     this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
     this.townshipOptions = [];
+    this.wholeCountry = false;
     this.cityModalRef.hide();
+    this.cityIds = null;
+    this.disabled = true;
   }
 
   getSelectedCity() {
+    if (this.wholeCountry) {
+      this.disabled = true;
+      this.cityPlaceholder = 'တစ်နိုင်ငံလုံး';
+      this.townshipPlaceholder = 'မြို့နယ်အားလုံး';
+      this.cityModalRef.hide();
+      this.cityIds = null;
+      return;
+    }
+    this.disabled = false;
     this.selectedTownshipToTransfer = [];
     this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
     const result = this.cityOptions
@@ -78,9 +94,12 @@ export class ShopSearchComponent implements OnInit {
         return opt;
       });
 
-    const cityids = result.map(x => x.id).join(',');
-
-    this.service.getTownShips(cityids).subscribe(res => {
+    if (result == null || result.length === 0) {
+      return;
+    }
+    this.cityIds = null;
+    this.cityIds = result.map(x => x.id).join(',');
+    this.service.getTownShips(this.cityIds).subscribe(res => {
       this.townshipOptions = [];
       this.townships = res.townList;
       this.townships.forEach(data => {
@@ -115,8 +134,7 @@ export class ShopSearchComponent implements OnInit {
           this.cityPlaceholder =
             this.cityPlaceholder + '၊' + result[index].value;
         } else {
-            this.cityPlaceholder =
-              this.cityPlaceholder + ' ...';
+          this.cityPlaceholder = this.cityPlaceholder + ' ...';
         }
       }
     }
@@ -160,8 +178,7 @@ export class ShopSearchComponent implements OnInit {
           this.townshipPlaceholder =
             this.townshipPlaceholder + '၊' + result[index].value;
         } else {
-            this.townshipPlaceholder =
-              this.townshipPlaceholder + ' ...';
+          this.townshipPlaceholder = this.townshipPlaceholder + ' ...';
         }
       }
     }
@@ -173,26 +190,100 @@ export class ShopSearchComponent implements OnInit {
       data.selected = false;
     });
     this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
+    this.wholeCity = false;
+    this.selectedTownshipToTransfer = [];
     this.townshipModalRef.hide();
   }
 
   checkAllCities() {
-    this.cityOptions.forEach(data => {
-      data.selected = true;
-    });
+    if (this.wholeCountry === false) {
+      this.wholeCountry = true;
 
-    this.getSelectedCity();
+      this.cityOptions.forEach(data => {
+        data.selected = true;
+      });
+    } else {
+      this.wholeCountry = false;
+      this.cityOptions.forEach(data => {
+        data.selected = false;
+      });
 
-    this.townshipOptions.forEach(data => {
-      data.selected = true;
-    });
+      this.townshipOptions.forEach(data => {
+        data.selected = false;
+      });
+    }
   }
 
   checkAllTownships() {
+    if (this.wholeCity === false) {
+      this.wholeCity = true;
 
+      this.townshipOptions.forEach(data => {
+        data.selected = true;
+      });
+    } else {
+      this.wholeCity = false;
+      this.townshipOptions.forEach(data => {
+        data.selected = false;
+      });
+    }
+  }
+
+  checkForWholeCity(obj) {
+    if (obj.selected === true) {
+      this.wholeCity = false;
+      return;
+    }
+
+    const marker = [];
+    this.townshipOptions.forEach(data => {
+      if (data.selected === false) {
+        marker.push(data);
+        return;
+      }
+    });
+    if (marker.length > 1) {
+      this.wholeCity = false;
+    } else {
+      this.wholeCity = true;
+    }
+  }
+
+  checkForWholeCountry(obj) {
+    if (obj.selected === true) {
+      this.wholeCountry = false;
+      return;
+    }
   }
 
   backToHome() {
     this.router.navigate(['']);
+  }
+  search() {
+    this.service.searchFormText = this.searchText;
+    let counter = 1;
+    this.shopTypeList.forEach(element => {
+      if (element.showSpan != null && element.showSpan !== false) {
+        if (counter === 1) {
+          this.service.searchFormShopType = element.id.toString();
+        } else {
+          this.service.searchFormShopType += ',' + element.id.toString();
+        }
+        counter++;
+      }
+    });
+
+    if (this.wholeCountry === true || this.cityIds == null) {
+      this.service.searchFormTownship = 'All';
+    } else if (
+      this.wholeCountry === false &&
+      this.selectedTownshipToTransfer.length === 0
+    ) {
+      this.service.searchFormTownship = this.townshipOptions.map(x => x.id).join(',');
+    } else {
+      this.service.searchFormTownship = this.selectedTownshipToTransfer.map(x => x.id).join(',');
+    }
+
+    this.router.navigate(['/shop-search-result']);
   }
 }

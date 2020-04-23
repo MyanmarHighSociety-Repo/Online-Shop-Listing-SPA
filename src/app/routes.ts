@@ -6,7 +6,8 @@ import { ViewMoreShopComponent } from './components/view-more-shop/view-more-sho
 import { ShopDetailAdvertisementComponent } from './components/shop-detail/shop-detail-advertisement/shop-detail-advertisement.component';
 import { AddShopStepOneComponent } from './components/shop-add/add-shop-step-one/add-shop-step-one.component';
 import { AddShopStepTwoComponent } from './components/shop-add/add-shop-step-two/add-shop-step-two.component';
-import { ShopSearchComponent } from './components/shop-search/shop-search-home/shop-search.component';
+import { ShopSearchComponent } from './components/shop-search/shop-search.component';
+import { ShopSearchResultComponent } from './components/shop-search/shop-search-result/shop-search-result.component';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
@@ -23,6 +24,7 @@ export const appRoutes: Routes = [
                 resolve: {shopTypes: ShopAddStepOneShopTypeResolver, cities: ShopAddStepOneCityResolver}
             },
             { path: 'add-shop-step-two', component: AddShopStepTwoComponent},
+            { path: 'shop-search-result', component: ShopSearchResultComponent},
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full'}

@@ -1,0 +1,80 @@
+<div class="wrapper" *ngIf="isLoading">
+    <div class="overlay">
+        <div class="spinner-wrapper">
+            <app-spinner></app-spinner>
+        </div>
+    </div>
+</div>
+<div *ngIf="!isLoading">
+    <div *ngIf="haveResult">
+        <a (click)="backToSearch()">
+            <img src="./assets/shopsearch/Asset 63.png" alt="Previous-arrow" class="prev_arrow" />
+        </a>
+        <div class="line2"></div>
+        <section class="section-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="f-12 grey-text text-justify">
+                            ရှာဖွေတွေ့ရှိချက် <span> {{pageInfo.totalItems}} </span> ဆိုင်
+                        </p>
+                    </div>
+                </div>
+                <div *ngFor="let shop of searchResult;let i=index" class="row pt-3">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="card k-home-card">
+                            <div class="row pb-2">
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-2">
+                                    <div class="k-shop-link">
+                                        <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
+                                    </div>
+                                </div>
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-2">
+                                    <h5>{{shop.name}}</h5> 
+                                    <div class="k-badge mt-2 mb-2" style="margin-right: 10px;"><h6 class="white-text">{{shop.shopTypeName}}</h6></div>                                 
+                                    <p class="gray-text">
+                                        <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">  
+                                            <span *ngIf="i<3">{{location.township.name}}၊</span>                                                                       
+                                        </span>
+                                    </p>
+                                    <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
+                                </div>
+                             </div>
+                             <div class="row k-bg-row pt-2 pb-2 custom-row">
+                                 <div *ngFor="let product of shop.product;" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2" style="margin-top: 5px; height: 50px; width: 50px;">
+                                     <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}" class="k-item-img" style="object-fit: cover; max-height: 50px; min-height: 50px;">
+                                 </div>                                
+                                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+                             </div>
+                        </div>
+                    </div>
+                    <div *ngIf="i==1">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pt-3">
+                            <img src="./assets/images1/Asset 28.png" class="k-adv-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div *ngIf="!haveResult">
+        <a (click)="backToSearch()">
+            <img src="./assets/shopsearch/Asset 63.png" alt="Previous-arrow" class="prev_arrow" />
+        </a>
+        <div class="line-noSearch"></div>
+        <section class="section-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="f-12 grey-text f-w-500">
+                            ရှာဖွေတွေ့ရှိချက် မရှိပါ။
+                        </p>
+                    </div>
+                </div>
+                <!-- <div class="row"> -->
+                <img src="./assets/shopsearch/Asset 36.svg" alt="NoSearch" class="noSearch" />
+                <!-- </div> -->
+            </div>
+        </section>
+    </div>
+</div>

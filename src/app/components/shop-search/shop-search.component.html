@@ -4,10 +4,10 @@
 <div class="line1"></div>
 <section class="section-1 pb-3">
   <div class="container-fluid">
-    <form action="" method="post" class="searchForm">
+    <!-- <form action="" method="post" class="searchForm"> -->
       <div class="row h-51p">
         <div class="col-12">
-          <input type="text" class="form-control form-control-lg h-100 k-search" placeholder="ဆိုင်ရှာမည်" autofocus>
+          <input type="text" [(ngModel)]="searchText" class="form-control form-control-lg h-100 k-search" placeholder="ဆိုင်ရှာမည်" autofocus>
         </div>
       </div>
       <div class="row mt-3">
@@ -22,7 +22,7 @@
           </button>
         </div>
         <div class="col">
-          <button type="button" class="btn btn-block township" (click)="openTownshipModal(townshipTemplate)" data-target="#township-Modal">
+          <button [ngClass]="{'disabled' : disabled}" type="button" class="btn btn-block township" (click)="openTownshipModal(townshipTemplate)" data-target="#township-Modal">
             <span> {{townshipPlaceholder}}  </span> 
           </button>
         </div>
@@ -63,13 +63,13 @@
       </div>
       <div class="row btn-fix">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4">
-          <button type="button" class="search-btn">
+          <button type="button" class="search-btn" (click)="search()">
             <img src="./assets/shopsearch/Asset 67.svg" class="searchIcon">
             <span> ရှာမည် </span>
           </button>
         </div>
       </div>
-    </form>
+    <!-- </!-->
   </div>
 </section>
 
@@ -83,7 +83,7 @@
   <!-- Modal body -->
   <div class="modal-body">
     <div class="checkbox">
-      <input type="checkbox" name="check_list" class="cb mr-3" value="" id="checkAll" (click)="checkAllCities()">
+    <input type="checkbox" name="check_list" class="cb mr-3" [(ngModel)]="wholeCountry" value="{{wholeCountry}}" id="checkAll" (click)="checkAllCities()">
       <label class="check-label f-v-w-4" for="checkAll">
         တစ်နိုင်ငံလုံး
       </label>
@@ -91,7 +91,7 @@
     <div *ngFor="let option of cityOptions">
       <div class="checkbox">
         <input type="checkbox" name="check_list" class="cb mr-3" [(ngModel)]="option.selected" value="{{option.id}}"
-          id="gridCheck1">
+          id="gridCheck1" (click)="checkForWholeCountry(option)">
         <label class="check-label f-v-w-4" for="gridCheck1">
           {{option.value}}
         </label>
@@ -124,7 +124,7 @@
   <!-- Modal body -->
   <div class="modal-body" *ngIf="townshipOptions.length != 0">
     <div class="checkbox">      
-      <input type="checkbox" name="check_list" class="cb mr-3" value="" id="checkAll" (click)="checkAllTownships()">
+      <input type="checkbox" name="check_list" class="cb mr-3" [(ngModel)]="wholeCity" value="{{wholeCity}}" id="checkAll" (click)="checkAllTownships()">
       <label class="check-label f-v-w-4" for="checkAll">
         မြို့နယ်အားလုံး
       </label>
@@ -132,7 +132,7 @@
     <div *ngFor="let option of townshipOptions">
       <div class="checkbox">
         <input type="checkbox" name="check_list" class="cb mr-3" [(ngModel)]="option.selected" value="{{option.id}}"
-          id="gridCheck1">
+          id="gridCheck1" (click)="checkForWholeCity(option)">
         <label class="check-label f-v-w-4" for="gridCheck1">
           {{option.value}}
         </label>

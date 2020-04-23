@@ -21,7 +21,8 @@ import { ShopDetailAdvertisementComponent } from './components/shop-detail/shop-
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AddShopStepOneComponent } from './components/shop-add/add-shop-step-one/add-shop-step-one.component';
 import { AddShopStepTwoComponent } from './components/shop-add/add-shop-step-two/add-shop-step-two.component';
-import { ShopSearchComponent } from './components/shop-search/shop-search-home/shop-search.component';
+import { ShopSearchComponent } from './components/shop-search/shop-search.component';
+import { ShopSearchResultComponent } from './components/shop-search/shop-search-result/shop-search-result.component';
 
 
 export function tokenGetter() {
@@ -46,6 +47,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ShopSearchComponent,
       ShopDetailComponent,
       SpinnerComponent,
+      ShopSearchResultComponent,
       ViewMoreShopComponent,
       ShopDetailAdvertisementComponent,
    ],
