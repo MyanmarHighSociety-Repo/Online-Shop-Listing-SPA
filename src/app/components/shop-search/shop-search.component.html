@@ -61,8 +61,13 @@
           </div>
         </div>
       </div>
-      <div class="row btn-fix">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div style="height:95px;width:100%"></div>
+        </div>
+      </div>
+      <div class="row fixed-section-btn" style="padding-top:15px;padding-bottom:15px">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
           <button type="button" class="search-btn" (click)="search()">
             <img src="./assets/shopsearch/Asset 67.svg" class="searchIcon">
             <span style="font-size:0.8rem !important;"> ရှာမည် </span>
@@ -72,18 +77,18 @@
     <!-- </!-->
   </div>
 </section>
-<ng-template #cityTemplate>
+<ng-template #cityTemplate id="margin-modal">
   <!-- Modal Header -->
   <div class="modal-header">
-    <h6 class="modal-title p.h5">
+    <p class="modal-title p.h5">
       မြို့ရွေးချယ်ပါ
-    </h6>
+    </p>
   </div>
   <!-- Modal body -->
   <div class="modal-body">
     <div class="checkbox">
     <input type="checkbox" name="check_list" class="cb mr-3" [(ngModel)]="wholeCountry" value="{{wholeCountry}}" id="checkAll" (click)="checkAllCities()">
-      <label class="check-label f-v-w-4" for="checkAll">
+      <label class="check-label font-12" for="checkAll">
         တစ်နိုင်ငံလုံး
       </label>
     </div>
@@ -91,7 +96,7 @@
       <div class="checkbox">
         <input type="checkbox" name="check_list" class="cb mr-3" [(ngModel)]="option.selected" value="{{option.id}}"
           id="gridCheck1" (click)="checkForWholeCountry(option)">
-        <label class="check-label f-v-w-4" for="gridCheck1">
+        <label class="check-label font-12" for="gridCheck1">
           {{option.value}}
         </label>
       </div>
@@ -101,12 +106,12 @@
     <div class="row township-btn-modal">
       <div class="col-6">
         <button type="button" (click)="getSelectedCity()" class="btn btn-block btn-md chooseBtn">
-          ရွေးမည်
+         <p> ရွေးမည်</p>
         </button>
       </div>
       <div class="col-6">
         <button type="button" (click)="cancelCityModal()" class="btn btn-md btn-block">
-          မလုပ်တော့ပါ
+         <p> မလုပ်တော့ပါ</p>
         </button>
       </div>
     </div>
@@ -117,15 +122,15 @@
   <section>
   <!-- Modal Header -->
   <div class="modal-header">
-    <h6 class="modal-title p.h5">
+    <p class="modal-title p.h5">
       မြို့နယ်ရွေးချယ်ပါ
-    </h6>
+    </p>
   </div>
   <!-- Modal body -->
   <div class="modal-body" *ngIf="townshipOptions.length != 0">
     <div class="checkbox">      
       <input type="checkbox" name="check_list" class="cb mr-3" [(ngModel)]="wholeCity" value="{{wholeCity}}" id="checkAll" (click)="checkAllTownships()">
-      <label class="check-label f-v-w-4" for="checkAll">
+      <label class="check-label f-v-w-4 font-12" for="checkAll">
         မြို့နယ်အားလုံး
       </label>
     </div>
@@ -133,7 +138,7 @@
       <div class="checkbox">
         <input type="checkbox" name="check_list" class="cb mr-3" [(ngModel)]="option.selected" value="{{option.id}}"
           id="gridCheck1" (click)="checkForWholeCity(option)">
-        <label class="check-label f-v-w-4" for="gridCheck1">
+        <label class="check-label f-v-w-4 font-12" for="gridCheck1">
           {{option.value}}
         </label>
       </div>
@@ -143,12 +148,12 @@
     <div class="row p-0 m-0 township-btn-modal">
       <div class="col-6">
         <button type="button" (click)="getSelectedTownship()" class="btn btn-block btn-md chooseBtn">
-          ရွေးမည်
+        <p> ရွေးမည်</p> 
         </button>
       </div>
       <div class="col-6">
         <button type="button" (click)="cancelTownshipModal()" class="btn btn-md btn-block">
-          မလုပ်တော့ပါ
+          <p>မလုပ်တော့ပါ</p>
         </button>
       </div>
     </div>

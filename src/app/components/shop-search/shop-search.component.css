@@ -230,6 +230,12 @@ h6{
 .text-justify{
 	text-align: justify!important;
 }
+p{
+    margin-bottom:0.6rem !important;
+    line-height: 1.3rem !important;
+    font-size:12px !important;
+    
+  }
 .fixed-section-btn{
     position: fixed;
     bottom:0;
@@ -251,4 +257,10 @@ h6{
 .disabled {
     opacity: 0.6;
     pointer-events: none;
+}
+body{
+    font-size: 12px !important;
+}
+.font-12{
+    font-size:12px !important;
 }
