@@ -4,6 +4,7 @@ import { ShopService } from '@app/_services/shop.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-shop-detail',
@@ -51,7 +52,8 @@ export class ShopDetailComponent implements OnInit {
   constructor(private service: ShopService,
               private router: Router,
               private route: ActivatedRoute,
-              private modalService: BsModalService) { }
+              private modalService: BsModalService,
+              private location: Location) { }
 
   ngOnInit() {
     this.shopId = this.route.snapshot.queryParamMap.get('shopId');
@@ -83,7 +85,7 @@ export class ShopDetailComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['.']);
+    this.location.back();
   }
 
   shopDetailAdvertisement(shopId) {

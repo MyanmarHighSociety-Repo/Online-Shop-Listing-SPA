@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ShopService } from '@app/_services/shop.service';
 import { GetHomeShopListResponse } from '@app/_models/home-models';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-shop-search-home',
@@ -20,7 +21,8 @@ export class ShopSearchResultComponent implements OnInit {
 
   constructor(
     private service: ShopService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -30,7 +32,6 @@ export class ShopSearchResultComponent implements OnInit {
   getResult() {
     this.service.getSearchResult(this.items.toString(), this.page.toString()).subscribe(res => {
         this.pageInfo = JSON.parse(res.headers.get('pagination'));
-        console.log(this.pageInfo);
         this.searchResult = [];
         this.searchResult = res.body;
         if (this.searchResult.length > 0) {
@@ -41,7 +42,10 @@ export class ShopSearchResultComponent implements OnInit {
   }
 
   backToSearch() {
-    this.router.navigate(['shop-search']);
+    this.location.back();
+    this.service.searchFormShopType = null;
+    this.service.searchFormText = null;
+    this.service.searchFormTownship = null;
   }
 
   viewMoreShop() {
@@ -56,5 +60,9 @@ export class ShopSearchResultComponent implements OnInit {
         });
         this.viewMoreClicked = false;
     });
+  }
+
+  shopDetail(shopId) {
+    this.router.navigate(['/shop-detail'], { queryParams: {shopId } });
   }
 }

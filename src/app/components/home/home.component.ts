@@ -4,6 +4,9 @@ import { HomeService } from '@app/_services/home.service';
 import { GetShopTypeResponse, GetHomeShopListResponse } from '@app/_models/home-models';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Router } from '@angular/router';
+import { ShopService } from '@app/_services/shop.service';
+import { Township, City } from '@app/_models/city';
+import { TownshipOptions } from '@app/_models/township';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +15,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   @ViewChild('stickyMenu', {static: false }) menuElement: ElementRef;
+
   sticky = false;
   menuPosition: any;
+
   // Tabs
   tablinks1 = 'active';
   tablinks2 = '';
@@ -24,14 +29,22 @@ export class HomeComponent implements OnInit {
   // Array Variable
   shopTypeList: GetShopTypeResponse[];
   shopList: GetHomeShopListResponse[];
+  moreResult: GetHomeShopListResponse[];
 
   // Variable
   currentCity = '1';
   pageSize = 3;
   pageNumber = 1;
+  totalPages = 1;
   isOpenOnHolidayFilter = false;
   townshipReadMore = false;
   townshipReadMoreText = 'ထပ်ကြည့်ရန်...';
+  viewMoreClicked = false;
+  currentPage = 1;
+  cities: any;
+  townships: Township[];
+  townshipOptions: TownshipOptions[] = [];
+  pageInfo: any;
 
   // @HostListener('window:scroll', ['$event'])
   @HostListener('window:scroll', [])
@@ -71,12 +84,17 @@ export class HomeComponent implements OnInit {
     nav: false
   };
 
-  constructor(private service: HomeService,
+  constructor(
+              private service: HomeService,
+              private shopService: ShopService,
               private router: Router) { }
 
   ngOnInit() {
     this.getShopType();
-    this.getHomeShopList();
+    this.shopService.searchFormShopType = '';
+    this.shopService.searchFormText = '';
+    this.shopService.searchFormTownship = '';
+    this.loadResult(1);
   }
 
   // tslint:disable-next-line: use-lifecycle-interface
@@ -90,34 +108,19 @@ export class HomeComponent implements OnInit {
       this.tablinks2 = 'inactive';
       this.tablinks3 = 'inactive';
       this.currentCity = '1';
-      this.getHomeShopList();
+      this.loadResult(this.currentCity);
     } else if (tab === 'tablinks2') {
       this.tablinks1 = 'inactive';
       this.tablinks2 = 'active';
       this.tablinks3 = 'inactive';
-      this.currentCity = '3';
-      this.getHomeShopList();
+      this.currentCity = '2';
+      this.loadResult(this.currentCity);
     } else {
       this.tablinks1 = 'inactive';
       this.tablinks2 = 'inactive';
       this.tablinks3 = 'active';
       this.currentCity = '0';
-      this.getHomeShopList();
-    }
-
-  }
-
-  changeTab1(tab) {
-    if (tab === 'tablinks4') {
-      this.tablinks4 = 'active';
-      this.tablinks5 = 'inactive';
-      this.isOpenOnHolidayFilter = false;
-      this.getHomeShopList();
-    } else {
-      this.tablinks4 = 'inactive';
-      this.tablinks5 = 'active';
-      this.isOpenOnHolidayFilter = true;
-      this.getHomeShopList();
+      this.loadResult(this.currentCity);
     }
 
   }
@@ -128,15 +131,62 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getHomeShopList() {
-    this.service.getHomeShopList(this.pageSize, this.pageNumber, this.currentCity, this.isOpenOnHolidayFilter).subscribe( res => {
-      this.shopList = [];
-      this.shopList = res;
+  getResult() {
+    this.shopService.getSearchResult(this.pageSize.toString(), this.pageNumber.toString()).subscribe(res => {
+        this.pageInfo = JSON.parse(res.headers.get('pagination'));
+        const totalItems = this.pageInfo.totalItems;
+        if (totalItems === 0) {
+          this.totalPages = 0;
+          this.currentPage = 0;
+        } else {
+          this.totalPages = this.pageInfo.totalPages;
+          this.currentPage = this.pageInfo.currentPage;
+        }
+        this.shopList = [];
+        this.shopList = res.body;
     });
   }
 
-  search() {
-    this.router.navigate(['/shop-search']);
+  loadResult(cityId) {
+    if (cityId === '0') {
+      this.shopService.getCities().subscribe(res => {
+        this.cities = res;
+        this.cities = this.cities.cityList;
+        this.cities.splice(0, 1);
+        this.cities.splice(0, 1);
+        cityId = this.cities.map(x => x.id).join(',');
+        if (cityId === '') {
+          this.shopService.searchFormTownship = '0';
+        } else {
+          this.shopService.searchFormTownship = this.townshipOptions.map(x => x.id).join(',');
+        }
+        this.getResult();
+        return;
+      });
+  } else {
+    this.pageNumber = 1;
+    this.shopService.getTownShips(cityId).subscribe(res => {
+        this.townshipOptions = [];
+        this.townships = res.townList;
+        this.townships.forEach(data => {
+          this.townshipOptions.push({
+            id: data.id,
+            value: data.name,
+            selected: false
+          });
+        });
+        this.shopService.searchFormTownship = this.townshipOptions.map(x => x.id).join(',');
+        this.getResult();
+      });
+    }
+  }
+
+  search(shopTypeId: number) {
+    this.shopService.searchFormText = null;
+    this.shopService.searchFormTownship = null;
+    this.shopService.searchFormShopType = shopTypeId.toString();
+
+    this.router.navigate(['/shop-search-result']);
   }
 
   shopDetail(shopId) {
@@ -144,7 +194,20 @@ export class HomeComponent implements OnInit {
   }
 
   viewMoreShop() {
-    this.router.navigate(['/view-more-shop'], { queryParams: {currentCity: this.currentCity} });
+    // this.router.navigate(['/view-more-shop'], { queryParams: {currentCity: this.currentCity} });
+    this.viewMoreClicked = true;
+    this.pageNumber = +this.pageInfo.currentPage + 1;
+    this.shopService.getSearchResult(this.pageSize.toString(), this.pageNumber.toString()).subscribe(res => {
+        this.pageInfo = JSON.parse(res.headers.get('pagination'));
+        this.totalPages = this.pageInfo.totalPages;
+        this.currentPage = this.pageInfo.currentPage;
+        this.moreResult = [];
+        this.moreResult = res.body;
+        this.moreResult.forEach(element => {
+          this.shopList.push(element);
+        });
+        this.viewMoreClicked = false;
+    });
   }
 
   changeTownshipReadMore() {
@@ -154,5 +217,9 @@ export class HomeComponent implements OnInit {
     } else {
       this.townshipReadMoreText = 'See Less';
     }
-    }
+  }
+
+  goToSearch() {
+    this.router.navigate(['/shop-search']);
+  }
 }

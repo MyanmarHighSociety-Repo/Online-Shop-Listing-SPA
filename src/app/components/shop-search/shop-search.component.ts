@@ -5,6 +5,7 @@ import { City, CityOptions, Township } from '@app/_models/city';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { TownshipOptions } from '@app/_models/township';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-shop-search-home',
@@ -32,7 +33,8 @@ export class ShopSearchComponent implements OnInit {
     private route: ActivatedRoute,
     private service: ShopService,
     private modalService: BsModalService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -257,7 +259,7 @@ export class ShopSearchComponent implements OnInit {
   }
 
   backToHome() {
-    this.router.navigate(['']);
+    this.location.back();
   }
   search() {
     this.service.searchFormText = this.searchText;

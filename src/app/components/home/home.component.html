@@ -6,7 +6,7 @@
                          <img src="./assets/images1/Asset 2.svg" alt="wood-logo" class="k-home-logo">
                     </div>
                     <div class="col-2 mt-2">
-                        <img src="./assets/images1/Asset 44.svg" alt="search-logo" class="k-search-img" (click)="search()" class="k-search-img">
+                        <img src="./assets/images1/Asset 44.svg" alt="search-logo" class="k-search-img" (click)="goToSearch()" class="k-search-img">
                     </div>
                 </div>
             </div>
@@ -21,7 +21,6 @@
                             <button class="tablinks {{tablinks1}}" (click)='changeTab("tablinks1")' id="defaultOpen"><p>ရန်ကုန် Shop များ</p> </button>
                             <button class="tablinks {{tablinks2}}" (click)='changeTab("tablinks2")'><p>မန္တလေး Shop များ</p></button>
                             <button class="tablinks {{tablinks3}}" (click)='changeTab("tablinks3")' style="width:25% !important"><p>အခြားမြို့များ</p></button>
-                             
                             </div>
                     </div>
                 </div>
@@ -58,12 +57,11 @@
             <div class="container-fluid">
                 <div class="row pb-1 pt-2">                    
                     <div *ngFor="let shopType of shopTypeList" class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-2 custom-col1">
-                        <div class="k-category-link" (click)="search()">
+                        <div class="k-category-link" (click)="search(shopType.id)">
                             <img src="{{shopType.iconUrl}}" class="k-category-img">
                             <p class="text-center gray-text pt-1">{{shopType.name}}</p>
                         </div>
                     </div>    
-
                 </div>
             </div>
         </section>
@@ -116,9 +114,14 @@
                     </div>
                 </div>
                 
-                <div class="row pt-4 pb-4">
+                <div class="row pt-4 pb-4" *ngIf="currentPage != totalPages">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <div (click)="viewMoreShop()" class="k-view-shop">ထပ်ကြည့်ရန် </div>
+                        <div (click)="viewMoreShop()" class="k-view-shop">
+                            <span *ngIf="!viewMoreClicked">ထပ်ကြည့်ရန်</span>
+                            <span *ngIf="viewMoreClicked" class="lds-ellipsis k-view-shop" style="padding: 10px !important;">
+                                <div></div><div></div><div></div><div></div>
+                            </span>
+                        </div>
                     </div> 
                 </div>
                 <div class="row p-0 m-0">

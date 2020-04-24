@@ -3,6 +3,7 @@ import { ShopService } from '@app/_services/shop.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GetHomeShopListAdvertisementResponse } from '@app/_models/home-models';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-shop-detail-advertisement',
@@ -17,7 +18,8 @@ export class ShopDetailAdvertisementComponent implements OnInit {
   constructor(private service: ShopService,
               private router: Router,
               private route: ActivatedRoute,
-              private sanitizer: DomSanitizer) { }
+              private sanitizer: DomSanitizer,
+              private location: Location) { }
 
   ngOnInit() {
     this.shopId = this.route.snapshot.queryParamMap.get('shopId');
@@ -25,7 +27,8 @@ export class ShopDetailAdvertisementComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['/shop-detail'], { queryParams: {shopId : this.shopId } });
+    // this.router.navigate(['/shop-detail'], { queryParams: {shopId : this.shopId } });
+    this.location.back();
   }
 
   getAdvertisementByShopId() {
