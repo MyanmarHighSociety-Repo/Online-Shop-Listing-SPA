@@ -12,7 +12,11 @@ export class ShopSearchResultComponent implements OnInit {
   haveResult = false;
   isLoading = true;
   searchResult: GetHomeShopListResponse[];
+  moreResult: GetHomeShopListResponse[];
   pageInfo: any;
+  viewMoreClicked = false;
+  items = 3;
+  page = 1;
 
   constructor(
     private service: ShopService,
@@ -24,8 +28,9 @@ export class ShopSearchResultComponent implements OnInit {
   }
 
   getResult() {
-    this.service.getSearchResult('10', '1').subscribe(res => {
+    this.service.getSearchResult(this.items.toString(), this.page.toString()).subscribe(res => {
         this.pageInfo = JSON.parse(res.headers.get('pagination'));
+        console.log(this.pageInfo);
         this.searchResult = [];
         this.searchResult = res.body;
         if (this.searchResult.length > 0) {
@@ -37,5 +42,19 @@ export class ShopSearchResultComponent implements OnInit {
 
   backToSearch() {
     this.router.navigate(['shop-search']);
+  }
+
+  viewMoreShop() {
+    this.viewMoreClicked = true;
+    this.page = +this.pageInfo.currentPage + 1;
+    this.service.getSearchResult(this.items.toString(), this.page.toString()).subscribe(res => {
+        this.pageInfo = JSON.parse(res.headers.get('pagination'));
+        this.moreResult = [];
+        this.moreResult = res.body;
+        this.moreResult.forEach(element => {
+          this.searchResult.push(element);
+        });
+        this.viewMoreClicked = false;
+    });
   }
 }

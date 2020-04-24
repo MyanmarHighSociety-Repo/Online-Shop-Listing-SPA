@@ -134,10 +134,6 @@ searchShopList(request): Observable<GetShopSearchResponse> {
       observe: 'response' as 'response'
     };
 
-
-    this.searchFormTownship = null;
-    this.searchFormText = null;
-    this.searchFormShopType = null;
     return this.http.post<GetHomeShopListResponse[]>(this.baseUrl + 'Shop/search/shoplist', postData, httpOptions);
   }
 }

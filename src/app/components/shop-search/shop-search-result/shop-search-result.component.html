@@ -54,6 +54,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="row pt-4 pb-4" *ngIf="pageInfo.currentPage != pageInfo.totalPages">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div (click)="viewMoreShop()" class="k-view-shop">
+                            <span *ngIf="!viewMoreClicked">ထပ်ကြည့်ရန်</span>
+                            <span *ngIf="viewMoreClicked" class="lds-ellipsis k-view-shop" style="padding: 10px !important;">
+                                <div></div><div></div><div></div><div></div>
+                            </span>
+                        </div>
+                    </div> 
+                </div>
             </div>
         </section>
     </div>
