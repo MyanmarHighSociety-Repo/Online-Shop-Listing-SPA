@@ -8,6 +8,7 @@ import { AddShopStepOneComponent } from './components/shop-add/add-shop-step-one
 import { AddShopStepTwoComponent } from './components/shop-add/add-shop-step-two/add-shop-step-two.component';
 import { ShopSearchComponent } from './components/shop-search/shop-search.component';
 import { ShopSearchResultComponent } from './components/shop-search/shop-search-result/shop-search-result.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
@@ -27,5 +28,6 @@ export const appRoutes: Routes = [
             { path: 'shop-search-result', component: ShopSearchResultComponent},
         ]
     },
+    {path: 'contact-us', component:ContactUsComponent},
     { path: '**', redirectTo: '', pathMatch: 'full'}
 ];

@@ -23,6 +23,7 @@ import { AddShopStepOneComponent } from './components/shop-add/add-shop-step-one
 import { AddShopStepTwoComponent } from './components/shop-add/add-shop-step-two/add-shop-step-two.component';
 import { ShopSearchComponent } from './components/shop-search/shop-search.component';
 import { ShopSearchResultComponent } from './components/shop-search/shop-search-result/shop-search-result.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 
 export function tokenGetter() {
@@ -50,6 +51,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ShopSearchResultComponent,
       ViewMoreShopComponent,
       ShopDetailAdvertisementComponent,
+      ContactUsComponent,
    ],
    imports: [
       TruncateModule,
