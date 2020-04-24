@@ -222,4 +222,8 @@ export class HomeComponent implements OnInit {
   goToSearch() {
     this.router.navigate(['/shop-search']);
   }
+
+  goToShopAdd() {
+    this.router.navigate(['/add-shop-step-one']);
+  }
 }

@@ -4,16 +4,23 @@
             <app-spinner></app-spinner>
         </div>
     </div>
+    <a (click)="back()">
+        <img src="./assets/images1/Asset 28.svg" alt="Previous Arrow Button" id="prev_arrow">
+    </a>
+    <div id="line1"></div>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12  col-sm-12">
-                <h5 class="mt-3 head-color"> မိမိ Shop တင်မည်</h5>
+        <div class="row mt-4 align">
+            <div class="col-10 col-sm-10">
+                <h1 class="head-color"> မိမိ Shop တင်မည်</h1>
             </div>
+            <!-- <div class="col-2 col-sm-2 text-right">
+                <span class="head-page">2 / 2</span>
+            </div> -->
         </div>
-        <div class="row mt-4">
+        <div class="row mt-3 align">
             <div class="col-12  col-sm-12">
-                <p>မိမိဆိုင်အတွက် ပစည်းတင်ရန်</p>
-                <p class="text-pink mt-3">***ပစည်းများကို အနည်းဆုံး ၁ ပုံမှစ၍ အများဆုံး ၁၀ ပုံအထိ တင်လို့ရပါသည်။</p>
+                <h3 class="f-13">မိမိဆိုင်အတွက် ပစ္စည်းတင်ရန်</h3>
+                <p class="para mt-3">***ပစ္စည်းများကို အနည်းဆုံး ၁ ပုံမှစ၍ အများဆုံး ၁၀ ပုံအထိ တင်လို့ရပါသည်။</p>
             </div>
         </div>
         <div class="form-row" *ngFor="let imgFile of selectedProductFiles">
@@ -52,47 +59,61 @@
             <div class="col-md-12 mt-3 mb-3">
                 <div class="white-grey">
                     <button type="button" class="btn btn-lg btn-block" (click)="addNewProductEntry()" style="height: 50px;">
-                    <span class="plus-color font-f15"><i class="fa fa-plus" aria-hidden="true "></i> ထပ်တင်ရန်</span> </button>
+                        <span class="plus-color font-f15">
+                            <fa-icon [icon]="faPlus"></fa-icon>
+                            <!-- <i class="fa fa-plusfaPlus" aria-hidden="true "></i>  -->
+                            တင်မည်
+                        </span> 
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row align">
             <div class="col-md-12 mt-3 ">
-                <h5 class="head-color text-center">ဘယ်လိုဝယ်ရမှာလဲ</h5>
+                <h1 class="buy-head-color text-center">ဘယ်လိုဝယ်ရမှာလဲ</h1>
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-3 align">
             <div class="col-md-12">
-                <label for="" class="font-f15 gray-text">Facebook Link</label>
-                <input type="text" class="form-control form-control-lg font-f15" [(ngModel)]="links.facebookLink"  placeholder="Facebook Link ထည့်ပါ ">
+                <label for="" class="f-30">Facebook Link</label>
+                <input type="text" class="form-control form-control-lg" 
+                    [(ngModel)]="links.facebookLink"
+                    id="input-height" placeholder="Facebook Link ထည့်ပါ ">
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-3 align">
             <div class="col-md-12">
-                <label for=""  class="font-f15 gray-text">Android Application Link</label>
+                <label for="" class="f-30">Andriod Application Link</label>
                 <span><img class="play" src="./assets/shop-add-images/Asset 46.png" alt=""></span>
-                <input type="text" [(ngModel)]="links.androidLink" class="form-control text-input pl-5 " placeholder="Application Link ထည့်ပါ ">
+                <input type="text" class="form-control form-control-lg pl-5" id="input-height" 
+                    [(ngModel)]="links.androidLink" placeholder="Application Link ထည့်ပါ ">
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-3 align">
             <div class="col-md-12">
-                <label for=""  class="font-f15 gray-text">IOS Application Link</label>
+                <label for="" class="f-30">IOS Application Link</label>
                 <span><img class="apple" src="./assets/shop-add-images/Asset 47.png" alt=""></span>
-                <input type="text" [(ngModel)]="links.iosLink" class="form-control text-input pl-5 " placeholder="Application Link ထည့်ပါ ">
+                <input type="text" [(ngModel)]="links.iosLink" class="form-control form-control-lg pl-5" 
+                    id="input-height" placeholder="Application Link ထည့်ပါ ">
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-3 align">
             <div class="col-md-12">
-                <label for="" class="font-f15 gray-text">Website Link</label>
-                <input type="text" [(ngModel)]="links.websiteLink" class="form-control text-input " placeholder="Website Link ထည့်ပါ ">
+                <label for="" class="f-30">Website Link</label>
+                <input type="text" class="form-control form-control-lg" id="input-height" 
+                    [(ngModel)]="links.websiteLink" placeholder="Website Link ထည့်ပါ ">
             </div>
         </div>
         <div style="color:red;" *ngIf="formValidationMessage">{{formValidationMessage}}</div>
-        <div class="row mt-3">
+        <div class="row align mt-3">
             <div class="col-sm-12 col-12 mt-3 mb-3">
                 <div class="btn-color ">
-                    <button type="submit" (click)="addNewShop()" class="btn btn-lg btn-block" style="height: 50px;">
-                    <p class="text-white">ဆိုင်အသစ် ထည့်မည်</p> </button>
+                    <a style="text-decoration: none;">
+                        <button type="submit" class="btn btn-lg btn-block addNewShop"  (click)="addNewShop()" 
+                            style="height: 44px;">
+                            ဆိုင်အသစ် ထည့်မည်
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

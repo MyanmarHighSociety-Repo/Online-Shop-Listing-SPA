@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ShopService } from '@app/_services/shop.service';
 import { ProductData } from '@app/_models/product';
 import { Router } from '@angular/router';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +20,9 @@ export class AddShopStepTwoComponent implements OnInit {
   productPrice: number = null;
   formValidationMessage: string;
   showSpinner = false;
+  faPlus = faPlus;
 
-  constructor(private service: ShopService, private router: Router) { }
+  constructor(private service: ShopService, private router: Router, private location: Location) { }
 
   ngOnInit() {}
 
@@ -108,6 +111,10 @@ export class AddShopStepTwoComponent implements OnInit {
     this.selectedProductFiles.forEach(element => {
       element.arrayRoom = element.arrayRoom - 1;
     });
+  }
+
+  back() {
+    this.location.back();
   }
 
   addNewProductEntry() {

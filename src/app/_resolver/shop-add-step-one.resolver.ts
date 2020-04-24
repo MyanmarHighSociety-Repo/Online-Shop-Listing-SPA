@@ -16,7 +16,7 @@ export class ShopAddStepOneShopTypeResolver implements Resolve<ShopType> {
     return this.shopService.getShopTypes().pipe(
         catchError(error => {
             this.alertify.error('Problem retrieving data');
-            this.router.navigate(['']);
+            // this.router.navigate(['']);
             return of(null);
         })
     );
@@ -31,7 +31,7 @@ export class ShopAddStepOneCityResolver implements Resolve<City> {
     return this.shopService.getCities().pipe(
         catchError(error => {
             this.alertify.error('Problem retrieving data');
-            this.router.navigate(['']);
+            // this.router.navigate(['']);
             return of(null);
         })
     );

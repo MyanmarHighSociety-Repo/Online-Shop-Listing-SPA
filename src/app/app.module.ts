@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule, ModalModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule, ModalModule, BsDropdownConfig } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavComponent } from '@app/layouts/nav/nav.component';
@@ -23,6 +23,8 @@ import { AddShopStepOneComponent } from './components/shop-add/add-shop-step-one
 import { AddShopStepTwoComponent } from './components/shop-add/add-shop-step-two/add-shop-step-two.component';
 import { ShopSearchComponent } from './components/shop-search/shop-search.component';
 import { ShopSearchResultComponent } from './components/shop-search/shop-search-result/shop-search-result.component';
+import { FontAwesomeModule  } from '@fortawesome/angular-fontawesome';
+import { NgClockPickerLibModule } from 'ng-clock-picker-lib';
 
 
 export function tokenGetter() {
@@ -58,7 +60,9 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       BrowserAnimationsModule,
       HttpClientModule,
       FormsModule,
+      NgClockPickerLibModule,
       ReactiveFormsModule,
+      FontAwesomeModule,
       ModalModule.forRoot(),
       BsDropdownModule.forRoot(),
       BsDatepickerModule.forRoot(),
@@ -72,7 +76,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       PreventUnsavedChanges,
       ShopAddStepOneShopTypeResolver,
       ShopAddStepOneCityResolver,
-      { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
+      { provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }
    ],
    bootstrap: [
       AppComponent

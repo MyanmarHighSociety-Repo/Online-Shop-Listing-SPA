@@ -3,7 +3,8 @@ import {
   OnInit,
   ViewChild,
   HostListener,
-  TemplateRef
+  TemplateRef,
+  ViewContainerRef
 } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { NgForm } from '@angular/forms';
@@ -15,15 +16,21 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { ShopService } from '@app/_services/shop.service';
 import { Township, TownshipOptions } from '@app/_models/township';
 import { AdvertisementData } from '@app/_models/advertisement';
+import { Location } from '@angular/common';
+import { ClockPickerDialogService, ClockPickerConfig } from 'ng-clock-picker-lib';
 
 @Component({
   selector: 'app-home',
   templateUrl: './add-shop-step-one.component.html',
-  styleUrls: ['./add-shop-step-one.component.css']
+  styleUrls: ['./add-shop-step-one.component.css'],
 })
 export class AddShopStepOneComponent implements OnInit {
   @ViewChild('addForm', { static: true }) addForm: NgForm;
 
+  config: ClockPickerConfig = {
+    wrapperClassName: 'myClass',
+  };
+  fromTime: string;
   cityModalRef: BsModalRef;
   advertisementModalRef: BsModalRef;
   townshipModalRef: BsModalRef;
@@ -46,6 +53,9 @@ export class AddShopStepOneComponent implements OnInit {
   shopImageMessage: string;
   selectedTownshipToTransfer: TownshipOptions[] = [];
   error: string;
+  shopTypeDropdownClicked = false;
+  shopTypeDropdownPlaceholder = 'ဆိုင်အမျိုးအစား‌ရွေးချယ်ရန်';
+  selectedDropdownImg = null;
 
   tempAdvertisementFile: File;
   tempUrl: any;
@@ -61,10 +71,14 @@ export class AddShopStepOneComponent implements OnInit {
     private route: ActivatedRoute,
     private modalService: BsModalService,
     private service: ShopService,
-    private router: Router
+    private router: Router,
+    private location: Location,
+    private vcr: ViewContainerRef,
+    private clockPickerDialogService: ClockPickerDialogService
   ) {}
 
   ngOnInit() {
+    this.clockPickerDialogService.registerViewContainerRef(this.vcr);
     this.route.data.subscribe(data => {
       this.shopTypes = data.shopTypes;
       this.cities = data.cities.cityList;
@@ -82,16 +96,15 @@ export class AddShopStepOneComponent implements OnInit {
     this.cityModalRef = this.modalService.show(template);
   }
 
+  setDropdownStatus() {
+    this.shopTypeDropdownClicked = !this.shopTypeDropdownClicked;
+  }
   openAdvertisementModal(template: TemplateRef<any>) {
     this.advertisementModalRef = this.modalService.show(template);
   }
 
   openTownshipModal(template: TemplateRef<any>) {
     this.townshipModalRef = this.modalService.show(template);
-  }
-
-  onShopTypeChange(val) {
-    this.shop.shopTypeId = val;
   }
 
   getSelectedCity() {
@@ -148,6 +161,13 @@ export class AddShopStepOneComponent implements OnInit {
       }
     }
     this.cityModalRef.hide();
+  }
+
+  setSelectedShopType(shopType: ShopType) {
+    this.shop.shopTypeId = shopType.id;
+    this.shopTypeDropdownPlaceholder = shopType.name;
+    this.selectedDropdownImg = shopType.iconUrl;
+    this.shopTypeDropdownClicked = false;
   }
 
   getSelectedTownship() {
@@ -298,6 +318,11 @@ export class AddShopStepOneComponent implements OnInit {
       this.tempAdvertisementFile = files[0];
       this.imageUrl = this.tempUrl;
     };
+  }
+
+  back() {
+    this.service.clearShopData();
+    this.location.back();
   }
 // tslint:disable-next-line: eofline
 }

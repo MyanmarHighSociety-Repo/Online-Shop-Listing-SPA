@@ -39,6 +39,13 @@ getCityList(): Observable<GetCityResponse> {
   return this.http.get<GetCityResponse>(url);
 }
 
+clearShopData() {
+  this.shopData = null;
+  this.shopImgFile = null;
+  this.selectedTownships = [];
+  this.selectedAdveriesementFiles = [];
+}
+
 getAllTwonship(cityId): Observable<GetAllTwonshipResponse> {
   let params = new HttpParams();
   params = params.append('CityId', cityId);
