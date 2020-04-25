@@ -16,60 +16,42 @@ import { ProductData, AddProductResponse } from '@app/_models/product';
   providedIn: 'root'
 })
 export class ShopService {
-private url = Constants.API_URL_PREFIX + '/api/Miscellaneous';
-private shopsearch_url = Constants.API_URL_PREFIX + '/api/ShopSearch';
+  private url = Constants.API_URL_PREFIX + '/api/Miscellaneous';
 
-baseUrl = environment.apiUrl;
+  baseUrl = environment.apiUrl;
 
-private shop_url = Constants.API_URL_PREFIX + '/api/Shop';
+  private shop_url = Constants.API_URL_PREFIX + '/api/Shop';
 
-selectedTownships: TownshipOptions[];
-shopData: ShopData;
-selectedAdveriesementFiles: AdvertisementData[];
-shopImgFile: File;
+  selectedTownships: TownshipOptions[];
+  shopData: ShopData;
+  selectedAdveriesementFiles: AdvertisementData[];
+  shopImgFile: File;
 
-searchFormText: string;
-searchFormTownship: string;
-searchFormShopType: string;
+  searchFormText: string;
+  searchFormTownship: string;
+  searchFormShopType: string;
+  representCity: string;
 
-constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-getCityList(): Observable<GetCityResponse> {
-  const url = `${this.url}/GetCity`;
-  return this.http.get<GetCityResponse>(url);
-}
-
-clearShopData() {
-  this.shopData = null;
-  this.shopImgFile = null;
-  this.selectedTownships = [];
-  this.selectedAdveriesementFiles = [];
-}
-
-getAllTwonship(cityId): Observable<GetAllTwonshipResponse> {
-  let params = new HttpParams();
-  params = params.append('CityId', cityId);
-  const url = `${this.url}/GetTown?` + params;
-  return this.http.get<GetAllTwonshipResponse>(url);
-}
-
-searchShopList(request): Observable<GetShopSearchResponse> {
-  let params = new HttpParams();
-  params = params.append('shopName', request.shopName);
-  if (request.shopTypeIdList !== null) {
-    params = params.append('shopTypeIdList', request.shopTypeIdList);
+  getCityList(): Observable<GetCityResponse> {
+    const url = `${this.url}/GetCity`;
+    return this.http.get<GetCityResponse>(url);
   }
-  if (request.cityId !== 0) {
-    params = params.append('cityId', request.cityId);
-  }
-  if (request.townIdList != null) {
-    params = params.append('townIdList', request.townIdList);
-  }
-  console.log(params);
-  const url = `${this.shopsearch_url}/GetShopList?` + params;
-  return this.http.get<GetShopSearchResponse>(url);
-}
 
+  clearShopData() {
+    this.shopData = null;
+    this.shopImgFile = null;
+    this.selectedTownships = [];
+    this.selectedAdveriesementFiles = [];
+  }
+
+  getAllTwonship(cityId): Observable<GetAllTwonshipResponse> {
+    let params = new HttpParams();
+    params = params.append('CityId', cityId);
+    const url = `${this.url}/GetTown?` + params;
+    return this.http.get<GetAllTwonshipResponse>(url);
+  }
 
   getShopTypes(): Observable<ShopType[]> {
     return this.http.get<ShopType[]>(this.baseUrl + 'Home/GetShopType');

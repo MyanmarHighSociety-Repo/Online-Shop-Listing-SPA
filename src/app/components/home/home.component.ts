@@ -1,7 +1,17 @@
-import { Component, OnInit , AfterViewInit , ViewChild, ElementRef, HostListener } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+  HostListener
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HomeService } from '@app/_services/home.service';
-import { GetShopTypeResponse, GetHomeShopListResponse } from '@app/_models/home-models';
+import {
+  GetShopTypeResponse,
+  GetHomeShopListResponse
+} from '@app/_models/home-models';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Router } from '@angular/router';
 import { ShopService } from '@app/_services/shop.service';
@@ -14,7 +24,7 @@ import { TownshipOptions } from '@app/_models/township';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('stickyMenu', {static: false }) menuElement: ElementRef;
+  @ViewChild('stickyMenu', { static: false }) menuElement: ElementRef;
 
   sticky = false;
   menuPosition: any;
@@ -49,12 +59,12 @@ export class HomeComponent implements OnInit {
   // @HostListener('window:scroll', ['$event'])
   @HostListener('window:scroll', [])
   handleScroll() {
-      const windowScroll = window.pageYOffset;
-      if (windowScroll >= this.menuPosition) {
-          this.sticky = true;
-      } else {
-          this.sticky = false;
-      }
+    const windowScroll = window.pageYOffset;
+    if (windowScroll >= this.menuPosition) {
+      this.sticky = true;
+    } else {
+      this.sticky = false;
+    }
   }
 
   // tslint:disable-next-line: member-ordering
@@ -85,16 +95,17 @@ export class HomeComponent implements OnInit {
   };
 
   constructor(
-              private service: HomeService,
-              private shopService: ShopService,
-              private router: Router) { }
+    private service: HomeService,
+    private shopService: ShopService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.getShopType();
     this.shopService.searchFormShopType = '';
     this.shopService.searchFormText = '';
     this.shopService.searchFormTownship = '';
-    this.loadResult(1);
+    this.loadResult('1');
   }
 
   // tslint:disable-next-line: use-lifecycle-interface
@@ -122,17 +133,18 @@ export class HomeComponent implements OnInit {
       this.currentCity = '0';
       this.loadResult(this.currentCity);
     }
-
   }
 
   getShopType() {
-    this.service.getShopType().subscribe( res => {
+    this.service.getShopType().subscribe(res => {
       this.shopTypeList = res;
     });
   }
 
   getResult() {
-    this.shopService.getSearchResult(this.pageSize.toString(), this.pageNumber.toString()).subscribe(res => {
+    this.shopService
+      .getSearchResult(this.pageSize.toString(), this.pageNumber.toString())
+      .subscribe(res => {
         this.pageInfo = JSON.parse(res.headers.get('pagination'));
         const totalItems = this.pageInfo.totalItems;
         if (totalItems === 0) {
@@ -144,41 +156,34 @@ export class HomeComponent implements OnInit {
         }
         this.shopList = [];
         this.shopList = res.body;
-    });
+      });
   }
 
   loadResult(cityId) {
-    if (cityId === '0') {
-      this.shopService.getCities().subscribe(res => {
-        this.cities = res;
-        this.cities = this.cities.cityList;
-        this.cities.splice(0, 1);
-        this.cities.splice(0, 1);
-        cityId = this.cities.map(x => x.id).join(',');
-        if (cityId === '') {
-          this.shopService.searchFormTownship = '0';
-        } else {
-          this.shopService.searchFormTownship = this.townshipOptions.map(x => x.id).join(',');
-        }
-        this.getResult();
-        return;
-      });
-  } else {
     this.pageNumber = 1;
     this.shopService.getTownShips(cityId).subscribe(res => {
-        this.townshipOptions = [];
-        this.townships = res.townList;
-        this.townships.forEach(data => {
-          this.townshipOptions.push({
-            id: data.id,
-            value: data.name,
-            selected: false
-          });
+      this.townshipOptions = [];
+      this.townships = res.townList;
+      this.townships.forEach(data => {
+        this.townshipOptions.push({
+          id: data.id,
+          value: data.name,
+          selected: false
         });
-        this.shopService.searchFormTownship = this.townshipOptions.map(x => x.id).join(',');
-        this.getResult();
       });
-    }
+      this.shopService.searchFormTownship = this.townshipOptions
+        .map(x => x.id)
+        .join(',');
+      if (this.shopService.searchFormTownship === '') {
+        this.shopService.searchFormTownship = '0';
+      }
+      if (cityId !== '1') {
+        this.shopService.representCity = cityId;
+        this.router.navigate(['/shop-search-result']);
+      } else {
+        this.getResult();
+      }
+    });
   }
 
   search(shopTypeId: number) {
@@ -190,14 +195,16 @@ export class HomeComponent implements OnInit {
   }
 
   shopDetail(shopId) {
-    this.router.navigate(['/shop-detail'], { queryParams: {shopId } });
+    this.router.navigate(['/shop-detail'], { queryParams: { shopId } });
   }
 
   viewMoreShop() {
     // this.router.navigate(['/view-more-shop'], { queryParams: {currentCity: this.currentCity} });
     this.viewMoreClicked = true;
     this.pageNumber = +this.pageInfo.currentPage + 1;
-    this.shopService.getSearchResult(this.pageSize.toString(), this.pageNumber.toString()).subscribe(res => {
+    this.shopService
+      .getSearchResult(this.pageSize.toString(), this.pageNumber.toString())
+      .subscribe(res => {
         this.pageInfo = JSON.parse(res.headers.get('pagination'));
         this.totalPages = this.pageInfo.totalPages;
         this.currentPage = this.pageInfo.currentPage;
@@ -207,7 +214,7 @@ export class HomeComponent implements OnInit {
           this.shopList.push(element);
         });
         this.viewMoreClicked = false;
-    });
+      });
   }
 
   changeTownshipReadMore() {

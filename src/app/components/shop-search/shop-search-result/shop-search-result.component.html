@@ -32,9 +32,17 @@
                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-2">
                                     <h5>{{shop.name}}</h5> 
                                     <div class="k-badge mt-2 mb-2" style="margin-right: 10px;"><h6 class="white-text">{{shop.shopTypeName}}</h6></div>                                 
-                                    <p class="gray-text">
+                                    <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length == 1">
+                                        <span> {{shop.shopDeliveryAvailableLocation[0].township.name}} </span>
+                                    </p>
+                                    <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length != 1">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">  
-                                            <span *ngIf="i<3">{{location.township.name}}၊</span>                                                                       
+                                            <span *ngIf="i < 3">
+                                                {{location.township.name}}၊
+                                            </span>
+                                            <span *ngIf="i == 3">
+                                                {{location.township.name}}...
+                                            </span>                                                      
                                         </span>
                                     </p>
                                     <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
