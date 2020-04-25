@@ -226,4 +226,8 @@ export class HomeComponent implements OnInit {
   goToShopAdd() {
     this.router.navigate(['/add-shop-step-one']);
   }
+
+  goToContactUs() {
+    this.router.navigate(['/contact-us']);
+  }
 }
