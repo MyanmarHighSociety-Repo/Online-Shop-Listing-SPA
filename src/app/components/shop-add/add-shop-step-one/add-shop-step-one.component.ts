@@ -353,7 +353,7 @@ export class AddShopStepOneComponent implements OnInit {
   }
 
   back() {
-    this.service.clearShopData();
+    this.service.clearData();
     this.location.back();
   }
 

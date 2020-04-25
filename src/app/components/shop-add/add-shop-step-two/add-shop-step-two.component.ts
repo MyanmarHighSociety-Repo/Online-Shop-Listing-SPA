@@ -110,6 +110,7 @@ export class AddShopStepTwoComponent implements OnInit {
   }
 
   back() {
+    this.service.clearData();
     this.location.back();
   }
 

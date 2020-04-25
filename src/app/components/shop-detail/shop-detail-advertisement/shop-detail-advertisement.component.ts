@@ -27,7 +27,7 @@ export class ShopDetailAdvertisementComponent implements OnInit {
   }
 
   back() {
-    // this.router.navigate(['/shop-detail'], { queryParams: {shopId : this.shopId } });
+    this.service.clearData();
     this.location.back();
   }
 

@@ -39,11 +39,16 @@ export class ShopService {
     return this.http.get<GetCityResponse>(url);
   }
 
-  clearShopData() {
-    this.shopData = null;
-    this.shopImgFile = null;
+  clearData() {
     this.selectedTownships = null;
+    this.shopData = null;
     this.selectedAdveriesementFiles = [];
+    this.shopImgFile = null;
+
+    this.searchFormText = null;
+    this.searchFormTownship = null;
+    this.searchFormShopType = null;
+    this.representCity = null;
   }
 
   getAllTwonship(cityId): Observable<GetAllTwonshipResponse> {

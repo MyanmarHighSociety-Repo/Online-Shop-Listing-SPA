@@ -63,10 +63,11 @@ export class ShopSearchResultComponent implements OnInit {
   }
 
   backToSearch() {
-    this.location.back();
+    this.service.clearData();
     this.service.searchFormShopType = null;
     this.service.searchFormText = null;
     this.service.searchFormTownship = null;
+    this.location.back();
   }
 
   viewMoreShop() {

@@ -261,6 +261,7 @@ export class ShopSearchComponent implements OnInit {
   }
 
   backToHome() {
+    this.service.clearData();
     this.location.back();
   }
   search() {

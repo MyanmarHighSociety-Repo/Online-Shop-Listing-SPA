@@ -25,6 +25,7 @@ export class ContactUsComponent implements OnInit {
   }
 
   back() {
+    this.shopService.clearData();
     this.location.back();
   }
 
@@ -51,10 +52,12 @@ export class ContactUsComponent implements OnInit {
   }
 
   goToShopRequest() {
+    this.shopService.clearData();
     this.router.navigate(['add-shop-step-one']);
   }
 
   goToHome() {
+    this.shopService.clearData();
     this.router.navigate(['']);
   }
 

@@ -85,6 +85,7 @@ export class ShopDetailComponent implements OnInit {
   }
 
   back() {
+    this.service.clearData();
     this.location.back();
   }
 

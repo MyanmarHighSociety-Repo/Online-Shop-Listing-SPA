@@ -23,7 +23,6 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ShopAddStepOneShopTypeResolver, ShopAddStepOneCityResolver } from './_resolver/shop-add-step-one.resolver';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ShopDetailComponent } from './components/shop-detail/shop-detail.component';
-import { ViewMoreShopComponent } from './components/view-more-shop/view-more-shop.component';
 import { TruncateModule } from 'ng2-truncate';
 import { ShopDetailAdvertisementComponent } from './components/shop-detail/shop-detail-advertisement/shop-detail-advertisement.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
@@ -59,7 +58,6 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ShopDetailComponent,
       SpinnerComponent,
       ShopSearchResultComponent,
-      ViewMoreShopComponent,
       ShopDetailAdvertisementComponent,
       ContactUsComponent,
    ],
