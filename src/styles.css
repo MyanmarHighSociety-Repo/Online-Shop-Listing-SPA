@@ -1,4 +1,5 @@
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
+
 .prev_arrow{
 	max-width: 7%;
 	width: 100%;
@@ -71,5 +72,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .myClass .clock-picker__circle--minutes {
 	width: 270px!important;
 	height: 270px!important;
+}
+
+.modal-body {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+::placeholder {
+	font-size: 12px !important;
+}
+
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px !important;
 }
 

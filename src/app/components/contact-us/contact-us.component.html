@@ -52,19 +52,19 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
                     <input [(ngModel)]="contactInfo.name" type="text" id="name" name="name" placeholder="အမည်"
-                        class="contact-input height-50 form-control">
+                        class="contact-input height-50">
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
                     <input [(ngModel)]="contactInfo.phNo" type="text" id="phone" name="phone" placeholder="ဖုန်းနံပါတ်"
-                        class="contact-input height-50 form-control">
+                        class="contact-input height-50">
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
                     <textarea [(ngModel)]="contactInfo.reason" id="about" rows="6"
-                        class="contact-input-1 height-200 form-control" placeholder="အကြောင်းအရာ"></textarea>
+                        class="contact-input-1 height-200" placeholder="အကြောင်းအရာ"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -89,14 +89,14 @@
     <div class="container-fluid k-navigation-section">
         <div class="row footer-row">
             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-2">
-                <a class="k-navigation-link">
+                <a class="k-navigation-link" (click)="goToHome()">
                     <img src="./assets/images1/Asset 29.svg" class="k-navigation-img img1 mb-2">
                     <img src="./assets/images1/Asset 32.svg" class="k-navigation-img  img2 mb-2">
                     <p class="center-text black-text">မူလစာမျက်နှာ</p>
                 </a>
             </div>
             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-2">
-                <a class="k-navigation-link">
+                <a class="k-navigation-link" (click)="goToShopRequest()">
                     <img src="./assets/images1/Asset 30.svg" class="k-navigation-img img1 mb-2">
                     <img src="./assets/images1/Asset 33.svg" class="k-navigation-img  img2 mb-2">
                     <p class="center-text">မိမိ Shop တင်မည်</p>

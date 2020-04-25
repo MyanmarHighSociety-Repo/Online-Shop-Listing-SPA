@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { ContactInfo } from '@app/_models/shop';
 import { AlertifyService } from '@app/_services/alertify.service';
 import { ShopService } from '@app/_services/shop.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-us',
@@ -16,7 +17,8 @@ export class ContactUsComponent implements OnInit {
   constructor(
               private location: Location,
               private alertifyService: AlertifyService,
-              private shopService: ShopService
+              private shopService: ShopService,
+              private router: Router
             ) { }
 
   ngOnInit() {
@@ -46,6 +48,14 @@ export class ContactUsComponent implements OnInit {
     }, error => {
       this.alertifyService.error(error);
     });
+  }
+
+  goToShopRequest() {
+    this.router.navigate(['add-shop-step-one']);
+  }
+
+  goToHome() {
+    this.router.navigate(['']);
   }
 
 }

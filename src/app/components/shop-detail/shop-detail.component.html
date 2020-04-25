@@ -59,7 +59,7 @@
         <owl-carousel-o [options]="customOptions">
             <ng-template *ngFor="let ads of shop.advertisement" carouselSlide>
                 <div class="slide">
-                    <img src="{{ads.url}}" (click)="shopDetailAdvertisement(shop.id)" style="min-height: 320px;max-height:320px;">
+                    <img src="{{ads.url}}" (click)="shopDetailAdvertisement(shop.id)" style="min-height: 320px;max-height:320px; object-fit: contain;">
                 </div>
             </ng-template>           
         </owl-carousel-o>

@@ -152,8 +152,8 @@
         <div *ngFor="let option of cityOptions">
             <div class="form-check mt-3">
                 <input class="form-check-input" [(ngModel)]="option.selected" value="{{option.id}}" 
-                    type="checkbox" id="gridCheck1" (click)="checkForWholeCountry(option)">
-                <label class="form-check-label" for="gridCheck1">
+                    type="checkbox" id="{{option.value}}" (click)="checkForWholeCountry(option)">
+                <label class="form-check-label" for="{{option.value}}">
                     {{option.value}}
                 </label>
             </div>
@@ -241,8 +241,8 @@
         <div *ngFor="let option of townshipOptions">
             <div class="form-check mt-3">
                 <input class="form-check-input" [(ngModel)]="option.selected" value="{{option.id}}" 
-                    type="checkbox" id="gridCheck1" (click)="checkForWholeCity(option)">
-                <label class="form-check-label" for="gridCheck1">
+                    type="checkbox" id="{{option.value}}" (click)="checkForWholeCity(option)">
+                <label class="form-check-label" for="{{option.value}}">
                     {{option.value}}
                 </label>
             </div>
