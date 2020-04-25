@@ -45,3 +45,11 @@ export class ShopData {
         public townshipId: number,
     ) {}
 }
+
+export class ContactInfo {
+    constructor(
+        public name: string,
+        public phNo: string,
+        public reason: string
+    ) {}
+}

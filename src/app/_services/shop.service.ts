@@ -6,7 +6,7 @@ import { GetShopSearchResponse } from '@app/_models/home-models';
 import { environment } from 'src/environments/environment';
 import { ShopType } from '@app/_models/shop-type';
 import { Township, TownshipOptions } from '@app/_models/township';
-import { ShopData, AddShopResponse, AddShopImageResponse, AddShopAvailableLocationResponse } from '@app/_models/shop';
+import { ShopData, AddShopResponse, AddShopImageResponse, AddShopAvailableLocationResponse, ContactInfo } from '@app/_models/shop';
 import { AdvertisementData, AddAdvertisementResponse } from '@app/_models/advertisement';
 import { Constants } from '@app/_models/constants';
 import { GetHomeShopListResponse, GetHomeShopListAdvertisementResponse } from '@app/_models/home-models';
@@ -94,6 +94,10 @@ export class ShopService {
     const fd = new FormData();
     fd.append('image', file, file.name);
     return this.http.post<AddShopImageResponse>(this.baseUrl + 'Shop/addshopimage?id=' + id , fd);
+  }
+
+  postContactInfo(contactInfo: ContactInfo): Observable<any> {
+    return this.http.post<any>(this.baseUrl + 'Shop/contactinfo', contactInfo);
   }
 
   getShopDetail(shopId): Observable<GetHomeShopListResponse> {
