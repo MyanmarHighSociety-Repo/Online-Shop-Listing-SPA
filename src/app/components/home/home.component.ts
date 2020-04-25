@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
 
   // Variable
   currentCity = '1';
-  pageSize = 10;
+  pageSize = 1;
   pageNumber = 1;
   totalPages = 1;
   isOpenOnHolidayFilter = false;

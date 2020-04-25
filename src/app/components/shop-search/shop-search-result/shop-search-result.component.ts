@@ -16,7 +16,7 @@ export class ShopSearchResultComponent implements OnInit {
   moreResult: GetHomeShopListResponse[];
   pageInfo: any;
   viewMoreClicked = false;
-  items = 10;
+  items = 1;
   page = 1;
   demiText = '';
 
