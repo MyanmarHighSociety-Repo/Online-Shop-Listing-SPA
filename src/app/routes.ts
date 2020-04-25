@@ -12,9 +12,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
-    { path: 'shop-detail', component: ShopDetailComponent},
-    { path: 'shop-detail-advertisement', component: ShopDetailAdvertisementComponent},
-    { path: 'view-more-shop', component: ViewMoreShopComponent},
+    { path: '**', redirectTo: '', pathMatch: 'full'},
     {
         path: '',
         children: [
@@ -26,8 +24,10 @@ export const appRoutes: Routes = [
             },
             { path: 'add-shop-step-two', component: AddShopStepTwoComponent},
             { path: 'shop-search-result', component: ShopSearchResultComponent},
+            {path: 'contact-us', component: ContactUsComponent},
+            { path: 'shop-detail', component: ShopDetailComponent},
+            { path: 'shop-detail-advertisement', component: ShopDetailAdvertisementComponent},
+            { path: 'view-more-shop', component: ViewMoreShopComponent},
         ]
-    },
-    {path: 'contact-us', component:ContactUsComponent},
-    { path: '**', redirectTo: '', pathMatch: 'full'}
+    }
 ];

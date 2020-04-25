@@ -48,7 +48,7 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.country-modalbox .mat-dialog-container {
+/* .country-modalbox .mat-dialog-container {
 		padding: 0;
 		padding-left: 24px;
 		padding-top: 20px;
@@ -60,6 +60,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	padding-top: 20px;
 	padding-bottom: 10px;
 	width: 100%;
+} */
+
+.myClass .clock-picker__circle--hours {
+	width: 270px!important;
+	height: 270px!important;
 }
 
+.myClass .clock-picker__circle--minutes {
+	width: 270px!important;
+	height: 270px!important;
+}
 

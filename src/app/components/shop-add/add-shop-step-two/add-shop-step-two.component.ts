@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ShopService } from '@app/_services/shop.service';
 import { ProductData } from '@app/_models/product';
 import { Router } from '@angular/router';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +19,11 @@ export class AddShopStepTwoComponent implements OnInit {
   productName: string = null;
   productPrice: number = null;
   formValidationMessage: string;
-  showSpinner = false;
+  faPlus = faPlus;
 
-  constructor(private service: ShopService, private router: Router) { }
+  loading = false;
+
+  constructor(private service: ShopService, private router: Router, private location: Location) { }
 
   ngOnInit() {}
 
@@ -51,7 +55,8 @@ export class AddShopStepTwoComponent implements OnInit {
     this.service.shopData.facebookLink = this.links.facebookLink;
     this.service.shopData.websiteLink = this.links.websiteLink;
 
-    this.showSpinner = true;
+    this.loading = true;
+
     this.service.postShop(this.service.shopData).subscribe(res => {
       if (res != null) {
         this.service.postShopImage(this.service.shopImgFile, res.id).subscribe(response => {
@@ -73,13 +78,12 @@ export class AddShopStepTwoComponent implements OnInit {
                     if (result.status) {
                       this.service.postProduct(this.selectedProductFiles, res.id).subscribe(finalResult => {
                         if (finalResult.status) {
-                          this.showSpinner = false;
                           this.service.selectedAdveriesementFiles = [];
                           this.service.selectedTownships = [];
                           this.service.shopData = null;
                           this.service.shopImgFile = null;
-
-                          this.router.navigate(['/add-shop-step-one']);
+                          this.loading = false;
+                          this.router.navigate(['']);
                         } else {
                           console.log(finalResult.message);
                         }
@@ -89,9 +93,12 @@ export class AddShopStepTwoComponent implements OnInit {
                 } else {
                   this.service.postProduct(this.selectedProductFiles, res.id).subscribe(finalResult => {
                     if (finalResult.status) {
-                      this.showSpinner = false;
-
-                      this.router.navigate(['/add-shop-step-one']);
+                      this.service.selectedAdveriesementFiles = [];
+                      this.service.selectedTownships = [];
+                      this.service.shopData = null;
+                      this.service.shopImgFile = null;
+                      this.loading = false;
+                      this.router.navigate(['']);
                     }
                   });
                 }
@@ -108,6 +115,10 @@ export class AddShopStepTwoComponent implements OnInit {
     this.selectedProductFiles.forEach(element => {
       element.arrayRoom = element.arrayRoom - 1;
     });
+  }
+
+  back() {
+    this.location.back();
   }
 
   addNewProductEntry() {
