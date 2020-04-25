@@ -456,6 +456,11 @@ border: 1px solid #982ce5!important;
 .myClass .clock-picker__circle--hours {
     width: 270px!important;
 }
+
+.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
 /* .btn-group { 
 width: 100%;
 border: 5px #000000;

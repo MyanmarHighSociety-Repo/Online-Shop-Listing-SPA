@@ -25,7 +25,9 @@ export class AddShopStepTwoComponent implements OnInit {
 
   constructor(private service: ShopService, private router: Router, private location: Location) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.service.selectedTownships);
+  }
 
   preview(files) {
     if (files.length === 0) {
@@ -61,17 +63,7 @@ export class AddShopStepTwoComponent implements OnInit {
       if (res != null) {
         this.service.postShopImage(this.service.shopImgFile, res.id).subscribe(response => {
           if (response != null) {
-            let townshipIds = '';
-            let index = 1;
-            this.service.selectedTownships.forEach(element => {
-              if (index === this.service.selectedTownships.length) {
-                townshipIds = townshipIds + element.id.toString();
-              } else {
-                townshipIds = townshipIds + element.id.toString() + ',';
-              }
-              index = index + 1;
-            });
-            this.service.postShopDeliveryAvailableLocation(townshipIds, res.id).subscribe(data => {
+            this.service.postShopDeliveryAvailableLocation(this.service.selectedTownships, res.id).subscribe(data => {
               if (data.status) {
                 if (this.service.selectedAdveriesementFiles.length > 0) {
                   this.service.postAdvertisement(this.service.selectedAdveriesementFiles, res.id).subscribe(result => {
@@ -79,7 +71,7 @@ export class AddShopStepTwoComponent implements OnInit {
                       this.service.postProduct(this.selectedProductFiles, res.id).subscribe(finalResult => {
                         if (finalResult.status) {
                           this.service.selectedAdveriesementFiles = [];
-                          this.service.selectedTownships = [];
+                          this.service.selectedTownships = null;
                           this.service.shopData = null;
                           this.service.shopImgFile = null;
                           this.loading = false;
@@ -94,7 +86,7 @@ export class AddShopStepTwoComponent implements OnInit {
                   this.service.postProduct(this.selectedProductFiles, res.id).subscribe(finalResult => {
                     if (finalResult.status) {
                       this.service.selectedAdveriesementFiles = [];
-                      this.service.selectedTownships = [];
+                      this.service.selectedTownships = null;
                       this.service.shopData = null;
                       this.service.shopImgFile = null;
                       this.loading = false;

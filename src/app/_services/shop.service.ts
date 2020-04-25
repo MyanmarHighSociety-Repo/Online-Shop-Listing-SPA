@@ -22,7 +22,7 @@ export class ShopService {
 
   private shop_url = Constants.API_URL_PREFIX + '/api/Shop';
 
-  selectedTownships: TownshipOptions[];
+  selectedTownships: string;
   shopData: ShopData;
   selectedAdveriesementFiles: AdvertisementData[];
   shopImgFile: File;
@@ -42,7 +42,7 @@ export class ShopService {
   clearShopData() {
     this.shopData = null;
     this.shopImgFile = null;
-    this.selectedTownships = [];
+    this.selectedTownships = null;
     this.selectedAdveriesementFiles = [];
   }
 

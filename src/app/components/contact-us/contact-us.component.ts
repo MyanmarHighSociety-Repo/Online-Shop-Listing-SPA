@@ -41,7 +41,7 @@ export class ContactUsComponent implements OnInit {
       const result = res;
       if ( result.id ) {
         this.isSubmitted = false;
-        this.alertifyService.success('Submittion completed');
+        this.alertifyService.success('Submission completed!');
       }
     }, error => {
       this.alertifyService.error(error);

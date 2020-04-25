@@ -102,6 +102,7 @@
             <span><img class="arr2 " src="./assets/shop-add-images/Asset 44.svg" alt=""
                     style="margin-left: 5px;"></span>
             <input type="text" class="form-control form-control-lg" 
+                [ngClass]="{'disabled' : disabled}"
                 (click)="openTownshipModal(townshipTemplate)"
                 id="input-height"
                 placeholder="{{townshipPlaceholder}}" readonly>
@@ -141,10 +142,17 @@
         </button>
     </div>
     <div class="modal-body">
+        <div class="form-check mt-3">
+            <input type="checkbox" name="check_list" class="form-check-input" [(ngModel)]="wholeCountry" 
+                value="{{wholeCountry}}" id="checkAll" (click)="checkAllCities()">
+            <label class="form-check-label" for="checkAll">
+                တစ်နိုင်ငံလုံး
+            </label>
+        </div>
         <div *ngFor="let option of cityOptions">
             <div class="form-check mt-3">
-                <input class="form-check-input" [(ngModel)]="option.selected" value="{{option.id}}" type="checkbox"
-                    id="gridCheck1">
+                <input class="form-check-input" [(ngModel)]="option.selected" value="{{option.id}}" 
+                    type="checkbox" id="gridCheck1" (click)="checkForWholeCountry(option)">
                 <label class="form-check-label" for="gridCheck1">
                     {{option.value}}
                 </label>
@@ -223,10 +231,17 @@
         </button>
     </div>
     <div class="modal-body">
+        <div class="form-check mt-3">      
+            <input type="checkbox" name="check_list" class="form-check-input" 
+                [(ngModel)]="wholeCity" value="{{wholeCity}}" id="checkAll" (click)="checkAllTownships()">
+            <label class="form-check-label" for="checkAll">
+                မြို့နယ်အားလုံး
+            </label>
+        </div>
         <div *ngFor="let option of townshipOptions">
             <div class="form-check mt-3">
-                <input class="form-check-input" [(ngModel)]="option.selected" value="{{option.id}}" type="checkbox"
-                    id="gridCheck1">
+                <input class="form-check-input" [(ngModel)]="option.selected" value="{{option.id}}" 
+                    type="checkbox" id="gridCheck1" (click)="checkForWholeCity(option)">
                 <label class="form-check-label" for="gridCheck1">
                     {{option.value}}
                 </label>
@@ -237,7 +252,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6 col-sm-6">
-                    <!-- <button type="button" class="btn " id="white">ရွေးမည်</button> -->
                     <button type="button" class="btn btn-lg btn-block" (click)="getSelectedTownship()" 
                         id="white">ရွေးမည်</button>
                 </div>

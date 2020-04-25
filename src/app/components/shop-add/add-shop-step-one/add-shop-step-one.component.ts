@@ -56,6 +56,10 @@ export class AddShopStepOneComponent implements OnInit {
   shopTypeDropdownClicked = false;
   shopTypeDropdownPlaceholder = 'ဆိုင်အမျိုးအစား‌ရွေးချယ်ရန်';
   selectedDropdownImg = null;
+  wholeCountry = false;
+  wholeCity = false;
+  disabled = true;
+  cityIds: string = null;
 
   tempAdvertisementFile: File;
   tempUrl: any;
@@ -108,6 +112,15 @@ export class AddShopStepOneComponent implements OnInit {
   }
 
   getSelectedCity() {
+    if (this.wholeCountry) {
+      this.disabled = true;
+      this.cityPlaceholder = 'တစ်နိုင်ငံလုံး';
+      this.townshipPlaceholder = 'မြို့နယ်အားလုံး';
+      this.cityModalRef.hide();
+      this.cityIds = null;
+      return;
+    }
+    this.disabled = false;
     this.selectedTownshipToTransfer = [];
     this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
     const result = this.cityOptions
@@ -118,9 +131,12 @@ export class AddShopStepOneComponent implements OnInit {
         return opt;
       });
 
-    const cityids = result.map(x => x.id).join(',');
-
-    this.service.getTownShips(cityids).subscribe(res => {
+    if (result == null || result.length === 0) {
+      return;
+    }
+    this.cityIds = null;
+    this.cityIds = result.map(x => x.id).join(',');
+    this.service.getTownShips(this.cityIds).subscribe(res => {
       this.townshipOptions = [];
       this.townships = res.townList;
       this.townships.forEach(data => {
@@ -137,7 +153,7 @@ export class AddShopStepOneComponent implements OnInit {
     if (result.length === 1) {
       this.cityPlaceholder = result[0].value;
     } else if (result.length === 0) {
-      this.cityPlaceholder = 'မြို့ရွေးချယ်ပါ';
+      this.cityPlaceholder = 'တစ်နိုင်ငံလုံး';
     } else if (result.length === 2) {
       for (let index = 0; index < 2; index++) {
         if (index === 0) {
@@ -155,8 +171,7 @@ export class AddShopStepOneComponent implements OnInit {
           this.cityPlaceholder =
             this.cityPlaceholder + '၊' + result[index].value;
         } else {
-            this.cityPlaceholder =
-              this.cityPlaceholder + ' ...';
+          this.cityPlaceholder = this.cityPlaceholder + ' ...';
         }
       }
     }
@@ -203,8 +218,7 @@ export class AddShopStepOneComponent implements OnInit {
           this.townshipPlaceholder =
             this.townshipPlaceholder + '၊' + result[index].value;
         } else {
-            this.townshipPlaceholder =
-              this.townshipPlaceholder + ' ...';
+          this.townshipPlaceholder = this.townshipPlaceholder + ' ...';
         }
       }
     }
@@ -216,7 +230,13 @@ export class AddShopStepOneComponent implements OnInit {
       data.selected = false;
     });
     this.cityPlaceholder = 'မြို့ရွေးချယ်ပါ';
+    this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
     this.townshipOptions = [];
+    this.selectedTownshipToTransfer = [];
+    this.wholeCountry = false;
+    this.wholeCity = false;
+    this.cityIds = null;
+    this.disabled = true;
     this.cityModalRef.hide();
   }
 
@@ -225,6 +245,8 @@ export class AddShopStepOneComponent implements OnInit {
       data.selected = false;
     });
     this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
+    this.wholeCity = false;
+    this.selectedTownshipToTransfer = [];
     this.townshipModalRef.hide();
   }
 
@@ -288,14 +310,24 @@ export class AddShopStepOneComponent implements OnInit {
       this.shop.name === null ||
       this.shop.phNo === null ||
       this.shop.shopTypeId === null ||
-      this.selectedTownshipToTransfer.length === 0 ||
+      (this.wholeCountry !== true && this.selectedTownshipToTransfer.length === 0) ||
       this.shopImgFile === null
     ) {
       this.error =  'Please fill out all the fields!';
     } else {
       this.service.selectedAdveriesementFiles = this.sleectedAdvertisementFiles;
       this.service.shopData = this.shop;
-      this.service.selectedTownships = this.selectedTownshipToTransfer;
+      if (this.wholeCountry === true || this.cityIds == null) {
+        this.service.selectedTownships = 'All';
+      } else if (
+        this.wholeCountry === false &&
+        this.selectedTownshipToTransfer.length === 0
+      ) {
+        this.service.selectedTownships = this.townshipOptions.map(x => x.id).join(',');
+      } else {
+        this.service.selectedTownships = this.selectedTownshipToTransfer.map(x => x.id).join(',');
+      }
+      // this.service.selectedTownships = this.selectedTownshipToTransfer;
       this.service.shopImgFile = this.shopImgFile;
       this.router.navigate(['/add-shop-step-two']);
     }
@@ -323,6 +355,67 @@ export class AddShopStepOneComponent implements OnInit {
   back() {
     this.service.clearShopData();
     this.location.back();
+  }
+
+  checkAllTownships() {
+    if (this.wholeCity === false) {
+      this.wholeCity = true;
+
+      this.townshipOptions.forEach(data => {
+        data.selected = true;
+      });
+    } else {
+      this.wholeCity = false;
+      this.townshipOptions.forEach(data => {
+        data.selected = false;
+      });
+    }
+  }
+
+  checkAllCities() {
+    if (this.wholeCountry === false) {
+      this.wholeCountry = true;
+
+      this.cityOptions.forEach(data => {
+        data.selected = true;
+      });
+    } else {
+      this.wholeCountry = false;
+      this.cityOptions.forEach(data => {
+        data.selected = false;
+      });
+
+      this.townshipOptions.forEach(data => {
+        data.selected = false;
+      });
+    }
+  }
+
+  checkForWholeCountry(obj) {
+    if (obj.selected === true) {
+      this.wholeCountry = false;
+      return;
+    }
+  }
+
+  checkForWholeCity(obj) {
+    if (obj.selected === true) {
+      this.wholeCity = false;
+      return;
+    }
+
+    const marker = [];
+    this.townshipOptions.forEach(data => {
+      if (data.selected === false) {
+        marker.push(data);
+        return;
+      }
+    });
+    if (marker.length > 1) {
+      this.wholeCity = false;
+    } else {
+      this.wholeCity = true;
+    }
   }
 // tslint:disable-next-line: eofline
 }

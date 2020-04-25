@@ -70,10 +70,12 @@ export class ShopSearchComponent implements OnInit {
     this.cityPlaceholder = 'တစ်နိုင်ငံလုံး';
     this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
     this.townshipOptions = [];
+    this.wholeCity = false;
+    this.selectedTownshipToTransfer = [];
     this.wholeCountry = false;
-    this.cityModalRef.hide();
     this.cityIds = null;
     this.disabled = true;
+    this.cityModalRef.hide();
   }
 
   getSelectedCity() {
