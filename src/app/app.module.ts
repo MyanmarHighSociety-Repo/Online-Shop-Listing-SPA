@@ -29,6 +29,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AddShopStepOneComponent } from './components/shop-add/add-shop-step-one/add-shop-step-one.component';
 import { AddShopStepTwoComponent } from './components/shop-add/add-shop-step-two/add-shop-step-two.component';
 import { ShopSearchComponent } from './components/shop-search/shop-search.component';
+import { MobileAppBuyComponent } from './components/mobile-app-buy/mobile-app-buy.component';
 import { ShopSearchResultComponent } from './components/shop-search/shop-search-result/shop-search-result.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FontAwesomeModule  } from '@fortawesome/angular-fontawesome';
@@ -60,6 +61,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ShopSearchResultComponent,
       ShopDetailAdvertisementComponent,
       ContactUsComponent,
+      MobileAppBuyComponent,
    ],
    imports: [
       TruncateModule,

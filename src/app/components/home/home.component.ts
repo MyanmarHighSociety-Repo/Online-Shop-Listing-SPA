@@ -18,6 +18,9 @@ import { ShopService } from '@app/_services/shop.service';
 import { Township, City } from '@app/_models/city';
 import { TownshipOptions } from '@app/_models/township';
 
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -55,6 +58,14 @@ export class HomeComponent implements OnInit {
   townships: Township[];
   townshipOptions: TownshipOptions[] = [];
   pageInfo: any;
+  shopId = '';
+  desReadMore = false;
+  desReadMoreText = 'ထပ်ကြည့်ရန်...';
+  shop: GetHomeShopListResponse;
+
+  wholeCountry = false;
+  searchText: string;
+  cityIds: string = null;
 
   // @HostListener('window:scroll', ['$event'])
   @HostListener('window:scroll', [])
@@ -93,6 +104,8 @@ export class HomeComponent implements OnInit {
     },
     nav: false
   };
+
+
 
   constructor(
     private service: HomeService,
@@ -186,13 +199,15 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  search(shopTypeId: number) {
-    this.shopService.searchFormText = null;
-    this.shopService.searchFormTownship = null;
-    this.shopService.searchFormShopType = shopTypeId.toString();
+  // search(shopTypeId: number) {
+  //   this.shopService.searchFormText = null;
+  //   this.shopService.searchFormTownship = null;
+  //   this.shopService.searchFormShopType = shopTypeId.toString();
 
-    this.router.navigate(['/shop-search-result']);
-  }
+  //   this.router.navigate(['/shop-search-result']);
+  // }
+
+
 
   shopDetail(shopId) {
     this.router.navigate(['/shop-detail'], { queryParams: { shopId } });
@@ -226,6 +241,15 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  changeDesReadMore() {
+    this.desReadMore = !this.desReadMore;
+    if (!this.desReadMore) {
+      this.desReadMoreText = 'ထပ်ကြည့်ရန်...';
+    } else {
+      this.desReadMoreText = 'See Less';
+    }
+    }
+
   goToSearch() {
     this.router.navigate(['/shop-search']);
   }
@@ -237,4 +261,34 @@ export class HomeComponent implements OnInit {
   goToContactUs() {
     this.router.navigate(['/contact-us']);
   }
+
+
+search() {
+  this.shopService.searchFormText = this.searchText;
+  let counter = 1;
+  this.shopTypeList.forEach(element => {
+    if (element.showSpan != null && element.showSpan !== false) {
+      if (counter === 1) {
+        this.shopService.searchFormShopType = element.id.toString();
+      } else {
+        this.shopService.searchFormShopType += ',' + element.id.toString();
+      }
+      counter++;
+    }
+  });
+
+  if (this.wholeCountry === true || this.cityIds == null) {
+    this.shopService.searchFormTownship = 'All';
+  } else if (
+    this.wholeCountry === false &&
+    this.townshipOptions.length === 0
+  ) {
+    this.shopService.searchFormTownship = this.townshipOptions.map(x => x.id).join(',');
+  } else {
+    this.shopService.searchFormTownship = this.townshipOptions.map(x => x.id).join(',');
+  }
+
+  this.router.navigate(['/shop-search-result']);
 }
+}
+
