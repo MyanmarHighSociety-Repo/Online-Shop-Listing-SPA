@@ -14,6 +14,7 @@ import { WebViewHomeComponent } from './components/web-view/web-view-home/web-vi
 import { WebViewShopAdd } from './components/web-view/web-view-shop-add/web-view-shop-add.component';
 import { WebViewContactUsComponent } from './components/web-view/web-view-contact-us/web-view-contact-us.component';
 import { WebViewBuyApp } from './components/web-view/web-view-buy-app/web-view-buy-app.component';
+import { MobileAppBuyComponent } from './components/mobile-app-buy/mobile-app-buy.component';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
@@ -35,7 +36,9 @@ export const appRoutes: Routes = [
             { path: 'web-view-home', component: WebViewHomeComponent},
             { path: 'web-view-shop-add', component: WebViewShopAdd },
             { path: 'web-view-contact-us', component: WebViewContactUsComponent },
-            { path: 'web-view-buy-app', component: WebViewBuyApp }
+            { path: 'web-view-buy-app', component: WebViewBuyApp },
+            { path: 'mobile-app-buy', component: MobileAppBuyComponent},
+            { path: 'shop-detail-advertisement', component: ShopDetailAdvertisementComponent}
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full'}

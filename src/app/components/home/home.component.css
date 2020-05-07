@@ -1,3 +1,14 @@
+.f-10{
+  font-size: 10px !important;
+}
+.f-14{
+  font-size: 14px;
+}
+
+.row-padding{
+  padding-left: 0px;
+  padding-right: 0px;
+}
 .k-home-logo{
     width:50%;
     height:auto;
@@ -13,20 +24,20 @@
     background-color:#982ce5 ;
 }
 body {
-     font-size: 12px; 
+     font-size: 12px;
     }
 input, select {
      font-size: 100%;
      }
 .form-control-lg {
-        font-size: 12px !important;   
+        font-size: 12px !important;
 }
 .form-control:focus {
     border-color:#982ce5 ;
     -webkit-box-shadow: none;
     box-shadow: none;
   }
-  
+
 #k-home-search{
     border:0.7px solid rgba(156, 100, 100, 0.125);
     width:100% !important;
@@ -81,32 +92,41 @@ height:43px !important;
 .k-badge{
     border:1px solid #f4f4f4;
     background-color:#f4f4f4;
-    padding:2px 5px 5px 5px !important;
+
     border-radius:30px !important;
-    width:93%;
+    width:38%;
     height:auto;
     text-align:center;
+}
+.k-badge-shop{
+  border:1px solid #f4f4f4;
+  background-color:#f4f4f4;
+
+  border-radius:30px !important;
+  width:27%;
+  height:auto;
+  text-align:center;
 }
 h6{
     font-size:10px !important;
     margin-bottom:0rem !important;
     line-height: 1.2rem;
-    width:100%;  
+    width:100%;
 }
 h5{
     font-size:0.8rem !important;
     margin-bottom:0rem !important;
     line-height: 1.3rem;
-   
+
 }
 p{
     margin-bottom:0.6rem !important;
     line-height: 1.1rem !important;
     font-size:12px !important;
-    
+
 }
 .k-shop-logo{
-    width:75%;
+    width:100%;
     display:block;
     margin:0 auto;
     max-width:220px;
@@ -136,21 +156,24 @@ p{
     padding-right:5px !important;
 }
 .k-view-shop{
-    width:100%;
-    display:block;
+
     margin:0 auto;
-    background-color:#f4f4f4;
-    padding:12px;
-    border:1px solid #f4f4f4;
-    border-radius:3px !important ;
     text-align:center;
     font-size:0.9rem !important;
     color:#777777;
-    
+    padding:12px;
+    /* width:100%;
+    display:block;
+    background-color:#f4f4f4;
+
+    border:1px solid #f4f4f4;
+    border-radius:3px !important ; */
+
+
 }
 .swiper-container {
-    width: 100%;    
-	height: 190px;	
+    width: 100%;
+	height: 190px;
   }
   .swiper-slide {
     display: -webkit-box;
@@ -207,6 +230,7 @@ p{
     border-bottom: 1px solid rgba(0,0,0,.125) !important;
     height:40px;
     width:100%;
+    box-shadow: 0px 3px 5px #e4e4e4;
 }
 .tab button.active{
     border-bottom:1.8px solid #982ce5!important;
@@ -240,9 +264,25 @@ p{
     width:30%;
     display:block;
     margin:0 auto;
-    max-width:23px;  
-    margin-bottom: 3px !important;
+    max-width:23px;
+    margin-bottom: 6px !important;
     margin-top : 5px !important;
+}
+.k-navigation-img1{
+  width: 20%;
+  display:block;
+  margin:0 auto;
+  max-width:23px;
+  margin-bottom: 6px !important;
+  margin-top : 5px !important;
+}
+.k-navigation-img2{
+  width: 26%;
+  display:block;
+  margin:0 auto;
+  max-width:23px;
+  margin-bottom: 6px !important;
+  margin-top : 5px !important;
 }
 .k-navigation-link{
     color: #777777;
@@ -313,20 +353,21 @@ a:visited{
 }
 .k-line{
     width:100%;
-    height: 5px;
+    height: 7px;
     background-color: #f4f4f4;
 }
 ::ng-deep .owl-theme .owl-dots .owl-dot span {
-    background: #777777 !important; 
-    width:8px !important;
-    height: 8px !important;
+    background: #777777 !important;
+    width:5px !important;
+    height: 5px !important;
   }
- 
+
  ::ng-deep .owl-theme .owl-dots .owl-dot.active span,
   .owl-theme .owl-dots .owl-dot:hover span {
     background: #982ce5 !important;
-    width:11px !important;
-    height: 11px !important;
+    widows: 6px !important;
+    height: 6px !important;
+
   }
   .sticky{
     position: fixed;
@@ -338,7 +379,7 @@ a:visited{
     color:white;
   }
   .content{
-    height: 200vh;
+    height: 130vh;
   }
 
 @media only screen and (max-width: 320px)
@@ -346,16 +387,14 @@ a:visited{
     p{
         margin-bottom:0.6rem !important;
         line-height: 1.3rem !important;
-        
-        
-        ont-size:10px !important;
-        
-    }  
+        font-size: 10px!important;
+      }  
+
+    }
     .swiper-container {
-        width: 100%;    
-        height: 170px;	
+        width: 100%;
+        height: 170px;
       }
-}
 
 .lds-ellipsis {
     /* display: inline-block; */
@@ -412,3 +451,55 @@ a:visited{
       transform: translate(24px, 0);
     }
   }
+
+  .shop-logo{
+    width: 70%;
+
+  }
+  .shop-img{
+    width: 100%;
+  }
+
+  .scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+
+  }
+  .card {
+    display: inline-block;
+  }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+.card-wd{
+  width: 75%;
+}
+.all-more-link{
+  text-align: center !important;
+  color: #777777;
+}
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+.last-card{
+  height: 206px;
+  width: 265px;
+  position: relative;
+  top: 10px;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 2px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+.last-card-body{
+      position: absolute;
+    top: 50px;
+    left: 40px;
+}
