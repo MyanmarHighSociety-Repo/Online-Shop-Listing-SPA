@@ -42,9 +42,9 @@ hr {
   border: none;
 }
 .bg-color-open{
-    background-color: #f4f4f4;
-   padding: 15px 0px 15px 10px;
-   color: #777777;
+  background-color: #f4f4f4;
+  padding: 15px 0px 15px 10px;
+  color: #777777;
    
 }
 .read-more-city{
@@ -280,11 +280,6 @@ img {vertical-align: middle;}
   border: 1px solid #ddd;
   border-radius: .25em;
 }
-
-
-
-
-
 .buy-title{
   padding-left: 122px !important;
   font-size: 14px;
@@ -293,7 +288,7 @@ img {vertical-align: middle;}
 }
 .btn-facebook{
   display: block;
-width: 100%;
+  width: 100%;
 
 border-color: #d2d2d2 !important;
 color: #000;

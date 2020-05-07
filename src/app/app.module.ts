@@ -28,13 +28,19 @@ import { ShopDetailAdvertisementComponent } from './components/shop-detail/shop-
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AddShopStepOneComponent } from './components/shop-add/add-shop-step-one/add-shop-step-one.component';
 import { AddShopStepTwoComponent } from './components/shop-add/add-shop-step-two/add-shop-step-two.component';
+import { AddShopStepThreeComponent } from './components/shop-add/add-shop-step-three/add-shop-step-three.component';
 import { ShopSearchComponent } from './components/shop-search/shop-search.component';
 import { MobileAppBuyComponent } from './components/mobile-app-buy/mobile-app-buy.component';
 import { ShopSearchResultComponent } from './components/shop-search/shop-search-result/shop-search-result.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FontAwesomeModule  } from '@fortawesome/angular-fontawesome';
 import { NgClockPickerLibModule } from 'ng-clock-picker-lib';
-
+import { from } from 'rxjs';
+import { WebViewHomeComponent } from './components/web-view/web-view-home/web-view-home.component';
+import { WebViewShopAdd } from './components/web-view/web-view-shop-add/web-view-shop-add.component';
+import { WebViewContactUsComponent } from './components/web-view/web-view-contact-us/web-view-contact-us.component';
+import { WebViewBuyApp } from './components/web-view/web-view-buy-app/web-view-buy-app.component';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -55,18 +61,24 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       FooterComponent,
       AddShopStepOneComponent,
       AddShopStepTwoComponent,
+      AddShopStepThreeComponent,
       ShopSearchComponent,
       ShopDetailComponent,
       SpinnerComponent,
       ShopSearchResultComponent,
       ShopDetailAdvertisementComponent,
       ContactUsComponent,
+      WebViewHomeComponent,
+      WebViewShopAdd,
+      WebViewContactUsComponent,
+      WebViewBuyApp,
       MobileAppBuyComponent,
    ],
    imports: [
       TruncateModule,
       CarouselModule,
       BrowserModule,
+      RecaptchaModule,
       BrowserAnimationsModule,
       HttpClientModule,
       FormsModule,
@@ -80,13 +92,13 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ButtonsModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
-   ],
+],
    providers: [
       AlertifyService,
       PreventUnsavedChanges,
       ShopAddStepOneShopTypeResolver,
       ShopAddStepOneCityResolver,
-      { provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } }
+      { provide: BsDropdownConfig, useValue: { isAnimated: true, autoClose: true } },
    ],
    bootstrap: [
       AppComponent

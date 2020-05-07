@@ -38,15 +38,15 @@
     </div>
     <div class="row pt-3">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-           <div class="article f-12 bg-color-open">
+           <div class="article bg-color-open">
                <div *ngIf="shop" class="lineheight">
-                  <div *ngIf="!desReadMore">{{ shop.description | truncate : 100 : "..." }}</div>
+                  <div *ngIf="!desReadMore" style="text-align:initial;">{{ shop.description | truncate : 100 : "..." }}</div>
                   <div *ngIf="desReadMore">{{shop.description}}</div>
                 </div>
-                 <a (click)="changeDesReadMore()" class="moreless-button">{{desReadMoreText}}</a>
+                <a (click)="changeDesReadMore()" class="moreless-button">{{desReadMoreText}}</a>
           </div>
       </div> 
-  </div> 
+    </div> 
       
   </div>
 </section>
@@ -112,7 +112,7 @@
   <div class="container-fluid">
     <div class="row border-top-row" style="padding-top:15px;padding-bottom:15px">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <button (click)="openModal(template)" type="button" class="btn btn-buy btn-lg" data-toggle="modal" data-target="#myModal">
+        <button (click)="openModal(template)" type="button" class="btn btn-buy btn-lg">
           <img src="./assets/shopdetail/Asset 45.svg" style="width:20px" alt="">
           ၀ယ်ယူမည်
       </button>
@@ -124,7 +124,7 @@
 
 <ng-template #template>
 <div class="">
-<div class="modal-header">
+<div class="modal-header pb-4">
 <h1 class="modal-title buy-title">၀ယ်ယူမည်</h1>
 <button type="button" class="close" (click)="modalRef.hide()">&times;</button>
 </div>

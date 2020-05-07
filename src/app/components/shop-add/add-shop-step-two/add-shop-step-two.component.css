@@ -5,11 +5,31 @@
     margin-top: 13px;
     margin-left: 20px;
 }
-#line1{
+.page2Header {
+    /* background-color: red; */
+    height: 52px;
+    width: 100%;
+    font-size: 0.8rem !important;
+}
+.page2Line {
+    /* margin-top: 13px; */
+    /* margin-bottom: 16px !important; */
+    border: 0;
+    border-top: 7px solid #dddddd;
+}
+.page2Number {
+    color: #787878;
+    position: absolute;
+    left: 46%;
+    right: 50%;
+    top: 2%;
+ }
+.page2Link {
+    color: #982ce5;
+    margin-right: 10px;
+    float: right;
     margin-top: 13px;
-  margin-bottom: 16px !important;
-  border: 0;
-  border-top: 1px solid #e3e3e3;
+    margin-right: 20px;
 }
 .head-color {
     color: #982ce5;
@@ -87,19 +107,19 @@
     left: 307px;
 }
 
-.play {
+/* .play {
     position: absolute;
     width: 25px;
     padding-top: 42px;
     left: 28px;
-}
+} */
 
-.apple {
+/* .apple {
     position: absolute;
     width: 25px;
     padding-top: 40px;
     left: 28px;
-}
+} */
 
 .arr {
     position: absolute;
@@ -141,8 +161,7 @@
 }
 
 .white-grey {
-    background-color: #f4f4f4;
-    border-radius: 10px;
+    
 }
 
 .plus-color {
@@ -167,7 +186,7 @@
 }
 
 .para {
-    color: #982ce5;
+    color: #f35952;
     font-size: 12px;
 }
 
@@ -463,4 +482,12 @@ border: 1px solid #982ce5!important;
     left: 0px;
     opacity: .5; /* in FireFox */ 
     filter: alpha(opacity=50); /* in IE */
+}
+.uploadButton {
+    margin: 0 auto;
+    display: block;
+    border-radius: 50px;
+    width: 55%;
+    height: 40px;
+    border: none;
 }
