@@ -1,7 +1,20 @@
-<a (click)="backToHome()">
+<!-- <a (click)="backToHome()">
   <img src="./assets/shopsearch/Asset 63.png" alt="Previous Arrow Button" class="prev_arrow">
 </a>
-<div class="line1"></div>
+<div class="line1"></div> -->
+<div class="navbar">
+  <a (click)="backToHome()">
+    <img src="./assets/shopsearch/Asset 63.png" alt="Previous Arrow Button" class="backArrow mt-2" autofocus>
+  </a>	
+  <!-- <img src="./assets/shopsearch/Asset 63.png" alt="Previous Arrow Button" class="backArrow mt-2" autofocus> -->
+  <!-- <button type="button" class="search-btn" (click)="search()">
+    <img src="./assets/shopsearch/Asset 67.svg" class="searchIcon">
+    <span style="font-size:0.8rem !important;"> ရှာမည် </span>
+  </button> -->
+  <a class="search-btn" (click)="search()">
+    <span style="font-size: 0.8rem !important;"> ရှာမည် </span>
+  </a>
+</div>			
 <section class="section-1 pb-3">
   <div class="container-fluid">
     <!-- <form action="" method="post" class="searchForm"> -->
@@ -68,13 +81,8 @@
       </div>
       <div class="row fixed-section-btn" style="padding-top:15px;padding-bottom:15px">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <button type="button" class="search-btn" (click)="search()">
-            <img src="./assets/shopsearch/Asset 67.svg" class="searchIcon">
-            <span style="font-size:0.8rem !important;"> ရှာမည် </span>
-          </button>
         </div>
       </div>
-    <!-- </!-->
   </div>
 </section>
 <ng-template #cityTemplate id="margin-modal">

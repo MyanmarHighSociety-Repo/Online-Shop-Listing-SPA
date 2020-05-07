@@ -1,0 +1,79 @@
+#prev_arrow{
+    max-width: 5%;
+    width: 100%;
+    height: auto;
+    margin-top: 13px;
+    margin-left: 20px;
+}
+.page3Line {
+    /* margin-top: 13px; */
+    /* margin-bottom: 16px !important; */
+    border: 0;
+    border-top: 7px solid #dddddd;
+}
+.page3Header {
+    /* background-color: red; */
+    height: 52px;
+    width: 100%;
+    font-size: 0.8rem !important;
+}
+.page3Number {
+    color: #787878;
+    position: absolute;
+    left: 46%;
+    right: 50%;
+    top: 2%;
+ }
+ .page3Link {
+    color: #982ce5;
+    margin-right: 10px;
+    float: right;
+    margin-top: 13px;
+    margin-right: 20px;
+}
+.align{
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.buy-head-color {
+    font-size: 1rem;
+    color: #000000;
+    font-weight: 500;
+}
+#input-height {
+    height: 50px;
+    border-radius: 6px;
+    font-size: 12px;
+    /* background-color: #fff; */
+}
+
+#input-height:focus {
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #982ce5;
+    outline: 0;
+    box-shadow: none !important;
+}
+.f-rem {
+    font-size: 0.9rem!important;
+    color: #7e7e7e;
+}
+.play {
+    position: absolute;
+    width: 20px;
+    padding-top: 47px;
+    left: 28px;
+}
+.apple {
+    position: absolute;
+    width: 20px;
+    padding-top: 46px;
+    left: 28px;
+}
+.btn-facebook{
+    display: block;
+    width: 100%;
+    border-color: #d2d2d2 !important;
+    color: #fff;
+    background-color: #1877f2;
+  }

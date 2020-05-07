@@ -1,0 +1,56 @@
+<div class="page3Header">
+    <a (click)="back()">
+        <img src="./assets/images1/Asset 28.svg" alt="Previous Arrow Button" id="prev_arrow">
+    </a>
+    <span class="page3Number"> 3/3 </span>
+    <a class="page3Link">
+        <span> ဆိုင်တင်မည် </span>
+    </a>
+</div>
+<div class="page3Line"></div>
+<div class="container-fluid">
+    <div class="row align">
+        <div class="col-md-12 mt-3 ">
+            <h1 class="buy-head-color">ဘယ်လိုဝယ်ရမှာလဲ</h1>
+        </div>
+    </div>
+    <div class="row mt-3 align">
+        <div class="col-md-12">
+            <label for="" class="f-rem">Facebook Link</label>
+            <span><img src="./assets/shopdetail/Asset 55.png" class="play" alt="" /></span>
+            <input type="text" class="form-control form-control-lg pl-5" [(ngModel)]="links.facebookLink" id="input-height"
+                placeholder="Facebook Link ထည့်ပါ ">
+                <!-- <div>
+                    <p class="f-rem">Facebook</p>
+                    <a href="" target="_blank" class="btn btn-facebook" style="width: 100%;">
+                    <img src="./assets/shopdetail/Asset 55.png" style="width: 30px;" alt="">
+                    <span class=""></span>
+                    </a>
+                    <br>
+                </div> -->
+        </div>
+    </div>
+    <div class="row mt-3 align">
+        <div class="col-md-12">
+            <label for="" class="f-rem">Andriod Application Link</label>
+            <span><img class="play" src="./assets/shop-add-images/Asset 46.png" alt=""></span>
+            <input type="text" class="form-control form-control-lg pl-5" id="input-height"
+                [(ngModel)]="links.androidLink" placeholder="Application Link ထည့်ပါ ">
+        </div>
+    </div>
+    <div class="row mt-3 align">
+        <div class="col-md-12">
+            <label for="" class="f-rem">IOS Application Link</label>
+            <span><img class="apple" src="./assets/shop-add-images/Asset 47.png" alt=""></span>
+            <input type="text" [(ngModel)]="links.iosLink" class="form-control form-control-lg pl-5" id="input-height"
+                placeholder="Application Link ထည့်ပါ ">
+        </div>
+    </div>
+    <div class="row mt-3 align">
+        <div class="col-md-12">
+            <label for="" class="f-rem">Website Link</label>
+            <input type="text" class="form-control form-control-lg" id="input-height" [(ngModel)]="links.websiteLink"
+                placeholder="Website Link ထည့်ပါ ">
+        </div>
+    </div>
+</div>
