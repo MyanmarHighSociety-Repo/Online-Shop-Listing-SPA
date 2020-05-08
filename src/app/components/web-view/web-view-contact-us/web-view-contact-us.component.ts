@@ -22,4 +22,7 @@ export class WebViewContactUsComponent implements OnInit {
     gotoWebViewContactUs() {
         this.router.navigate(['web-view-contact-us']);
     }
+    gotoWebViewBuyApp() {
+        this.router.navigate(['web-view-buy-app']);
+    }
 }

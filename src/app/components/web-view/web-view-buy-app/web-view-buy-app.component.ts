@@ -9,8 +9,9 @@ import { AotSummaryResolver } from '@angular/compiler';
     styleUrls: ['./web-view-buy-app.component.css']
 })
 export class WebViewBuyApp implements OnInit {
-    public show: boolean = false;
-    public buttonName: any = 'အကုန်ကြည့်ရန်';
+    public show1: boolean = false;
+    public show2: boolean = false;
+    // public buttonName: any = 'အကုန်ကြည့်ရန်';
 
     constructor(private router: Router) {}
     ngOnInit() {
@@ -29,14 +30,20 @@ export class WebViewBuyApp implements OnInit {
     gotoWebViewContactUs() {
         this.router.navigate(['web-view-contact-us']);
     }
-    toggle() {
-        this.show = !this.show;
+    gotoWebViewAppBuy() {
+        this.router.navigate(['web-view-buy-app']);
+    }
+    toggle1() {
+        this.show1 = !this.show1;
         // CHANGE THE NAME OF THE BUTTON.
-        if (this.show) {
-        this.buttonName = 'View Less';
-        }
-        else {
-        this.buttonName = 'အကုန်ကြည့်ရန်';
-      }
+    //     if (this.show) {
+    //     this.buttonName = 'View Less';
+    //     }
+    //     else {
+    //     this.buttonName = 'အကုန်ကြည့်ရန်';
+    //   }
+    }
+    toggle2() {
+        this.show2 = !this.show2;
     }
 }

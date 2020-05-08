@@ -1,3 +1,10 @@
+@font-face {
+    font-family: Los Andes;
+    src: url (../font/Los\ Andes\ \ Lota\ Grotesque\ Alt\ 1\ Regular.otf);
+}
+section {
+    font-family: Los Andes;
+}
 .purple-bg-row{
     background-color:#982ce5 ;
 }
@@ -33,7 +40,7 @@
 .dropdowntxt {
     color: white;
     font-size: 0.9rem!important;
-    margin-left: 240px;
+    margin-left: 60%;
 }
 /* BODY */
 .banner {
@@ -110,21 +117,21 @@
     line-height: 1rem;
 }
 .f-11 {
-    font-size: 0.9rem;
+    font-size: 10pt!important;
     margin-bottom: 1.3rem;
-    line-height: 1.1rem;
+    line-height: 1.6rem;
 }
 .f-12 {
     font-size: 1rem!important;
     line-height: 1.3rem!important;
 }
 .f-13 {
-    font-size: 1.1rem;
-    line-height: 1.4rem;
+    font-size: 12pt!important;
+    line-height: 1.3rem;
     margin-bottom: 0rem;
 }
 .f-14 {
-    font-size: 1.25rem;
+    font-size: 14pt!important;
     line-height: 1.5rem;
 }
 .center {
@@ -136,10 +143,10 @@
     padding-bottom: 40px;
 }
 .caption {
-    font-size: 0.9rem;
+    font-size: 10pt!important;
     margin-bottom: 1.3rem;
     line-height: 1.6rem;
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
     color: #000000;
 }
@@ -147,49 +154,97 @@
     max-width: 40%;
     width: 100%;
     height: auto;
-    margin-left: 25%;
+    margin-left: 30%;
+    transition: transform .4s;
+}
+.sleep:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2); 
 }
 .calculator {
     max-width: 50%;
     width: 100%;
     height: auto;
-    margin-left: 20%;
+    margin-left: 30%;
+    transition: transform .4s;
+}
+.calculator:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2); 
 }
 .voucher {
     max-width: 55%;
     width: 100%;
     height: auto;
-    margin-left: 20%;
+    margin-left: 25%;
+    transition: transform .4s;
+}
+.voucher:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2); 
 }
 .popular {
     max-width: 45%;
     width: 100%;
     height: auto;
     margin-left: 30%;
+    transition: transform .4s;
+}
+.popular:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2); 
 }
 .out_of_stock {
     max-width: 65%;
     width: 100%;
     height: auto;
     margin-left: 15%;
+    transition: transform .4s;
+}
+.out_of_stock:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2); 
 }
 .payment {
     max-width: 60%;
     width: 100%;
     height: auto;
     margin-left: 20%;
+    transition: transform .4s;
+}
+.payment:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2); 
 }
 .pointDiscount {
     max-width: 80%;
     width: 100%;
     height: auto;
     margin-left: 10%;
+    transition: transform .4s;
+}
+.pointDiscount:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2); 
 }
 .bell {
     max-width: 44%;
     width: 100%;
     height: auto;
     margin-left: 30%;
+    transition: transform .4s;
+}
+.bell:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2); 
 }
 .appNweb {
     padding-bottom: 50px;
@@ -207,11 +262,13 @@
     margin-left: 3%;
 }
 .appNweb_caption {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
+    font-size: 10pt!important;
+    margin-bottom: 1.3rem;
     line-height: 1.6rem;
-    font-weight: 600;
-    text-align: center;
+    font-weight: 500;
+    text-align: left;
+    margin-left: 35px;
+    color: #000000;
 }
 .feature {
     background-color: #f4f4f4;
@@ -223,6 +280,13 @@
     width: 100%;
     height: auto;
     margin-left: 20%;
+    transition: transform .4s;
+    cursor: pointer;
+}
+.featureImg-1:hover {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(.9); 
 }
 .featureImg-2 {
     max-width: 50%;
@@ -230,6 +294,13 @@
     height: auto;
     margin-left: 20%;
     margin-top: 40px;
+    transition: transform .4s;
+    cursor: pointer;
+}
+.featureImg-2:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(.9); 
 }
 .featureImg-3 {
     max-width: 60%;
@@ -237,17 +308,25 @@
     height: auto;
     margin-left: 25%;
     margin-top: 30px;
+    transition: transform .4s;
+    cursor: pointer;
+}
+.featureImg-3:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(.9); 
 }
 .checkSign {
-    max-width: 6%;
+    max-width: 3.8%;
     width: 100%;
     height: auto;
 }
 .featureList {
-    font-size: 0.9rem;
+    font-size: 11pt!important;
     margin-bottom: 1.3rem;
     line-height: 1.5rem;
-    font-weight: 600;
+    font-weight: 500;
+    color: #000000;
 }
 .allView {
     border: none;
@@ -261,14 +340,18 @@
     margin-right: auto;
     outline: none;
 }
+.featureItems {
+    margin-top: -9px;
+}
 .btn-txt {
     font-size: 13px;
     font-weight: 500;
 }
 .btnArrow {
-    max-width: 6%;
+    max-width: 3%;
     width: 100%;
     height: auto;
+    margin-left: 3px;
 }
 .price {
     padding-bottom: 50px;
@@ -345,10 +428,13 @@ h5 {
     font-weight: lighter;
 }
 .cardListValue {
-    font-size: 0.8rem;
-    margin-bottom: 1.3rem;
-    line-height: 1.5rem;
+    font-size: 10pt!important;
     font-weight: 600;
+}
+.tips {
+    max-width: 4%;
+    width: 100%;
+    height: auto;
 }
 .cardLabel-1 {
     border: 1px solid;
@@ -358,8 +444,8 @@ h5 {
     font-weight: 500;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-right: 80px;
-    padding-left: 80px;
+    width: 100%;
+    text-align: center;
     font-size: 0.8rem;
 }
 .cardLabel-2 {
@@ -370,8 +456,8 @@ h5 {
     font-weight: 500;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-right: 80px;
-    padding-left: 80px;
+    width: 100%;
+    text-align: center;
     font-size: 0.8rem;
 }
 .cardLabel-3 {
@@ -382,8 +468,8 @@ h5 {
     font-weight: 500;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-right: 80px;
-    padding-left: 80px;
+    width: 100%;
+    text-align: center;
     font-size: 0.8rem;
 }
 .cardLabel-4 {
@@ -393,8 +479,8 @@ h5 {
     font-weight: 500;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-right: 80px;
-    padding-left: 80px;
+    width: 100%;
+    text-align: center;
     font-size: 0.8rem;
 }
 .cardLabel-4 a {

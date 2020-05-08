@@ -129,50 +129,6 @@
         </div>
     </div>
 </section>
-<!--Modal -->
-<ng-template #cityTemplate>
-    <div class="modal-header">
-        <h5 class="text-center " id="exampleModalLabel" style="margin-left: 30% !important;">မြို့ရွေးချယ်ပါ</h5>
-        <button type="button" class="close" aria-label="Close" (click)="cancelCityModal()">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <div class="form-check mt-3">
-            <input type="checkbox" name="check_list" class="form-check-input" [(ngModel)]="wholeCountry" 
-                value="{{wholeCountry}}" id="checkAll" (click)="checkAllCities()">
-            <label class="form-check-label" for="checkAll">
-                တစ်နိုင်ငံလုံး
-            </label>
-        </div>
-        <div *ngFor="let option of cityOptions">
-            <div class="form-check mt-3">
-                <input class="form-check-input" [(ngModel)]="option.selected" value="{{option.id}}" 
-                    type="checkbox" id="{{option.value}}" (click)="checkForWholeCountry(option)">
-                <label class="form-check-label" for="{{option.value}}">
-                    {{option.value}}
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="row">
-                    <div class="col-sm-6 col-6">
-                        <button type="button" class="btn btn-lg btn-block" (click)="getSelectedCity()" 
-                            id="white">ရွေးမည်</button>
-                    </div>
-                    <div class="col-sm-6 col-6 text-right">
-                        <button type="button" (click)="cancelCityModal()" class="btn btn-lg cancelModal" >
-                            မလုပ်တော့ပါ
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</ng-template>
 
 <ng-template #advertisementTemplate>
     <div class="modal-header">

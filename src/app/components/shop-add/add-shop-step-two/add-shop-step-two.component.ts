@@ -1,9 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 import { ShopService } from '@app/_services/shop.service';
 import { ProductData } from '@app/_models/product';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Location } from '@angular/common';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { City, CityOptions } from '@app/_models/city';
+import { Township, TownshipOptions } from '@app/_models/township';
+import { ShopType } from '@app/_models/shop-type';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +15,19 @@ import { Location } from '@angular/common';
   styleUrls: ['./add-shop-step-two.component.css']
 })
 export class AddShopStepTwoComponent implements OnInit {
+  cityModalRef: BsModalRef;
+  cityPlaceholder = 'မြို့ရွေးချယ်ပါ';
+  cityOptions: CityOptions[] = [];
+  cities: City[];
+  shopTypes: ShopType[];
+  townships: Township[];
+  townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
+  townshipOptions: TownshipOptions[] = [];
+  selectedTownshipToTransfer: TownshipOptions[] = [];
+  wholeCountry = false;
+  wholeCity = false;
+  disabled = true;
+  cityIds: string = null;
   links = new LinkData(null, null, null, null);
   selectedProductFiles: ProductData[] = [];
   message: string;
@@ -23,10 +40,133 @@ export class AddShopStepTwoComponent implements OnInit {
 
   loading = false;
 
-  constructor(private service: ShopService, private router: Router, private location: Location) { }
+  constructor(
+    private service: ShopService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location,
+    private modalService: BsModalService) { }
 
   ngOnInit() {
     console.log(this.service.selectedTownships);
+    this.route.data.subscribe(data => {
+      this.shopTypes = data.shopTypes;
+      this.cities = data.cities.cityList;
+      this.cities.forEach(val => {
+        this.cityOptions.push({
+          id: val.id,
+          value: val.name,
+          selected: false
+        });
+      });
+    });
+  }
+  openCityModal(template: TemplateRef<any>) {
+    this.cityModalRef = this.modalService.show(template);
+  }
+  cancelCityModal() {
+    this.cityOptions.forEach(data => {
+      data.selected = false;
+    });
+    this.cityPlaceholder = 'မြို့ရွေးချယ်ပါ';
+    this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
+    this.townshipOptions = [];
+    this.selectedTownshipToTransfer = [];
+    this.wholeCountry = false;
+    this.wholeCity = false;
+    this.cityIds = null;
+    this.disabled = true;
+    this.cityModalRef.hide();
+  }
+  checkAllCities() {
+    if (this.wholeCountry === false) {
+      this.wholeCountry = true;
+
+      this.cityOptions.forEach(data => {
+        data.selected = true;
+      });
+    } else {
+      this.wholeCountry = false;
+      this.cityOptions.forEach(data => {
+        data.selected = false;
+      });
+
+      this.townshipOptions.forEach(data => {
+        data.selected = false;
+      });
+    }
+  }
+  checkForWholeCountry(obj) {
+    if (obj.selected === true) {
+      this.wholeCountry = false;
+      return;
+    }
+  }
+  getSelectedCity() {
+    if (this.wholeCountry) {
+      this.disabled = true;
+      this.cityPlaceholder = 'တစ်နိုင်ငံလုံး';
+      this.townshipPlaceholder = 'မြို့နယ်အားလုံး';
+      this.cityModalRef.hide();
+      this.cityIds = null;
+      return;
+    }
+    this.disabled = false;
+    this.selectedTownshipToTransfer = [];
+    this.townshipPlaceholder = 'မြို့နယ်ရွေးချယ်ပါ';
+    const result = this.cityOptions
+      .filter(opt => {
+        return opt.selected;
+      })
+      .map(opt => {
+        return opt;
+      });
+
+    if (result == null || result.length === 0) {
+      return;
+    }
+    this.cityIds = null;
+    this.cityIds = result.map(x => x.id).join(',');
+    this.service.getTownShips(this.cityIds).subscribe(res => {
+      this.townshipOptions = [];
+      this.townships = res.townList;
+      this.townships.forEach(data => {
+        this.townshipOptions.push({
+          id: data.id,
+          value: data.name,
+          selected: false
+        });
+      });
+    });
+
+    this.cityPlaceholder = '';
+    this.cityPlaceholder = '';
+    if (result.length === 1) {
+      this.cityPlaceholder = result[0].value;
+    } else if (result.length === 0) {
+      this.cityPlaceholder = 'တစ်နိုင်ငံလုံး';
+    } else if (result.length === 2) {
+      for (let index = 0; index < 2; index++) {
+        if (index === 0) {
+          this.cityPlaceholder = result[index].value;
+        } else {
+          this.cityPlaceholder =
+            this.cityPlaceholder + '၊' + result[index].value;
+        }
+      }
+    } else {
+      for (let index = 0; index < 3; index++) {
+        if (index === 0) {
+          this.cityPlaceholder = result[index].value;
+        } else if (index === 1) {
+          this.cityPlaceholder =
+            this.cityPlaceholder + '၊' + result[index].value;
+        } else {
+          this.cityPlaceholder = this.cityPlaceholder + ' ...';
+        }
+      }
+    }
+    this.cityModalRef.hide();
   }
 
   preview(files) {

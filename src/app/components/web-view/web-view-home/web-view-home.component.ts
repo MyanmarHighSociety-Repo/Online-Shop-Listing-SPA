@@ -11,7 +11,7 @@ export class WebViewHomeComponent implements OnInit {
     constructor(private router: Router) {}
     ngOnInit() {
         setTimeout(() => {
-            this.router.navigate(['web-view-contact-us']);
+            this.router.navigate(['web-view-buy-app']);
         }, 20000);
     }
     gotoWebViewHome() {
@@ -22,6 +22,9 @@ export class WebViewHomeComponent implements OnInit {
     }
     gotoWebViewContactUs() {
         this.router.navigate(['web-view-contact-us']);
+    }
+    gotoWebViewBuyApp() {
+        this.router.navigate(['web-view-buy-app']);
     }
 
 }
