@@ -8,24 +8,25 @@ import { AddShopStepTwoComponent } from './components/shop-add/add-shop-step-two
 import { ShopSearchComponent } from './components/shop-search/shop-search.component';
 import { ShopSearchResultComponent } from './components/shop-search/shop-search-result/shop-search-result.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { InfoComponent } from './components/info/info.component';
 
 export const appRoutes: Routes = [
-    { path: '', component: HomeComponent},
-    {
-        path: '',
-        children: [
-            { path: 'add-shop-step-one', component: AddShopStepOneComponent,
-                resolve: {shopTypes: ShopAddStepOneShopTypeResolver, cities: ShopAddStepOneCityResolver}
-            },
-            { path: 'shop-search', component: ShopSearchComponent,
-                resolve: {shopTypes: ShopAddStepOneShopTypeResolver, cities: ShopAddStepOneCityResolver}
-            },
-            { path: 'add-shop-step-two', component: AddShopStepTwoComponent},
-            { path: 'shop-search-result', component: ShopSearchResultComponent},
-            { path: 'contact-us', component: ContactUsComponent},
-            { path: 'shop-detail', component: ShopDetailComponent},
-            { path: 'shop-detail-advertisement', component: ShopDetailAdvertisementComponent}
-        ]
-    },
+    { path: '', component: InfoComponent},
+    // {
+    //     path: '',
+    //     children: [
+    //         { path: 'add-shop-step-one', component: AddShopStepOneComponent,
+    //             resolve: {shopTypes: ShopAddStepOneShopTypeResolver, cities: ShopAddStepOneCityResolver}
+    //         },
+    //         { path: 'shop-search', component: ShopSearchComponent,
+    //             resolve: {shopTypes: ShopAddStepOneShopTypeResolver, cities: ShopAddStepOneCityResolver}
+    //         },
+    //         { path: 'add-shop-step-two', component: AddShopStepTwoComponent},
+    //         { path: 'shop-search-result', component: ShopSearchResultComponent},
+    //         { path: 'contact-us', component: ContactUsComponent},
+    //         { path: 'shop-detail', component: ShopDetailComponent},
+    //         { path: 'shop-detail-advertisement', component: ShopDetailAdvertisementComponent}
+    //     ]
+    // },
     { path: '**', redirectTo: '', pathMatch: 'full'}
 ];

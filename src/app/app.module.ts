@@ -33,6 +33,7 @@ import { ShopSearchResultComponent } from './components/shop-search/shop-search-
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FontAwesomeModule  } from '@fortawesome/angular-fontawesome';
 import { NgClockPickerLibModule } from 'ng-clock-picker-lib';
+import { InfoComponent } from './components/info/info.component';
 
 
 export function tokenGetter() {
@@ -60,6 +61,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ShopSearchResultComponent,
       ShopDetailAdvertisementComponent,
       ContactUsComponent,
+      InfoComponent
    ],
    imports: [
       TruncateModule,

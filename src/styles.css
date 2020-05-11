@@ -47,7 +47,7 @@
     margin-bottom:0rem !important;
     line-height: 1.3rem;}
 
-html, body { height: 100%; }
+html, body { height: 100%; background-color: black; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* .country-modalbox .mat-dialog-container {
@@ -88,4 +88,3 @@ input[type='number'],
 textarea {
   font-size: 16px !important;
 }
-
