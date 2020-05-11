@@ -29,8 +29,8 @@ section {
 }
 ::placeholder {
     /* color: #ffffff; */
-    padding-left: 10px!important;
-    font-weight: 500px;
+    padding-left: 11px!important;
+    font-weight: 300px;
 }
 /* Content Section */
 .shopDooraNewLogo {
@@ -40,12 +40,12 @@ section {
     margin-right: auto;
 }
 h6 {
-    font-size: 1rem;
+    font-size: 14pt!important;
     font-weight: 600;
     line-height: 1.5rem;
 }
 p {
-    font-size: 11pt!important;
+    font-size: 12pt!important;
     line-height: 1.5rem;
 }
 .f-w-600 {
