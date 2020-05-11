@@ -41,6 +41,8 @@ import { WebViewShopAdd } from './components/web-view/web-view-shop-add/web-view
 import { WebViewContactUsComponent } from './components/web-view/web-view-contact-us/web-view-contact-us.component';
 import { WebViewBuyApp } from './components/web-view/web-view-buy-app/web-view-buy-app.component';
 import { RecaptchaModule } from 'ng-recaptcha';
+import {Angular2UsefulSwiperModule} from 'angular2-useful-swiper';
+
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -73,11 +75,14 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       WebViewContactUsComponent,
       WebViewBuyApp,
       MobileAppBuyComponent,
+
+
    ],
    imports: [
       TruncateModule,
       CarouselModule,
       BrowserModule,
+      Angular2UsefulSwiperModule,
       RecaptchaModule,
       BrowserAnimationsModule,
       HttpClientModule,
@@ -92,6 +97,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ButtonsModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
+
 ],
    providers: [
       AlertifyService,

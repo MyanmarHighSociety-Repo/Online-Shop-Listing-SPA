@@ -4,6 +4,19 @@
 .f-14{
   font-size: 14px;
 }
+.f-11{
+  font-size: 11px;
+}
+.f-10{
+  font-size: 10px !important;
+}
+.f-16{
+  font-size: 16px !important;
+}
+.f-8{
+  font-size: 8px !important;
+}
+
 
 .row-padding{
   padding-left: 0px;
@@ -89,12 +102,18 @@ height:43px !important;
 .white-text{
     color:#777777;
 }
+.white-color{
+  color: #fff;
+}
+.light-blue{
+  color: #4e8cf1;
+}
 .k-badge{
     border:1px solid #f4f4f4;
     background-color:#f4f4f4;
 
     border-radius:30px !important;
-    width:38%;
+    width:60%;
     height:auto;
     text-align:center;
 }
@@ -379,7 +398,7 @@ a:visited{
     color:white;
   }
   .content{
-    height: 130vh;
+    height: 135vh;
   }
 
 @media only screen and (max-width: 320px)
@@ -387,8 +406,8 @@ a:visited{
     p{
         margin-bottom:0.6rem !important;
         line-height: 1.3rem !important;
-        font-size: 10px!important;
-      }  
+        font-size: 12px!important;
+      }
 
     }
     .swiper-container {
@@ -502,4 +521,10 @@ a:visited{
       position: absolute;
     top: 50px;
     left: 40px;
+}
+.advertisment-bg-color{
+  background-color: #982ce4;
+}
+.advertisment-phone-bg-color{
+  background-color: #701db7;
 }

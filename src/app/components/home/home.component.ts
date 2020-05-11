@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 import { ShopService } from '@app/_services/shop.service';
 import { Township, City } from '@app/_models/city';
 import { TownshipOptions } from '@app/_models/township';
+import { SwiperOptions } from 'swiper';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { Location } from '@angular/common';
@@ -28,6 +29,41 @@ import { Location } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
   @ViewChild('stickyMenu', { static: false }) menuElement: ElementRef;
+
+  configbanner: SwiperOptions = {
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    spaceBetween: 30,
+    parallax: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+  }
+
+
+  };
+
+
+  config: SwiperOptions = {
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    spaceBetween: 30,
+    parallax: true,
+    autoplay:false,
+
+
+  };
+
+
+
+
+
 
   sticky = false;
   menuPosition: any;
@@ -66,6 +102,9 @@ export class HomeComponent implements OnInit {
   wholeCountry = false;
   searchText: string;
   cityIds: string = null;
+
+   show: boolean = false;
+  buttonName: any = 'အကုန်ကြည့်ရန်';
 
   // @HostListener('window:scroll', ['$event'])
   @HostListener('window:scroll', [])
@@ -261,6 +300,9 @@ export class HomeComponent implements OnInit {
   goToContactUs() {
     this.router.navigate(['/contact-us']);
   }
+  goToApp() {
+    this.router.navigate(['/mobile-app-buy']);
+  }
 
 
 search() {
@@ -289,6 +331,16 @@ search() {
   }
 
   this.router.navigate(['/shop-search-result']);
+}
+toggle() {
+  this.show = !this.show;
+  // CHANGE THE NAME OF THE BUTTON.
+  if (this.show) {
+  this.buttonName = 'View Less';
+  }
+  else {
+  this.buttonName = 'အကုန်ကြည့်ရန်';
+}
 }
 }
 
