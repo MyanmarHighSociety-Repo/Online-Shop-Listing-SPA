@@ -1,4 +1,4 @@
-div.shadow {
+/* div.shadow {
     position:absolute;
     max-width: 50%;
     max-height:50%;
@@ -31,4 +31,13 @@ img.logo {
         margin-top:-50%;
         margin-left:-50%;
     }
+} */
+.logo{
+  width: 100%;
+  margin-top:35%;
+  margin-bottom: 0%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
 }
