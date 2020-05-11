@@ -288,7 +288,7 @@ p{
     margin-top : 5px !important;
 }
 .k-navigation-img1{
-  width: 20%;
+  width: 25%;
   display:block;
   margin:0 auto;
   max-width:23px;
@@ -296,7 +296,7 @@ p{
   margin-top : 5px !important;
 }
 .k-navigation-img2{
-  width: 26%;
+  width: 22%;
   display:block;
   margin:0 auto;
   max-width:23px;
@@ -308,14 +308,7 @@ p{
     text-decoration: none;
     text-align:center;
 }
-.k-navigation-img2{
-    width:24%;
-    display:block;
-    margin:0 auto;
-    max-width:20px;
-    margin-bottom: 1px !important;
-    margin-top : 5px !important;
-}
+
 .img2{
     display:none;
 }
