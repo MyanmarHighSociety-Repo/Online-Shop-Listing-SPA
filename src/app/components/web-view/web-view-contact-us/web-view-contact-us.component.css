@@ -1,10 +1,36 @@
+@font-face {
+    font-family: Los Andes;
+    src: url (../font/Los\ Andes\ \ Lota\ Grotesque\ Alt\ 1\ Regular.otf);
+}
+section {
+    font-family: Los Andes;
+}
 .purple-bg-row{
     background-color:#982ce5 ;
 }
 .k-home-logo{
-    width:50%;
+    max-width: 15%;
+    width:100%;
     height:auto;
-    max-width:250px;
+}
+.navSearch {
+    background-color:#ae6cf4!important;
+    border-radius: 7px;
+    border: none;
+    outline: none!important;
+    color: #ffffff;
+    height: 30px;
+    width: 75%;
+    background-image:url('../../../../assets/images1/Asset 44.svg');
+    background-repeat:no-repeat;
+    background-size: 14px;
+    background-position: 95%;
+    /* margin-bottom: 10px; */
+}
+::placeholder {
+    /* color: #ffffff; */
+    padding-left: 11px!important;
+    font-weight: 300px;
 }
 /* Content Section */
 .shopDooraNewLogo {
@@ -14,12 +40,12 @@
     margin-right: auto;
 }
 h6 {
-    font-size: 1rem;
+    font-size: 14pt!important;
     font-weight: 600;
     line-height: 1.5rem;
 }
 p {
-    font-size: 0.8rem;
+    font-size: 12pt!important;
     line-height: 1.5rem;
 }
 .f-w-600 {
@@ -53,6 +79,9 @@ p {
     border-radius: 6px;
     color: #ffffff;
     font-size: 13px;
+}
+.customBtn:hover{
+    background-color: #5c0f91;
 }
 /* Footer */
  

@@ -1,9 +1,9 @@
 <div *ngIf="loading" class="overlay">
 </div>
 <div class="page2Header">
-    <a (click)="back()">
-        <img src="./assets/images1/Asset 28.svg" alt="Previous Arrow Button" id="prev_arrow">
-    </a>
+    <!-- <a (click)="back()">
+        <img src="#" alt="Previous Arrow Button" id="prev_arrow">
+    </a> -->
     <span class="page2Number"> 2/3 </span>
     <a class="page2Link">
         <span> ဆက်သွားမည် </span>
@@ -19,33 +19,23 @@
     <div class="row form-row mt-1 align">
         <div class="col-sm-6 col-6">
             <span><img class="arr" src="./assets/shop-add-images/Asset 44.svg" alt="" style="margin-left: 5px;"></span>
-            <input type="text" class="form-control form-control-lg" 
-                (click)="openCityModal(cityTemplate)"
-                id="input-height"
-                placeholder="{{cityPlaceholder}}" readonly>
+            <input type="text" (click)="openCityModal(cityTemplate)" placeholder="{{cityPlaceholder}}" class="form-control form-control-lg" id="input-heigh" readonly>
         </div>
         <div class="col-sm-6 col-6">
             <span><img class="arr2 " src="./assets/shop-add-images/Asset 44.svg" alt=""
                     style="margin-left: 5px;"></span>
-            <input type="text" class="form-control form-control-lg" 
-                [ngClass]="{'disabled' : disabled}"
-                (click)="openTownshipModal(townshipTemplate)"
-                id="input-height"
-                placeholder="{{townshipPlaceholder}}" readonly>
+            <input type="text" class="form-control form-control-lg" id="input-height" readonly>
         </div>
     </div>
     <div class="form-row mt-3 align">
         <div class="col-sm-6 col-6">
             <span><img class="clock " src="./assets/shop-add-images/Asset 42.svg " alt=" "></span>
-            <input [(ngModel)]="shop.deliveryFromTime" ngClockPicker 
-            [ngClockPickerConfig]="config"
+            <input ngClockPicker 
                 class="form-control form-control-lg " id="input-height" placeholder="မှ " readonly/>
         </div>
         <div class="col-sm-6 col-6">
             <span><img class="clock1 " src="./assets/shop-add-images/Asset 42.svg " alt=" "></span>
-            <input [(ngModel)]="shop.deliveryToTime" ngClockPicker 
-                [ngClockPickerConfig]="config"
-                class="form-control form-control-lg " id="input-height" placeholder="ထိ " readonly/>
+            <input ngClockPicker class="form-control form-control-lg " id="input-height" placeholder="ထိ " readonly/>
         </div>
     </div>
 </div>
@@ -108,6 +98,52 @@
             </div>
         </div>
     </div>
+<!-- TownShip ModalBox  -->
+<ng-template #cityTemplate>
+    <div class="modal-header">
+        <h5 class="text-center " id="exampleModalLabel" style="margin-left: 30% !important;">မြို့ရွေးချယ်ပါ</h5>
+        <button type="button" class="close" aria-label="Close" (click)="cancelCityModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-check mt-3">
+            <input type="checkbox" name="check_list" class="form-check-input" [(ngModel)]="wholeCountry" 
+                value="{{wholeCountry}}" id="checkAll" (click)="checkAllCities()">
+            <label class="form-check-label" for="checkAll">
+                တစ်နိုင်ငံလုံး
+            </label>
+        </div>
+        <div *ngFor="let option of cityOptions">
+            <div class="form-check mt-3">
+                <input class="form-check-input" [(ngModel)]="option.selected" value="{{option.id}}" 
+                    type="checkbox" id="{{option.value}}" (click)="checkForWholeCountry(option)">
+                <label class="form-check-label" for="{{option.value}}">
+                    {{option.value}}
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="row">
+                    <div class="col-sm-6 col-6">
+                        <button type="button" class="btn btn-lg btn-block" (click)="getSelectedCity()" 
+                            id="white">ရွေးမည်</button>
+                    </div>
+                    <div class="col-sm-6 col-6 text-right">
+                        <button type="button" (click)="cancelCityModal()" class="btn btn-lg cancelModal" >
+                            မလုပ်တော့ပါ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<!-- TownShip ModalBox End -->
+
     <!-- <div class="row align">
         <div class="col-md-12 mt-3 ">
             <h1 class="buy-head-color text-center">ဘယ်လိုဝယ်ရမှာလဲ</h1>
