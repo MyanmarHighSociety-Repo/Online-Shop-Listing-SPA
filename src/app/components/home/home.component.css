@@ -278,7 +278,7 @@ p{
     margin:0;
 }
 
-/* This is for navigation */
+/* This is for footer */
 .k-navigation-img{
     width:30%;
     display:block;
@@ -463,7 +463,7 @@ a:visited{
       transform: translate(24px, 0);
     }
   }
-
+/* end footer */
   .shop-logo{
     width: 70%;
 
@@ -521,3 +521,153 @@ a:visited{
 .advertisment-phone-bg-color{
   background-color: #701db7;
 }
+
+/* start swiper pagination */
+
+.home-swiper-pagination{
+  position: absolute;
+  text-align: center;
+  transition: 300ms opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+}
+.home-swiper-pagination.home-swiper-pagination-hidden {
+  opacity: 0;
+}
+/* Common Styles */
+.home-swiper-pagination-fraction,
+.home-swiper-pagination-custom,
+.swiper-container-horizontal > .home-swiper-pagination-bullets {
+  bottom: 14px;
+  left: 0;
+  width: 100%;
+}
+/* Bullets */
+.home-swiper-pagination-bullets-dynamic {
+  overflow: hidden;
+  font-size: 0;
+}
+.home-swiper-pagination-bullets-dynamic .home-swiper-pagination-bullet {
+  transform: scale(0.33);
+  position: relative;
+}
+.home-swiper-pagination-bullets-dynamic .home-swiper-pagination-bullet-active {
+  transform: scale(1);
+}
+.home-swiper-pagination-bullets-dynamic .home-swiper-pagination-bullet-active-main {
+  transform: scale(1);
+}
+.home-swiper-pagination-bullets-dynamic .home-swiper-pagination-bullet-active-prev {
+  transform: scale(0.66);
+}
+.home-swiper-pagination-bullets-dynamic .home-swiper-pagination-bullet-active-prev-prev {
+  transform: scale(0.33);
+}
+.home-swiper-pagination-bullets-dynamic .home-swiper-pagination-bullet-active-next {
+  transform: scale(0.66);
+}
+.home-swiper-pagination-bullets-dynamic .home-swiper-pagination-bullet-active-next-next {
+  transform: scale(0.33);
+}
+.home-swiper-pagination-bullet {
+  width: 20px;
+  height: 4px;
+  display: inline-block;
+  border-radius: 30%;
+  background: #b7b7b7;
+
+
+}
+button.home-swiper-pagination-bullet {
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.home-swiper-pagination-clickable .swiper-pagination-bullet {
+  cursor: pointer;
+}
+.home-swiper-pagination-bullet-active {
+  background: #982ce5;
+  /* opacity: 1;
+  background: var(--swiper-pagination-color, var(--swiper-theme-color)); */
+}
+.swiper-container-vertical > .home-swiper-pagination-bullets {
+  right: 10px;
+  top: 50%;
+  transform: translate3d(0px, -50%, 0);
+}
+.swiper-container-vertical > .home-swiper-pagination-bullets .home-swiper-pagination-bullet {
+  margin: 6px 0;
+  display: block;
+}
+.swiper-container-vertical > .home-swiper-pagination-bullets.home-swiper-pagination-bullets-dynamic {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+}
+.swiper-container-vertical > .home-swiper-pagination-bullets.home-swiper-pagination-bullets-dynamic .home-swiper-pagination-bullet {
+  display: inline-block;
+  transition: 200ms transform, 200ms top;
+}
+.swiper-container-horizontal > .home-swiper-pagination-bullets .home-swiper-pagination-bullet {
+  margin: 0 4px;
+}
+.swiper-container-horizontal > .home-swiper-pagination-bullets.home-swiper-pagination-bullets-dynamic {
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.swiper-container-horizontal > .home-swiper-pagination-bullets.home-swiper-pagination-bullets-dynamic .home-swiper-pagination-bullet {
+  transition: 200ms transform, 200ms left;
+}
+.swiper-container-horizontal.swiper-container-rtl > .home-swiper-pagination-bullets-dynamic .home-swiper-pagination-bullet {
+  transition: 200ms transform, 200ms right;
+}
+/* Progress */
+.home-swiper-pagination-progressbar {
+  background: rgba(0, 0, 0, 0.25);
+  position: absolute;
+}
+.home-swiper-pagination-progressbar .home-swiper-pagination-progressbar-fill {
+  background: var(--swiper-pagination-color, var(--swiper-theme-color));
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  transform-origin: left top;
+}
+.swiper-container-rtl .home-swiper-pagination-progressbar .home-swiper-pagination-progressbar-fill {
+  transform-origin: right top;
+}
+.swiper-container-horizontal > .home-swiper-pagination-progressbar,
+.swiper-container-vertical > .home-swiper-pagination-progressbar.home-swiper-pagination-progressbar-opposite {
+  width: 100%;
+  height: 4px;
+  left: 0;
+  top: 0;
+}
+.swiper-container-vertical > .home-swiper-pagination-progressbar,
+.swiper-container-horizontal > .home-swiper-pagination-progressbar.home-swiper-pagination-progressbar-opposite {
+  width: 4px;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.home-swiper-pagination-white {
+  --swiper-pagination-color: #ffffff;
+}
+.home-swiper-pagination-black {
+  --swiper-pagination-color: #000000;
+}
+.home-swiper-pagination-lock {
+  display: none;
+}
+
+
+/* end swiper pagination */
