@@ -45,7 +45,14 @@ export class ShopData {
         public townshipId: number,
     ) {}
 }
-
+export class LinkData {
+    constructor(
+      public websiteLink: string,
+      public facebookLink: string,
+      public androidLink: string,
+      public iosLink: string,
+  ) {}
+}
 export class ContactInfo {
     constructor(
         public name: string,

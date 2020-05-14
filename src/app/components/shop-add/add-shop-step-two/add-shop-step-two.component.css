@@ -1,3 +1,15 @@
+.overlay {
+    background-color:#EFEFEF;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    top: 0px;
+    left: 0px;
+    opacity: .5; /*in FireFox*/ 
+    filter: alpha(opacity=50); /* in IE */
+}
+/* FOR HEADER */
 #prev_arrow{
     max-width: 5%;
     width: 100%;
@@ -10,12 +22,6 @@
     height: 52px;
     width: 100%;
     font-size: 0.8rem !important;
-}
-.page2Line {
-    /* margin-top: 13px; */
-    /* margin-bottom: 16px !important; */
-    border: 0;
-    border-top: 7px solid #dddddd;
 }
 .page2Number {
     color: #787878;
@@ -31,96 +37,33 @@
     margin-top: 13px;
     margin-right: 20px;
 }
-.head-color {
-    color: #982ce5;
-    font-size: 1.1rem;
+/* HEADER END */
+.page2Line {
+    /* margin-top: 13px; */
+    /* margin-bottom: 16px !important; */
+    border: 0;
+    border-top: 7px solid #dddddd;
 }
-.buy-head-color{
-    font-size: 1rem;
-    color: #982ce5;
-}
-.head-page {
-    color: #7f7f7f;
-    font-size: 15px;
-    font-weight: 600;
-}
-/* html {
-    overflow-x: hidden;
-} */
-
+/* BODY CONTENT */
 .align {
     padding-left: 1%;
     padding-right: 1%;
 }
-
-.f-15 {
-    font-size: 12px;
-    color: #777777;
-}
-
 .f-13 {
     font-size: 12px;
     color: #777777;
 }
-
-#input-height {
-    height: 50px;
-    border-radius: 6px;
+.f-15 {
     font-size: 12px;
-    /* background-color: #fff; */
+    color: #777777;
 }
-
-#input-height:focus {
-    color: #495057;
-    background-color: #fff;
-    border: 2px solid #982ce5;
-    outline: 0;
-    box-shadow: none !important;
+.disabled {
+    opacity: 0.6;
+    pointer-events: none;
 }
-.shopOption{
-    font-size: 12px;
+.plus-color {
+    color: #737c84;
 }
-
-#text-height {
-    height: 170px;
-    border-radius: 6px;
-    font-size: 12px;
-    padding-left: 18px;
-}
-
-#text-height:focus {
-    color: #495057;
-    background-color: #fff;
-    border: 2px solid #982ce5;
-    outline: 0;
-    box-shadow: none !important;
-}
-
-.food-type {
-    width: 30px;
-}
-
-.arrow {
-    position: absolute;
-    width: 20px;
-    padding-top: 29px;
-    left: 307px;
-}
-
-/* .play {
-    position: absolute;
-    width: 25px;
-    padding-top: 42px;
-    left: 28px;
-} */
-
-/* .apple {
-    position: absolute;
-    width: 25px;
-    padding-top: 40px;
-    left: 28px;
-} */
-
 .arr {
     position: absolute;
     width: 15px;
@@ -134,11 +77,20 @@
     padding-top: 25px;
     right: 15px;
 }
-
-.text-right {
-    padding-right: 50px;
+#input-height {
+    height: 50px;
+    border-radius: 6px;
+    font-size: 12px;
+    /* background-color: #fff; */
 }
-
+#input-height:focus {
+    color: #495057;
+    background-color: #fff;
+    border: 2px solid #982ce5;
+    outline: 0;
+    box-shadow: none !important;
+}
+/* ClockPicker */
 .clock {
     position: absolute;
     width: 15px;
@@ -146,7 +98,6 @@
     padding-top: 20px;
     right: 17px;
 }
-
 .clock1 {
     position: absolute;
     width: 15px;
@@ -154,100 +105,23 @@
     padding-top: 20px;
     right: 17px;
 }
-
-.btn-color {
-    background-color: #982ce5;
-    border-radius: 4px;
+#clockModal {
+    border-radius: 6px;
+    height: 50px;
 }
-
-.white-grey {
-    
-}
-
-.plus-color {
-    color: #777777;
-    font-size: 15px;
-}
-
-.text-white {
-    color: #fff;
-    font-size: 15px;
-}
-.submitButton{
-    color: #fff !important;
-    font-size: 12px !important;           
-}
-
-.shopHr {
-    visibility: hidden;
-    margin-bottom: 4rem;
-    border: 0;
-    border-top: 1px solid rgba(0,0,0,.1);
-}
-
+/* ClockPicker End */
 .para {
     color: #f35952;
     font-size: 12px;
 }
-
-.white {
-    color: #fff;
+.uploadMyShop {
+    padding-top: 20px;
 }
-
-#white {
-    color: #fff;
-    font-size: 12px;
-    background-color: #982ce5;
-    border-radius: 4px;
-    line-height: 18px;
-    padding-bottom: 10px;
-    width: 160px;
+.cross {
+    width: 15px;
+    height: 15px;
+    float: right;
 }
-
-.cancelModal{
-    font-size: 12px !important;
-}
-
-.form-check-label{
-    font-size: 12px;
-    padding-left: 6px;
-}
-
-.form-check.mt-3 {
-    padding-left: 28px;
-}
-
-
-.bg-grey {
-    background-color: #eaeaea;
-    height: 180%;
-}
-
-.photo {
-    padding-top: 30%;
-    padding-left: 18%;
-    width: 70%;
-}
-
-.photos {
-    padding-top: 30%;
-    padding-left: 18%;
-    width: 70%;
-}
-
-.product-grey {
-    background-color: #eaeaea;
-    width: 80%;
-    height: 80%;
-    border-radius: 10px;
-}
-
-.plus-grey {
-    background-color: #eaeaea;
-    width: 100%;
-    height: 100%;
-}
-
 #product {
     border: 0;
     outline: 0;
@@ -257,231 +131,9 @@
     width: 80%;
     height: 40%;
 }
-
-.padd-top {
-    padding-top: 9% !important;
-}
-
-#product:focus {
-    border-bottom: 2px solid #982ce5;
-}
-
-.photo-cara {
-    width: 85% !important;
-    height: 50% !important;
-}
-
-.cross {
-    width: 15px;
-    height: 15px;
-    float: right;
-}
-
-#home{
-    width: 23px;
-    height: auto;
-}
-#cart {
-    width: 23px;
-    height: auto;
-}
-
-#bell {
-    width: 20px;
-    height: auto;
-}
-
-.font-grey {
-    color: #777777;
+.form-check-label{
     font-size: 12px;
-}
-
-.shopFooter .col-4{
-    padding-top: 10px;
-   
-}
-/* OpenMyShop Page */
-
-.uploadProfile {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    color: rgba(0, 0, 0, 0);
-}
-
-.uploadshpImage {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    color: rgba(0, 0, 0, 0);
-}
-
-.uploadMultiImages {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    color: rgba(0, 0, 0, 0);
-}
-
-.multishopImages {
-    width: 100px;
-    height: 100px;
-    margin-left: 0px;
-    object-fit: cover;
-    padding-right: 10%;
-}
-
-.multiImg {
-    margin-top: 10px;
-}
-/* Shop Page */
-
-.uploadMyShop {
-    padding-top: 20px;
-}
-/* now lastest */
-/* clock */
-
-.clock-digi {
-    background-color: #982ce5;
-}
-
-.digital {
-    color: #fff;
-}
-
-.clock-grey {
-    color: #777777;
-}
-
-#pink {
-    color: #982ce5;
-    font-size: 15px;
-}
-
-#font-f15 {
-    font-size: 15px;
-}
-/* 
-.clockpicker-tick.active, .clockpicker-tick:hover{
-    background-color: #982ce5 !important;
-} */
-/* 
-.clockpicker-button{
-    color: #982ce5 !important;
-} */
-.addNewShop{
-    color: #fff !important;
-    font-size: 12px !important;           
-}
-/* end */
-
-
-/* Clock Css  */
-/* .clockpicker-popover .popover-title {
-background-color: #982ce5 !important;
-color: #fff !important;
-font-size: 24px;
-font-weight: 700;
-line-height: 30px;
-border-radius: 0px !important;
-text-align: center;
-} */
-
-/* This is for navigation */
-
-.k-navigation-section{
-border-top:0.8px solid rgba(0,0,0,.125);
-position: fixed;
-left: 0;
-bottom:0;
-margin:0;
-background-color: #fafafa;
-z-index:10;
-height:65px;
-}
-
-.shop-navigation-link{
-text-decoration: none;
-}
-.shop-navigation-link:hover{
-text-decoration: none;
-}
-
-/* END */
-
-/* DropDown Select */
-
-#vodiapicker {
-border: 1px solid #ced4da;
-border-radius: 5px;
-margin-top: 2px;
-padding-left: 20px!important;
-}
-
-#vodiapicker li {
-cursor: pointer;
-list-style: none;
-margin-top: 25px;
-}
-
-#vodiapicker li img {
-width: 35px;
-}
-#vodiapicker li span {
-margin-left: 6px!important;
-margin-bottom: 0.6rem !important;
-line-height: 1.3rem !important;
-font-size: 12px !important;
-}
-
-#btn-select {
-background-color: #fff;
-cursor: pointer;
-list-style: none;
-width: 100%;
-height: 48px;
-border: 1px solid #ced4da;;
-border-radius: 5px;
-}
-#btn-select span {
-font-size: 12px;
-color: #495057;
-float: left;
-margin-left: 10px;
-}
-
-#btn-select img {
-width: 14px;
-float: right;
-margin-right: 10px;
-margin-top: 7px;
-}
-#btn-select:focus {
-box-shadow: 0 0 1px 2px #982ce5;
-border: 1px solid #982ce5!important;
-}
-
-.selected-shop-type {
-    width: 25px!important;
-    float: left!important;
-    margin-top: 0px!important;
-}
-
-.shop-type-span {
-    margin-top: 4px!important;
-}
-
-.overlay {
-    background-color:#EFEFEF;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    top: 0px;
-    left: 0px;
-    opacity: .5; /* in FireFox */ 
-    filter: alpha(opacity=50); /* in IE */
+    padding-left: 6px;
 }
 .uploadButton {
     margin: 0 auto;
@@ -491,3 +143,43 @@ border: 1px solid #982ce5!important;
     height: 40px;
     border: none;
 }
+.cancelModal{
+    font-size: 12px !important;
+}
+#white {
+    color: #fff;
+    font-size: 12px;
+    background-color: #982ce5;
+    border-radius: 4px;
+    line-height: 18px;
+    padding-bottom: 10px;
+    width: 160px;
+}
+/* BODY CONTENT END */
+
+.myClass .clock-picker__wrapper {
+    z-index: 2;
+  }
+  .myClass .clock-picker__nav {
+      background-color: #982ce5;
+  }
+  .myClass .clock-picker__time-display__button {
+      color: #fff!important;
+  }
+  .myClass .clock-picker__hours-mode-panel__button {
+      color: #fff!important;
+  }
+  /* .myClass .clock-picker__clock-face .clock-picker__clock-face__center {
+    fill: #982ce5;
+  } */
+  .myClass .clock-picker__item-button--selected {
+    background-color: #982ce5;
+    color: #fff;
+  }
+  .myClass .clock-picker__clock-face__tick .clock-picker__clock-face__tick--selected {
+      stroke: #982ce5!important;
+  }
+  .myClass .clock-picker__footer__dialog-control-button {
+      color: #982ce5!important;
+  }
+

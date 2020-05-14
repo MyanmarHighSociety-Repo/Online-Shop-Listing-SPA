@@ -33,6 +33,10 @@
 input [type = "text" ] {
     font-size: 16px;
 }
+.ng-autocomplete {
+    width:100%;
+    height: auto;
+  }
 .k-search {
     border:0.7px solid rgba(0,0,0,.125);
     padding:12px;

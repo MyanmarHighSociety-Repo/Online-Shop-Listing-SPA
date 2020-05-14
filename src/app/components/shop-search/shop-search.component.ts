@@ -1,4 +1,4 @@
-import { Component,Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { GetShopTypeResponse } from '@app/_models/home-models';
 import { ShopService } from '@app/_services/shop.service';
 import { City, CityOptions, Township } from '@app/_models/city';
@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { TownshipOptions } from '@app/_models/township';
 import { Location } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-shop-search-home',
@@ -13,6 +14,19 @@ import { Location } from '@angular/common';
   styleUrls: ['./shop-search.component.css']
 })
 export class ShopSearchComponent implements OnInit {
+  name = '';
+  public placeholder = 'ဆိုင်ရှာမည်';
+  public keyword = 'name';
+  public historyHeading = 'Recently selected';
+  public countriesTemplate = ['Albania', 'Andorra', 'Armenia', 'Austria', 'Azerbaijan', 'Belarus',
+    'Belgium', 'Bosnia & Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus',
+    'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Georgia',
+    'Germany', 'Greece', 'Hungary', 'Iceland', 'India', 'Ireland', 'Italy', 'Kosovo',
+    'Latvia', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia', 'Malta',
+    'Moldova', 'Monaco', 'Montenegro', 'Netherlands', 'Norway', 'Poland',
+    'Portugal', 'Romania', 'Russia', 'San Marino', 'Serbia', 'Slovakia', 'Slovenia',
+    'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Ukraine', 'United Kingdom', 'Vatican City'];
+
   townships: Township[];
   townshipOptions: TownshipOptions[] = [];
   cities: City[];
@@ -357,5 +371,9 @@ toggleDisplay(id) {
     }
 
     this.router.navigate(['/shop-search-result']);
+  }
+  // Submit template form
+   submitTemplateForm(value) {
+    console.log(value);
   }
 }

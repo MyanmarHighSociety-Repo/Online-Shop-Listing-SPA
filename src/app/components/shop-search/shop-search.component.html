@@ -20,7 +20,34 @@
     <!-- <form action="" method="post" class="searchForm"> -->
       <div class="row h-51p">
         <div class="col-12">
-          <input type="text" [(ngModel)]="searchText" class="form-control form-control-lg h-100 k-search" placeholder="ဆိုင်ရှာမည်" autofocus>
+          <form #form="ngForm" (ngSubmit)="submitTemplateForm(form.value)">
+              <div class="ng-autocomplete">
+                <ng-autocomplete #ngAutoCompleteStatic
+                                 [data]="countriesTemplate"
+                                 name="name"
+                                 [(ngModel)]="searchText"
+                                 [initialValue]=""
+                                 [placeHolder]="placeholder"
+                                 [searchKeyword]="keyword"
+                                 historyIdentifier="countriesTemplateList"
+                                 [historyHeading]="historyHeading"
+                                 historyListMaxNumber="3"
+                                 notFoundText="Not found"
+                                 [itemTemplate]="itemTemplateStatic"
+                                 [notFoundTemplate]="notFoundTemplate">
+                </ng-autocomplete>
+      
+                <ng-template #itemTemplateStatic let-item>
+                  <a [innerHTML]="item"></a>
+                </ng-template>
+      
+                <ng-template #notFoundTemplate let-notFound>
+                  <div [innerHTML]="notFound"></div>
+                </ng-template>
+              </div>
+            
+          </form>
+          <!-- <input type="text" [(ngModel)]="searchText" class="form-control form-control-lg h-100 k-search" placeholder="ဆိုင်ရှာမည်" autofocus> -->
         </div>
       </div>
       <div class="row mt-3">

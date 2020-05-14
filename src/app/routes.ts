@@ -22,12 +22,14 @@ export const appRoutes: Routes = [
         path: '',
         children: [
             { path: 'add-shop-step-one', component: AddShopStepOneComponent,
-                resolve: {shopTypes: ShopAddStepOneShopTypeResolver, cities: ShopAddStepOneCityResolver}
+                resolve: {shopTypes: ShopAddStepOneShopTypeResolver}
             },
             { path: 'shop-search', component: ShopSearchComponent,
                 resolve: {shopTypes: ShopAddStepOneShopTypeResolver, cities: ShopAddStepOneCityResolver}
             },
-            { path: 'add-shop-step-two', component: AddShopStepTwoComponent},
+            { path: 'add-shop-step-two', component: AddShopStepTwoComponent,
+                resolve: {cities: ShopAddStepOneCityResolver}
+            },
             { path: 'add-shop-step-three', component: AddShopStepThreeComponent },
             { path: 'shop-search-result', component: ShopSearchResultComponent},
             { path: 'contact-us', component: ContactUsComponent},

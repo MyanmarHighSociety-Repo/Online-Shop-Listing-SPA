@@ -42,6 +42,7 @@ import { WebViewContactUsComponent } from './components/web-view/web-view-contac
 import { WebViewBuyApp } from './components/web-view/web-view-buy-app/web-view-buy-app.component';
 import { RecaptchaModule } from 'ng-recaptcha';
 import {Angular2UsefulSwiperModule} from 'angular2-useful-swiper';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 
 export function tokenGetter() {
@@ -97,6 +98,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ButtonsModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
+      AutocompleteLibModule
 
 ],
    providers: [

@@ -26,6 +26,8 @@ export class ShopService {
   shopData: ShopData;
   selectedAdveriesementFiles: AdvertisementData[];
   shopImgFile: File;
+  productData: ProductData[];
+  // linkData: LinkData[];
 
   searchFormText: string;
   searchFormTownship: string;
@@ -50,6 +52,11 @@ export class ShopService {
     this.searchFormShopType = null;
     this.representCity = null;
   }
+  clearData3() {
+    // this.shopData.deliveryFromTime = null;
+    // this.shopData.deliveryToTime = null;
+    this.productData = null;
+  }
 
   getAllTwonship(cityId): Observable<GetAllTwonshipResponse> {
     let params = new HttpParams();
@@ -71,6 +78,7 @@ export class ShopService {
   }
 
   postShop(shop: ShopData): Observable<AddShopResponse> {
+    // console.log(shop);
     return this.http.post<AddShopResponse>(this.baseUrl + 'Shop/Addshop', shop);
   }
 
