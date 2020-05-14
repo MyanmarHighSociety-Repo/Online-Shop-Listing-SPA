@@ -358,7 +358,8 @@ export class AddShopStepTwoComponent implements OnInit {
     // console.log(this.shop.deliveryToTime);
     if ( this.shop.deliveryFromTime ===  null ||
         this.shop.deliveryToTime === null ||
-        this.selectedProductFiles.length === 0 ||
+        this.tempProductImageFile === null || this.tempProductImageUrl == null ||
+        this.productName == null || this.productPrice === null ||
         (this.wholeCountry !== true && this.selectedTownshipToTransfer.length === 0)) {
           this.error = 'Please fill out all the fields!';
     } else {
