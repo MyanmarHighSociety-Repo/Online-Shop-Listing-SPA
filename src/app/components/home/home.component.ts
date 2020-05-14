@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('stickyMenu', { static: false }) menuElement: ElementRef;
 
   configbanner: SwiperOptions = {
-    pagination: { el: '.swiper-pagination', clickable: true },
+    pagination: { el: '.home-swiper-pagination', clickable: true },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
 
 
   config: SwiperOptions = {
-    pagination: { el: '.swiper-pagination', clickable: true },
+    pagination: { el: '.home-swiper-pagination', clickable: true },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
