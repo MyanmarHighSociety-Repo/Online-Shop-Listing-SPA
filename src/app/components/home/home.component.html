@@ -17,14 +17,14 @@
         <div class="row pt-2">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col">
                 <div class="tab">
-                    <button class="tablinks {{tablinks1}}" (click)='changeTab("tablinks1")' id="defaultOpen">
+                    <button class="tablinks {{tablinks1}}" (click)='changeTab("tablinks1")' id="defaultOpen" >
                         <p>မြို့အားလုံး</p>
                     </button>
-                    <button class="tablinks {{tablinks3}}" (click)='changeTab("tablinks3")'>
+                    <button class="tablinks {{tablinks2}}" (click)='changeTab("tablinks2")' >
                         <p>ရန်ကုန် </p>
                     </button>
-                    <button class="tablinks {{tablinks2}}" (click)='changeTab("tablinks2")'
-                        style="width:25% !important">
+                    <button class="tablinks {{tablinks3}}" (click)='changeTab("tablinks3")'
+                       >
                         <p> မန္တလေး</p>
                     </button>
                 </div>
@@ -40,7 +40,7 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
 
 
-                        <swiper [config]="configbanner">
+                        <!-- <swiper [config]="configbanner">
                           <div class="swiper-wrapper" style="height: 125px !important;">
                             <div class="swiper-slide">
                               <img src="./../../../assets/images1/banner4.png" class="banner1">
@@ -53,10 +53,34 @@
                             </div>
                           </div>
 
-                          <div class="home-swiper-pagination home-swiper-pagination-bullets home-swiper-pagination-clickable"></div>
+                          <div class="home-swiper-pagination " style="padding-top: 7px;"></div>
 
 
-                        </swiper>
+                        </swiper> -->
+
+
+                            <owl-carousel-o [options]="customOptions">
+                              <ng-template carouselSlide>
+
+                                  <img src="./../../../assets/images1/banner4.png" class="banner1">
+
+                              </ng-template>
+                                <ng-template carouselSlide>
+
+                                        <img src="./../../../assets/images1/Banner1.jpg"  class="banner1">
+
+                                </ng-template>
+                                <ng-template carouselSlide>
+
+                                        <img src="./../../../assets/images1/Banner2.jpg"  class="banner1">
+
+                                </ng-template>
+                            </owl-carousel-o>
+
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -111,7 +135,7 @@
           </div>
           <div class="row pt-3">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <p> လူကြိုက်များသော Online Shop များ </p>
+                <p class="f-14 bottom-0"> လူကြိုက်များသော Online Shop များ </p>
             </div>
           </div>
 
@@ -183,10 +207,10 @@
                                     </p>
                                     <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                            <span *ngIf="i < 3">
+                                            <span *ngIf="i < 2">
                                                 {{location.township.name}}၊
                                             </span>
-                                            <span *ngIf="i == 3">
+                                            <span *ngIf="i == 2">
                                                 {{location.township.name}}...
                                             </span>
                                         </span>
@@ -209,7 +233,7 @@
 
                </div>
                 </div>
-                <div class="card card-wd">
+                <div class="card card-wd card-custom">
                   <div *ngFor="let shop of shopList;let i=index" class="row ">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -229,10 +253,10 @@
                                     </p>
                                     <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                            <span *ngIf="i < 3">
+                                            <span *ngIf="i < 2">
                                                 {{location.township.name}}၊
                                             </span>
-                                            <span *ngIf="i == 3">
+                                            <span *ngIf="i == 2">
                                                 {{location.township.name}}...
                                             </span>
                                         </span>
@@ -255,7 +279,7 @@
 
                 </div>
                 </div>
-                <div class="card card-wd">
+                <div class="card card-wd card-custom">
                   <div *ngFor="let shop of shopList;let i=index" class="row ">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -275,10 +299,10 @@
                                     </p>
                                     <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                            <span *ngIf="i < 3">
+                                            <span *ngIf="i < 2">
                                                 {{location.township.name}}၊
                                             </span>
-                                            <span *ngIf="i == 3">
+                                            <span *ngIf="i == 2">
                                                 {{location.township.name}}...
                                             </span>
                                         </span>
@@ -301,7 +325,7 @@
 
                 </div>
                 </div>
-                <div class="card card-wd">
+                <div class="card card-wd card-custom">
                   <div *ngFor="let shop of shopList;let i=index" class="row ">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -321,10 +345,10 @@
                                     </p>
                                     <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                            <span *ngIf="i < 3">
+                                            <span *ngIf="i < 2">
                                                 {{location.township.name}}၊
                                             </span>
-                                            <span *ngIf="i == 3">
+                                            <span *ngIf="i == 2">
                                                 {{location.township.name}}...
                                             </span>
                                         </span>
@@ -347,7 +371,7 @@
 
                 </div>
                 </div>
-                <div class="card card-wd">
+                <div class="card card-wd card-custom">
                   <div *ngFor="let shop of shopList;let i=index" class="row ">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -367,10 +391,10 @@
                                     </p>
                                     <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                            <span *ngIf="i < 3">
+                                            <span *ngIf="i < 2">
                                                 {{location.township.name}}၊
                                             </span>
-                                            <span *ngIf="i == 3">
+                                            <span *ngIf="i == 2">
                                                 {{location.township.name}}...
                                             </span>
                                         </span>
@@ -393,7 +417,7 @@
 
                 </div>
                 </div>
-                <div class="card card-wd">
+                <div class="card card-wd card-custom">
                   <div *ngFor="let shop of shopList;let i=index" class="row ">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -413,10 +437,10 @@
                                     </p>
                                     <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                            <span *ngIf="i < 3">
+                                            <span *ngIf="i < 2">
                                                 {{location.township.name}}၊
                                             </span>
-                                            <span *ngIf="i == 3">
+                                            <span *ngIf="i == 2">
                                                 {{location.township.name}}...
                                             </span>
                                         </span>
@@ -563,16 +587,16 @@
 
     <div class="row mt-3 mb-3">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pr-0 pl-0">
-        <h3 class="f-14"> Online shops များ</h3>
+        <h3 class="f-14 pl-2"> Online shops များ</h3>
 
       </div>
     </div>
 
     <div>
-      <div class="row">
+      <div class="row row-p-left">
         <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
 
-          <img src="./assets/images1/online shop/Asset 26.png" class="shop-logo">
+          <img src="./assets/images1/online shop/Asset 26.png" class="shop-logo ">
         </div>
         <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 pr-0 pl-0">
           <h5>Lactasoy</h5>
@@ -617,30 +641,57 @@
                 </div>
 
             </div> -->
-            <swiper [config]="config">
-              <div class="swiper-wrapper" style="height: 320px !important;">
-                <div class="swiper-slide">
+            <!-- <swiper [config]="config">
+              <div class="swiper-wrapper " style="height: 370px !important;">
+                <div class="swiper-slide pl-2 pr-2">
                   <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide pl-2 pr-2">
                   <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide pl-2 pr-2">
                   <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide pl-2 pr-2">
                   <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide pl-2 pr-2">
                   <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
                 </div>
 
               </div>
-              <!-- Add Pagination -->
-              <div class="home-swiper-pagination"></div>
-              <!-- Add Arrows -->
 
-            </swiper>
+              <div class="home-swiper-pagination"></div>
+
+
+            </swiper> -->
+            <owl-carousel-o [options]="customOptions1">
+              <ng-template carouselSlide >
+                <div class="pr-2 pl-2">
+                  <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
+                </div>
+              </ng-template>
+                <ng-template carouselSlide>
+                  <div class="pr-2 pl-2">
+                    <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
+                  </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <div class="pr-2 pl-2">
+                    <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
+                  </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <div class="pr-2 pl-2">
+                    <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
+                  </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <div class="pr-2 pl-2">
+                    <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
+                  </div>
+                </ng-template>
+            </owl-carousel-o>
         </div>
     </div>
     <p class="pt-2" >
@@ -672,7 +723,7 @@
       </div>
 
     <div class="mt-3">
-      <div class="row ">
+      <div class="row row-p-left">
         <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
 
           <img src="./assets/images1/online shop/Asset 27.png" class="shop-logo">
@@ -688,30 +739,33 @@
 
       <div class="row pt-2 mb-0 pb-0">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
-            <swiper [config]="config">
-              <div class="swiper-wrapper" style="height: 320px !important;">
-                <div class="swiper-slide">
-                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                </div>
-                <div class="swiper-slide">
+          <owl-carousel-o [options]="customOptions1">
+            <ng-template carouselSlide >
+              <div class="pr-2 pl-2">
+                <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
+              </div>
+            </ng-template>
+              <ng-template carouselSlide>
+                <div class="pr-2 pl-2">
                   <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
                 </div>
-                <div class="swiper-slide">
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="pr-2 pl-2">
                   <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
                 </div>
-                <div class="swiper-slide">
-                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                </div>
-                <div class="swiper-slide">
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="pr-2 pl-2">
                   <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
                 </div>
-
-              </div>
-              <!-- Add Pagination -->
-              <div class="home-swiper-pagination"></div>
-              <!-- Add Arrows -->
-
-            </swiper>
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="pr-2 pl-2">
+                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
+                </div>
+              </ng-template>
+          </owl-carousel-o>
         </div>
     </div>
     <p class="pt-2" >
@@ -743,7 +797,7 @@
       </div>
 
     <div class="mt-3">
-        <div class="row">
+        <div class="row row-p-left">
           <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
 
             <img src="./assets/images1/online shop/Asset 40.png" class="shop-logo">
@@ -759,30 +813,33 @@
 
         <div class="row pt-2 mb-0 pb-0">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
-              <swiper [config]="config">
-                <div class="swiper-wrapper" style="height: 320px !important;">
-                  <div class="swiper-slide">
+            <owl-carousel-o [options]="customOptions1">
+              <ng-template carouselSlide >
+                <div class="pr-2 pl-2">
+                  <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
+                </div>
+              </ng-template>
+                <ng-template carouselSlide>
+                  <div class="pr-2 pl-2">
+                    <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
+                  </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <div class="pr-2 pl-2">
                     <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
                   </div>
-                  <div class="swiper-slide">
-                    <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                  </div>
-                  <div class="swiper-slide">
+                </ng-template>
+                <ng-template carouselSlide>
+                  <div class="pr-2 pl-2">
                     <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
                   </div>
-                  <div class="swiper-slide">
+                </ng-template>
+                <ng-template carouselSlide>
+                  <div class="pr-2 pl-2">
                     <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
                   </div>
-                  <div class="swiper-slide">
-                    <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                  </div>
-
-                </div>
-                <!-- Add Pagination -->
-                <div class="home-swiper-pagination"></div>
-                <!-- Add Arrows -->
-
-              </swiper>
+                </ng-template>
+            </owl-carousel-o>
           </div>
       </div>
       <p class="pt-2" >
@@ -820,21 +877,21 @@
     </div>
     <h5 class="light-blue text-center f-8 mt-3">Advertisement</h5>
     <div class="row mt-2 mb-2 " >
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pr-2 pl-2">
 
         <div class="advertisment-bg-color  " style="padding: 5px;">
 
-          <p class="white-color">လူကြီးမင်းဧ Online Shop အတွက် ကုန်ပစ္စည်းများကို
+          <p class="white-color">လူကြီးမင်း၏ Online Shop အတွက် ကုန်ပစ္စည်းများကို
 
           </p>
-          <p class="white-color f-16 " style="margin-bottom: 0px !important;">
+          <p class="white-color f-18 " style="margin-bottom: 0px !important;">
             ShopDoora မှာ ကြော်ငြာပါ။
           </p>
 
 
         </div>
         <div>
-          <p class="white-color advertisment-phone-bg-color" style="padding-left: 5px;">+95 9 450 880 001</p>
+          <p class="white-color advertisment-phone-bg-color pt-1 pb-1 f-14" style="padding-left: 5px;">+95 9 450 880 001</p>
         </div>
 
 
@@ -853,14 +910,14 @@
           </div>
           <div class="row pt-3">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <p>Food Delivery  များ </p>
+                <p class="f-14 bottom-0" >Food Delivery  များ </p>
             </div>
           </div>
 
           <div class="row mt-2">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <div class="scrolling-wrapper">
-                <div class="card card-wd"  >
+                <div class="card card-wd card-custom"  >
 
                   <div *ngFor="let shop of shopList;let i=index" class="row " >
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -908,7 +965,7 @@
                   </div>
 
                 </div>
-                <div class="card card-wd">
+                <div class="card card-wd card-custom">
                   <div *ngFor="let shop of shopList;let i=index" class="row ">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -928,10 +985,10 @@
                                     </p>
                                     <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                            <span *ngIf="i < 3">
+                                            <span *ngIf="i < 2">
                                                 {{location.township.name}}၊
                                             </span>
-                                            <span *ngIf="i == 3">
+                                            <span *ngIf="i == 2">
                                                 {{location.township.name}}...
                                             </span>
                                         </span>
@@ -954,7 +1011,7 @@
 
                </div>
                 </div>
-                <div class="card card-wd">
+                <div class="card card-wd card-custom">
                   <div *ngFor="let shop of shopList;let i=index" class="row ">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -974,10 +1031,10 @@
                                     </p>
                                     <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                            <span *ngIf="i < 3">
+                                            <span *ngIf="i < 2">
                                                 {{location.township.name}}၊
                                             </span>
-                                            <span *ngIf="i == 3">
+                                            <span *ngIf="i == 2">
                                                 {{location.township.name}}...
                                             </span>
                                         </span>
@@ -1000,7 +1057,7 @@
 
                 </div>
                 </div>
-                <div class="card card-wd">
+                <div class="card card-wd card-custom">
                   <div *ngFor="let shop of shopList;let i=index" class="row ">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -1020,10 +1077,10 @@
                                     </p>
                                     <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                            <span *ngIf="i < 3">
+                                            <span *ngIf="i < 2">
                                                 {{location.township.name}}၊
                                             </span>
-                                            <span *ngIf="i == 3">
+                                            <span *ngIf="i == 2">
                                                 {{location.township.name}}...
                                             </span>
                                         </span>
@@ -1046,7 +1103,7 @@
 
                 </div>
                 </div>
-                <div class="card card-wd">
+                <div class="card card-wd card-custom">
                   <div *ngFor="let shop of shopList;let i=index" class="row ">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -1066,10 +1123,10 @@
                                     </p>
                                     <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                            <span *ngIf="i < 3">
+                                            <span *ngIf="i < 2">
                                                 {{location.township.name}}၊
                                             </span>
-                                            <span *ngIf="i == 3">
+                                            <span *ngIf="i == 2">
                                                 {{location.township.name}}...
                                             </span>
                                         </span>
@@ -1092,7 +1149,7 @@
 
                 </div>
                 </div>
-                <div class="card card-wd">
+                <div class="card card-wd card-custom">
                   <div *ngFor="let shop of shopList;let i=index" class="row ">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -1112,10 +1169,10 @@
                                     </p>
                                     <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                            <span *ngIf="i < 3">
+                                            <span *ngIf="i < 2">
                                                 {{location.township.name}}၊
                                             </span>
-                                            <span *ngIf="i == 3">
+                                            <span *ngIf="i == 2">
                                                 {{location.township.name}}...
                                             </span>
                                         </span>
@@ -1138,7 +1195,7 @@
 
                 </div>
                 </div>
-                <div class="card card-wd">
+                <div class="card card-wd card-custom">
                   <div *ngFor="let shop of shopList;let i=index" class="row ">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -1158,10 +1215,10 @@
                                     </p>
                                     <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                         <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                            <span *ngIf="i < 3">
+                                            <span *ngIf="i < 2">
                                                 {{location.township.name}}၊
                                             </span>
-                                            <span *ngIf="i == 3">
+                                            <span *ngIf="i == 2">
                                                 {{location.township.name}}...
                                             </span>
                                         </span>
@@ -1218,14 +1275,14 @@
         </div>
         <div class="row pt-3">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-              <p> အသားငါးနှင့် ဟင်းသီးဟင်းရွက် ဆိုင်များ </p>
+              <p class="f-14 bottom-0"> အသားငါးနှင့် ဟင်းသီးဟင်းရွက် ဆိုင်များ </p>
           </div>
         </div>
 
         <div class="row mt-2">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="scrolling-wrapper">
-              <div class="card card-wd"  >
+              <div class="card card-wd card-custom"  >
 
                 <div *ngFor="let shop of shopList;let i=index" class="row " >
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -1273,7 +1330,7 @@
                 </div>
 
               </div>
-              <div class="card card-wd">
+              <div class="card card-wd card-custom">
                 <div *ngFor="let shop of shopList;let i=index" class="row ">
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                       <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -1293,10 +1350,10 @@
                                   </p>
                                   <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                       <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                          <span *ngIf="i < 3">
+                                          <span *ngIf="i < 2">
                                               {{location.township.name}}၊
                                           </span>
-                                          <span *ngIf="i == 3">
+                                          <span *ngIf="i == 2">
                                               {{location.township.name}}...
                                           </span>
                                       </span>
@@ -1319,7 +1376,7 @@
 
              </div>
               </div>
-              <div class="card card-wd">
+              <div class="card card-wd card-custom">
                 <div *ngFor="let shop of shopList;let i=index" class="row ">
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                       <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -1339,10 +1396,10 @@
                                   </p>
                                   <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                       <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                          <span *ngIf="i < 3">
+                                          <span *ngIf="i < 2">
                                               {{location.township.name}}၊
                                           </span>
-                                          <span *ngIf="i == 3">
+                                          <span *ngIf="i == 2">
                                               {{location.township.name}}...
                                           </span>
                                       </span>
@@ -1365,7 +1422,7 @@
 
               </div>
               </div>
-              <div class="card card-wd">
+              <div class="card card-wd card-custom">
                 <div *ngFor="let shop of shopList;let i=index" class="row ">
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                       <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -1385,10 +1442,10 @@
                                   </p>
                                   <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                       <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                          <span *ngIf="i < 3">
+                                          <span *ngIf="i < 2">
                                               {{location.township.name}}၊
                                           </span>
-                                          <span *ngIf="i == 3">
+                                          <span *ngIf="i == 2">
                                               {{location.township.name}}...
                                           </span>
                                       </span>
@@ -1411,7 +1468,7 @@
 
               </div>
               </div>
-              <div class="card card-wd">
+              <div class="card card-wd card-custom">
                 <div *ngFor="let shop of shopList;let i=index" class="row ">
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                       <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -1431,10 +1488,10 @@
                                   </p>
                                   <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                       <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                          <span *ngIf="i < 3">
+                                          <span *ngIf="i < 2">
                                               {{location.township.name}}၊
                                           </span>
-                                          <span *ngIf="i == 3">
+                                          <span *ngIf="i == 2">
                                               {{location.township.name}}...
                                           </span>
                                       </span>
@@ -1457,7 +1514,7 @@
 
               </div>
               </div>
-              <div class="card card-wd">
+              <div class="card card-wd card-custom">
                 <div *ngFor="let shop of shopList;let i=index" class="row ">
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                       <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -1477,10 +1534,10 @@
                                   </p>
                                   <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                       <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                          <span *ngIf="i < 3">
+                                          <span *ngIf="i < 2">
                                               {{location.township.name}}၊
                                           </span>
-                                          <span *ngIf="i == 3">
+                                          <span *ngIf="i == 2">
                                               {{location.township.name}}...
                                           </span>
                                       </span>
@@ -1503,7 +1560,7 @@
 
               </div>
               </div>
-              <div class="card card-wd">
+              <div class="card card-wd card-custom">
                 <div *ngFor="let shop of shopList;let i=index" class="row ">
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                       <div class="card k-home-card" (click)="shopDetail(shop.id)">
@@ -1523,10 +1580,10 @@
                                   </p>
                                   <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
                                       <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                          <span *ngIf="i < 3">
+                                          <span *ngIf="i < 2">
                                               {{location.township.name}}၊
                                           </span>
-                                          <span *ngIf="i == 3">
+                                          <span *ngIf="i == 2">
                                               {{location.township.name}}...
                                           </span>
                                       </span>
@@ -1584,13 +1641,13 @@
 
     <div class="row mt-3 mb-3">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pr-0 pl-0">
-        <h3 class="f-14"> Online shops များ</h3>
+        <h3 class="f-14 pl-2"> Online shops များ</h3>
 
       </div>
     </div>
 
     <div>
-      <div class="row">
+      <div class="row row-p-left">
         <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
 
           <img src="./assets/images1/online shop/Asset 26.png" class="shop-logo">
@@ -1607,30 +1664,33 @@
       <div class="row pt-2 mb-0 pb-0">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
 
-            <swiper [config]="config">
-              <div class="swiper-wrapper" style="height: 320px !important;">
-                <div class="swiper-slide">
-                  <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                </div>
-                <div class="swiper-slide">
+          <owl-carousel-o [options]="customOptions1">
+            <ng-template carouselSlide >
+              <div class="pr-2 pl-2">
+                <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
+              </div>
+            </ng-template>
+              <ng-template carouselSlide>
+                <div class="pr-2 pl-2">
                   <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
                 </div>
-                <div class="swiper-slide">
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="pr-2 pl-2">
                   <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
                 </div>
-                <div class="swiper-slide">
-                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                </div>
-                <div class="swiper-slide">
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="pr-2 pl-2">
                   <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
                 </div>
-
-              </div>
-              <!-- Add Pagination -->
-              <div class="home-swiper-pagination"></div>
-              <!-- Add Arrows -->
-
-            </swiper>
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="pr-2 pl-2">
+                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
+                </div>
+              </ng-template>
+          </owl-carousel-o>
         </div>
     </div>
     <p class="pt-2" >
@@ -1662,7 +1722,7 @@
       </div>
 
     <div class="mt-3">
-      <div class="row ">
+      <div class="row row-p-left">
         <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
 
           <img src="./assets/images1/online shop/Asset 27.png" class="shop-logo">
@@ -1678,30 +1738,33 @@
 
       <div class="row pt-2 mb-0 pb-0">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
-            <swiper [config]="config">
-              <div class="swiper-wrapper" style="height: 320px !important;">
-                <div class="swiper-slide">
-                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                </div>
-                <div class="swiper-slide">
+          <owl-carousel-o [options]="customOptions1">
+            <ng-template carouselSlide >
+              <div class="pr-2 pl-2">
+                <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
+              </div>
+            </ng-template>
+              <ng-template carouselSlide>
+                <div class="pr-2 pl-2">
                   <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
                 </div>
-                <div class="swiper-slide">
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="pr-2 pl-2">
                   <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
                 </div>
-                <div class="swiper-slide">
-                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                </div>
-                <div class="swiper-slide">
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="pr-2 pl-2">
                   <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
                 </div>
-
-              </div>
-              <!-- Add Pagination -->
-              <div class="home-swiper-pagination"></div>
-              <!-- Add Arrows -->
-
-            </swiper>
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="pr-2 pl-2">
+                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
+                </div>
+              </ng-template>
+          </owl-carousel-o>
         </div>
     </div>
     <p class="pt-2" >
@@ -1733,7 +1796,7 @@
       </div>
 
     <div class="mt-3" style="padding-bottom:70px">
-        <div class="row">
+        <div class="row row-p-left">
           <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
 
             <img src="./assets/images1/online shop/Asset 40.png" class="shop-logo">
@@ -1749,30 +1812,33 @@
 
         <div class="row pt-2 mb-0 pb-0">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
-              <swiper [config]="config">
-                <div class="swiper-wrapper" style="height: 320px !important;">
-                  <div class="swiper-slide">
+            <owl-carousel-o [options]="customOptions1">
+              <ng-template carouselSlide >
+                <div class="pr-2 pl-2">
+                  <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
+                </div>
+              </ng-template>
+                <ng-template carouselSlide>
+                  <div class="pr-2 pl-2">
+                    <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
+                  </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <div class="pr-2 pl-2">
                     <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
                   </div>
-                  <div class="swiper-slide">
-                    <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                  </div>
-                  <div class="swiper-slide">
+                </ng-template>
+                <ng-template carouselSlide>
+                  <div class="pr-2 pl-2">
                     <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
                   </div>
-                  <div class="swiper-slide">
+                </ng-template>
+                <ng-template carouselSlide>
+                  <div class="pr-2 pl-2">
                     <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
                   </div>
-                  <div class="swiper-slide">
-                    <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                  </div>
-
-                </div>
-                <!-- Add Pagination -->
-                <div class="home-swiper-pagination"></div>
-                <!-- Add Arrows -->
-
-              </swiper>
+                </ng-template>
+            </owl-carousel-o>
           </div>
       </div>
       <p class="pt-2" >

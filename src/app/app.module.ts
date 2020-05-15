@@ -1,6 +1,6 @@
 import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
@@ -45,6 +45,7 @@ import {Angular2UsefulSwiperModule} from 'angular2-useful-swiper';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { SearchFilterPipe } from './components/shop-search/auto-complete-text/filter.pipe';
 import { LetterBoldPipe } from './components/shop-search/auto-complete-text/letter-bold.pipe';
+
 
 
 export function tokenGetter() {
@@ -102,9 +103,14 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ButtonsModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
-      AutocompleteLibModule
+      AutocompleteLibModule,
+
 
 ],
+
+
+
+
    providers: [
       AlertifyService,
       PreventUnsavedChanges,
