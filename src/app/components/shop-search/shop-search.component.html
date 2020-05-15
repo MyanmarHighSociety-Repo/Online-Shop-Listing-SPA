@@ -20,34 +20,19 @@
     <!-- <form action="" method="post" class="searchForm"> -->
       <div class="row h-51p">
         <div class="col-12">
-          <form #form="ngForm" (ngSubmit)="submitTemplateForm(form.value)">
-              <div class="ng-autocomplete">
-                <ng-autocomplete #ngAutoCompleteStatic
-                                 [data]="countriesTemplate"
-                                 name="name"
-                                 [(ngModel)]="searchText"
-                                 [initialValue]=""
-                                 [placeHolder]="placeholder"
-                                 [searchKeyword]="keyword"
-                                 historyIdentifier="countriesTemplateList"
-                                 [historyHeading]="historyHeading"
-                                 historyListMaxNumber="3"
-                                 notFoundText="Not found"
-                                 [itemTemplate]="itemTemplateStatic"
-                                 [notFoundTemplate]="notFoundTemplate">
-                </ng-autocomplete>
-      
-                <ng-template #itemTemplateStatic let-item>
-                  <a [innerHTML]="item"></a>
-                </ng-template>
-      
-                <ng-template #notFoundTemplate let-notFound>
-                  <div [innerHTML]="notFound"></div>
-                </ng-template>
-              </div>
-            
+          <form [formGroup]="stateForm" autocomplete="new-password">
+            <input type="text" [(ngModel)]="searchText" formControlName='search' (click)='openDropDown()' class="form-control form-control-lg h-100 k-search" placeholder="ဆိုင်ရှာမည်" autofocus>
           </form>
-          <!-- <input type="text" [(ngModel)]="searchText" class="form-control form-control-lg h-100 k-search" placeholder="ဆိုင်ရှာမည်" autofocus> -->
+          <div (click)='closeDropDown()'>
+            <div *ngIf='showDropDown' class="search-drop-down">
+              <div (click)='selectValue(s)' *ngFor = "let s of states | searchFilter: getSearchValue()" class="search-result">
+                <a [innerHTML]="s | letterBold: getSearchValue()">
+                  {{s}}
+                </a>
+              </div>
+              <!-- <h4> VIEW ALL </h4> -->
+            </div>
+          </div>
         </div>
       </div>
       <div class="row mt-3">

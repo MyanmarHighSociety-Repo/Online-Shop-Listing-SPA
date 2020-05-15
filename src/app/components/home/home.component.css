@@ -476,19 +476,20 @@ a:visited{
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-
-
+    -webkit-overflow-scrolling: touch;
   }
   .card {
     display: inline-block;
   }
-
     ::-webkit-scrollbar {
       display: none;
     }
 
 .card-wd{
   width: 75%;
+}
+.card-wd-25 {
+  width: 27%;
 }
 .all-more-link{
   text-align: center !important;
@@ -1066,3 +1067,11 @@ button.home-swiper-pagination-bullet {
 
 
 /* end swiper pagination */
+.viewAllpromoCode {
+  color: #a6a6a6;
+  font-size: 9pt!important;
+}
+.promoCode {
+  color: #000000;
+  font-weight: 500;
+}

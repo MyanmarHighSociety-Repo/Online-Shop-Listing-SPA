@@ -74,8 +74,35 @@
                 </div>
             </div>
         </section>
-
- <section>
+<div class="k-line mt-2 mb-2"></div>
+<section>
+<div class="container-fluid">
+    <div class="row justify-content-between mt-4">
+        <div class="col-6 col-sm-6 col-xs-6">
+            <p class="promoCode"> Promo Code များ </p>
+        </div>
+        <div class="col-4 col-sm-4 col-xs-4">
+            <p class="viewAllpromoCode"> အားလုံးကြည့်ရန် </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-xs-12">
+            <div class="scrolling-wrapper">
+                <div class="card card-wd-25"><h2>Card</h2></div>
+                 <div class="card card-wd-25 ml-2"><h2>Card</h2></div>
+                 <div class="card card-wd-25 ml-2"><h2>Card</h2></div>
+                 <div class="card card-wd-25 ml-2"><h2>Card</h2></div>
+                 <div class="card card-wd-25 ml-2"><h2>Card</h2></div>
+                 <div class="card card-wd-25"><h2>Card</h2></div>
+                 <div class="card card-wd-25"><h2>Card</h2></div>
+                 <div class="card card-wd-25"><h2>Card</h2></div>
+                 <div class="card card-wd-25"><h2>Card</h2></div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<section>
         <div class="container-fluid">
           <div class="row ">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0 mt-2">
@@ -91,9 +118,8 @@
           <div class="row mt-2">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <div class="scrolling-wrapper">
-                <div class="card card-wd"  >
-
-                  <div *ngFor="let shop of shopList;let i=index" class="row " >
+            <div class="card card-wd"  >
+                <div *ngFor="let shop of shopList;let i=index" class="row " >
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card k-home-card" (click)="shopDetail(shop.id)">
                             <div class="row pb-2">
@@ -135,10 +161,8 @@
                             </div>
                         </div>
                     </div>
-
-                  </div>
-
                 </div>
+            </div>
                 <div class="card card-wd">
                   <div *ngFor="let shop of shopList;let i=index" class="row ">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -439,8 +463,6 @@
         </div>
 
         </div>
-
-
 </section>
 
 
