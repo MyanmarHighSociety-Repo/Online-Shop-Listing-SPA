@@ -30,37 +30,61 @@ import { Location } from '@angular/common';
 export class HomeComponent implements OnInit {
   @ViewChild('stickyMenu', { static: false }) menuElement: ElementRef;
 
-  configbanner: SwiperOptions = {
-    pagination: { el: '.home-swiper-pagination', clickable: true },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
+  // configbanner: SwiperOptions = {
+  //   pagination: { el: '.home-swiper-pagination', clickable: true },
+
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev'
+  //   },
+  //   spaceBetween: 30,
+  //   parallax: true,
+  //   effect: 'fade',
+  //   speed: 30,
+  //   autoplay: true
+
+
+  // };
+
+
+  // config: SwiperOptions = {
+  //   pagination: { el: '.home-swiper-pagination', clickable: true },
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev'
+  //   },
+  //   spaceBetween: 30,
+  //   parallax: true,
+  //   autoplay:false,
+
+
+  // };
+
+  customOptions1: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    autoplay: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 1
+      },
+      740: {
+        items: 1
+      },
+      940: {
+        items: 1
+      }
     },
-    spaceBetween: 30,
-    parallax: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-  }
-
-
+    nav: false
   };
-
-
-  config: SwiperOptions = {
-    pagination: { el: '.home-swiper-pagination', clickable: true },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
-    spaceBetween: 30,
-    parallax: true,
-    autoplay:false,
-
-
-  };
-
-
 
 
 
@@ -124,8 +148,10 @@ export class HomeComponent implements OnInit {
     touchDrag: true,
     pullDrag: true,
     dots: true,
+    animateOut: 'fadeOut',
     autoplay: true,
-    navSpeed: 700,
+    autoplaySpeed:2200,
+    navSpeed: 2200,
     navText: ['', ''],
     responsive: {
       0: {
@@ -143,6 +169,8 @@ export class HomeComponent implements OnInit {
     },
     nav: false
   };
+
+
 
 
 

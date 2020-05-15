@@ -25,12 +25,18 @@ export class MobileAppBuyComponent implements OnInit {
 
   };
 
+
+
   public show: boolean = false;
   public buttonName: any = 'အကုန်ကြည့်ရန်';
   public viewmoreshow: boolean = false;
   public viewmorename: any = 'ဆက်ကြည့်ရန်';
 
   ngOnInit() {}
+
+  scroll(el: HTMLElement) {
+    el.scrollIntoView({ behavior: 'smooth' });
+    }
 
   viewmore() {
     this.viewmoreshow = !this.viewmoreshow;
