@@ -39,6 +39,7 @@ export class AddShopStepThreeComponent implements OnInit {
   }
   addNewShop() {
     // console.log(this.facebookLink);
+    console.log(this.service.productData);
     this.service.shopData.facebookLink = this.links.facebookLink;
     this.service.shopData.androidLink = this.links.androidLink;
     this.service.shopData.iosLink = this.links.iosLink;
@@ -48,7 +49,7 @@ export class AddShopStepThreeComponent implements OnInit {
 
     this.service.postShop(this.service.shopData).subscribe(res => {
       if (res != null) {
-        this.service.postShopImage(this.service.shopImgFile, res.id).subscribe(response => {
+          this.service.postShopImage(this.service.shopImgFile, res.id).subscribe(response => {
           if (response != null) {
             this.service.postShopDeliveryAvailableLocation(this.service.selectedTownships, res.id).subscribe(data => {
               if (data.status) {
@@ -62,7 +63,7 @@ export class AddShopStepThreeComponent implements OnInit {
                           this.service.shopData = null;
                           this.service.shopImgFile = null;
                           this.loading = false;
-                          this.router.navigate(['']);
+                          this.router.navigate(['/home']);
                         } else {
                           console.log(finalResult.message);
                         }
@@ -89,7 +90,7 @@ export class AddShopStepThreeComponent implements OnInit {
     });
   }
   back3() {
-    this.service.clearData3();
+    // this.service.clearData3();
     this.router.navigate(['add-shop-step-two']);
   }
 }

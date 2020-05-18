@@ -358,17 +358,16 @@ export class AddShopStepTwoComponent implements OnInit {
     // console.log(this.shop.deliveryToTime);
     if ( this.shop.deliveryFromTime ===  null ||
         this.shop.deliveryToTime === null ||
-        this.tempProductImageFile === null || this.tempProductImageUrl == null ||
-        this.productName == null || this.productPrice === null ||
+        this.selectedProductFiles.length === 0 ||
         (this.wholeCountry !== true && this.selectedTownshipToTransfer.length === 0)) {
           this.error = 'Please fill out all the fields!';
     } else {
       // this.error = 'hello';
+      console.log(this.selectedProductFiles);
       this.service.shopData.deliveryFromTime = this.shop.deliveryFromTime;
       this.service.shopData.deliveryToTime = this.shop.deliveryToTime;
       this.service.productData = this.selectedProductFiles;
       // console.log(this.service.shopData);
-      // console.log(this.selectedProductFiles);
       // console.log(this.cityIds);
       // console.log(this.selectedTownshipToTransfer);
       // this.service.selectedTownships = this.selectedTownshipToTransfer;
@@ -386,5 +385,4 @@ export class AddShopStepTwoComponent implements OnInit {
     }
     // console.log(this.service.shopData);
   }
-  
 }

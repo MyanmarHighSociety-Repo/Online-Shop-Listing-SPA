@@ -43,6 +43,8 @@ import { WebViewBuyApp } from './components/web-view/web-view-buy-app/web-view-b
 import { RecaptchaModule } from 'ng-recaptcha';
 import {Angular2UsefulSwiperModule} from 'angular2-useful-swiper';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { SearchFilterPipe } from './components/shop-search/auto-complete-text/filter.pipe';
+import { LetterBoldPipe } from './components/shop-search/auto-complete-text/letter-bold.pipe';
 
 
 
@@ -77,6 +79,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       WebViewContactUsComponent,
       WebViewBuyApp,
       MobileAppBuyComponent,
+      SearchFilterPipe,
+      LetterBoldPipe,
 
 
    ],

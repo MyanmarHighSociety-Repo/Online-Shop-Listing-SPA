@@ -14,18 +14,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./shop-search.component.css']
 })
 export class ShopSearchComponent implements OnInit {
-  name = '';
-  public placeholder = 'ဆိုင်ရှာမည်';
-  public keyword = 'name';
-  public historyHeading = 'Recently selected';
-  public countriesTemplate = ['Albania', 'Andorra', 'Armenia', 'Austria', 'Azerbaijan', 'Belarus',
-    'Belgium', 'Bosnia & Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus',
-    'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Georgia',
-    'Germany', 'Greece', 'Hungary', 'Iceland', 'India', 'Ireland', 'Italy', 'Kosovo',
-    'Latvia', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macedonia', 'Malta',
-    'Moldova', 'Monaco', 'Montenegro', 'Netherlands', 'Norway', 'Poland',
-    'Portugal', 'Romania', 'Russia', 'San Marino', 'Serbia', 'Slovakia', 'Slovenia',
-    'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Ukraine', 'United Kingdom', 'Vatican City'];
+  stateForm: FormGroup;
+
+  showDropDown = false;
+  states = ['Alabama', 'Alaska',  'Arizona', 'Arkansas', 'California', 'Colorado',
+  'Connecticut', 'Delaware', 'District of Columbia', 'Florida'
+  , 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky'
+  , 'Louisiana', 'Maine', 'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
+  'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina',
+  'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico',
+  'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia', 'Washington',
+   'West Virginia', 'Wisconsin', 'Wyoming', 'Yamaha'];
 
   townships: Township[];
   townshipOptions: TownshipOptions[] = [];
@@ -59,9 +58,16 @@ export class ShopSearchComponent implements OnInit {
     private service: ShopService,
     private modalService: BsModalService,
     private router: Router,
-    private location: Location
-  ) {}
-
+    private location: Location,
+    private fb: FormBuilder
+  ) {
+    this.initForm();
+  }
+  initForm(): FormGroup {
+    return this.stateForm = this.fb.group({
+      search: [null]
+    });
+  }
   ngOnInit() {
     // this.filteredList = this.list;
     this.route.data.subscribe(data => {
@@ -372,8 +378,17 @@ toggleDisplay(id) {
 
     this.router.navigate(['/shop-search-result']);
   }
-  // Submit template form
-   submitTemplateForm(value) {
-    console.log(value);
+  openDropDown() {
+    this.showDropDown = true;
+  }
+  closeDropDown() {
+    this.showDropDown = false;
+  }
+  selectValue(value) {
+    this.stateForm.patchValue({"search" : value});
+    this.showDropDown =  false;
+  }
+  getSearchValue() {
+    return this.stateForm.value.search;
   }
 }

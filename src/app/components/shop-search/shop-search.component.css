@@ -33,10 +33,20 @@
 input [type = "text" ] {
     font-size: 16px;
 }
-.ng-autocomplete {
-    width:100%;
-    height: auto;
-  }
+.search-drop-down {
+    position: absolute;
+    margin-top: 5px;
+    border: 1px solid #c7c7c7;
+    border-radius: 5px;
+    width: 93%;
+    max-height: 300px;
+    background-color: #F6F6F6;
+    overflow-y: auto;
+    z-index: 10;
+}
+.search-result {
+    padding: 10px;
+}
 .k-search {
     border:0.7px solid rgba(0,0,0,.125);
     padding:12px;
