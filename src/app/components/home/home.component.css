@@ -509,14 +509,13 @@ a:visited{
   width: 20%;
 }
 .card-custom{
-  border: 1px solid #eee !important;
+  border: 0px solid #eee !important;
   height: 200px;
   width: 265px;
   position: relative;
   top: 10px;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid #eee;
   border-radius: .25rem;
   margin: 0px 2px 0px 2px;
 
@@ -560,11 +559,6 @@ a:visited{
 /* .home-swiper-pagination-lock {
   display: none;
 } */
-
-
-
-
-
 /* end swiper pagination */
 .viewAllpromoCode {
   color: #a6a6a6;
