@@ -508,19 +508,6 @@ a:visited{
   margin-right: auto;
   width: 20%;
 }
-.card-custom{
-  border: 1px solid #eee !important;
-  height: 200px;
-  width: 265px;
-  position: relative;
-  top: 10px;
-  background-color: #fff;
-  background-clip: border-box;
-
-  border-radius: .25rem;
-  margin: 0px 2px 0px 2px;
-
-}
 .last-card{
   height: 200px;
   width: 265px;
