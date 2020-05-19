@@ -7,6 +7,9 @@
 .f-11{
   font-size: 11px !important;
 }
+.f-12{
+  font-size: 12px !important;
+}
 
 .f-16{
   font-size: 16px !important;
@@ -72,7 +75,7 @@ input, select {
 height:43px !important;
 }
 .k-category-img{
-    width:40%;
+    width:33%;
     display:block;
     margin:0 auto;
     max-width:100px;
@@ -115,22 +118,19 @@ height:43px !important;
 .k-badge{
     border:1px solid #f4f4f4;
     background-color:#f4f4f4;
-    border-radius:30px !important;
-    width:60%;
+    width:48%;
     height:auto;
     text-align:center;
 }
 .k-badge-shop{
   border:1px solid #f4f4f4;
   background-color:#f4f4f4;
-
-  border-radius:30px !important;
   width:27%;
   height:auto;
   text-align:center;
 }
 h6{
-    font-size:10px !important;
+    font-size:12px !important;
     margin-bottom:0rem !important;
     line-height: 1.2rem;
     width:100%;
@@ -145,7 +145,7 @@ h5{
 p{
     margin-bottom:0.6rem !important;
     line-height: 1.4rem !important;
-    font-size:12px !important;
+    font-size:14px !important;
 
 }
 .k-shop-logo{
@@ -194,7 +194,7 @@ p{
 
 
 }
-.swiper-container {
+/* .swiper-container {
     width: 100%;
 	height: 190px;
   }
@@ -216,8 +216,8 @@ p{
     width:100%;
     height:auto;
     max-height: 170px;
-  }
-  .hone-pagination{
+  } */
+  /* .hone-pagination{
       width:100% !important;
   }
   .home-pagination-bullet{
@@ -231,7 +231,7 @@ p{
     width:7px;
     height: 7px;
     outline:none;
-}
+} */
 
 .k-adv-img{
     width:100%;
@@ -374,7 +374,7 @@ a:visited{
     height: 7px;
     background-color: #f4f4f4;
 }
-::ng-deep .owl-theme .owl-dots .owl-dot span {
+/* ::ng-deep .owl-theme .owl-dots .owl-dot span {
     background: #777777 !important;
     width:5px !important;
     height: 5px !important;
@@ -385,8 +385,9 @@ a:visited{
     background: #982ce5 !important;
     widows: 6px !important;
     height: 6px !important;
+    border-radius: 100%;
 
-  }
+  } */
   .sticky{
     position: fixed;
     top: 0;
@@ -509,22 +510,20 @@ a:visited{
   width: 20%;
 }
 .card-custom{
-  border: 1px solid #eee !important;
+
   height: 200px;
   width: 265px;
   position: relative;
   top: 10px;
-  background-color: #fff;
-  background-clip: border-box;
-  border-radius: .25rem;
-  margin: 0px 2px 0px 2px;
+  border:1px solid #eee !important;
+
 
 }
 .last-card{
-  height: 200px;
+  height: 198px;
   width: 265px;
   position: relative;
-  top: 10px;
+  top: 8px;
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid #eee;
@@ -543,23 +542,7 @@ a:visited{
   background-color: #701db7;
 }
 
-/* start swiper pagination */
 
-
-
-
-.home-swiper-pagination{
-
-  text-align: center;
-  transition: 300ms opacity;
-  transform: translate3d(0, 0, 0);
-  z-index: 10;
-}
-
-/* .home-swiper-pagination-lock {
-  display: none;
-} */
-/* end swiper pagination */
 .viewAllpromoCode {
   color: #a6a6a6;
   font-size: 9pt!important;
