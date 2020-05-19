@@ -5,7 +5,7 @@
 <div class="navbar">
   <a (click)="backToHome()">
     <img src="./assets/shopsearch/Asset 63.png" alt="Previous Arrow Button" class="backArrow mt-2" autofocus>
-  </a>	
+  </a>
   <!-- <img src="./assets/shopsearch/Asset 63.png" alt="Previous Arrow Button" class="backArrow mt-2" autofocus> -->
   <!-- <button type="button" class="search-btn" (click)="search()">
     <img src="./assets/shopsearch/Asset 67.svg" class="searchIcon">
@@ -14,7 +14,7 @@
   <a class="search-btn" (click)="search()">
     <span style="font-size: 0.8rem !important;"> ရှာမည် </span>
   </a>
-</div>			
+</div>
 <section class="section-1 pb-3">
   <div class="container-fluid">
     <!-- <form action="" method="post" class="searchForm"> -->
@@ -48,7 +48,7 @@
         </div>
         <div class="col">
           <button [ngClass]="{'disabled' : disabled}" type="button" class="btn btn-block township" (click)="openTownshipModal(townshipTemplate)">
-            <span> {{townshipPlaceholder}}  </span> 
+            <span> {{townshipPlaceholder}}  </span>
           </button>
         </div>
       </div>
@@ -148,7 +148,7 @@
   </div>
   <!-- Modal body -->
   <div class="modal-body" *ngIf="townshipOptions.length != 0">
-    <div class="checkbox">      
+    <div class="checkbox">
       <input type="checkbox" name="check_list" class="cb mr-3" [(ngModel)]="wholeCity" value="{{wholeCity}}" id="checkAll" (click)="checkAllTownships()">
       <label class="check-label f-v-w-4 font-12" for="checkAll">
         မြို့နယ်အားလုံး
@@ -168,7 +168,7 @@
     <div class="row p-0 m-0 township-btn-modal">
       <div class="col-6">
         <button type="button" (click)="getSelectedTownship()" class="btn btn-block btn-md chooseBtn">
-        <p> ရွေးမည်</p> 
+        <p> ရွေးမည်</p>
         </button>
       </div>
       <div class="col-6">

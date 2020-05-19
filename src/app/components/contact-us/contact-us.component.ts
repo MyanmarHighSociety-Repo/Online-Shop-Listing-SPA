@@ -57,8 +57,18 @@ export class ContactUsComponent implements OnInit {
   }
 
   goToHome() {
-    this.shopService.clearData();
-    this.router.navigate(['']);
+    this.router.navigate(['/']);
+  }
+
+  goToSearch() {
+    this.router.navigate(['/shop-search']);
+  }
+  goToShopAdd() {
+    this.router.navigate(['/add-shop-step-one']);
+  }
+
+  goToApp() {
+    this.router.navigate(['/mobile-app-buy']);
   }
 
 }

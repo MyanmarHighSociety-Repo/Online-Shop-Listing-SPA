@@ -128,7 +128,7 @@ export class HomeComponent implements OnInit {
   cityIds: string = null;
 
    show: boolean = false;
-  buttonName: any = 'အကုန်ကြည့်ရန်';
+  buttonName: any = 'ထပ်ကြည့်ရန်';
 
   // @HostListener('window:scroll', ['$event'])
   @HostListener('window:scroll', [])
@@ -367,7 +367,7 @@ toggle() {
   this.buttonName = 'View Less';
   }
   else {
-  this.buttonName = 'အကုန်ကြည့်ရန်';
+  this.buttonName = 'ထပ်ကြည့်ရန်';
 }
 }
 }

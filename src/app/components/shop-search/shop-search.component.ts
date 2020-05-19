@@ -16,6 +16,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ShopSearchComponent implements OnInit {
   stateForm: FormGroup;
 
+  isFocus: boolean = true;
   showDropDown = false;
   states = ['Alabama', 'Alaska',  'Arizona', 'Arkansas', 'California', 'Colorado',
   'Connecticut', 'Delaware', 'District of Columbia', 'Florida'
