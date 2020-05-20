@@ -28,6 +28,8 @@ export class MobileAppBuyComponent implements OnInit {
 
 
   public show: boolean = false;
+  public show2: boolean = false;
+  public show3: boolean = false;
   public buttonName: any = 'အကုန်ကြည့်ရန်';
   public viewmoreshow: boolean = false;
   public viewmorename: any = 'ဆက်ကြည့်ရန်';
@@ -59,7 +61,12 @@ export class MobileAppBuyComponent implements OnInit {
       this.buttonName = 'အကုန်ကြည့်ရန်';
     }
   }
-
+  toggle2() {
+    this.show2 = !this.show2;
+  }
+  toggle3() {
+    this.show3 = !this.show3;
+  }
 
 
 

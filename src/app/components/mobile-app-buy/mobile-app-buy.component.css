@@ -64,9 +64,7 @@
 .container-padding{
   padding: 0px 11px 0px 11px;
 }
-.right-width{
-  width: 25px;
-}
+
 /* HEADER */
 .purple-bg-row{
   background-color:#982ce5 ;
@@ -126,7 +124,7 @@ h3 {
   font-weight: 400!important;
 }
 h4{
-  font-size: 4vw;
+  font-size: 4.1vw;
   margin-bottom: 0rem!important;
   line-height: 1.2rem;
   width:100%;
@@ -147,7 +145,7 @@ h4{
 }
 p{
   margin-bottom: 1.5rem !important;
-  line-height: 1rem !important;
+  line-height: 1.3rem !important;
   font-size: 3.8vw!important;
   letter-spacing: 0.5px;
   color: #282a29;
@@ -180,9 +178,37 @@ p{
   letter-spacing: 0.5px;
   color: #282a29;
 }
+/* APP & WEBSITE */
+/* FEATURE */
+.featureItems {
+  margin-bottom: 1.5rem !important;
+  font-size: 3.7vw!important;
+  line-height: 1.6rem !important;
+  letter-spacing: 0.5px;
+}
+.right-width{
+  width: 6%;
+  height: auto;
+}
+.viewmore-arrow {
+  width: 5%;
+  height: auto;
+}
+.moreBtn {
+  width: 4.5%;
+  height: auto;
+}
 .feature-padding{
   padding:35px 40px 35px 40px;
 }
+ /* END FEATURE */
+ /* ECOMMERCE PRICE */
+ .priceTxt {
+  margin-bottom: 1.5rem !important;
+  font-size: 3.7vw!important;
+  line-height: 1.6rem !important;
+  letter-spacing: 0.5px;
+ }
 .p-left{
   padding-left: 13px;
 }
@@ -217,22 +243,35 @@ p{
 .white-color{
   color: #fff;
 }
-
-
+/* OTHER SERVICE PRICE */
+.serviceTxt {
+  font-size: 3.7vw!important;
+  line-height: 1.6rem !important;
+  font-weight: 500;
+}
+/* END OHTER SERVICE PRICE */
+/* AOBUT & CONTACTUS */
+.aboutNcontact {
+  font-size: 4.8vw!important;
+  margin-bottom:0rem !important;
+  line-height: 1.2rem;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+}
 .cost-title-p1 {
   padding: 18px;
-  border-radius: 5px 5px 0px 0px ;
+  border-radius: 8px 8px 0px 0px ;
 }
 .cost-title-p2 {
   padding: 12px;
   border-radius: 5px ;
 }
-.cost{
+/* .cost{
   border: 1px solid #ececec;
   border-radius: 10px ;
   box-shadow: 0 4px 8px 0 #ececec, 0 6px 20px 0 #ececec;
 
-}
+} */
 
 
 /* start footer */
@@ -288,7 +327,7 @@ p{
     height:54px;
 }
 .black-text{
-    color:black;
+    color:#494949;
 }
 .custom-row1{
     margin-left:15px;
@@ -314,7 +353,7 @@ a:visited{
     color:black;
 }
 .gray-text{
-    color:#777777;
+    color:#888888;
 }
 .defaultbtn{
     border-bottom:1.8px solid #982ce5!important;
