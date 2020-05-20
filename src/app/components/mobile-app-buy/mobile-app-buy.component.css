@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: Los Andes;
   src: url (../font/Los\ Andes\ \ Lota\ Grotesque\ Alt\ 1\ Regular.otf);
   src: url (../font/Los\ Andes\ \ Lota\ Grotesque\ Alt\ 1\ Bold.otf);
@@ -6,7 +6,7 @@
   }
   section{
     font-family: Los Andes;
-  }
+  } */
 .f-w-500{
   font-weight: 500;
 }
@@ -57,32 +57,12 @@
   margin-left: auto;
   margin-right: auto;
 }
-.img-width-38{
-  width: 38%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.img-width-45{
-  width: 45%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.img-width-30 {
-  width: 30%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .footer-logo-width{
   width: 40%;
 }
 .container-padding{
   padding: 0px 11px 0px 11px;
-}
-.w-spacing{
-  word-spacing: 5px;
 }
 .right-width{
   width: 25px;
@@ -166,24 +146,42 @@ h4{
   background-color: #f4f4f4;
 }
 p{
-  margin-bottom: 0.6rem !important;
-  line-height: 1.1rem !important;
-  font-size: 4vw!important;
+  margin-bottom: 1.5rem !important;
+  line-height: 1rem !important;
+  font-size: 3.8vw!important;
   letter-spacing: 0.5px;
   color: #282a29;
 
 }
+.img-width-38{
+  width: 38%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.img-width-45{
+  width: 45%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.img-width-30 {
+  width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* END UPGRADING */
+/* APP & WEBSITE */
+.appNwebText {
+  margin-bottom: 1.5rem !important;
+  line-height: 1.6rem !important;
+  font-size: 3.7vw!important;
+  letter-spacing: 0.5px;
+  color: #282a29;
+}
 .feature-padding{
   padding:35px 40px 35px 40px;
-}
-
-
-.own-h-padding{
-  padding: 35px 27px 35px 27px;
-}
-.own-p-padding{
-  padding: 35px 0px 35px 0px;
 }
 .p-left{
   padding-left: 13px;
