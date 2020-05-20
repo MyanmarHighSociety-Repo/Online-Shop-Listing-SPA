@@ -230,7 +230,7 @@ p{
 }
 .view-more-btn{
   padding: 10px 40px;
-  padding: 5px 40px;
+  /* padding: 5px 40px; */
   background-color: #fff;
   border-radius: 5px;
 }
