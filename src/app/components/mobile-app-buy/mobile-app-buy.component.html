@@ -474,7 +474,7 @@
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
           <div class="text-center view-more-btn mt-4">
-            <a type="button" (click)="toggle()" id="btn">
+            <a (click)="toggle()">
               <img class="viewmore-arrow" src="./assets/mobile-app-buy/Asset 69.svg">
               <span class="violet-color f-12 pl-1"> {{buttonName}} </span>
             </a>
@@ -507,76 +507,80 @@
             <div class="swiper-wrapper" style="height: 570px!important;">
               <!-- FOR SLIDE 1 -->
               <div class="swiper-slide">
-                <h3 class="bg-color-red white-color cost-title-p1">
-                  ShopDoora Lite
-                </h3>
-                  <p class="pl-2 pt-4"> Includes </p>
-                  <div class="pl-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="priceTxt">1% Transaction fee based on revenue </span>
+                
+                  <h3 class="bg-color-red white-color cost-title-p1">
+                    ShopDoora Lite
+                  </h3>
+                  <div class="cost">
+                    <p class="gray-text pl-3 pt-4"> Includes </p>
+                    <div class="pl-3 pb-2">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">1% Transaction fee based on revenue </span>
+                    </div>
+                    <div class="pl-3 pt-2 pb-2">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">2 Staff accounts</span>
+                    </div>
+                    <div class="pl-3 pt-2 pb-2">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">100 products maximum upload</span>
+                    </div>
+                    <div class="pl-3 pt-2 pb-2">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">Seller and Buyer Apps (Android)</span>
+                    </div>
+                    <div class="pl-3 pt-2 pb-2">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">Payment Gateway Integration</span>
+                    </div>
+                    <div class="pl-3 pt-2 pb-2">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">Member Points System</span>
+                    </div>
+                    <div class="pl-3 pt-2 pb-1">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">49,000 ks for setting up App & Website</span>
+                    </div>
+                    <div class="pt-3 pb-2 pr-3 pl-3">
+                      <h4 class="bg-color-red white-color cost-title-p2 text-center">
+                        ks 35,000/ month
+                      </h4>
+                    </div>
                   </div>
-                  <div class="pl-2 pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="priceTxt">2 Staff accounts</span>
-                  </div>
-                  <div class="pl-2 pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="priceTxt">100 products maximum upload</span>
-                  </div>
-                  <div class="pl-2 pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="priceTxt">Seller and Buyer Apps (Android)</span>
-                  </div>
-                  <div class="pl-2 pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="priceTxt">Payment Gateway Integration</span>
-                  </div>
-                  <div class="pl-2 pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="priceTxt">Member Points System</span>
-                  </div>
-                  <div class="pl-2 pt-2 pb-1">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="priceTxt">49,000 ks for setting up App & Website</span>
-                  </div>
-                  <div class="pt-3 pb-2 pr-3 pl-3">
-                    <h4 class="bg-color-red white-color cost-title-p2 text-center">
-                      ks 35,000/ month
-                    </h4>
-                  </div>
-              </div>
+                </div>
               <!-- END SLIDE 1 -->
               <!-- FOR SLIDE 2 -->
               <div class="swiper-slide">
                 <h3 class="bg-color-blue white-color cost-title-p1  ">
                   ShopDoora Standard
                 </h3>
-                <p class="pl-2 pt-4">Includes</p>
-                  <div class="pl-2 pb-2">
+                <div class="cost">
+                  <p class="gray-text pl-3 pt-4">Includes</p>
+                  <div class="pl-3 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
                     <span class="priceTxt">0.5% Transaction fee based on revenue</span>
                   </div>
-                  <div class="pl-2 pt-2 pb-2">
+                  <div class="pl-3 pt-2 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
                     <span class="priceTxt">5 Staff accounts</span>
                   </div>
-                  <div class="pl-2 pt-2 pb-2">
+                  <div class="pl-3 pt-2 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
                     <span class="priceTxt">500 products maximum upload</span>
                   </div>
-                  <div class="pl-2 pt-2 pb-2">
+                  <div class="pl-3 pt-2 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
                     <span class="priceTxt">Seller and Buyer Apps(Android)</span>
                   </div>
-                  <div class="pl-2 pt-2 pb-2">
+                  <div class="pl-3 pt-2 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
                     <span class="priceTxt">Seller and Buyer Apps (iOS)</span>
                   </div>
-                  <div class="pl-2 pt-2 pb-2">
+                  <div class="pl-3 pt-2 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
                     <span class="priceTxt">Responsive Website for Buyers</span>
                   </div>
-                  <div class="pl-2 pt-2 pb-1">
+                  <div class="pl-3 pt-2 pb-1">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
                     <span class="priceTxt">Payment Gateway Integration</span>
                   </div>
@@ -598,41 +602,50 @@
                   </h4>
                 </div>
               </div>
+              </div>
               <!-- END SLIDE 2 -->
               <!-- FOR SLIDE 3 -->
               <div class="swiper-slide">
                 <h3 class="bg-color-green white-color cost-title-p1  ">
                   ShopDoora Pro
                 </h3>
-                <p class="pl-2 pt-4">Includes</p>
-                  <div class="pl-2 pb-2">
+                <div class="cost">
+                  <p class="gray-text pl-3 pt-4">Includes</p>
+                  <div class="pl-3 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
                     <span class="priceTxt">0.25% Transaction fee based on revenue</span>
                   </div>
-                  <div class="pl-2 pt-2 pb-2">
+                  <div class="pl-3 pt-2 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
                     <span class="priceTxt">Unlimited staff account</span>
                   </div>
-                  <div class="pl-2 pt-2 pb-2">
+                  <div class="pl-3 pt-2 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
                     <span class="priceTxt"> Unlimited product upload</span>
                   </div>
-                  <div class="pl-2 pt-2 pb-2">
+                  <div class="pl-3 pt-2 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
                     <span class="priceTxt">Seller and Buyer Apps (Android)</span>
                   </div>
-                  <div class="pl-2 pt-2 pb-2">
+                  <div class="pl-3 pt-2 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
                     <span class="priceTxt">Seller and Buyer Apps (iOS)</span>
                   </div>
-                  <div class="pl-2 pt-2 pb-2">
+                  <div class="pl-3 pt-2 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
                     <span class="priceTxt">Responsive Website for Buyers</span>
                   </div>
-                  <div class="pl-2 pt-2 pb-1">
+                  <div class="pl-3 pt-2 pb-1">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
                     <span class="priceTxt">Administration Website for Sellers</span>
                   </div>
+                  <div class="pt-3 pb-2 pr-3 pl-3">
+                    <h4 class="bg-color-green white-color cost-title-p2 text-center">
+                      ks 35,000/ month
+                    </h4>
+                  </div> 
+                </div>
+                
                   <!-- <div class="pl-2 pt-2 pb-2">
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
                     <span class="priceTxt">Payment Gateway Integration</span>
@@ -657,53 +670,50 @@
                     <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
                     <span class="priceTxt">199,000 Ks for setting up App & Website</span>
                   </div> -->
-                  <div class="pt-3 pb-2 pr-3 pl-3">
-                    <h4 class="bg-color-green white-color cost-title-p2 text-center">
-                      ks 35,000/ month
-                    </h4>
-                  </div> 
               </div>
               <!-- END SLIDE 3 -->
               <!-- FOR SLIDE 4 -->
               <div class="swiper-slide">
-                <h3 class="bg-color-yellow white-color cost-title-p1  ">
-                  ShopDoora Enterprise
-                </h3>
-                <p class="pl-2 pt-4">Includes</p>
-                <div class="pl-2 pb-2">
-                  <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                  <span class="priceTxt">1% Transaction fee based on revenue</span>
-                </div>
-                <div class="pl-2 pt-2 pb-2">
-                  <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                  <span class="priceTxt">2 Staff accounts</span>
-                </div>
-                    <div class="pl-2 pt-2 pb-2">
-                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                      <span class="priceTxt">100 products maximum upload</span>
-                    </div>
-                    <div class="pl-2 pt-2 pb-2">
-                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                      <span class="priceTxt">Seller and Buyer Apps (Android)</span>
-                    </div>
-                    <div class="pl-2 pt-2 pb-2">
-                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                      <span class="priceTxt">Payment Gateway Integration</span>
-                    </div>
-                    <div class="pl-2 pt-2 pb-2">
-                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                      <span class="priceTxt">Member Points System</span>
-                    </div>
-                    <div class="pl-2 pt-2 pb-2">
-                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                      <span class="priceTxt">49,000 ks for setting up App & Website</span>
-                    </div>
-                  <div class="pt-3 pb-2 pr-3 pl-1">
-                    <h4 class="bg-color-yellow white-color cost-title-p2 text-center">
-                      ks 35,000/ month
-                    </h4>
+                <div class="cost">
+                  <h3 class="bg-color-yellow white-color cost-title-p1  ">
+                    ShopDoora Enterprise
+                  </h3>
+                  <p class="gray-text pl-3 pt-4">Includes</p>
+                  <div class="pl-3 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                    <span class="priceTxt">1% Transaction fee based on revenue</span>
                   </div>
+                  <div class="pl-3 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                    <span class="priceTxt">2 Staff accounts</span>
+                  </div>
+                      <div class="pl-3 pt-2 pb-2">
+                        <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                        <span class="priceTxt">100 products maximum upload</span>
+                      </div>
+                      <div class="pl-3 pt-2 pb-2">
+                        <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                        <span class="priceTxt">Seller and Buyer Apps (Android)</span>
+                      </div>
+                      <div class="pl-3 pt-2 pb-2">
+                        <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                        <span class="priceTxt">Payment Gateway Integration</span>
+                      </div>
+                      <div class="pl-3 pt-2 pb-2">
+                        <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                        <span class="priceTxt">Member Points System</span>
+                      </div>
+                      <div class="pl-3 pt-2 pb-2">
+                        <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                        <span class="priceTxt">49,000 ks for setting up App & Website</span>
+                      </div>
+                    <div class="pt-3 pb-2 pr-3 pl-1">
+                      <h4 class="bg-color-yellow white-color cost-title-p2 text-center">
+                        ks 35,000/ month
+                      </h4>
+                    </div>
                 </div>
+              </div>
                 <!-- END SLIDE 4 -->
             </div>
             <div class="swiper-pagination"></div>
@@ -825,33 +835,6 @@
 <!-- ABOUT & CONTACTUS -->
 <section>
   <div class="container-fluid">
-    <div class="row pt-4">
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <p class="violet-color aboutNcontact"> About Us </p>
-      </div>
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <p class="violet-color aboutNcontact"> Contact Us </p>
-        <!-- 
-        <p  class="gray-color">For Website</p> -->
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12"></div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <p class="gray-color">Who We Are</p>
-      </div>
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <p  class="gray-color">For Application</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"></div>
-      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <p  class="gray-color">For Website</p>
-      </div>
-    </div>
       <div class="row mt-5">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
           <img class="footer-logo-width" src="./assets/mobile-app-buy/Asset 40.svg">
@@ -859,7 +842,7 @@
       </div>
       <div class="row mt-3">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-          <p>ShopDoora CO.,Ltd</p>
+          <p>ShopDoora Co.,Ltd</p>
         </div>
       </div>
       <div class="row">
@@ -886,14 +869,13 @@
       </div>
       <div class="row mt-4 " style="margin-bottom: 55px;">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-            <p class="gray-color f-14" style="line-height: 2rem!important;">Copyright &copy; 2020 Myanmar Hight Society CO.,Ltd <br> All Right Reserved </p>
+            <p class="gray-color f-14" style="line-height: 2rem!important;">Copyright &copy; 2020 Myanmar Hight Society Co.,Ltd <br> All Right Reserved </p>
         </div>
       </div>
     </div>
   </section>
 <!-- END ABOUT & CONTACTUS -->
-
-
+<!-- FOOTER -->
 <section>
   <div class="container-fluid k-navigation-section">
       <div class="row footer-row">
@@ -928,6 +910,7 @@
       </div>
   </div>
 </section>
+<!-- END FOOTER -->
 
 
 

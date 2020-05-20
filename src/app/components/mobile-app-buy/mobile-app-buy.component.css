@@ -195,7 +195,7 @@ p{
   height: auto;
 }
 .moreBtn {
-  width: 4.5%;
+  width: 3.3%;
   height: auto;
 }
 .feature-padding{
@@ -266,12 +266,11 @@ p{
   padding: 12px;
   border-radius: 5px ;
 }
-/* .cost{
+.cost{
   border: 1px solid #ececec;
-  border-radius: 10px ;
   box-shadow: 0 4px 8px 0 #ececec, 0 6px 20px 0 #ececec;
 
-} */
+}
 
 
 /* start footer */
