@@ -75,11 +75,11 @@
                                         <img src="./../../../assets/images1/Banner1.jpg"  class="banner1">
 
                                 </ng-template>
-                                <ng-template carouselSlide>
+                                <!-- <ng-template carouselSlide>
 
                                         <img src="./../../../assets/images1/Banner2.jpg"  class="banner1">
 
-                                </ng-template>
+                                </ng-template> -->
                             </owl-carousel-o>
 
 
@@ -94,7 +94,7 @@
             <div class="container-fluid">
                 <div class="row pb-1 pt-2 ">
                     <div *ngFor="let shopType of shopTypeList"
-                        class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 p-0 mt-2 custom-col1">
+                        class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4  mt-2 p-0" >
                         <div class="k-category-link" (click)="search()">
                             <img src="{{shopType.iconUrl}}" class="k-category-img">
                             <p class="text-center gray-text f-12 pt-1" style="letter-spacing: -1px;">{{shopType.name}}</p>
@@ -103,8 +103,8 @@
                 </div>
             </div>
         </section>
-<div class="k-line mt-2 mb-2"></div>
-<section>
+<!-- <div class="k-line mt-2 mb-2"></div> -->
+<!-- <section>
 <div class="container-fluid">
     <div class="row justify-content-between mt-4">
         <div class="col-6 col-sm-6 col-xs-6">
@@ -117,7 +117,7 @@
     <div class="row">
         <div class="col-12 col-sm-12 col-xs-12">
             <div class="scrolling-wrapper">
-                <div class="card card-wd-25"><p>Promo Code Coming Soon</p></div>
+
                  <div class="card card-wd-25 ml-2"><h2>Promo Code Coming Soon</h2></div>
                  <div class="card card-wd-25 ml-2"><h2>Promo Code Coming Soon</h2></div>
                  <div class="card card-wd-25 ml-2"><h2>Promo Code Coming Soon</h2></div>
@@ -130,7 +130,7 @@
         </div>
     </div>
 </div>
-</section>
+</section> -->
 <section>
   <div class="container-fluid">
     <div class="row ">
@@ -694,12 +694,13 @@
 
 
 
-      <span *ngIf="show">
+      <span *ngIf="show1">
+        မှာလည်း အကြာကြီးလည်း
         အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
         သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
         အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲမှာလည်း အကြာကြီးလည်း
       </span>
-        <a type="button" (click)="toggle()" id="btn">
+        <a  (click)="toggle1()" >
       <span class=" gray-text f-12"> ... {{buttonName}} </span> </a>
 
     </p>
@@ -769,12 +770,13 @@
 
 
 
-      <span *ngIf="show">
+      <span *ngIf="show2">
+        မှာလည်း အကြာကြီးလည်း
         အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
         သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
         အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲမှာလည်း အကြာကြီးလည်း
       </span>
-        <a type="button" (click)="toggle()" id="btn">
+        <a  (click)="toggle2()" >
       <span class=" gray-text f-12"> ... {{buttonName}} </span> </a>
 
     </p>
@@ -844,12 +846,13 @@
 
 
 
-        <span *ngIf="show">
+        <span *ngIf="show3">
+          မှာလည်း အကြာကြီးလည်း
           အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
           သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
           အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲမှာလည်း အကြာကြီးလည်း
         </span>
-          <a type="button" (click)="toggle()" id="btn">
+          <a  (click)="toggle3()" >
         <span class=" gray-text f-12"> ... {{buttonName}} </span> </a>
 
       </p>
@@ -1669,12 +1672,13 @@
 
 
 
-      <span *ngIf="show">
+      <span *ngIf="show4">
+        မှာလည်း အကြာကြီးလည်း
         အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
         သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
         အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲမှာလည်း အကြာကြီးလည်း
       </span>
-        <a type="button" (click)="toggle()" id="btn">
+        <a  (click)="toggle4()" >
       <span class=" gray-text f-12"> ... {{buttonName}} </span> </a>
 
     </p>
@@ -1744,12 +1748,13 @@
 
 
 
-      <span *ngIf="show">
+      <span *ngIf="show5">
+        မှာလည်း အကြာကြီးလည်း
         အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
         သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
         အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲမှာလည်း အကြာကြီးလည်း
       </span>
-        <a type="button" (click)="toggle()" id="btn">
+        <a  (click)="toggle5()" >
       <span class=" gray-text f-12"> ... {{buttonName}} </span> </a>
 
     </p>
@@ -1819,12 +1824,13 @@
 
 
 
-        <span *ngIf="show">
+        <span *ngIf="show6">
+          မှာလည်း အကြာကြီးလည်း
           အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
           သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
           အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲမှာလည်း အကြာကြီးလည်း
         </span>
-          <a type="button" (click)="toggle()" id="btn">
+          <a  (click)="toggle6()" >
         <span class=" gray-text f-12"> ... {{buttonName}} </span> </a>
 
       </p>
