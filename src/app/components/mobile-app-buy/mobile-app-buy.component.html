@@ -1,3 +1,4 @@
+<!-- HEADER -->
 <section>
   <div class="container-fluid">
       <div class="row purple-bg-row pt-2 pb-2">
@@ -5,677 +6,876 @@
               <img src="./././assets/images1/Asset 2.svg" alt="wood-logo" class="k-home-logo">
           </div>
           <div class="col-2 mt-2">
-              <img src="./././assets/images1/Asset 44.svg" alt="search-logo" class="k-search-img" (click)="goToSearch()"
-                  class="k-search-img">
+              <img src="./././assets/images1/Asset 44.svg" alt="search-logo" (click)="goToSearch()" class="k-search-img" />
           </div>
       </div>
   </div>
 </section>
-<section class="Banner-bg-img ">
+<!-- END HEADER -->
+<!-- BACKGROUND BANNER -->
+<section class="Banner-bg-img">
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0">
-        <img class="banner-logo mt-4" src="./assets/mobile-app-buy/Asset 40.svg">
-
-        <h3 class="text-center mt-3">ငွေကျပ်အနည်းဆုံး <span class="violet-color bold f-20">၃သောင်းခွဲ</span>  ရှိရုံနဲ့</h3>
-        <h4 class="text-center mt-4 f-12">ကိုင်ပိုင်နာမည်ပေါက် <span class="violet-color bold f-14 "> e-Commerce App</span> ကိုပိုင်ဆိုင်နိုင်ပါပြီ။</h4>
-        <img class="img-width top-p-15 pl-3 pr-3" src="./assets/mobile-app-buy/Asset 41.png">
-        <div class="text-center pt-2">
-          <a type="button" (click)=" scroll( target )" class="viewMore ">
-            <img class="width-10" src="./assets/mobile-app-buy/downArrowpurple.svg">
-             <span class=" gray-color f-11"> {{viewmorename}}</span> </a>
+        <img class="banner-logo" src="./assets/mobile-app-buy/Asset 40.svg">
+        <h3> ငွေကျပ်အနည်းဆုံ <span class="violet-color f-w-600" style="font-size: 5.5vw!important;"> ၃သောင်းခွဲ </span> ရှိရုံနဲ့ </h3>
+        <h4>ကိုယ်ပိုင်နာမည်ပေါက် <span class="violet-color f-w-600" style="font-size: 4.5vw!important;"> e-Commerce App</span> ကိုပိုင်ဆိုင်နိုင်ပါပြီ။</h4>
+        <img class="img-width pl-3 pr-3" src="./assets/mobile-app-buy/Asset 41.png" style="margin-top: 10%;">
+        <div class="text-center" style="padding-top: 5%;">
+          <a type="button" (click)=" scroll( target )">
+            <img class="seeMore" src="./assets/mobile-app-buy/downArrowpurple.svg"/>
+             <span class=" gray-color f-12"> {{viewmorename}}</span> </a>
         </div>
         <!-- <div class="bg-color">
           <h3 class="violet-color swiper-title-p f-18 line-height"><span class="bold  ">ShopeDoora Commerce App </span> က သင့်လုပ်ငန်းကို ဘယ်လိုမြင့်သင်ပေးမှာလဲ?</h3>
         </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END BACKGROUND BANNER -->
+<!-- UPGRADEING  -->
+<section class="bg-color container-fluid " #target>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 8%;">
+        <h3 class="violet-color line-height"> <span class="f-w-600" style="font-size: 5.6vw!important;">ShopDoora eCommerce App </span> က </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: -8px;">
+        <h3 class="violet-color line-height"> သင့်လုပ်ငန်းကို ဘယ်လိုမြှင့်တင်ပေးမှာလဲ? </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 8%;">
+        <swiper [config]="config">
+          <div class="swiper-wrapper" style="padding-bottom: 24%;">
+            <div class="swiper-slide">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <img class="img-width-38 p-top-30" src="./assets/buy-app/Asset 42.png">
+                </div>
+              </div>
+              <div class="row" style="margin-top: 8%;">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <p class="text-center">
+                    1.ကိုယ်အိပ်နေရင်လည်း Order တွေ <br><br> လက်ခံပေးနေတယ်
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <img class="img-width-38 p-top-30" src="./assets/buy-app/Asset 49.svg">
+                </div>
+              </div>
+              <div class="row" style="margin-top: 5%;">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <p class="text-center" style="margin-top: 8%;">
+                    2.Order စာရင်းတွက်ဖို့ အချိန် လုံးဝ ပေးစရာမလိုပဲ <br><br> အလိုအလျောက် ကြည့်လို့ရလို့ <br><br> လုပ်ငန်း တိုးချဲ့ ဖို့အချိန်တွေ ပိုလာမယ်
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <img class="img-width-38 p-top-30" src="./assets/buy-app/Asset 55.svg">
+                </div>
+              </div>
+              <div class="row" style="margin-top: 8%;">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <p class="text-center" style="margin-top: 8%;">
+                    3.Customer Order တွေအတွက်လည်း Voucher တွေက <br><br> အလိုအလျောက် ပြင်ဆင်ပြီးသားဖြစ်လို့ <br><br> ခလုတ်တစ်ချက် နှိပ်ယုံနဲ့ Printer နဲ့ထုတ်ရုံပဲ
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <img class="img-width-38 p-top-30" src="./assets/buy-app/Asset 53.svg">
+                </div>
+              </div>
+              <div class="row" style="margin-top: 2%;">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <p class="text-center" style="margin-top: 8%;">
+                    4.Popular ဖြစ်ပြီး ရောင်းကုန်တော့မယ့် <br><br> ပစ္စည်းစာရင်းများရဲ့ Reports  <br><br> ရောင်းသူ ဘက်မှ စက္ကန့်ပိုင်းအတွင်းကြည့်နိုင်လို့ <br><br> ပစ္စည်းမပြတ်ပဲ အမြဲရောင်းနေနိုင်မယ်
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <img class="img-width-45 p-top-30" src="./assets/buy-app/Asset 50.svg">
+                </div>
+              </div>
+              <div class="row" style="margin-top: 6%;">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <p class="text-center" style="margin-top: 8%;">
+                    5.ပစ္စည်းကုန်သွားရင်လည်း ရောင်းတဲ့ ခလုတ်က <br><br> အလိုအလျောက် ပျောက်သွားလို့ Customer <br><br> တွေကလည်း ဝယ်လို့မရမှန်းသိမယ်
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <img class="img-width-38 p-top-30" src="./assets/buy-app/Asset 51.svg">
+                </div>
+              </div>
+              <div class="row" style="margin-top: 5%;">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <p class="text-center" style="margin-top: 8%;">
+                    6. လူသုံးများတဲ့ Payment စနစ်များဖြစ်တဲ့ <br><br> WaveMoney, KBZPay, Debit/Credit တို့နဲ့ <br><br> ချိတ်ထားလို့ ရောင်းသူကော ဝယ်သူပါ တထိုင်တည်းမှာပဲ <br><br> ငွေပေးချေလက်ခံမှုများကို ပြုလုပ်နိုင်မယ် 
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <img class="img-width-45 p-top-30" src="./assets/buy-app/Asset 52.svg">
+                </div>
+              </div>
+              <div class="row" style="margin-top: 7%;">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <p class="text-center" style="margin-top: 8%;">
+                    7. ဝယ်ယူတဲ့ပစ္စည်းတိုင်းအတွက် <br><br> Point တွေဆုပေးထားပြီး <br><br> ငွေသား၊ Discounts နှင့် လက်ဆောင် များကို <br><br> မိမိစိတ်ကြိုက် သတ်မှတ်ပြီးပေးသွားနိုင်မယ်
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <img class="img-width-30 p-top-30" src="./assets/buy-app/Asset 54.svg">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                  <p class="text-center" style="margin-top: 8%;">
+                    8. ရောင်းသူဘက်မှ Order များကို <br><br> Delivery Status ပြောင်းသည့်အခါတိုင်း <br><br> Customer ဘက်သို့ Notifications များ <br><br> ပို့ပေးသွားလို့ Phone တွေဆက် Message တွေပို့ပြီး <br><br> မေးစရာမလိုတော့ပါဘူး
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination pb-5" style="bottom: 0%;"></div>
+          <div class="">
+            <img class=" swiper-button-next img-width-10 " src="./assets/mobile-app-buy/Asset 43.svg" style="top: 85%;">
+          </div>
+          <div class="">
+            <img class=" swiper-button-prev img-width-10 " src="./assets/mobile-app-buy/Asset 44.svg" style="top: 85%;">
+          </div>
+        </swiper>
+      </div>
+    </div>
+</section>
+<!-- END UPGRADING -->
+<!-- APP & WEBSITE -->
+<section class="pb-4">
+  <div class="container-fluid ">
+        <div class="row pt-4">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <h3 class="text-center violet-color f-w-500">ကိုင်ပိုင် နာမည်ပေါက် <span class="f-w-600"> Application </span></h3>
+            </div>
+        </div>
+        <div class="row" style="margin-top: -4px;">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <h3 class="text-center violet-color f-w-500"> နဲ့ <span class="f-w-600"> Website</span> ဘယ်နှခုရမလည်း?</h3>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <img class="img-width" src="./assets/mobile-app-buy/Asset 47.png">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <img class="img-width pt-4" src="./assets/mobile-app-buy/Asset 48.png">
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <h6 class="text-center appNwebText">
+              ShopDoora တွင် အဓိက အားဖြင့် Seller App နှင့် <br>
+              Buyer App နှစ်မျိုးသာရှိပြီး Android Phone <br>
+              အသုံးပြုသူနှင့် Apple Phone အသုံးပြုသူများ ကွဲခြားပြန်ရာ <br>
+              စုစုပေါင်း App ၄ခုရှိမည်ဖြစ်သည်။ <br>
+              Buyer များအတွက် App Download မလုပ်ပဲ <br>
+              Website Link များမှ လွယ်လင့်တကူ Order မှာယူနိုင်ရန် <br>
+              အတွက်လည်း Responsive Web တစ်ခုရှိမည်ဖြစ်သည်။ <br>
+            </h6>
+          </div>
+        </div>
+  </div>
+</section>
+<!-- END APP & WEBSITE -->
+<!-- FEATURE -->
+<section class="bg-color pb-5">
+  <div class="container-fluid">
+    <div class="row pt-4">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <h3 class="text-center violet-color f-w-500"><span class="f-w-600">ShopDoora eCommerce </span>တွင် </h3>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <h3 class="text-center violet-color f-w-500"> ပါဝင်မည့် <span class="f-w-600">Feature</span>  များ</h3>
+      </div>
+    </div>   
+    <div class="row mt-5">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <img class="img-feature" src="./assets/mobile-app-buy/Asset 56.svg">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <h3 class="black-color pt-3 pb-3">SELLER APPS & WEB</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="pl-2">
+          <div class="">
+            <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+            <span class="featureItems"> Product Upload </span>
+          </div>
 
+          <div class="">
+            <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+            <span class="featureItems"> Product List </span>
+          </div>
+
+          <div class="">
+            <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+            <span class="featureItems"> Order Details </span>
+          </div>
+
+          <div class="">
+            <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+            <span class="featureItems"> Voucher Print </span>
+          </div>
+
+          <div class="">
+            <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+            <span class="featureItems"> Order List </span>
+          </div>
+
+          <div class="">
+            <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+            <span class="featureItems"> Member Points </span>
+          </div>
+
+          <div class="">
+            <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+            <span class="featureItems"> Delivery Companies, Fees Setup </span>
+          </div>
+
+          <div class="">
+            <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+            <span class="featureItems"> Notification </span>
+          </div>
+
+          <div class="">
+            <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+            <span class="featureItems">  My Accounts </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <img class="img-feature" src="./assets/mobile-app-buy/Asset 58.svg">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <h3 class="black-color pt-3 pb-3"> SELLER ADMINISTRATION WEBSITE </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="pl-2">
+            <div class="">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> Dashboard View </span>
+            </div>
+
+            <div class="" (click)="toggle3()">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> Product Management </span>
+              <img class="moreBtn pl-1" src="./assets/mobile-app-buy/Asset 69.svg">
+            </div>
+
+            <div *ngIf="show3">
+              <div class="" style="margin-left: 40px;">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Batch Products Upload </span>
+              </div>
+            </div>
+
+            <div class="">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> Order Management </span>
+            </div>
+
+            <div class="">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> Customer List </span>
+            </div>
+
+            <div class="">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> Category List </span>
+            </div>
+
+            <div class="">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> Riders List </span>
+            </div>
+
+            <div class="">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> Delivery Company List </span>
+            </div>
+
+            <div class="">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> Member Points Control </span>
+            </div>
+
+            <div class="">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> User Roles & Authentication </span>
+            </div>
+
+            <div class="" (click)="toggle2()">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> Reports </span>
+              <img class="moreBtn pl-1" src="./assets/mobile-app-buy/Asset 69.svg">
+            </div>
+
+            <div *ngIf="show2">
+              <div class="" style="margin-left: 40px;">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Products & Report </span>
+              </div>
+              <div class="" style="margin-left: 40px;">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Customer Analytics </span>
+              </div>
+              <div class="" style="margin-left: 40px;">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Sales & Analytics </span>
+              </div>
+              <div class="" style="margin-left: 40px;">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> App & Sites Visitors/User Report </span>
+              </div>
+              <div class="" style="margin-left: 40px;">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Member Point Utilization Report </span>
+              </div>
+            </div>
+
+            <div class="">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> Notification </span>
+            </div>
+
+            <div class="">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> My Account </span>
+            </div>
+
+            <div class="">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> Settings  </span>
+            </div>
+
+            <div class="">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span class="featureItems"> Log In/Forgot Password </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="show" class="mt-4">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <img class="img-width-50" src="./assets/mobile-app-buy/Asset 59.svg">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <h3 class="black-color pt-3 pb-3"> BUYER APPS & WEB </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pl-2">
+              <div class="">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Landing Page </span>
+              </div>
+
+              <div class="">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Product Search </span>
+              </div>
+
+              <div class="">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Product Details </span>
+              </div>
+
+              <div class="">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Shopping Cart(Payment Integration) </span>
+              </div>
+
+              <div class="">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Order History </span>
+              </div>
+
+              <div class="">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Order Details </span>
+              </div>
+
+              <div class="">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Notifications </span>
+              </div>
+
+              <div class="">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> My Account </span>
+              </div>
+
+              <div class="">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Login/Forgot Password </span>
+              </div>
+
+              <div class="">
+                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+                <span class="featureItems"> Registration with Facebook/ <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phone Number/e-Mail </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="text-center view-more-btn mt-4">
+            <a (click)="toggle()">
+              <img class="viewmore-arrow" src="./assets/mobile-app-buy/Asset 69.svg">
+              <span class="violet-color f-12 pl-1"> {{buttonName}} </span>
+            </a>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+<!-- END FEATURE -->
+<!-- ECOMMERCE PRICE -->
+<section class="pb-4">
+  <div class="container-fluid">
+    <div class="row pt-4">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <h3 class="violet-color">
+          <span class="f-w-600">ShopDoora eCommerce </span> အတွက်
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <h3 class="violet-color">
+          ကျသင့်မည့်ဈေးနှန်း?
+        </h3>
+      </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+          <swiper [config]="config">
+            <div class="swiper-wrapper" style="height: 570px!important;">
+              <!-- FOR SLIDE 1 -->
+              <div class="swiper-slide">
+                
+                  <h3 class="bg-color-red white-color cost-title-p1">
+                    ShopDoora Lite
+                  </h3>
+                  <div class="cost">
+                    <p class="gray-text pl-3 pt-4"> Includes </p>
+                    <div class="pl-3 pb-2">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">1% Transaction fee based on revenue </span>
+                    </div>
+                    <div class="pl-3 pt-2 pb-2">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">2 Staff accounts</span>
+                    </div>
+                    <div class="pl-3 pt-2 pb-2">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">100 products maximum upload</span>
+                    </div>
+                    <div class="pl-3 pt-2 pb-2">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">Seller and Buyer Apps (Android)</span>
+                    </div>
+                    <div class="pl-3 pt-2 pb-2">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">Payment Gateway Integration</span>
+                    </div>
+                    <div class="pl-3 pt-2 pb-2">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">Member Points System</span>
+                    </div>
+                    <div class="pl-3 pt-2 pb-1">
+                      <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
+                      <span class="priceTxt">49,000 ks for setting up App & Website</span>
+                    </div>
+                    <div class="pt-3 pb-2 pr-3 pl-3">
+                      <h4 class="bg-color-red white-color cost-title-p2 text-center">
+                        ks 35,000/ month
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              <!-- END SLIDE 1 -->
+              <!-- FOR SLIDE 2 -->
+              <div class="swiper-slide">
+                <h3 class="bg-color-blue white-color cost-title-p1  ">
+                  ShopDoora Standard
+                </h3>
+                <div class="cost">
+                  <p class="gray-text pl-3 pt-4">Includes</p>
+                  <div class="pl-3 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
+                    <span class="priceTxt">0.5% Transaction fee based on revenue</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
+                    <span class="priceTxt">5 Staff accounts</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
+                    <span class="priceTxt">500 products maximum upload</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
+                    <span class="priceTxt">Seller and Buyer Apps(Android)</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
+                    <span class="priceTxt">Seller and Buyer Apps (iOS)</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
+                    <span class="priceTxt">Responsive Website for Buyers</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-1">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
+                    <span class="priceTxt">Payment Gateway Integration</span>
+                  </div>
+                  <!-- <div class="pl-2 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
+                    <span class="priceTxt">Member Points System</span>
+                  </div>
+                  <div class="pl-2 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
+                    <span class="priceTxt">1 Customizable Manday</span>
+                  </div>
+                  <div class="pl-2 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
+                    <span class="priceTxt">139,000 Ks for setting up App & Website</span>
+                  </div>  -->
+                <div class="pt-3 pb-2 pr-3 pl-3">
+                  <h4 class="bg-color-blue white-color cost-title-p2 text-center">
+                    Ks 89,000/month
+                  </h4>
+                </div>
+              </div>
+              </div>
+              <!-- END SLIDE 2 -->
+              <!-- FOR SLIDE 3 -->
+              <div class="swiper-slide">
+                <h3 class="bg-color-green white-color cost-title-p1  ">
+                  ShopDoora Pro
+                </h3>
+                <div class="cost">
+                  <p class="gray-text pl-3 pt-4">Includes</p>
+                  <div class="pl-3 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt">0.25% Transaction fee based on revenue</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt">Unlimited staff account</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt"> Unlimited product upload</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt">Seller and Buyer Apps (Android)</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt">Seller and Buyer Apps (iOS)</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt">Responsive Website for Buyers</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-1">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt">Administration Website for Sellers</span>
+                  </div>
+                  <div class="pt-3 pb-2 pr-3 pl-3">
+                    <h4 class="bg-color-green white-color cost-title-p2 text-center">
+                      ks 35,000/ month
+                    </h4>
+                  </div> 
+                </div>
+                
+                  <!-- <div class="pl-2 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt">Payment Gateway Integration</span>
+                  </div>
+                  <div class="pl-2 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt"> Member Points System </span>
+                  </div>
+                  <div class="pl-2 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt">5 Customizable Mandays</span>
+                  </div>
+                  <div class="pl-2 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt">Abandoned cart recovery </span>
+                  </div>
+                  <div class="pl-2 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt">All upcoming new features</span>
+                  </div>
+                  <div class="pl-2 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
+                    <span class="priceTxt">199,000 Ks for setting up App & Website</span>
+                  </div> -->
+              </div>
+              <!-- END SLIDE 3 -->
+              <!-- FOR SLIDE 4 -->
+              <div class="swiper-slide">
+                <div class="cost">
+                  <h3 class="bg-color-yellow white-color cost-title-p1  ">
+                    ShopDoora Enterprise
+                  </h3>
+                  <p class="gray-text pl-3 pt-4">Includes</p>
+                  <div class="pl-3 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                    <span class="priceTxt">1% Transaction fee based on revenue</span>
+                  </div>
+                  <div class="pl-3 pt-2 pb-2">
+                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                    <span class="priceTxt">2 Staff accounts</span>
+                  </div>
+                      <div class="pl-3 pt-2 pb-2">
+                        <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                        <span class="priceTxt">100 products maximum upload</span>
+                      </div>
+                      <div class="pl-3 pt-2 pb-2">
+                        <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                        <span class="priceTxt">Seller and Buyer Apps (Android)</span>
+                      </div>
+                      <div class="pl-3 pt-2 pb-2">
+                        <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                        <span class="priceTxt">Payment Gateway Integration</span>
+                      </div>
+                      <div class="pl-3 pt-2 pb-2">
+                        <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                        <span class="priceTxt">Member Points System</span>
+                      </div>
+                      <div class="pl-3 pt-2 pb-2">
+                        <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
+                        <span class="priceTxt">49,000 ks for setting up App & Website</span>
+                      </div>
+                    <div class="pt-3 pb-2 pr-3 pl-1">
+                      <h4 class="bg-color-yellow white-color cost-title-p2 text-center">
+                        ks 35,000/ month
+                      </h4>
+                    </div>
+                </div>
+              </div>
+                <!-- END SLIDE 4 -->
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="">
+              <img class=" swiper-button-next img-width-10 " style="position: absolute; top: 96% !important;" src="./assets/mobile-app-buy/Asset 43.svg">
+            </div>
+            <div class="">
+              <img class=" swiper-button-prev img-width-10 " style="position: absolute; top: 96% !important;" src="./assets/mobile-app-buy/Asset 44.svg">
+            </div>
+          </swiper>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END ECOMMERCE PRICE  -->
+
+    <!-- <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="cost">
+          <h3 class="bg-color-red white-color cost-title-p1  ">
+            ShopeDoora Commerce App Lite
+          </h3>
+          <p class="pl-2 pt-3">Includes</p>
+          <div class="pl-2">
+            <div class="pt-2 pb-2">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span>Product Upload</span>
+            </div>
+            <div class="pt-2 pb-2">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span>Product Upload</span>
+            </div>
+            <div class="pt-2 pb-2">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span>Product Upload</span>
+            </div>
+            <div class="pt-2 pb-2">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span>Product Upload</span>
+            </div>
+            <div class="pt-2 pb-2">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span>Product Upload</span>
+            </div>
+            <div class="pt-2 pb-2">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span>Product Upload</span>
+            </div>
+            <div class="pt-2 pb-2">
+              <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
+              <span>Product Upload</span>
+            </div>
+          </div>
+          <div class="pt-3 pb-2 pr-3 pl-3">
+            <h4 class="bg-color-red white-color cost-title-p2 text-center">
+              ks 35,000/ month
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div> -->
+<!-- OHTER SERVICE PRICE -->
+<section class="mt-2">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h3 class="violet-color  pb-4">
+          အခြားဝန်ဆောင်မှုအတွက် စရိတ်များ
+        </h3>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 pr-0">
+        <p class="gray-text serviceTxt">မိမိစိတ်တိုင်းကျ software ကိုပြင်ရန် တစ်ရက်ခဈေးနှုန်း</p>
+      </div>
+      <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 p-0">
+        <p class="p-left serviceTxt">:</p>
+      </div>
+      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-0">
+        <p class="black-text serviceTxt"> ၆၅,၀၀၀ ကျပ် (IOS Android, Web Development အားလုံးအတွက်ဈေးတူပါသည်</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 pr-0">
+        <p class="gray-text serviceTxt">ကိုယ်ပိုင် Website အမည်ရရန်အတွက် ဈေးနှုန်း</p>
+      </div>
+      <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 p-0">
+        <p class="p-left serviceTxt">:</p>
+      </div>
+      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-0">
+        <p class="black-text serviceTxt">  ၂၅,၀၀၀ ကျပ်ခန့်ရှိသည်(မူရင်းတန်ဖိုးသာ ပေးရန်)</p>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 pr-0">
+       <p class="gray-text serviceTxt"> ကိုယ်ပိုင်ဆိုင်အမည်ဖြင့် Email Account အသစ်ဖွင့်ရန်</p>
+      </div>
+      <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 p-0">
+        <p class="p-left serviceTxt">:</p>
+     </div>
+      <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-0">
+         <p class="black-text serviceTxt">  ၁၀,၀၀၀ ကျပ် (Account အသစ်တစ်ခု ဖွင့်ပေးခ)</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END OHTER SERVICE PRICE -->
+
+<section>
+  <div class="container-fluid">
+    <div class="row ">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pr-0 pl-0 mt-2">
+          <div class="k-line"></div>
       </div>
     </div>
   </div>
 </section>
 
-  <section class="bg-color container-fluid " #target >
-    <div class="">
-      <div class="row ">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <h3 class="violet-color title1-p  line-height">
-            <span class="bold f-18 ">ShopDoora eCommerce App </span>
-            <span class="f-16">
-              က သင့်လုပ်ငန်းကို ဘယ်လိုမြှင့်တင်ပေးမှာလဲ?
-            </span>
-          </h3>
-
-
-
-            <swiper [config]="config">
-              <div class="swiper-wrapper" style="height: 51vh !important;">
-                <div class="swiper-slide">
-                  <img class="img-width-35 p-top-30" src="./assets/mobile-app-buy/Asset 42.png">
-                  <p class="text-center swiper-p-padding">
-                    1.ကိုယ်အိပ်နေရင်လည်း Order တွေလက်ခံပေးနေတယ်
-                  </p>
-                </div>
-                <div class="swiper-slide">
-                  <img class="img-width-35 p-top-30" src="./assets/mobile-app-buy/Asset 42.png">
-                  <p class="text-center swiper-p-padding">
-                    2.ကိုယ်အိပ်နေရင်လည်း Order တွေလက်ခံပေးနေတယ်
-                  </p>
-                </div>
-                <div class="swiper-slide">
-                  <img class="img-width-35 p-top-30" src="./assets/mobile-app-buy/Asset 42.png">
-                  <p class="text-center swiper-p-padding">
-                    3.ကိုယ်အိပ်နေရင်လည်း Order တွေလက်ခံပေးနေတယ်
-                  </p>
-                </div>
-                <div class="swiper-slide">
-                  <img class="img-width-35 p-top-30" src="./assets/mobile-app-buy/Asset 42.png">
-                  <p class="text-center swiper-p-padding">
-                    4.ကိုယ်အိပ်နေရင်လည်း Order တွေလက်ခံပေးနေတယ်
-                  </p>
-                </div>
-                <div class="swiper-slide">
-                  <img class="img-width-35 p-top-30" src="./assets/mobile-app-buy/Asset 42.png">
-                  <p class="text-center swiper-p-padding">
-                    5.ကိုယ်အိပ်နေရင်လည်း Order တွေလက်ခံပေးနေတယ်
-                  </p>
-                </div>
-                <div class="swiper-slide">
-                  <img class="img-width-35 p-top-30" src="./assets/mobile-app-buy/Asset 42.png">
-                  <p class="text-center swiper-p-padding">
-                    6.ကိုယ်အိပ်နေရင်လည်း Order တွေလက်ခံပေးနေတယ်
-                  </p>
-                </div>
-                <div class="swiper-slide">
-                  <img class="img-width-35 p-top-30" src="./assets/mobile-app-buy/Asset 42.png">
-                  <p class="text-center swiper-p-padding">
-                    7.ကိုယ်အိပ်နေရင်လည်း Order တွေလက်ခံပေးနေတယ်
-                  </p>
-                </div>
-                <div class="swiper-slide">
-                  <img class="img-width-35 p-top-30" src="./assets/mobile-app-buy/Asset 42.png">
-                  <p class="text-center swiper-p-padding">
-                    8.ကိုယ်အိပ်နေရင်လည်း Order တွေလက်ခံပေးနေတယ်
-                  </p>
-                </div>
-
-              </div>
-
-              <div class="swiper-pagination pb-5" style="bottom: 0%;"></div>
-
-
-              <div class="">
-                <img class=" swiper-button-next img-width-10 " src="./assets/mobile-app-buy/Asset 43.svg" style="top: 85%;">
-              </div>
-              <div class="">
-                <img class=" swiper-button-prev img-width-10 " src="./assets/mobile-app-buy/Asset 44.svg" style="top: 85%;">
-              </div>
-            </swiper>
-
-
-        </div>
+<!-- ABOUT & CONTACTUS -->
+<section>
+  <div class="container-fluid">
+    <div class="row mt-5">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+        <img class="footer-logo-width" src="./assets/mobile-app-buy/Asset 40.svg">
       </div>
     </div>
-  </section>
-
-  <section >
-      <div class="container-fluid ">
-          <div class="row ">
-              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <h3 class="text-center violet-color f-w-500 w-spacing own-h-padding">ကိုင်ပိုင် နာမည်ပေါက် <span class="bold f-18"> Application</span>   နဲ့ <span class="bold f-18">Website</span> ဘယ်နှခုရမလည်း?</h3>
-                <img class="img-width" src="./assets/mobile-app-buy/Asset 47.png">
-                <img class="img-width pt-4" src="./assets/mobile-app-buy/Asset 48.png">
-                <p class="text-center own-p-padding">
-                  ShopDoora တွင် အဓိက အားဖြင့် Seller App နှင့် <br>
-                  Buyer App နှစ်မျိုးသာရှိပြီး Android Phone <br>
-                  အသုံးပြုသူနှင့် Apple Phone အသုံးပြုသူများ ကွဲခြားပြန်ရာ <br>
-                  စုစုပေါင်း App ၄ခုရှိမည်ဖြစ်သည်။ <br>
-                  Buyer များအတွက် App Download မလုပ်ပဲ <br>
-                  Website Link များမှ လွယ်လင့်တကူ Order မှာယူနိုင်ရန် <br>
-                  အတွက်လည်း Responsive Web တစ်ခုရှိမည်ဖြစ်သည်။ <br>
-                </p>
-              </div>
-          </div>
-
-      </div>
-  </section>
-
-  <section class="bg-color">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-          <h3 class="text-center violet-color f-w-500  own-h-padding"><span class="f-18 bold">ShopDoora eCommerce </span>တွင် ပါဝင်မည့် <span class="f-18 bold">Feature</span>  များ</h3>
-          <div>
-            <img class="img-feature" src="./assets/mobile-app-buy/Asset 56.svg">
-            <h3 class="black-color pt-3 pb-3">SELLER APPS & WEB</h3>
-            <div class="pl-2">
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Product Upload</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Product List</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Order Details</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Voucher Print</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Order List</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Member Points</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Sample Text</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Sample Text</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Sample Text</span>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="mt-5">
-            <img class="img-feature" src="./assets/mobile-app-buy/Asset 58.svg">
-            <h3 class="black-color pt-3 pb-3">SELLER ADMINISTRATION WEBSITE</h3>
-            <div class="pl-2">
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Product Upload</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Product List</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Order Details</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Voucher Print</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Order List</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Member Points</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Sample Text</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Sample Text</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Sample Text</span>
-              </div>
-            </div>
-          </div>
-
-          <div *ngIf="show" class="mt-5">
-            <img class="img-width-50" src="./assets/mobile-app-buy/Asset 59.svg">
-            <h3 class="black-color pt-3 pb-3">BUYER APPS & WEB</h3>
-            <div class="pl-2">
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Product Upload</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Product List</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Order Details</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Voucher Print</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Order List</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Member Points</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Sample Text</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Sample Text</span>
-              </div>
-
-              <div class="">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span class="f-12">Sample Text</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="text-center view-more-btn mt-2 mb-4">
-            <a type="button" (click)="toggle()" id="btn">
-               <img class="viewmore-arrow" src="./assets/mobile-app-buy/Asset 69.svg">
-                <span class=" violet-color f-11"> {{buttonName}} </span> </a>
-          </div>
-
-
-        </div>
+    <div class="row mt-3">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <p>ShopDoora Co.,Ltd</p>
       </div>
     </div>
-
-  </section>
-  <section>
-    <div class="container-fluid">
-      <h3 class="violet-color swiper-title-p line-height">
-        <span class="bold  f-18  ">ShopDoora eCommerce </span>
-         အတွက် ကျသင့်မည့်ဈေးနှန်း?</h3>
-         <swiper [config]="config">
-          <div class="swiper-wrapper" style="height: 554px !important;">
-            <div class="swiper-slide">
-              <div class="cost">
-                <h3 class="bg-color-red white-color cost-title-p1  ">
-                  ShopeDoora Commerce App Lite
-                </h3>
-                <p class="pl-2 pt-3">Includes</p>
-                <div class="pl-2">
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="f-12">1% Transaction fee based on revenue</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="f-12">2 Staff accounts</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="f-12">100 products maximum upload</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="f-12">Seller and Buyer Apps (Android)</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="f-12">Payment Gateway Integration</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="f-12">Member Points System</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 2.svg">
-                    <span class="f-12">49,000 ks for setting up App & Website</span>
-                  </div>
-                </div>
-                <div class="pt-3 pb-2 pr-3 pl-3">
-                  <h4 class="bg-color-red white-color cost-title-p2 text-center">
-                    ks 35,000/ month
-                  </h4>
-                </div>
-
-
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="cost">
-                <h3 class="bg-color-blue white-color cost-title-p1  ">
-                  ShopeDoora Commerce App Lite
-                </h3>
-                <p class="pl-2 pt-3">Includes</p>
-                <div class="pl-2">
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
-                    <span class="f-12">1% Transaction fee based on revenue</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
-                    <span class="f-12">2 Staff accounts</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
-                    <span class="f-12">100 products maximum upload</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
-                    <span class="f-12">Seller and Buyer Apps (Android)</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
-                    <span class="f-12">Payment Gateway Integration</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
-                    <span class="f-12">Member Points System</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 3.svg">
-                    <span class="f-12">49,000 ks for setting up App & Website</span>
-                  </div>
-                </div>
-                <div class="pt-3 pb-2 pr-3 pl-3">
-                  <h4 class="bg-color-blue white-color cost-title-p2 text-center">
-                    ks 35,000/ month
-                  </h4>
-                </div>
-
-
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="cost">
-                <h3 class="bg-color-green white-color cost-title-p1  ">
-                  ShopeDoora Commerce App Lite
-                </h3>
-                <p class="pl-2 pt-3">Includes</p>
-                <div class="pl-2">
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
-                    <span class="f-12">1% Transaction fee based on revenue</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
-                    <span class="f-12">2 Staff accounts</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
-                    <span class="f-12">100 products maximum upload</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
-                    <span class="f-12">Seller and Buyer Apps (Android)</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
-                    <span class="f-12">Payment Gateway Integration</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
-                    <span class="f-12">Member Points System</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 4.svg">
-                    <span class="f-12">49,000 ks for setting up App & Website</span>
-                  </div>
-                </div>
-                <div class="pt-3 pb-2 pr-3 pl-3">
-                  <h4 class="bg-color-green white-color cost-title-p2 text-center">
-                    ks 35,000/ month
-                  </h4>
-                </div>
-
-
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="cost">
-                <h3 class="bg-color-yellow white-color cost-title-p1  ">
-                  ShopeDoora Commerce App Lite
-                </h3>
-                <p class="pl-2 pt-3">Includes</p>
-                <div class="pl-2">
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                    <span class="f-12">1% Transaction fee based on revenue</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                    <span class="f-12">2 Staff accounts</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                    <span class="f-12">100 products maximum upload</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                    <span class="f-12">Seller and Buyer Apps (Android)</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                    <span class="f-12">Payment Gateway Integration</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                    <span class="f-12">Member Points System</span>
-                  </div>
-                  <div class="pt-2 pb-2">
-                    <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 5.svg">
-                    <span class="f-12">49,000 ks for setting up App & Website</span>
-                  </div>
-                </div>
-                <div class="pt-3 pb-2 pr-3 pl-3">
-                  <h4 class="bg-color-yellow white-color cost-title-p2 text-center">
-                    ks 35,000/ month
-                  </h4>
-                </div>
-
-
-              </div>
-            </div>
-
-
-          </div>
-
-          <div class="swiper-pagination " style="bottom: 11% !important;"></div>
-
-
-          <div class="">
-            <img class=" swiper-button-next img-width-10 " style="position: absolute; top: 89% !important;" src="./assets/mobile-app-buy/Asset 43.svg">
-          </div>
-
-          <div class="">
-            <img class=" swiper-button-prev img-width-10 " style="position: absolute; top: 89% !important;" src="./assets/mobile-app-buy/Asset 44.svg">
-          </div>
-
-        </swiper>
-
-      <!-- <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <div class="cost">
-            <h3 class="bg-color-red white-color cost-title-p1  ">
-              ShopeDoora Commerce App Lite
-            </h3>
-            <p class="pl-2 pt-3">Includes</p>
-            <div class="pl-2">
-              <div class="pt-2 pb-2">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span>Product Upload</span>
-              </div>
-              <div class="pt-2 pb-2">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span>Product Upload</span>
-              </div>
-              <div class="pt-2 pb-2">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span>Product Upload</span>
-              </div>
-              <div class="pt-2 pb-2">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span>Product Upload</span>
-              </div>
-              <div class="pt-2 pb-2">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span>Product Upload</span>
-              </div>
-              <div class="pt-2 pb-2">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span>Product Upload</span>
-              </div>
-              <div class="pt-2 pb-2">
-                <img class="right-width pr-2" src="./assets/mobile-app-buy/Asset 57.svg">
-                <span>Product Upload</span>
-              </div>
-            </div>
-            <div class="pt-3 pb-2 pr-3 pl-3">
-              <h4 class="bg-color-red white-color cost-title-p2 text-center">
-                ks 35,000/ month
-              </h4>
-            </div>
-
-
-          </div>
-
-        </div>
-      </div> -->
-    </div>
-  </section>
-
-  <section>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <h3 class="violet-color  pb-4">
-            အခြေဝန်ဆောင်မှုအတွက် စရိတ်များ
-          </h3>
-          <div class="row">
-            <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 pr-0 ">
-             <p class="gray-color f-11">မိမိစိတ်တိုင်းကျ software ကိုပြင်ရန် တစ်ရက်ခဈေးနှုန်း</p>
-            </div>
-            <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 p-0">
-              <p class="p-left ">:</p>
-           </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-0">
-               <p class="black-color"> ၆၅,၀၀၀ ကျပ် (IOS Android, Web Development အားလုံးအတွက်ဈေးတူပါသည်</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 pr-0 pl-2">
-             <p class="gray-color f-11">ကိုယ်ပိုင် Website အမည်ရရန်အတွက် ဈေးနှုန်း</p>
-            </div>
-            <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 p-0">
-              <p class="p-left ">:</p>
-           </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-0">
-               <p class="black-color">  ၂၅,၀၀၀ ကျပ်ခန့်ရှိသည်(မူရင်းတန်ဖိုးသာ ပေးရန်)</p>
-            </div>
-          </div>
-
-          <div class="row mb-4">
-            <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 pr-0 pl-2">
-             <p class="gray-color f-11"> ကိုယ်ပိုင်ဆိုင်အမည်ဖြင့် Email Account အသစ်ဖွင့်ရန်</p>
-            </div>
-            <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 p-0">
-              <p class="p-left ">:</p>
-           </div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-0">
-               <p class="black-color">  ၁၀,၀၀၀ ကျပ် (Account အသစ်တစ်ခု ဖွင့်ပေးခ)</p>
-            </div>
-          </div>
-
-        </div>
+    <div class="row">
+      <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ">
+        <p class="gray-text">လိပ်စာ</p>
+      </div>
+      <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 p-0">
+        <p class="p-left">:</p>
+      </div>
+      <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 ">
+         <p class="black-text"> Orchid Condo,No189,18th Floor,Ahlone Township,Yangon,Myanmar</p>
       </div>
     </div>
-  </section>
-  <section>
-    <div class="container-fluid">
-      <div class="row ">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pr-0 pl-0 mt-2">
-            <div class="k-line"></div>
-        </div>
+    <div class="row">
+      <div class="col-3 col-sm-3 col-md-3 col-lg- col-xl-3 ">
+        <p class="gray-color ">ဖုန်းနံပါတ်</p>
+      </div>
+      <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 p-0">
+        <p class="p-left ">:</p>
+      </div>
+      <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 ">
+        <p class="black-color"> 09450880001</p>
       </div>
     </div>
-  </section>
-
-  <section>
-    <div class="container-fluid">
-      <div class="row pt-4">
-        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-          <h4 class="violet-color pb-4">About Us</h4>
-          <p class="gray-color">Who We Are</p>
-        </div>
-        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-          <h4 class="violet-color pb-4">Contact Us</h4>
-          <p  class="gray-color">For Application</p>
-          <p  class="gray-color">For Website</p>
-        </div>
-      </div>
-      <div class="row pt-4">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-          <img class="footer-logo-width" src="./assets/mobile-app-buy/Asset 40.svg">
-          <p class="f-11">ShopDoora CO.,Ltd</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 ">
-         <p class="gray-color ">လိပ်စာ</p>
-        </div>
-        <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 p-0">
-          <p class="p-left ">:</p>
-       </div>
-        <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 ">
-           <p class="black-color"> Orchid Condo,No189,18th Floor,Ahlone Township,Yangon,Myanmar</p>
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col-3 col-sm-3 col-md-3 col-lg- col-xl-3 ">
-         <p class="gray-color ">ဖုန်းနံပါတ်</p>
-        </div>
-        <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 p-0">
-          <p class="p-left ">:</p>
-       </div>
-        <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 ">
-           <p class="black-color"> 09450880001</p>
-        </div>
-      </div>
-      <div class="row mt-4 " style="margin-bottom: 55px;">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-            <p class="gray-color f-11">Copyright &copy; 2020 Myanmar Hight Society CO.,Ltd</p>
-            <p class="gray-color f-11">All Rights Reserved.</p>
-        </div>
+    <div class="row mt-4 " style="margin-bottom: 55px;">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+        <p class="gray-color f-14" style="line-height: 2rem!important;">Copyright &copy; 2020 Myanmar Hight Society Co.,Ltd <br> All Right Reserved </p>
       </div>
     </div>
-  </section>
-
-
-
+  </div>
+</section>
+<!-- END ABOUT & CONTACTUS -->
+<!-- FOOTER -->
 <section>
   <div class="container-fluid k-navigation-section">
       <div class="row footer-row">
@@ -710,6 +910,7 @@
       </div>
   </div>
 </section>
+<!-- END FOOTER -->
 
 
 

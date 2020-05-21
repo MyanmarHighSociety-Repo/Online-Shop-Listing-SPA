@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: Los Andes;
   src: url (../font/Los\ Andes\ \ Lota\ Grotesque\ Alt\ 1\ Regular.otf);
   src: url (../font/Los\ Andes\ \ Lota\ Grotesque\ Alt\ 1\ Bold.otf);
@@ -6,9 +6,12 @@
   }
   section{
     font-family: Los Andes;
-  }
+  } */
 .f-w-500{
   font-weight: 500;
+}
+.f-w-600{
+  font-weight: 600;
 }
 .f-20{
   font-size: 20px !important;
@@ -34,9 +37,6 @@
 .f-10{
   font-size: 10px !important;
 }
-.bold{
-  font-weight: bold;
-}
 .k-line{
   width:100%;
   height: 10px;
@@ -57,23 +57,17 @@
   margin-left: auto;
   margin-right: auto;
 }
-.img-width-35{
-  width: 35%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .footer-logo-width{
   width: 40%;
 }
 .container-padding{
   padding: 0px 11px 0px 11px;
 }
-.w-spacing{
-  word-spacing: 5px;
-}
-.right-width{
-  width: 25px;
+
+/* HEADER */
+.purple-bg-row{
+  background-color:#982ce5 ;
 }
 .k-home-logo{
   width:50%;
@@ -86,9 +80,7 @@
   display:block;
   margin:0 auto;
 }
-.purple-bg-row{
-  background-color:#982ce5 ;
-}
+/* END HEADER */
 .bg-color-blue{
   background-color: #288aea;
 }
@@ -101,59 +93,122 @@
 .gray-color{
   color: #777777;
 }
+/* BACKGROUND BANNER */
 .Banner-bg-img{
   background-image: url("../../../assets/mobile-app-buy/banner.png");
   background-repeat: no-repeat;
   width: 100%;
-  height: 62vh;
-  background-position: center;
+  height: auto;
   background-size: cover;
   position: relative;
+  padding-bottom: 5%;
 }
 .banner-logo{
+  width: 33%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+
+}
+h3 { 
+  font-size: 4.8vw;
+  margin-bottom:0rem !important;
+  line-height: 1.2rem;
+  width:100%;
+  text-align: center !important;
+  color: #272928;
+  letter-spacing: 0.3px;
+  margin-top: 5%;
+  font-weight: 400!important;
+}
+h4{
+  font-size: 4.1vw;
+  margin-bottom: 0rem!important;
+  line-height: 1.2rem;
+  width:100%;
+  text-align: center!important;
+  color: #272928;
+  letter-spacing: 0.3px;
+  margin-top: 6%;
+  font-weight: 400!important;
+}
+.seeMore {
+  width: 6%;
+  height: auto;
+}
+/* END BACKGROUND BANNER */
+/* UPGRADING */
+.bg-color{
+  background-color: #f4f4f4;
+}
+p{
+  margin-bottom: 1.5rem !important;
+  line-height: 1.3rem !important;
+  font-size: 3.8vw!important;
+  letter-spacing: 0.5px;
+  color: #282a29;
+
+}
+.img-width-38{
+  width: 38%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.img-width-45{
+  width: 45%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.img-width-30 {
   width: 30%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-
 }
-.top-p-15{
-  padding-top: 15px;
+/* END UPGRADING */
+/* APP & WEBSITE */
+.appNwebText {
+  margin-bottom: 1.5rem !important;
+  line-height: 1.6rem !important;
+  font-size: 3.7vw!important;
+  letter-spacing: 0.5px;
+  color: #282a29;
 }
-.bg-color{
-  background-color: #f4f4f4;
+/* APP & WEBSITE */
+/* FEATURE */
+.featureItems {
+  margin-bottom: 1.5rem !important;
+  font-size: 3.7vw!important;
+  line-height: 1.6rem !important;
+  letter-spacing: 0.5px;
+}
+.right-width{
+  width: 6%;
+  height: auto;
+}
+.viewmore-arrow {
+  width: 5%;
+  height: auto;
+}
+.moreBtn {
+  width: 3.3%;
+  height: auto;
 }
 .feature-padding{
   padding:35px 40px 35px 40px;
 }
-p{
-  margin-bottom:0.6rem !important;
-  line-height: 1.1rem !important;
-  font-size:12px !important;
-
-}
-h3{
-  font-size:14px !important;
-    margin-bottom:0rem !important;
-    line-height: 1.2rem;
-    width:100%;
-    text-align: center !important;
-
-}
-h4{
-  font-size:14px !important;
-    margin-bottom:0rem !important;
-    line-height: 1.2rem;
-    width:100%;
-
-
-}
-.own-h-padding{
-  padding: 35px 27px 35px 27px;
-}
-.own-p-padding{
-  padding: 35px 0px 35px 0px;
-}
+ /* END FEATURE */
+ /* ECOMMERCE PRICE */
+ .priceTxt {
+  margin-bottom: 1.5rem !important;
+  font-size: 3.7vw!important;
+  line-height: 1.6rem !important;
+  letter-spacing: 0.5px;
+ }
 .p-left{
   padding-left: 13px;
 }
@@ -175,27 +230,12 @@ h4{
 }
 .view-more-btn{
   padding: 10px 40px;
-  padding: 5px 40px;
+  /* padding: 5px 40px; */
   background-color: #fff;
   border-radius: 5px;
 }
-.viewmore-arrow{
-
-  width: 7px;
-}
 .width-10{
   width: 10px;
-}
-
-.title1-p{
-  padding: 35px 18px 40px 18px;
-}
-
-.swiper-title-p{
-  padding:  35px 20px 35px 20px;
-}
-.swiper-p-padding{
-  padding: 31px 73px 90px 73px;
 }
 .bg-color-red{
   background-color: #ea734e;
@@ -203,11 +243,24 @@ h4{
 .white-color{
   color: #fff;
 }
-
-
+/* OTHER SERVICE PRICE */
+.serviceTxt {
+  font-size: 3.7vw!important;
+  line-height: 1.6rem !important;
+  font-weight: 500;
+}
+/* END OHTER SERVICE PRICE */
+/* AOBUT & CONTACTUS */
+.aboutNcontact {
+  font-size: 4.8vw!important;
+  margin-bottom:0rem !important;
+  line-height: 1.2rem;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+}
 .cost-title-p1 {
   padding: 18px;
-  border-radius: 5px 5px 0px 0px ;
+  border-radius: 8px 8px 0px 0px ;
 }
 .cost-title-p2 {
   padding: 12px;
@@ -215,7 +268,6 @@ h4{
 }
 .cost{
   border: 1px solid #ececec;
-  border-radius: 10px ;
   box-shadow: 0 4px 8px 0 #ececec, 0 6px 20px 0 #ececec;
 
 }
@@ -274,7 +326,7 @@ h4{
     height:54px;
 }
 .black-text{
-    color:black;
+    color:#494949;
 }
 .custom-row1{
     margin-left:15px;
@@ -300,7 +352,7 @@ a:visited{
     color:black;
 }
 .gray-text{
-    color:#777777;
+    color:#888888;
 }
 .defaultbtn{
     border-bottom:1.8px solid #982ce5!important;
