@@ -127,7 +127,13 @@ export class HomeComponent implements OnInit {
   searchText: string;
   cityIds: string = null;
 
-   show: boolean = false;
+   show1: boolean = false;
+   show2: boolean = false;
+   show3: boolean = false;
+   show4: boolean = false;
+   show5: boolean = false;
+   show6: boolean = false;
+
   buttonName: any = 'ထပ်ကြည့်ရန်';
 
   // @HostListener('window:scroll', ['$event'])
@@ -360,15 +366,73 @@ search() {
 
   this.router.navigate(['/shop-search-result']);
 }
-toggle() {
-  this.show = !this.show;
+toggle1() {
+  this.show1 = !this.show1;
   // CHANGE THE NAME OF THE BUTTON.
-  if (this.show) {
+  if (this.show1) {
   this.buttonName = 'View Less';
   }
   else {
   this.buttonName = 'ထပ်ကြည့်ရန်';
 }
 }
+
+toggle2() {
+  this.show2 = !this.show2;
+  // CHANGE THE NAME OF THE BUTTON.
+  if (this.show2) {
+  this.buttonName = 'View Less';
+  }
+  else {
+  this.buttonName = 'ထပ်ကြည့်ရန်';
+}
+}
+
+toggle3() {
+  this.show3 = !this.show3;
+  // CHANGE THE NAME OF THE BUTTON.
+  if (this.show3) {
+  this.buttonName = 'View Less';
+  }
+  else {
+  this.buttonName = 'ထပ်ကြည့်ရန်';
+}
+}
+
+toggle4() {
+  this.show4 = !this.show4;
+  // CHANGE THE NAME OF THE BUTTON.
+  if (this.show4) {
+  this.buttonName = 'View Less';
+  }
+  else {
+  this.buttonName = 'ထပ်ကြည့်ရန်';
+}
+}
+
+
+toggle5() {
+  this.show5 = !this.show5;
+  // CHANGE THE NAME OF THE BUTTON.
+  if (this.show5) {
+  this.buttonName = 'View Less';
+  }
+  else {
+  this.buttonName = 'ထပ်ကြည့်ရန်';
+}
+}
+
+toggle6() {
+  this.show6 = !this.show6;
+  // CHANGE THE NAME OF THE BUTTON.
+  if (this.show6) {
+  this.buttonName = 'View Less';
+  }
+  else {
+  this.buttonName = 'ထပ်ကြည့်ရန်';
+}
+}
+
+
 }
 
