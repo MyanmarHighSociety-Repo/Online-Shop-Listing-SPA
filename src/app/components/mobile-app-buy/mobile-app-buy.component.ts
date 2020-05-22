@@ -71,16 +71,16 @@ export class MobileAppBuyComponent implements OnInit {
 
 
   goToHome() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
   goToSearch() {
-    this.router.navigate(['/shop-search']);
+    this.router.navigate(['']);
   }
   goToContactUs() {
     this.router.navigate(['/contact-us']);
   }
   goToShopAdd() {
-    this.router.navigate(['/add-shop-step-one']);
+    this.router.navigate(['/coming-soon']);
   }
 }
 

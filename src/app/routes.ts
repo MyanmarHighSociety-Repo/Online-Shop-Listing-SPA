@@ -15,12 +15,15 @@ import { WebViewShopAdd } from './components/web-view/web-view-shop-add/web-view
 import { WebViewContactUsComponent } from './components/web-view/web-view-contact-us/web-view-contact-us.component';
 import { WebViewBuyApp } from './components/web-view/web-view-buy-app/web-view-buy-app.component';
 import { MobileAppBuyComponent } from './components/mobile-app-buy/mobile-app-buy.component';
+import { InfoComponent } from './components/info/info.component';
 
 export const appRoutes: Routes = [
-    { path: '', component: HomeComponent},
+    { path: '', component: MobileAppBuyComponent},
     {
         path: '',
         children: [
+            { path: 'home', component: HomeComponent},
+            { path: 'coming-soon', component: InfoComponent },
             { path: 'add-shop-step-one', component: AddShopStepOneComponent,
                 resolve: {shopTypes: ShopAddStepOneShopTypeResolver}
             },
@@ -43,5 +46,5 @@ export const appRoutes: Routes = [
             { path: 'shop-detail-advertisement', component: ShopDetailAdvertisementComponent}
         ]
     },
-    { path: '**', redirectTo: '', pathMatch: 'full'}
+    // { path: '**', redirectTo: '', pathMatch: 'full'}
 ];

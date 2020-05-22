@@ -5,7 +5,9 @@
                 <img src="./assets/images1/Asset 2.svg" alt="wood-logo" class="k-home-logo">
             </div>
             <div class="col-2 mt-2">
-                <img src="./assets/images1/Asset 44.svg" alt="search-logo" class="k-search-img" (click)="goToSearch()"
+                <!-- <img src="./assets/images1/Asset 44.svg" alt="search-logo" class="k-search-img" (click)="goToSearch()"
+                    class="k-search-img"> -->
+                    <img src="./assets/images1/Asset 44.svg" alt="search-logo" class="k-search-img" (click)="goToSearch()"
                     class="k-search-img">
             </div>
         </div>
@@ -17,7 +19,7 @@
         <div class="row pt-2">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col">
                 <div class="tab">
-                    <button class="tablinks {{tablinks1}}" (click)='changeTab("tablinks1")' id="defaultOpen" >
+                    <!-- <button class="tablinks {{tablinks1}}" (click)='changeTab("tablinks1")' id="defaultOpen" >
                         <p>မြို့အားလုံး</p>
                     </button>
                     <button class="tablinks {{tablinks2}}" (click)='changeTab("tablinks2")' >
@@ -26,7 +28,16 @@
                     <button class="tablinks {{tablinks3}}" (click)='changeTab("tablinks3")'
                        >
                         <p> မန္တလေး</p>
-                    </button>
+                    </button> -->
+                    <button class="tablinks {{tablinks1}}" (click)='goToSearch()' id="defaultOpen" >
+                      <p>မြို့အားလုံး</p>
+                  </button>
+                  <button class="tablinks {{tablinks2}}" (click)='goToSearch()' >
+                      <p>ရန်ကုန် </p>
+                  </button>
+                  <button class="tablinks {{tablinks3}}" (click)='goToSearch()' >
+                      <p> မန္တလေး</p>
+                  </button>
                 </div>
             </div>
         </div>
@@ -95,10 +106,14 @@
                 <div class="row pb-1 pt-2 ">
                     <div *ngFor="let shopType of shopTypeList"
                         class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4  mt-2 p-0" >
-                        <div class="k-category-link" (click)="search(shopType.id)">
+                        <!-- <div class="k-category-link" (click)="search(shopType.id)">
                             <img src="{{shopType.iconUrl}}" class="k-category-img">
                             <p class="text-center gray-text f-12 pt-1 pr-2 pl-2" style="letter-spacing: -1px;">{{shopType.name}}</p>
-                        </div>
+                        </div> -->
+                        <div class="k-category-link" (click)="goToSearch()">
+                          <img src="{{shopType.iconUrl}}" class="k-category-img">
+                          <p class="text-center gray-text f-12 pt-1 pr-2 pl-2" style="letter-spacing: -1px;">{{shopType.name}}</p>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -131,7 +146,10 @@
     </div>
 </div>
 </section> -->
-<section>
+
+
+
+<!-- <section>
   <div class="container-fluid">
     <div class="row ">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0 mt-2">
@@ -212,7 +230,7 @@
           </div>
 
         </div>
-</section>
+</section> -->
 
 
 
@@ -299,7 +317,13 @@
                 </div>
             </div>
         </section> -->
-    </div>
+
+
+
+
+
+        
+    <!-- </div>
 </div>
 
  <section >
@@ -378,7 +402,7 @@
     </div>
     <h5 class="light-blue text-center f-8 mt-3">Advertisement</h5>
     <div class="row mt-2 mb-2 " >
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pr-2 pl-2">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 pr-2 pl-2"> -->
 
         <!-- <div class="advertisment-bg-color  " style="padding: 5px;">
 
@@ -396,7 +420,7 @@
           <p class="white-color advertisment-phone-bg-color pt-1 pb-1 f-14" style="padding-left: 5px;">+95 9 450 880 001</p>
         </div> -->
 
-        <img src="./../../../assets/images1/AD.png" class="k-adv-img" >
+        <!-- <img src="./../../../assets/images1/AD.png" class="k-adv-img" >
 
 
 
@@ -727,7 +751,7 @@
 
     
 
-</section>
+</section> -->
 
 
 

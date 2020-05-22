@@ -383,11 +383,10 @@ export class HomeComponent implements OnInit {
     }
 
   goToSearch() {
-    this.router.navigate(['/shop-search']);
+    this.router.navigate(['/coming-soon']);
   }
-
   goToShopAdd() {
-    this.router.navigate(['/add-shop-step-one']);
+    this.router.navigate(['/coming-soon']);
   }
 
   goToContactUs() {
