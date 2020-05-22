@@ -335,7 +335,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/contact-us']);
   }
   goToApp() {
-    this.router.navigate(['/mobile-app-buy']);
+    this.router.navigate(['/BuyApp']);
   }
 
 

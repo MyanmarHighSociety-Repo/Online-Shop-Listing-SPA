@@ -180,7 +180,7 @@ export class AddShopStepOneComponent implements OnInit {
     this.router.navigate(['/contact-us']);
   }
   goToApp() {
-    this.router.navigate(['/mobile-app-buy']);
+    this.router.navigate(['/BuyApp']);
   }
 
 // tslint:disable-next-line: eofline

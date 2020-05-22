@@ -68,7 +68,7 @@ export class ContactUsComponent implements OnInit {
   }
 
   goToApp() {
-    this.router.navigate(['/mobile-app-buy']);
+    this.router.navigate(['/BuyApp']);
   }
 
 }

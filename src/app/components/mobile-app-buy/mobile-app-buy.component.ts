@@ -82,9 +82,6 @@ export class MobileAppBuyComponent implements OnInit {
   goToShopAdd() {
     this.router.navigate(['/add-shop-step-one']);
   }
-
-
-
 }
 
 
