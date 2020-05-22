@@ -101,10 +101,19 @@ export class HomeComponent implements OnInit {
 
   // Array Variable
   shopTypeList: GetShopTypeResponse[];
+  shopType : GetHomeShopListResponse[];
+  shopTypeFish : GetHomeShopListResponse[];
+  shopTypeMedicine : GetHomeShopListResponse[];
   shopList: GetHomeShopListResponse[];
+  hotshopList: GetHomeShopListResponse[];
   moreResult: GetHomeShopListResponse[];
 
   // Variable
+  shopName = '';
+  shopTypeId = '1';
+  shopTypeId1 = '2';
+  shopTypeId2 = '3';
+  townId = '1';
   currentCity = '1';
   pageSize = 1;
   pageNumber = 1;
@@ -188,6 +197,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getShopType();
+    this.gethotResult();
+    this.getResult();
+    this.getshopTypeList();
+    this.getshopTypeList1();
+    this.getshopTypeList2();
     this.shopService.searchFormShopType = '';
     this.shopService.searchFormText = '';
     this.shopService.searchFormTownship = '';
@@ -220,30 +234,74 @@ export class HomeComponent implements OnInit {
       this.loadResult(this.currentCity);
     }
   }
-
+  gethotResult() {   
+    this.service.getHotShopList
+      (this.pageSize.toString(), this.pageNumber.toString(), this.currentCity.toString(), this.isOpenOnHolidayFilter)
+      .subscribe(res => {
+        console.log(res);
+        
+        this.hotshopList = [];
+        this.hotshopList = res;
+      });
+  }
   getShopType() {
     this.service.getShopType().subscribe(res => {
       this.shopTypeList = res;
     });
   }
-
-  getResult() {
-    this.shopService
-      .getSearchResult(this.pageSize.toString(), this.pageNumber.toString())
+  getshopTypeList() {
+    this.service.getShopTypeList
+    (this.shopName,this.shopTypeId.toString(),this.currentCity.toString(),this.townId)
+    .subscribe(res => {
+      console.log(res);
+      this.shopType = [];
+      this.shopType = res;
+    });
+  }
+  getshopTypeList2() {
+    this.service.getShopTypeList
+    (this.shopName,this.shopTypeId2.toString(),this.currentCity.toString(),this.townId)
+    .subscribe(res => {
+      console.log(res);
+      this.shopTypeMedicine = [];
+      this.shopTypeMedicine = res;
+    });
+  }
+  getshopTypeList1() {
+    this.service.getShopTypeList
+    (this.shopName,this.shopTypeId1.toString(),this.currentCity.toString(),this.townId)
+    .subscribe(res => {
+      console.log(res);
+      this.shopTypeFish = [];
+      this.shopTypeFish = res;
+    });
+  }
+  getResult() {   
+    this.service.getHomeShopList
+      (this.pageSize.toString(), this.pageNumber.toString(), this.currentCity.toString(), this.isOpenOnHolidayFilter)
       .subscribe(res => {
-        this.pageInfo = JSON.parse(res.headers.get('pagination'));
-        const totalItems = this.pageInfo.totalItems;
-        if (totalItems === 0) {
-          this.totalPages = 0;
-          this.currentPage = 0;
-        } else {
-          this.totalPages = this.pageInfo.totalPages;
-          this.currentPage = this.pageInfo.currentPage;
-        }
+        console.log(res);
         this.shopList = [];
-        this.shopList = res.body;
+        this.shopList = res;
       });
   }
+  // getResult() {
+  //   this.shopService
+  //     .getSearchResult(this.pageSize.toString(), this.pageNumber.toString())
+  //     .subscribe(res => {
+  //       this.pageInfo = JSON.parse(res.headers.get('pagination'));
+  //       const totalItems = this.pageInfo.totalItems;
+  //       if (totalItems === 0) {
+  //         this.totalPages = 0;
+  //         this.currentPage = 0;
+  //       } else {
+  //         this.totalPages = this.pageInfo.totalPages;
+  //         this.currentPage = this.pageInfo.currentPage;
+  //       }
+  //       this.shopList = [];
+  //       this.shopList = res.body;
+  //     });
+  // }
 
   loadResult(cityId) {
     this.pageNumber = 1;
@@ -272,13 +330,14 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // search(shopTypeId: number) {
-  //   this.shopService.searchFormText = null;
-  //   this.shopService.searchFormTownship = null;
-  //   this.shopService.searchFormShopType = shopTypeId.toString();
+  search(shoptype) {
+    this.shopService.searchFormText = null;
+    this.shopService.searchFormTownship = null;
+    this.shopService.searchFormShopType = shoptype.toString();
 
-  //   this.router.navigate(['/shop-search-result']);
-  // }
+    this.router.navigate(['/shop-search-result']);
+  }
+
 
 
 
@@ -339,33 +398,33 @@ export class HomeComponent implements OnInit {
   }
 
 
-search() {
-  this.shopService.searchFormText = this.searchText;
-  let counter = 1;
-  this.shopTypeList.forEach(element => {
-    if (element.showSpan != null && element.showSpan !== false) {
-      if (counter === 1) {
-        this.shopService.searchFormShopType = element.id.toString();
-      } else {
-        this.shopService.searchFormShopType += ',' + element.id.toString();
-      }
-      counter++;
-    }
-  });
+// search() {
+//   this.shopService.searchFormText = this.searchText;
+//   let counter = 1;
+//   this.shopTypeList.forEach(element => {
+//     if (element.showSpan != null && element.showSpan !== false) {
+//       if (counter === 1) {
+//         this.shopService.searchFormShopType = element.id.toString();
+//       } else {
+//         this.shopService.searchFormShopType += ',' + element.id.toString();
+//       }
+//       counter++;
+//     }
+//   });
 
-  if (this.wholeCountry === true || this.cityIds == null) {
-    this.shopService.searchFormTownship = 'All';
-  } else if (
-    this.wholeCountry === false &&
-    this.townshipOptions.length === 0
-  ) {
-    this.shopService.searchFormTownship = this.townshipOptions.map(x => x.id).join(',');
-  } else {
-    this.shopService.searchFormTownship = this.townshipOptions.map(x => x.id).join(',');
-  }
+//   if (this.wholeCountry === true || this.cityIds == null) {
+//     this.shopService.searchFormTownship = 'All';
+//   } else if (
+//     this.wholeCountry === false &&
+//     this.townshipOptions.length === 0
+//   ) {
+//     this.shopService.searchFormTownship = this.townshipOptions.map(x => x.id).join(',');
+//   } else {
+//     this.shopService.searchFormTownship = this.townshipOptions.map(x => x.id).join(',');
+//   }
 
-  this.router.navigate(['/shop-search-result']);
-}
+//   this.router.navigate(['/shop-search-result']);
+// }
 toggle1() {
   this.show1 = !this.show1;
   // CHANGE THE NAME OF THE BUTTON.
