@@ -12,7 +12,7 @@ export class WebViewHomeComponent implements OnInit {
     ngOnInit() {
         setTimeout(() => {
             this.router.navigate(['web-view-buy-app']);
-        }, 20000);
+        }, 10000);
     }
     gotoWebViewHome() {
         this.router.navigate(['web-view-home']);
