@@ -145,7 +145,7 @@ h4{
 }
 p{
   margin-bottom: 1.5rem !important;
-  line-height: 1.3rem !important;
+  line-height: 1rem !important;
   font-size: 3.8vw!important;
   letter-spacing: 0.5px;
   color: #282a29;
@@ -196,6 +196,10 @@ p{
 }
 .moreBtn {
   width: 3.3%;
+  height: auto;
+}
+.viewBtn {
+  width: 5%;
   height: auto;
 }
 .feature-padding{

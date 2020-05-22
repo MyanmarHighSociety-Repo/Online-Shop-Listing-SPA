@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SwiperOptions } from 'swiper';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-home',
@@ -30,11 +31,19 @@ export class MobileAppBuyComponent implements OnInit {
   public show: boolean = false;
   public show2: boolean = false;
   public show3: boolean = false;
-  public buttonName: any = 'အကုန်ကြည့်ရန်';
+  public show4: boolean = false;
+  public show5: boolean = false;
+  public show6: boolean = false;
+  public buttonName: any = 'အကုန်ကြည့်ရန် ...';
   public viewmoreshow: boolean = false;
   public viewmorename: any = 'ဆက်ကြည့်ရန်';
 
-  ngOnInit() {}
+  public cardButton4: any = 'အကုန်ကြည့်ရန်...';
+  public cardButton5: any = 'အကုန်ကြည့်ရန်...';
+  public cardButton6: any = 'အကုန်ကြည့်ရန်...';
+  ngOnInit() {
+    AOS.init();
+  }
 
   scroll(el: HTMLElement) {
     el.scrollIntoView({ behavior: 'smooth' });
@@ -55,7 +64,7 @@ export class MobileAppBuyComponent implements OnInit {
       this.show = !this.show;
       // CHANGE THE NAME OF THE BUTTON.
       if (this.show) {
-      this.buttonName = 'View Less';
+      this.buttonName = 'ချုံရန်';
       }
       else {
       this.buttonName = 'အကုန်ကြည့်ရန်';
@@ -67,7 +76,33 @@ export class MobileAppBuyComponent implements OnInit {
   toggle3() {
     this.show3 = !this.show3;
   }
-
+  toggle4() {
+    this.show4 = !this.show4;
+     // CHANGE THE NAME OF THE BUTTON.
+    if (this.show4) {
+      this.cardButton4 = 'ချုံ့ရန်';
+    } else {
+      this.cardButton4 = 'အကုန်ကြည့်ရန်...';
+    }
+  }
+  toggle5() {
+    this.show5 = !this.show5;
+    // CHANGE THE NAME OF THE BUTTON.
+    if (this.show5) {
+      this.cardButton5 = 'ချုံ့ရန်';
+    } else {
+      this.cardButton5 = 'အကုန်ကြည့်ရန်...';
+    }
+  }
+  toggle6() {
+    this.show6 = !this.show6;
+    // CHANGE THE NAME OF THE BUTTON.
+    if (this.show6) {
+      this.cardButton6 = 'ချုံ့ရန်';
+    } else {
+      this.cardButton6 = 'အကုန်ကြည့်ရန်...';
+    }
+  }
 
 
   goToHome() {
