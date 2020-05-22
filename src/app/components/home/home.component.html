@@ -95,7 +95,7 @@
                 <div class="row pb-1 pt-2 ">
                     <div *ngFor="let shopType of shopTypeList"
                         class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4  mt-2 p-0" >
-                        <div class="k-category-link" (click)="search()">
+                        <div class="k-category-link" (click)="search(shopType.id)">
                             <img src="{{shopType.iconUrl}}" class="k-category-img">
                             <p class="text-center gray-text f-12 pt-1 pr-2 pl-2" style="letter-spacing: -1px;">{{shopType.name}}</p>
                         </div>
@@ -145,9 +145,9 @@
     </div>
     <div class="row mt-2">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <div class="scrolling-wrapper"  *ngFor="let shop of shopList;let i=index">
+        <div class="scrolling-wrapper">
 
-            <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
+            <div class="card card-wd card-custom" (click)="shopDetail(shop.id)" *ngFor="let shop of hotshopList | slice : 0:7;let i=index">
               <div class="row pb-2">
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
                     <div class="k-shop-link">
@@ -189,277 +189,10 @@
 
 
             </div>
-          </div>
-
-          <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-            <div class="row pb-2">
-              <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-                  <div class="k-shop-link">
-                      <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-                  </div>
-              </div>
-              <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-                  <h5>{{shop.name}}</h5>
-                  <div class="k-badge mt-2 mb-2">
-                      <h6 class="white-text">{{shop.shopTypeName}}</h6>
-                  </div>
-                  <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                      <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-                  </p>
-                  <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                      <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                          <span *ngIf="i < 2">
-                              {{location.township.name}}၊
-                          </span>
-                          <span *ngIf="i == 2">
-                              {{location.township.name}}...
-                          </span>
-                      </span>
-                  </p>
-                  <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-              </div>
-          </div>
-          <div class="row k-bg-row pt-2 pb-2 custom-row">
-              <div *ngFor="let product of shop.product;"
-                  class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-                  style="margin-top: 5px; height: 50px; width: 50px;">
-                  <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                      class="k-item-img"
-                      style="object-fit: cover; max-height: 50px; min-height: 50px;">
-              </div>
-              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-          </div>
-        </div>
-
-        <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-          <div class="row pb-2">
-            <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-                <div class="k-shop-link">
-                    <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-                </div>
-            </div>
-            <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-                <h5>{{shop.name}}</h5>
-                <div class="k-badge mt-2 mb-2">
-                    <h6 class="white-text">{{shop.shopTypeName}}</h6>
-                </div>
-                <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                    <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-                </p>
-                <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                    <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                        <span *ngIf="i < 2">
-                            {{location.township.name}}၊
-                        </span>
-                        <span *ngIf="i == 2">
-                            {{location.township.name}}...
-                        </span>
-                    </span>
-                </p>
-                <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-            </div>
-        </div>
-        <div class="row k-bg-row pt-2 pb-2 custom-row">
-            <div *ngFor="let product of shop.product;"
-                class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-                style="margin-top: 5px; height: 50px; width: 50px;">
-                <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                    class="k-item-img"
-                    style="object-fit: cover; max-height: 50px; min-height: 50px;">
-            </div>
-            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-        </div>
-      </div>
-
-      <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-        <div class="row pb-2">
-          <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-              <div class="k-shop-link">
-                  <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-              </div>
-          </div>
-          <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-              <h5>{{shop.name}}</h5>
-              <div class="k-badge mt-2 mb-2">
-                  <h6 class="white-text">{{shop.shopTypeName}}</h6>
-              </div>
-              <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                  <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-              </p>
-              <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                  <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                      <span *ngIf="i < 2">
-                          {{location.township.name}}၊
-                      </span>
-                      <span *ngIf="i == 2">
-                          {{location.township.name}}...
-                      </span>
-                  </span>
-              </p>
-              <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-          </div>
-      </div>
-      <div class="row k-bg-row pt-2 pb-2 custom-row">
-          <div *ngFor="let product of shop.product;"
-              class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-              style="margin-top: 5px; height: 50px; width: 50px;">
-              <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                  class="k-item-img"
-                  style="object-fit: cover; max-height: 50px; min-height: 50px;">
-          </div>
-          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-      </div>
-    </div>
-
-    <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-      <div class="row pb-2">
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-            <div class="k-shop-link">
-                <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-            </div>
-        </div>
-        <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-            <h5>{{shop.name}}</h5>
-            <div class="k-badge mt-2 mb-2">
-                <h6 class="white-text">{{shop.shopTypeName}}</h6>
-            </div>
-            <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-            </p>
-            <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                    <span *ngIf="i < 2">
-                        {{location.township.name}}၊
-                    </span>
-                    <span *ngIf="i == 2">
-                        {{location.township.name}}...
-                    </span>
-                </span>
-            </p>
-            <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-        </div>
-    </div>
-    <div class="row k-bg-row pt-2 pb-2 custom-row">
-        <div *ngFor="let product of shop.product;"
-            class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-            style="margin-top: 5px; height: 50px; width: 50px;">
-            <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                class="k-item-img"
-                style="object-fit: cover; max-height: 50px; min-height: 50px;">
-        </div>
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-    </div>
-  </div>
-
-  <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-    <div class="row pb-2">
-      <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-          <div class="k-shop-link">
-              <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-          </div>
-      </div>
-      <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-          <h5>{{shop.name}}</h5>
-          <div class="k-badge mt-2 mb-2">
-              <h6 class="white-text">{{shop.shopTypeName}}</h6>
-          </div>
-          <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-              <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-          </p>
-          <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-              <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                  <span *ngIf="i < 2">
-                      {{location.township.name}}၊
-                  </span>
-                  <span *ngIf="i == 2">
-                      {{location.township.name}}...
-                  </span>
-              </span>
-          </p>
-          <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-      </div>
-  </div>
-  <div class="row k-bg-row pt-2 pb-2 custom-row">
-      <div *ngFor="let product of shop.product;"
-          class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-          style="margin-top: 5px; height: 50px; width: 50px;">
-          <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-              class="k-item-img"
-              style="object-fit: cover; max-height: 50px; min-height: 50px;">
-      </div>
-      <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-  </div>
-</div>
-
-
-<div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-  <div class="row pb-2">
-    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-        <div class="k-shop-link">
-            <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-        </div>
-    </div>
-    <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-        <h5>{{shop.name}}</h5>
-        <div class="k-badge mt-2 mb-2">
-            <h6 class="white-text">{{shop.shopTypeName}}</h6>
-        </div>
-        <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-            <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-        </p>
-        <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-            <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                <span *ngIf="i < 2">
-                    {{location.township.name}}၊
-                </span>
-                <span *ngIf="i == 2">
-                    {{location.township.name}}...
-                </span>
-            </span>
-        </p>
-        <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-    </div>
-</div>
-<div class="row k-bg-row pt-2 pb-2 custom-row">
-    <div *ngFor="let product of shop.product;"
-        class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-        style="margin-top: 5px; height: 50px; width: 50px;">
-        <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-            class="k-item-img"
-            style="object-fit: cover; max-height: 50px; min-height: 50px;">
-    </div>
-    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-</div>
-</div>
-
-
+          </div>          
     <div class="card last-card">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col1">
-        <div class="last-card-body"  (click)="search()">
+        <div class="last-card-body">
           <img src="./assets/images1/footer/Asset 22.svg" class="center mb-2">
           <p class="text-center gray-text">Food Delivery နှင့် ပတ်သက်သော <br> ဆိုင်အားလုံးကြည့်ရန်</p>
         </div>
@@ -472,7 +205,7 @@
 
           <div class="row pb-1 pt-2">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-2 custom-col1">
-                <div class="all-more-link" (click)="search()">
+                <div class="all-more-link" >
                    <p class=" ">အားလုံးကြည့်ရန်</p>
                 </div>
             </div>
@@ -584,287 +317,57 @@
       </div>
     </div>
 
-    <div>
+    <div *ngFor="let shop of shopList | slice:0:3; let i = index">
       <div class="row row-p-left">
         <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
 
-          <img src="./assets/images1/online shop/Asset 26.png" class="shop-logo ">
+          <img src="{{shop.shopLogoUrl}}" class="shop-logo ">
         </div>
         <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 pr-0 pl-0">
-          <h5>Lactasoy</h5>
+          <h5>{{shop.name}}</h5>
           <div class="k-badge-shop mt-2 mb-2">
-              <h6 class="white-text">Food Delivery</h6>
+              <h6 class="white-text">{{shop.shopTypeName}}</h6>
           </div>
 
         </div>
       </div>
 
       <div class="row pt-2 mb-0 pb-0">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
-            <!-- <div class="swiper-container" id="Yangonswiper" style="height: 312px;">
-                <div class="swiper-wrapper">
-                    <owl-carousel-o [options]="customOptions">
-                        <ng-template carouselSlide>
-                            <div class="slide swiper-slide">
-                                <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                            </div>
-                        </ng-template>
-                        <ng-template carouselSlide>
-                            <div class="slide swiper-slide">
-                              <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                            </div>
-                        </ng-template>
-                        <ng-template carouselSlide>
-                          <div class="slide swiper-slide">
-                            <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
-                          </div>
-                      </ng-template>
-                      <ng-template carouselSlide>
-                        <div class="slide swiper-slide">
-                          <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                      <div class="slide swiper-slide">
-                        <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                      </div>
-                  </ng-template>
-                    </owl-carousel-o>
-                </div>
-
-            </div> -->
-            <!-- <swiper [config]="config">
-              <div class="swiper-wrapper " style="height: 370px !important;">
-                <div class="swiper-slide pl-2 pr-2">
-                  <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                </div>
-                <div class="swiper-slide pl-2 pr-2">
-                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                </div>
-                <div class="swiper-slide pl-2 pr-2">
-                  <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
-                </div>
-                <div class="swiper-slide pl-2 pr-2">
-                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                </div>
-                <div class="swiper-slide pl-2 pr-2">
-                  <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                </div>
-
-              </div>
-
-              <div class="home-swiper-pagination"></div>
-
-
-            </swiper> -->
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">                         
             <owl-carousel-o [options]="customOptions1">
-              <ng-template carouselSlide >
+              <ng-template carouselSlide *ngFor = "let product of shop.product">
                 <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
+                  <img src="{{product.productImage[0].url}}" class="shop-Img">
                 </div>
               </ng-template>
-                <ng-template carouselSlide>
-                  <div class="pr-2 pl-2">
-                    <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                  </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                  <div class="pr-2 pl-2">
-                    <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
-                  </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                  <div class="pr-2 pl-2">
-                    <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                  </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                  <div class="pr-2 pl-2">
-                    <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                  </div>
-                </ng-template>
             </owl-carousel-o>
         </div>
     </div>
-    <p class="pt-2 f-14" >
-      အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
-       သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
-       အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲ
-
-
-
-
-      <span *ngIf="show1">
-        မှာလည်း အကြာကြီးလည်း
-        အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
-        သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
-        အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲမှာလည်း အကြာကြီးလည်း
+    <div class="article bg-color-open">
+      <div *ngIf="shop" class="lineheight">
+         <div *ngIf="!desReadMore" style="text-align:initial;">{{ shop.description | truncate : 170 : "..." }}</div>
+         <div *ngIf="desReadMore">{{shop.description}}</div>
+       </div>
+       <a (click)="changeDesReadMore()" class="moreless-button">{{desReadMoreText}}</a>
+ </div>
+ <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
+  <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
+      <span *ngIf="i < 2">
+          {{location.township.name}}၊
       </span>
-        <a  (click)="toggle1()" >
-      <span class=" gray-text f-12"> ... {{buttonName}} </span> </a>
-
-    </p>
-    <p class="gray-text">အလုံ၊ဗဟန်း၊တာမွေ...</p>
-    <p>6AM - 7PM</p>
-
-
-    </div>
-
+      <span *ngIf="i == 2">
+          {{location.township.name}}...
+      </span>
+  </span>
+</p>
+<p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
     <div class="row row-padding">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0 mt-2">
             <div class="k-line"></div>
         </div>
       </div>
-
-    <div class="mt-3">
-      <div class="row row-p-left">
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-
-          <img src="./assets/images1/online shop/Asset 27.png" class="shop-logo">
-        </div>
-        <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 pr-0 pl-0">
-          <h5>Walco Milk</h5>
-          <div class="k-badge-shop mt-2 mb-2">
-              <h6 class="white-text">Food Delivery</h6>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="row pt-2 mb-0 pb-0">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
-          <owl-carousel-o [options]="customOptions1">
-            <ng-template carouselSlide >
-              <div class="pr-2 pl-2">
-                <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-              </div>
-            </ng-template>
-              <ng-template carouselSlide>
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                </div>
-              </ng-template>
-          </owl-carousel-o>
-        </div>
     </div>
-    <p class="pt-2 f-14" >
-      အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
-       သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
-       အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲ
-
-
-
-
-      <span *ngIf="show2">
-        မှာလည်း အကြာကြီးလည်း
-        အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
-        သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
-        အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲမှာလည်း အကြာကြီးလည်း
-      </span>
-        <a  (click)="toggle2()" >
-      <span class=" gray-text f-12"> ... {{buttonName}} </span> </a>
-
-    </p>
-    <p class="gray-text">အလုံ၊ဗဟန်း၊တာမွေ...</p>
-    <p>6AM - 7PM</p>
-
-
-    </div>
-
-    <div class="row row-padding">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0 mt-2">
-            <div class="k-line"></div>
-        </div>
-      </div>
-
-    <div class="mt-3">
-        <div class="row row-p-left">
-          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-
-            <img src="./assets/images1/online shop/Asset 40.png" class="shop-logo">
-          </div>
-          <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 pr-0 pl-0">
-            <h5>Min Ga Daw</h5>
-            <div class="k-badge-shop mt-2 mb-2">
-                <h6 class="white-text">Food Delivery</h6>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="row pt-2 mb-0 pb-0">
-          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
-            <owl-carousel-o [options]="customOptions1">
-              <ng-template carouselSlide >
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
-                </div>
-              </ng-template>
-                <ng-template carouselSlide>
-                  <div class="pr-2 pl-2">
-                    <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                  </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                  <div class="pr-2 pl-2">
-                    <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
-                  </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                  <div class="pr-2 pl-2">
-                    <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                  </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                  <div class="pr-2 pl-2">
-                    <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                  </div>
-                </ng-template>
-            </owl-carousel-o>
-          </div>
-      </div>
-      <p class="pt-2 f-14" >
-        အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
-         သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
-         အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲ
-
-
-
-
-        <span *ngIf="show3">
-          မှာလည်း အကြာကြီးလည်း
-          အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
-          သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
-          အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲမှာလည်း အကြာကြီးလည်း
-        </span>
-          <a  (click)="toggle3()" >
-        <span class=" gray-text f-12"> ... {{buttonName}} </span> </a>
-
-      </p>
-      <p class="gray-text">အလုံ၊ဗဟန်း၊တာမွေ...</p>
-      <p>6AM - 7PM</p>
-
-
-      </div>
-
-
-    </div>
-
+  </div>
 </section>
 <section >
   <div class="container-fluid" >
@@ -917,9 +420,9 @@
 
           <div class="row mt-2">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-              <div class="scrolling-wrapper"  *ngFor="let shop of shopList;let i=index">
+              <div class="scrolling-wrapper">
 
-                  <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
+                  <div class="card card-wd card-custom" (click)="shopDetail(shop.id)"  *ngFor="let shop of shopType | slice : 0:7;let i=index">
                     <div class="row pb-2">
                       <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
                           <div class="k-shop-link">
@@ -956,282 +459,12 @@
                               style="object-fit: cover; max-height: 50px; min-height: 50px;">
                       </div>
                       <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
                   </div>
                 </div>
-
-                <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-                  <div class="row pb-2">
-                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-                        <div class="k-shop-link">
-                            <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-                        </div>
-                    </div>
-                    <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-                        <h5>{{shop.name}}</h5>
-                        <div class="k-badge mt-2 mb-2">
-                            <h6 class="white-text">{{shop.shopTypeName}}</h6>
-                        </div>
-                        <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                            <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-                        </p>
-                        <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                            <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                                <span *ngIf="i < 2">
-                                    {{location.township.name}}၊
-                                </span>
-                                <span *ngIf="i == 2">
-                                    {{location.township.name}}...
-                                </span>
-                            </span>
-                        </p>
-                        <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-                    </div>
-                </div>
-                <div class="row k-bg-row pt-2 pb-2 custom-row">
-                    <div *ngFor="let product of shop.product;"
-                        class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-                        style="margin-top: 5px; height: 50px; width: 50px;">
-                        <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                            class="k-item-img"
-                            style="object-fit: cover; max-height: 50px; min-height: 50px;">
-                    </div>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-                </div>
-              </div>
-
-              <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-                <div class="row pb-2">
-                  <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-                      <div class="k-shop-link">
-                          <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-                      </div>
-                  </div>
-                  <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-                      <h5>{{shop.name}}</h5>
-                      <div class="k-badge mt-2 mb-2">
-                          <h6 class="white-text">{{shop.shopTypeName}}</h6>
-                      </div>
-                      <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                          <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-                      </p>
-                      <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                          <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                              <span *ngIf="i < 2">
-                                  {{location.township.name}}၊
-                              </span>
-                              <span *ngIf="i == 2">
-                                  {{location.township.name}}...
-                              </span>
-                          </span>
-                      </p>
-                      <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-                  </div>
-              </div>
-              <div class="row k-bg-row pt-2 pb-2 custom-row">
-                  <div *ngFor="let product of shop.product;"
-                      class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-                      style="margin-top: 5px; height: 50px; width: 50px;">
-                      <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                          class="k-item-img"
-                          style="object-fit: cover; max-height: 50px; min-height: 50px;">
-                  </div>
-                  <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-              </div>
-            </div>
-
-            <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-              <div class="row pb-2">
-                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-                    <div class="k-shop-link">
-                        <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-                    </div>
-                </div>
-                <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-                    <h5>{{shop.name}}</h5>
-                    <div class="k-badge mt-2 mb-2">
-                        <h6 class="white-text">{{shop.shopTypeName}}</h6>
-                    </div>
-                    <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                        <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-                    </p>
-                    <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                        <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                            <span *ngIf="i < 2">
-                                {{location.township.name}}၊
-                            </span>
-                            <span *ngIf="i == 2">
-                                {{location.township.name}}...
-                            </span>
-                        </span>
-                    </p>
-                    <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-                </div>
-            </div>
-            <div class="row k-bg-row pt-2 pb-2 custom-row">
-                <div *ngFor="let product of shop.product;"
-                    class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-                    style="margin-top: 5px; height: 50px; width: 50px;">
-                    <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                        class="k-item-img"
-                        style="object-fit: cover; max-height: 50px; min-height: 50px;">
-                </div>
-                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-            </div>
-          </div>
-
-          <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-            <div class="row pb-2">
-              <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-                  <div class="k-shop-link">
-                      <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-                  </div>
-              </div>
-              <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-                  <h5>{{shop.name}}</h5>
-                  <div class="k-badge mt-2 mb-2">
-                      <h6 class="white-text">{{shop.shopTypeName}}</h6>
-                  </div>
-                  <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                      <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-                  </p>
-                  <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                      <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                          <span *ngIf="i < 2">
-                              {{location.township.name}}၊
-                          </span>
-                          <span *ngIf="i == 2">
-                              {{location.township.name}}...
-                          </span>
-                      </span>
-                  </p>
-                  <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-              </div>
-          </div>
-          <div class="row k-bg-row pt-2 pb-2 custom-row">
-              <div *ngFor="let product of shop.product;"
-                  class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-                  style="margin-top: 5px; height: 50px; width: 50px;">
-                  <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                      class="k-item-img"
-                      style="object-fit: cover; max-height: 50px; min-height: 50px;">
-              </div>
-              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-          </div>
-        </div>
-
-        <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-          <div class="row pb-2">
-            <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-                <div class="k-shop-link">
-                    <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-                </div>
-            </div>
-            <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-                <h5>{{shop.name}}</h5>
-                <div class="k-badge mt-2 mb-2">
-                    <h6 class="white-text">{{shop.shopTypeName}}</h6>
-                </div>
-                <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                    <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-                </p>
-                <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                    <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                        <span *ngIf="i < 2">
-                            {{location.township.name}}၊
-                        </span>
-                        <span *ngIf="i == 2">
-                            {{location.township.name}}...
-                        </span>
-                    </span>
-                </p>
-                <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-            </div>
-        </div>
-        <div class="row k-bg-row pt-2 pb-2 custom-row">
-            <div *ngFor="let product of shop.product;"
-                class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-                style="margin-top: 5px; height: 50px; width: 50px;">
-                <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                    class="k-item-img"
-                    style="object-fit: cover; max-height: 50px; min-height: 50px;">
-            </div>
-            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-        </div>
-      </div>
-
-
-      <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-        <div class="row pb-2">
-          <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-              <div class="k-shop-link">
-                  <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-              </div>
-          </div>
-          <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-              <h5>{{shop.name}}</h5>
-              <div class="k-badge mt-2 mb-2">
-                  <h6 class="white-text">{{shop.shopTypeName}}</h6>
-              </div>
-              <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                  <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-              </p>
-              <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                  <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                      <span *ngIf="i < 2">
-                          {{location.township.name}}၊
-                      </span>
-                      <span *ngIf="i == 2">
-                          {{location.township.name}}...
-                      </span>
-                  </span>
-              </p>
-              <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-          </div>
-      </div>
-      <div class="row k-bg-row pt-2 pb-2 custom-row">
-          <div *ngFor="let product of shop.product;"
-              class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-              style="margin-top: 5px; height: 50px; width: 50px;">
-              <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                  class="k-item-img"
-                  style="object-fit: cover; max-height: 50px; min-height: 50px;">
-          </div>
-          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-      </div>
-      </div>
-
-
           <div class="card last-card">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  custom-col1">
-              <div class="last-card-body"  (click)="search()">
+              <input #new_Food type="hidden" value="1">
+              <div class="last-card-body"  (click)="search(new_Food.value)">
                 <img src="./assets/images1/footer/Asset 22.svg" class="center mb-2">
                 <p class="text-center gray-text">Food Delivery နှင့် ပတ်သက်သော <br> ဆိုင်အားလုံးကြည့်ရန်</p>
               </div>
@@ -1244,7 +477,8 @@
 
           <div class="row pb-1 pt-2">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-2 custom-col1">
-                <div class="all-more-link" (click)="search()">
+              <input #new_Food type="hidden" value="1">
+                <div class="all-more-link" (click)="search(new_Food.value)">
                    <p class=" ">အားလုံးကြည့်ရန်</p>
                 </div>
             </div>
@@ -1267,9 +501,9 @@
 
         <div class="row mt-2">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <div class="scrolling-wrapper"  *ngFor="let shop of shopList;let i=index">
+            <div class="scrolling-wrapper">
 
-                <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
+                <div class="card card-wd card-custom" (click)="shopDetail(shop.id)" *ngFor="let shop of shopTypeFish | slice: 0:7;let i=index">
                   <div class="row pb-2">
                     <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
                         <div class="k-shop-link">
@@ -1306,282 +540,12 @@
                             style="object-fit: cover; max-height: 50px; min-height: 50px;">
                     </div>
                     <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
                 </div>
               </div>
-
-              <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-                <div class="row pb-2">
-                  <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-                      <div class="k-shop-link">
-                          <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-                      </div>
-                  </div>
-                  <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-                      <h5>{{shop.name}}</h5>
-                      <div class="k-badge mt-2 mb-2">
-                          <h6 class="white-text">{{shop.shopTypeName}}</h6>
-                      </div>
-                      <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                          <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-                      </p>
-                      <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                          <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                              <span *ngIf="i < 2">
-                                  {{location.township.name}}၊
-                              </span>
-                              <span *ngIf="i == 2">
-                                  {{location.township.name}}...
-                              </span>
-                          </span>
-                      </p>
-                      <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-                  </div>
-              </div>
-              <div class="row k-bg-row pt-2 pb-2 custom-row">
-                  <div *ngFor="let product of shop.product;"
-                      class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-                      style="margin-top: 5px; height: 50px; width: 50px;">
-                      <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                          class="k-item-img"
-                          style="object-fit: cover; max-height: 50px; min-height: 50px;">
-                  </div>
-                  <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-              </div>
-            </div>
-
-            <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-              <div class="row pb-2">
-                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-                    <div class="k-shop-link">
-                        <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-                    </div>
-                </div>
-                <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-                    <h5>{{shop.name}}</h5>
-                    <div class="k-badge mt-2 mb-2">
-                        <h6 class="white-text">{{shop.shopTypeName}}</h6>
-                    </div>
-                    <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                        <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-                    </p>
-                    <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                        <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                            <span *ngIf="i < 2">
-                                {{location.township.name}}၊
-                            </span>
-                            <span *ngIf="i == 2">
-                                {{location.township.name}}...
-                            </span>
-                        </span>
-                    </p>
-                    <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-                </div>
-            </div>
-            <div class="row k-bg-row pt-2 pb-2 custom-row">
-                <div *ngFor="let product of shop.product;"
-                    class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-                    style="margin-top: 5px; height: 50px; width: 50px;">
-                    <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                        class="k-item-img"
-                        style="object-fit: cover; max-height: 50px; min-height: 50px;">
-                </div>
-                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-            </div>
-          </div>
-
-          <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-            <div class="row pb-2">
-              <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-                  <div class="k-shop-link">
-                      <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-                  </div>
-              </div>
-              <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-                  <h5>{{shop.name}}</h5>
-                  <div class="k-badge mt-2 mb-2">
-                      <h6 class="white-text">{{shop.shopTypeName}}</h6>
-                  </div>
-                  <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                      <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-                  </p>
-                  <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                      <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                          <span *ngIf="i < 2">
-                              {{location.township.name}}၊
-                          </span>
-                          <span *ngIf="i == 2">
-                              {{location.township.name}}...
-                          </span>
-                      </span>
-                  </p>
-                  <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-              </div>
-          </div>
-          <div class="row k-bg-row pt-2 pb-2 custom-row">
-              <div *ngFor="let product of shop.product;"
-                  class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-                  style="margin-top: 5px; height: 50px; width: 50px;">
-                  <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                      class="k-item-img"
-                      style="object-fit: cover; max-height: 50px; min-height: 50px;">
-              </div>
-              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-          </div>
-        </div>
-
-        <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-          <div class="row pb-2">
-            <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-                <div class="k-shop-link">
-                    <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-                </div>
-            </div>
-            <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-                <h5>{{shop.name}}</h5>
-                <div class="k-badge mt-2 mb-2">
-                    <h6 class="white-text">{{shop.shopTypeName}}</h6>
-                </div>
-                <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                    <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-                </p>
-                <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                    <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                        <span *ngIf="i < 2">
-                            {{location.township.name}}၊
-                        </span>
-                        <span *ngIf="i == 2">
-                            {{location.township.name}}...
-                        </span>
-                    </span>
-                </p>
-                <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-            </div>
-        </div>
-        <div class="row k-bg-row pt-2 pb-2 custom-row">
-            <div *ngFor="let product of shop.product;"
-                class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-                style="margin-top: 5px; height: 50px; width: 50px;">
-                <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                    class="k-item-img"
-                    style="object-fit: cover; max-height: 50px; min-height: 50px;">
-            </div>
-            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-        </div>
-      </div>
-
-      <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-        <div class="row pb-2">
-          <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-              <div class="k-shop-link">
-                  <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-              </div>
-          </div>
-          <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-              <h5>{{shop.name}}</h5>
-              <div class="k-badge mt-2 mb-2">
-                  <h6 class="white-text">{{shop.shopTypeName}}</h6>
-              </div>
-              <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                  <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-              </p>
-              <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                  <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                      <span *ngIf="i < 2">
-                          {{location.township.name}}၊
-                      </span>
-                      <span *ngIf="i == 2">
-                          {{location.township.name}}...
-                      </span>
-                  </span>
-              </p>
-              <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-          </div>
-      </div>
-      <div class="row k-bg-row pt-2 pb-2 custom-row">
-          <div *ngFor="let product of shop.product;"
-              class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-              style="margin-top: 5px; height: 50px; width: 50px;">
-              <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                  class="k-item-img"
-                  style="object-fit: cover; max-height: 50px; min-height: 50px;">
-          </div>
-          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-      </div>
-    </div>
-
-
-    <div class="card card-wd card-custom" (click)="shopDetail(shop.id)">
-      <div class="row pb-2">
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
-            <div class="k-shop-link">
-                <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
-            </div>
-        </div>
-        <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
-            <h5>{{shop.name}}</h5>
-            <div class="k-badge mt-2 mb-2">
-                <h6 class="white-text">{{shop.shopTypeName}}</h6>
-            </div>
-            <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
-                <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
-            </p>
-            <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
-                <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
-                    <span *ngIf="i < 2">
-                        {{location.township.name}}၊
-                    </span>
-                    <span *ngIf="i == 2">
-                        {{location.township.name}}...
-                    </span>
-                </span>
-            </p>
-            <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
-        </div>
-    </div>
-    <div class="row k-bg-row pt-2 pb-2 custom-row">
-        <div *ngFor="let product of shop.product;"
-            class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
-            style="margin-top: 5px; height: 50px; width: 50px;">
-            <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
-                class="k-item-img"
-                style="object-fit: cover; max-height: 50px; min-height: 50px;">
-        </div>
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-
-
-
-
-    </div>
-    </div>
-
-
         <div class="card last-card">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  custom-col1">
-            <div class="last-card-body"  (click)="search()">
+            <input #new_Fish type="hidden" value="2">
+            <div class="last-card-body"  (click)="search(new_Fish.value)">
               <img src="./assets/images1/footer/Asset 22.svg" class="center mb-2">
               <p class="text-center gray-text">Food Delivery နှင့် ပတ်သက်သော <br> ဆိုင်အားလုံးကြည့်ရန်</p>
             </div>
@@ -1594,14 +558,104 @@
 
         <div class="row pb-1 pt-2">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-2 custom-col1">
-              <div class="all-more-link" (click)="search()">
+            <input #new_Fish type="hidden" value="2">
+              <div class="all-more-link" (click)="search(new_Fish.value)">
                  <p class=" ">အားလုံးကြည့်ရန်</p>
               </div>
           </div>
       </div>
   </div>
 </section>
+<section>
+  <div class="container-fluid">
+      <div class="row ">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0 mt-2">
+              <div class="k-line"></div>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <p class="f-14 bottom-0"> ဆေးဝါး ဆိုင်များ </p>
+          </div>
+        </div>
 
+        <div class="row mt-2">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="scrolling-wrapper">
+              <div class="card card-wd card-custom" *ngFor="let shop of shopTypeMedicine ;let i=index" >
+
+                <div class="row " >
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                      <div class="card k-home-card" (click)="shopDetail(shop.id)">
+                          <div class="row pb-2">
+                              <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-4">
+                                  <div class="k-shop-link">
+                                      <img src="{{shop.shopLogoUrl}}" class="k-shop-logo">
+                                  </div>
+                              </div>
+                              <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2">
+                                  <h5>{{shop.name}}</h5>
+                                  <div class="k-badge mt-2 mb-2">
+                                      <h6 class="white-text">{{shop.shopTypeName}}</h6>
+                                  </div>
+                                  <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length >= townships.length">
+                                      <span> ရန်ကုန်မြို့နယ်အားလုံး </span>
+                                  </p>
+                                  <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
+                                      <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
+                                          <span *ngIf="i < 2">
+                                              {{location.township.name}}၊
+                                          </span>
+                                          <span *ngIf="i == 2">
+                                              {{location.township.name}}...
+                                          </span>
+                                      </span>
+                                  </p>
+                                  <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
+                              </div>
+                          </div>
+                          <div class="row k-bg-row pt-2 pb-2 custom-row">
+                              <div *ngFor="let product of shop.product;"
+                                  class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"
+                                  style="margin-top: 5px; height: 50px; width: 50px;">
+                                  <img *ngIf="product.productImage[0]" src="{{product.productImage[0].url}}"
+                                      class="k-item-img"
+                                      style="object-fit: cover; max-height: 50px; min-height: 50px;">
+                              </div>
+                              <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+                          </div>
+                      </div>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="card last-card">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-2 custom-col1">
+                  <input #new_Medicine type="hidden" value="3"/>
+                  <div class="last-card-body"  (click)="search(new_Medicine.value)">
+                    <img src="./assets/images1/footer/Asset 22.svg" class="center mb-2">
+                    <p class="text-center gray-text">Food Delivery နှင့် ပတ်သက်သော <br> ဆိုင်အားလုံးကြည့်ရန်</p>
+                  </div>
+
+              </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row pb-1 pt-2">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-2 custom-col1">
+              <input #new_Medicine type="hidden" value="3"/>
+              <div class="all-more-link" (click)="search(new_Medicine.value)">
+                 <p class=" ">အားလုံးကြည့်ရန်</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 <section >
   <div class="container-fluid">
     <div class="row row-padding">
@@ -1617,16 +671,16 @@
       </div>
     </div>
 
-    <div>
+    <div *ngFor = "let i= index;let shop of shopList | slice:4">
       <div class="row row-p-left">
         <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
 
-          <img src="./assets/images1/online shop/Asset 26.png" class="shop-logo">
+          <img src="{{shop.shopLogoUrl}}" class="shop-logo">
         </div>
         <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 pr-0 pl-0">
-          <h5>Lactasoy</h5>
+          <h5>{{shop.name}}</h5>
           <div class="k-badge-shop mt-2 mb-2">
-              <h6 class="white-text">Food Delivery</h6>
+              <h6 class="white-text">{{shop.shopTypeName}}</h6>
           </div>
 
         </div>
@@ -1636,212 +690,42 @@
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
 
           <owl-carousel-o [options]="customOptions1">
-            <ng-template carouselSlide >
+            <ng-template carouselSlide  *ngFor = "let product of shop.product">
               <div class="pr-2 pl-2">
-                <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
+                <img src="{{product.productImage[0].url}}" class="shop-Img">
               </div>
             </ng-template>
-              <ng-template carouselSlide>
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                </div>
-              </ng-template>
           </owl-carousel-o>
         </div>
     </div>
-    <p class="pt-2 f-14" >
-      အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
-       သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
-       အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲ
-
-
-
-
-      <span *ngIf="show4">
-        မှာလည်း အကြာကြီးလည်း
-        အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
-        သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
-        အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲမှာလည်း အကြာကြီးလည်း
+    <div class="article bg-color-open">
+      <div *ngIf="shop" class="lineheight">
+         <div *ngIf="!desReadMore" style="text-align:initial;">{{ shop.description | truncate : 170 : "..." }}</div>
+         <div *ngIf="desReadMore">{{shop.description}}</div>
+       </div>
+       <a (click)="changeDesReadMore()" class="moreless-button">{{desReadMoreText}}</a>
+ </div>
+  <p class="gray-text" *ngIf="shop.shopDeliveryAvailableLocation.length < townships.length">
+      <span *ngFor="let location of shop.shopDeliveryAvailableLocation;let i = index">
+          <span *ngIf="i < 2">
+              {{location.township.name}}၊
+          </span>
+          <span *ngIf="i == 2">
+              {{location.township.name}}...
+          </span>
       </span>
-        <a  (click)="toggle4()" >
-      <span class=" gray-text f-12"> ... {{buttonName}} </span> </a>
+  </p>
+  <p class="pink-text">{{shop.deliveryFromTime}} - {{shop.deliveryToTime}}</p>
 
-    </p>
-    <p class="gray-text">အလုံ၊ဗဟန်း၊တာမွေ...</p>
-    <p>6AM - 7PM</p>
-
-
+  <div class="row row-padding">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0 mt-2">
+        <div class="k-line"></div>
+    </div>
+  </div>
+</div>
     </div>
 
-    <div class="row row-padding">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0 mt-2">
-            <div class="k-line"></div>
-        </div>
-      </div>
-
-    <div class="mt-3">
-      <div class="row row-p-left">
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-
-          <img src="./assets/images1/online shop/Asset 27.png" class="shop-logo">
-        </div>
-        <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 pr-0 pl-0">
-          <h5>Walco Milk</h5>
-          <div class="k-badge-shop mt-2 mb-2">
-              <h6 class="white-text">Food Delivery</h6>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="row pt-2 mb-0 pb-0">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
-          <owl-carousel-o [options]="customOptions1">
-            <ng-template carouselSlide >
-              <div class="pr-2 pl-2">
-                <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-              </div>
-            </ng-template>
-              <ng-template carouselSlide>
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                </div>
-              </ng-template>
-          </owl-carousel-o>
-        </div>
-    </div>
-    <p class="pt-2 f-14" >
-      အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
-       သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
-       အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲ
-
-
-
-
-      <span *ngIf="show5">
-        မှာလည်း အကြာကြီးလည်း
-        အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
-        သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
-        အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲမှာလည်း အကြာကြီးလည်း
-      </span>
-        <a  (click)="toggle5()" >
-      <span class=" gray-text f-12"> ... {{buttonName}} </span> </a>
-
-    </p>
-    <p class="gray-text">အလုံ၊ဗဟန်း၊တာမွေ...</p>
-    <p>6AM - 7PM</p>
-
-
-    </div>
-
-    <div class="row row-padding">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0 mt-2">
-            <div class="k-line"></div>
-        </div>
-      </div>
-
-    <div class="mt-3" style="padding-bottom:70px">
-        <div class="row row-p-left">
-          <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-
-            <img src="./assets/images1/online shop/Asset 40.png" class="shop-logo">
-          </div>
-          <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 pr-0 pl-0">
-            <h5>Min Ga Daw</h5>
-            <div class="k-badge-shop mt-2 mb-2">
-                <h6 class="white-text">Food Delivery</h6>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="row pt-2 mb-0 pb-0">
-          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-0">
-            <owl-carousel-o [options]="customOptions1">
-              <ng-template carouselSlide >
-                <div class="pr-2 pl-2">
-                  <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
-                </div>
-              </ng-template>
-                <ng-template carouselSlide>
-                  <div class="pr-2 pl-2">
-                    <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                  </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                  <div class="pr-2 pl-2">
-                    <img src="./assets/images1/online shop/Asset 31.png" class="shop-img">
-                  </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                  <div class="pr-2 pl-2">
-                    <img src="./assets/images1/online shop/Asset 29.png" class="shop-img">
-                  </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                  <div class="pr-2 pl-2">
-                    <img src="./assets/images1/online shop/Asset 30.png" class="shop-img">
-                  </div>
-                </ng-template>
-            </owl-carousel-o>
-          </div>
-      </div>
-      <p class="pt-2 f-14" >
-        အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
-         သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
-         အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲ
-
-
-
-
-        <span *ngIf="show6">
-          မှာလည်း အကြာကြီးလည်း
-          အခုလိုအချိန်မှာ ဒါလေးတွေမှာပြီးစားရင်လည်း
-          သားသားမီးမီးတို့ရောလူကြီးမိဘတွေအတွက်ပါ
-          အရသာလည်းရှိ အကြိုက်လည်းတွေ့စေမယ်နော်။ရေခဲသေတ္တာထဲမှာလည်း အကြာကြီးလည်း
-        </span>
-          <a  (click)="toggle6()" >
-        <span class=" gray-text f-12"> ... {{buttonName}} </span> </a>
-
-      </p>
-      <p class="gray-text">အလုံ၊ဗဟန်း၊တာမွေ...</p>
-      <p>6AM - 7PM</p>
-
-
-      </div>
-
-
-    </div>
+    
 
 </section>
 
