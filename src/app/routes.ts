@@ -17,31 +17,31 @@ import { WebViewBuyApp } from './components/web-view/web-view-buy-app/web-view-b
 import { MobileAppBuyComponent } from './components/mobile-app-buy/mobile-app-buy.component';
 
 export const appRoutes: Routes = [
-    { path: '', component: HomeComponent},
-    {
-        path: '',
-        children: [
-            { path: 'add-shop-step-one', component: AddShopStepOneComponent,
-                resolve: {shopTypes: ShopAddStepOneShopTypeResolver}
-            },
-            { path: 'shop-search', component: ShopSearchComponent,
-                resolve: {shopTypes: ShopAddStepOneShopTypeResolver, cities: ShopAddStepOneCityResolver}
-            },
-            { path: 'add-shop-step-two', component: AddShopStepTwoComponent,
-                resolve: {cities: ShopAddStepOneCityResolver}
-            },
-            { path: 'add-shop-step-three', component: AddShopStepThreeComponent },
-            { path: 'shop-search-result', component: ShopSearchResultComponent},
-            { path: 'contact-us', component: ContactUsComponent},
-            { path: 'shop-detail', component: ShopDetailComponent},
-            { path: 'shop-detail-advertisement', component: ShopDetailAdvertisementComponent},
-            { path: 'web-view-home', component: WebViewHomeComponent},
-            { path: 'web-view-shop-add', component: WebViewShopAdd },
-            { path: 'web-view-contact-us', component: WebViewContactUsComponent },
-            { path: 'web-view-buy-app', component: WebViewBuyApp },
-            { path: 'BuyApp', component: MobileAppBuyComponent},
-            { path: 'shop-detail-advertisement', component: ShopDetailAdvertisementComponent}
-        ]
-    },
-    { path: '**', redirectTo: '', pathMatch: 'full'}
+    // { path: '', component: HomeComponent},
+    // {
+    //     path: '',
+    //     children: [
+    //         { path: 'add-shop-step-one', component: AddShopStepOneComponent,
+    //             resolve: {shopTypes: ShopAddStepOneShopTypeResolver}
+    //         },
+    //         { path: 'shop-search', component: ShopSearchComponent,
+    //             resolve: {shopTypes: ShopAddStepOneShopTypeResolver, cities: ShopAddStepOneCityResolver}
+    //         },
+    //         { path: 'add-shop-step-two', component: AddShopStepTwoComponent,
+    //             resolve: {cities: ShopAddStepOneCityResolver}
+    //         },
+    //         { path: 'add-shop-step-three', component: AddShopStepThreeComponent },
+    //         { path: 'shop-search-result', component: ShopSearchResultComponent},
+    //         { path: 'contact-us', component: ContactUsComponent},
+    //         { path: 'shop-detail', component: ShopDetailComponent},
+    //         { path: 'shop-detail-advertisement', component: ShopDetailAdvertisementComponent},
+    //         { path: 'web-view-home', component: WebViewHomeComponent},
+    //         { path: 'web-view-shop-add', component: WebViewShopAdd },
+    //         { path: 'web-view-contact-us', component: WebViewContactUsComponent },
+    //         { path: 'web-view-buy-app', component: WebViewBuyApp },
+    //         { path: 'BuyApp', component: MobileAppBuyComponent},
+    //         { path: 'shop-detail-advertisement', component: ShopDetailAdvertisementComponent}
+    //     ]
+    // },
+    // { path: '**', redirectTo: '', pathMatch: 'full'}
 ];

@@ -45,6 +45,7 @@ import {Angular2UsefulSwiperModule} from 'angular2-useful-swiper';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { SearchFilterPipe } from './components/shop-search/auto-complete-text/filter.pipe';
 import { LetterBoldPipe } from './components/shop-search/auto-complete-text/letter-bold.pipe';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
@@ -81,8 +82,6 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MobileAppBuyComponent,
       SearchFilterPipe,
       LetterBoldPipe,
-
-
    ],
    imports: [
       TruncateModule,
@@ -102,14 +101,34 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       PaginationModule.forRoot(),
       ButtonsModule.forRoot(),
       TabsModule.forRoot(),
-      RouterModule.forRoot(appRoutes),
+      // RouterModule.forRoot(appRoutes),
+      AppRoutingModule,
       AutocompleteLibModule,
 
 
 ],
 
 
-
+entryComponents: [
+      AppComponent,
+      NavComponent,
+      HomeComponent,
+      FooterComponent,
+      AddShopStepOneComponent,
+      AddShopStepTwoComponent,
+      AddShopStepThreeComponent,
+      ShopSearchComponent,
+      ShopDetailComponent,
+      SpinnerComponent,
+      ShopSearchResultComponent,
+      ShopDetailAdvertisementComponent,
+      ContactUsComponent,
+      WebViewHomeComponent,
+      WebViewShopAdd,
+      WebViewContactUsComponent,
+      WebViewBuyApp,
+      MobileAppBuyComponent,
+ ],
 
    providers: [
       AlertifyService,
