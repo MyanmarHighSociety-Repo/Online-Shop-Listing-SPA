@@ -39,7 +39,7 @@ export const appRoutes: Routes = [
             { path: 'web-view-shop-add', component: WebViewShopAdd },
             { path: 'web-view-contact-us', component: WebViewContactUsComponent },
             { path: 'web-view-buy-app', component: WebViewBuyApp },
-            { path: 'mobile-app-buy', component: MobileAppBuyComponent},
+            { path: 'BuyApp', component: MobileAppBuyComponent},
             { path: 'shop-detail-advertisement', component: ShopDetailAdvertisementComponent}
         ]
     },
