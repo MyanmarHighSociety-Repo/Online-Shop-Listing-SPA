@@ -393,7 +393,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/contact-us']);
   }
   goToApp() {
-    this.router.navigate(['/BuyApp']);
+    this.router.navigate(['/']);
   }
 
 
